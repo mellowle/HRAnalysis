@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="dao.Mapper">
+
+    <select id="isTableExist" resultType="int">
+        select count(*) from information_schema.TABLES where table_name = #{tableName}
+    </select>
+
+    <update id="deleteTable">
+        DROP TABLE ${tableName}
+    </update>
+
+    <update id="createTable">
+        CREATE TABLE ${newTableName} (
+        <foreach item="item" index="index" collection="columns" open="" separator="," close=",">
+            ${item.code}
+            <choose>
+                <when test="item.type=='STRING'">
+                    varchar(${item.length}) DEFAULT NULL
+                </when>
+                <when test="item.type=='NUMBER'">
+                    int
+                </when>
+                <otherwise>
+                    TIMESTAMP(${item.length})
+                </otherwise>
+            </choose>
+        </foreach>
+        `id` bigint(21) PRIMARY KEY NOT NULL AUTO_INCREMENT
+        )
+    </update>
+
+</mapper>
+

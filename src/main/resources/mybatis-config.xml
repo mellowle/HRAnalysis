@@ -11,7 +11,7 @@
 			<!-- 数据库连接相关配置 ,这里动态获取config.properties文件中的内容-->
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/c2c?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=CONVERT_TO_NULL" />
+				<property name="url" value="jdbc:mysql://localhost:3306/hrDemo?useUnicode=true&amp;characterEncoding=utf-8" />
 				<property name="username" value="root" />
 				<property name="password" value="Yxg3955376" />
 			</dataSource>
@@ -19,7 +19,7 @@
 	</environments>
 	<!-- mapping文件路径配置 -->
 	<mappers>
-		<mapper resource="mapper/UserMapper.xml"/>
+		<mapper resource="mapper/Mapper.xml"/>
 	</mappers>
 
 </configuration>
