@@ -32,6 +32,7 @@ public class DCompetenciesScored {
     private int situational_adaptability;
     private int strategic_mindset;
     private int values_differences;
+    private int result;
 
     public String getWwid() {
         return wwid;

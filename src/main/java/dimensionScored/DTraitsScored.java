@@ -22,6 +22,7 @@ public class DTraitsScored {
     private int sociability;
     private int tolerance_of_ambiguity;
     private int trust;
+    private int result;
 
     public String getWwid() {
         return wwid;

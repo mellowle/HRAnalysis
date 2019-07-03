@@ -8,6 +8,7 @@ public class DDriversScored {
     private int independence;
     private int power;
     private int structure;
+    private int result;
 
     public String getWwid() {
         return wwid;
