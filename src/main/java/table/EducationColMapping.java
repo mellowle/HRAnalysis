@@ -6,6 +6,7 @@ import java.util.Map;
 public class EducationColMapping {
     public final static String TABLE_NAME = "education";
     public static Map<String, String> COLUMN_MAPPING;
+
     static {
         COLUMN_MAPPING = new HashMap<>();
         COLUMN_MAPPING.put("wwid", "WWID");

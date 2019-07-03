@@ -6,6 +6,7 @@ import java.util.Map;
 public class PerformanceRatingColMapping {
     public final static String TABLE_NAME = "performance_rating";
     public static Map<String, String> COLUMN_MAPPING;
+
     static {
         COLUMN_MAPPING = new HashMap<>();
         COLUMN_MAPPING.put("wwid", "Employee ID (WWID)");
