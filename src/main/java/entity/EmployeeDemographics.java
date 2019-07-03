@@ -4,18 +4,18 @@ import java.sql.Date;
 
 public class EmployeeDemographics {
     private String wwid;
-    private int employee_pay_grade;
+    private String employee_pay_grade;
     private String home_location_code;
-    private long position_id;
+    private String position_id;
     private String job_profile;
-    private long job_profile_id;
+    private String job_profile_id;
     private String job_function;
     private String job_sub_function;
     private String sector;
-    private float time_in_position;
-    private float length_of_service_in_years;
-    private Date original_hire_date;
-    private Date hire_date_most_recent;
+    private String time_in_position;
+    private String length_of_service_in_years;
+    private String original_hire_date;
+    private String hire_date_most_recent;
 
     public String getWwid() {
         return wwid;
@@ -25,11 +25,11 @@ public class EmployeeDemographics {
         this.wwid = wwid;
     }
 
-    public int getEmployee_pay_grade() {
+    public String getEmployee_pay_grade() {
         return employee_pay_grade;
     }
 
-    public void setEmployee_pay_grade(int employee_pay_grade) {
+    public void setEmployee_pay_grade(String employee_pay_grade) {
         this.employee_pay_grade = employee_pay_grade;
     }
 
@@ -41,11 +41,11 @@ public class EmployeeDemographics {
         this.home_location_code = home_location_code;
     }
 
-    public long getPosition_id() {
+    public String getPosition_id() {
         return position_id;
     }
 
-    public void setPosition_id(long position_id) {
+    public void setPosition_id(String position_id) {
         this.position_id = position_id;
     }
 
@@ -57,11 +57,11 @@ public class EmployeeDemographics {
         this.job_profile = job_profile;
     }
 
-    public long getJob_profile_id() {
+    public String getJob_profile_id() {
         return job_profile_id;
     }
 
-    public void setJob_profile_id(long job_profile_id) {
+    public void setJob_profile_id(String job_profile_id) {
         this.job_profile_id = job_profile_id;
     }
 
@@ -89,35 +89,35 @@ public class EmployeeDemographics {
         this.sector = sector;
     }
 
-    public float getTime_in_position() {
+    public String getTime_in_position() {
         return time_in_position;
     }
 
-    public void setTime_in_position(float time_in_position) {
+    public void setTime_in_position(String time_in_position) {
         this.time_in_position = time_in_position;
     }
 
-    public float getLength_of_service_in_years() {
+    public String getLength_of_service_in_years() {
         return length_of_service_in_years;
     }
 
-    public void setLength_of_service_in_years(float length_of_service_in_years) {
+    public void setLength_of_service_in_years(String length_of_service_in_years) {
         this.length_of_service_in_years = length_of_service_in_years;
     }
 
-    public Date getOriginal_hire_date() {
+    public String getOriginal_hire_date() {
         return original_hire_date;
     }
 
-    public void setOriginal_hire_date(Date original_hire_date) {
+    public void setOriginal_hire_date(String original_hire_date) {
         this.original_hire_date = original_hire_date;
     }
 
-    public Date getHire_date_most_recent() {
+    public String getHire_date_most_recent() {
         return hire_date_most_recent;
     }
 
-    public void setHire_date_most_recent(Date hire_date_most_recent) {
+    public void setHire_date_most_recent(String hire_date_most_recent) {
         this.hire_date_most_recent = hire_date_most_recent;
     }
 }

@@ -22,11 +22,11 @@ public class WorkChangeHistory {
     private String location_proposed;
     private String compensation_grade_current;
     private String compensation_grade_proposed;
-    private boolean pay_group_change;
-    private float base_pay_current;
-    private float base_pay_proposed;
-    private float base_pay_change_amount;
-    private float base_pay_change_percent;
+    private String pay_group_change;
+    private String base_pay_current;
+    private String base_pay_proposed;
+    private String base_pay_change_amount;
+    private String base_pay_change_percent;
 
     public String getWwid() {
         return wwid;
@@ -172,43 +172,43 @@ public class WorkChangeHistory {
         this.compensation_grade_proposed = compensation_grade_proposed;
     }
 
-    public boolean isPay_group_change() {
+    public String getPay_group_change() {
         return pay_group_change;
     }
 
-    public void setPay_group_change(boolean pay_group_change) {
+    public void setPay_group_change(String pay_group_change) {
         this.pay_group_change = pay_group_change;
     }
 
-    public float getBase_pay_current() {
+    public String getBase_pay_current() {
         return base_pay_current;
     }
 
-    public void setBase_pay_current(float base_pay_current) {
+    public void setBase_pay_current(String base_pay_current) {
         this.base_pay_current = base_pay_current;
     }
 
-    public float getBase_pay_proposed() {
+    public String getBase_pay_proposed() {
         return base_pay_proposed;
     }
 
-    public void setBase_pay_proposed(float base_pay_proposed) {
+    public void setBase_pay_proposed(String base_pay_proposed) {
         this.base_pay_proposed = base_pay_proposed;
     }
 
-    public float getBase_pay_change_amount() {
+    public String getBase_pay_change_amount() {
         return base_pay_change_amount;
     }
 
-    public void setBase_pay_change_amount(float base_pay_change_amount) {
+    public void setBase_pay_change_amount(String base_pay_change_amount) {
         this.base_pay_change_amount = base_pay_change_amount;
     }
 
-    public float getBase_pay_change_percent() {
+    public String getBase_pay_change_percent() {
         return base_pay_change_percent;
     }
 
-    public void setBase_pay_change_percent(float base_pay_change_percent) {
+    public void setBase_pay_change_percent(String base_pay_change_percent) {
         this.base_pay_change_percent = base_pay_change_percent;
     }
 }

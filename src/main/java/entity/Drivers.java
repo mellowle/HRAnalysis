@@ -2,12 +2,12 @@ package entity;
 
 public class Drivers {
     private String wwid;
-    private int balance;
-    private int challenge;
-    private int collaboration;
-    private int independence;
-    private int power;
-    private int structure;
+    private String balance;
+    private String challenge;
+    private String collaboration;
+    private String independence;
+    private String power;
+    private String structure;
 
     public String getWwid() {
         return wwid;
@@ -17,51 +17,51 @@ public class Drivers {
         this.wwid = wwid;
     }
 
-    public int getBalance() {
+    public String getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(String balance) {
         this.balance = balance;
     }
 
-    public int getChallenge() {
+    public String getChallenge() {
         return challenge;
     }
 
-    public void setChallenge(int challenge) {
+    public void setChallenge(String challenge) {
         this.challenge = challenge;
     }
 
-    public int getCollaboration() {
+    public String getCollaboration() {
         return collaboration;
     }
 
-    public void setCollaboration(int collaboration) {
+    public void setCollaboration(String collaboration) {
         this.collaboration = collaboration;
     }
 
-    public int getIndependence() {
+    public String getIndependence() {
         return independence;
     }
 
-    public void setIndependence(int independence) {
+    public void setIndependence(String independence) {
         this.independence = independence;
     }
 
-    public int getPower() {
+    public String getPower() {
         return power;
     }
 
-    public void setPower(int power) {
+    public void setPower(String power) {
         this.power = power;
     }
 
-    public int getStructure() {
+    public String getStructure() {
         return structure;
     }
 
-    public void setStructure(int structure) {
+    public void setStructure(String structure) {
         this.structure = structure;
     }
 }

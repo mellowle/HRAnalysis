@@ -2,26 +2,26 @@ package entity;
 
 public class Traits {
     private String wwid;
-    private int adaptability;
-    private int affiliation;
-    private int assertiveness;
-    private int composure;
-    private int confidence;
-    private int credibility;
-    private int curiosity;
-    private int empathy;
-    private int focus;
-    private int humility;
-    private int influence;
-    private int need_for_achievement;
-    private int openness_to_differences;
-    private int optimism;
-    private int persistence;
-    private int risk_taking;
-    private int situational_self_awareness;
-    private int sociability;
-    private int tolerance_of_ambiguity;
-    private int trust;
+    private String adaptability;
+    private String affiliation;
+    private String assertiveness;
+    private String composure;
+    private String confidence;
+    private String credibility;
+    private String curiosity;
+    private String empathy;
+    private String focus;
+    private String humility;
+    private String influence;
+    private String need_for_achievement;
+    private String openness_to_differences;
+    private String optimism;
+    private String persistence;
+    private String risk_taking;
+    private String situational_self_awareness;
+    private String sociability;
+    private String tolerance_of_ambiguity;
+    private String trust;
 
     public String getWwid() {
         return wwid;
@@ -31,163 +31,163 @@ public class Traits {
         this.wwid = wwid;
     }
 
-    public int getAdaptability() {
+    public String getAdaptability() {
         return adaptability;
     }
 
-    public void setAdaptability(int adaptability) {
+    public void setAdaptability(String adaptability) {
         this.adaptability = adaptability;
     }
 
-    public int getAffiliation() {
+    public String getAffiliation() {
         return affiliation;
     }
 
-    public void setAffiliation(int affiliation) {
+    public void setAffiliation(String affiliation) {
         this.affiliation = affiliation;
     }
 
-    public int getAssertiveness() {
+    public String getAssertiveness() {
         return assertiveness;
     }
 
-    public void setAssertiveness(int assertiveness) {
+    public void setAssertiveness(String assertiveness) {
         this.assertiveness = assertiveness;
     }
 
-    public int getComposure() {
+    public String getComposure() {
         return composure;
     }
 
-    public void setComposure(int composure) {
+    public void setComposure(String composure) {
         this.composure = composure;
     }
 
-    public int getConfidence() {
+    public String getConfidence() {
         return confidence;
     }
 
-    public void setConfidence(int confidence) {
+    public void setConfidence(String confidence) {
         this.confidence = confidence;
     }
 
-    public int getCredibility() {
+    public String getCredibility() {
         return credibility;
     }
 
-    public void setCredibility(int credibility) {
+    public void setCredibility(String credibility) {
         this.credibility = credibility;
     }
 
-    public int getCuriosity() {
+    public String getCuriosity() {
         return curiosity;
     }
 
-    public void setCuriosity(int curiosity) {
+    public void setCuriosity(String curiosity) {
         this.curiosity = curiosity;
     }
 
-    public int getEmpathy() {
+    public String getEmpathy() {
         return empathy;
     }
 
-    public void setEmpathy(int empathy) {
+    public void setEmpathy(String empathy) {
         this.empathy = empathy;
     }
 
-    public int getFocus() {
+    public String getFocus() {
         return focus;
     }
 
-    public void setFocus(int focus) {
+    public void setFocus(String focus) {
         this.focus = focus;
     }
 
-    public int getHumility() {
+    public String getHumility() {
         return humility;
     }
 
-    public void setHumility(int humility) {
+    public void setHumility(String humility) {
         this.humility = humility;
     }
 
-    public int getInfluence() {
+    public String getInfluence() {
         return influence;
     }
 
-    public void setInfluence(int influence) {
+    public void setInfluence(String influence) {
         this.influence = influence;
     }
 
-    public int getNeed_for_achievement() {
+    public String getNeed_for_achievement() {
         return need_for_achievement;
     }
 
-    public void setNeed_for_achievement(int need_for_achievement) {
+    public void setNeed_for_achievement(String need_for_achievement) {
         this.need_for_achievement = need_for_achievement;
     }
 
-    public int getOpenness_to_differences() {
+    public String getOpenness_to_differences() {
         return openness_to_differences;
     }
 
-    public void setOpenness_to_differences(int openness_to_differences) {
+    public void setOpenness_to_differences(String openness_to_differences) {
         this.openness_to_differences = openness_to_differences;
     }
 
-    public int getOptimism() {
+    public String getOptimism() {
         return optimism;
     }
 
-    public void setOptimism(int optimism) {
+    public void setOptimism(String optimism) {
         this.optimism = optimism;
     }
 
-    public int getPersistence() {
+    public String getPersistence() {
         return persistence;
     }
 
-    public void setPersistence(int persistence) {
+    public void setPersistence(String persistence) {
         this.persistence = persistence;
     }
 
-    public int getRisk_taking() {
+    public String getRisk_taking() {
         return risk_taking;
     }
 
-    public void setRisk_taking(int risk_taking) {
+    public void setRisk_taking(String risk_taking) {
         this.risk_taking = risk_taking;
     }
 
-    public int getSituational_self_awareness() {
+    public String getSituational_self_awareness() {
         return situational_self_awareness;
     }
 
-    public void setSituational_self_awareness(int situational_self_awareness) {
+    public void setSituational_self_awareness(String situational_self_awareness) {
         this.situational_self_awareness = situational_self_awareness;
     }
 
-    public int getSociability() {
+    public String getSociability() {
         return sociability;
     }
 
-    public void setSociability(int sociability) {
+    public void setSociability(String sociability) {
         this.sociability = sociability;
     }
 
-    public int getTolerance_of_ambiguity() {
+    public String getTolerance_of_ambiguity() {
         return tolerance_of_ambiguity;
     }
 
-    public void setTolerance_of_ambiguity(int tolerance_of_ambiguity) {
+    public void setTolerance_of_ambiguity(String tolerance_of_ambiguity) {
         this.tolerance_of_ambiguity = tolerance_of_ambiguity;
     }
 
-    public int getTrust() {
+    public String getTrust() {
         return trust;
     }
 
-    public void setTrust(int trust) {
+    public void setTrust(String trust) {
         this.trust = trust;
     }
 }
