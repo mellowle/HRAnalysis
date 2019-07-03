@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class PerformanceRating {
     private String wwid;
-    private Date review_period_start_date;
-    private Date review_period_end_date;
+    private String review_period_start_date;
+    private String review_period_end_date;
     private String results_rating;
     private String leadership_rating;
     private String overall_rating;
@@ -18,19 +18,19 @@ public class PerformanceRating {
         this.wwid = wwid;
     }
 
-    public Date getReview_period_start_date() {
+    public String getReview_period_start_date() {
         return review_period_start_date;
     }
 
-    public void setReview_period_start_date(Date review_period_start_date) {
+    public void setReview_period_start_date(String review_period_start_date) {
         this.review_period_start_date = review_period_start_date;
     }
 
-    public Date getReview_period_end_date() {
+    public String getReview_period_end_date() {
         return review_period_end_date;
     }
 
-    public void setReview_period_end_date(Date review_period_end_date) {
+    public void setReview_period_end_date(String review_period_end_date) {
         this.review_period_end_date = review_period_end_date;
     }
 

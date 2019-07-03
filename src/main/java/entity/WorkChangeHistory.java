@@ -5,11 +5,11 @@ import java.sql.Date;
 
 public class WorkChangeHistory {
     private String wwid;
-    private Date business_process_effective_date;
+    private String business_process_effective_date;
     private String business_process_status;
     private String business_process_type;
     private String business_process_reason;
-    private Date business_process_completed_date;
+    private String business_process_completed_date;
     private String position_current;
     private String position_proposed;
     private String region_current;
@@ -36,11 +36,11 @@ public class WorkChangeHistory {
         this.wwid = wwid;
     }
 
-    public Date getBusiness_process_effective_date() {
+    public String getBusiness_process_effective_date() {
         return business_process_effective_date;
     }
 
-    public void setBusiness_process_effective_date(Date business_process_effective_date) {
+    public void setBusiness_process_effective_date(String business_process_effective_date) {
         this.business_process_effective_date = business_process_effective_date;
     }
 
@@ -68,11 +68,11 @@ public class WorkChangeHistory {
         this.business_process_reason = business_process_reason;
     }
 
-    public Date getBusiness_process_completed_date() {
+    public String getBusiness_process_completed_date() {
         return business_process_completed_date;
     }
 
-    public void setBusiness_process_completed_date(Date business_process_completed_date) {
+    public void setBusiness_process_completed_date(String business_process_completed_date) {
         this.business_process_completed_date = business_process_completed_date;
     }
 
