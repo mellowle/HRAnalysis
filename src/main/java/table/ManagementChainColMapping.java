@@ -6,6 +6,7 @@ import java.util.Map;
 public class ManagementChainColMapping {
     public final static String TABLE_NAME = "management_chain";
     public static Map<String, String> COLUMN_MAPPING;
+
     static {
         COLUMN_MAPPING = new HashMap<>();
         COLUMN_MAPPING.put("wwid", "Employee ID (WWID)");

@@ -6,6 +6,7 @@ import java.util.Map;
 public class CompensationColMapping {
     public final static String TABLE_NAME = "compensation";
     public static Map<String, String> COLUMN_MAPPING;
+
     static {
         COLUMN_MAPPING = new HashMap<>();
         COLUMN_MAPPING.put("wwid", "Employee ID");
