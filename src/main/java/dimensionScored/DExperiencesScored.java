@@ -1,7 +1,6 @@
-package dimension;
+package dimensionScored;
 
-public class DExperiences {
-
+public class DExperiencesScored {
     private String wwid;
     private int functionMovement;
     private int lateralMovement;

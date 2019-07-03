@@ -1,6 +1,6 @@
-package dimension;
+package dimensionScored;
 
-public class DCompetencies {
+public class DCompetenciesScored {
     private String wwid;
     private int action_oriented;
     private int balances_stakeholders;

@@ -1,4 +1,4 @@
-package dimension;
+package dimensionRawData;
 
 public class DTraits {
     private String wwid;
