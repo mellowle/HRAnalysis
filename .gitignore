@@ -1,0 +1,9 @@
+target/
+*.iml
+*.log
+.idea
+*.xlsx
+*.xls
+*.docx
+*.doc
+*.zip
