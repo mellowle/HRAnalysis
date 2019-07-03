@@ -10,15 +10,15 @@ public class CompetenciesColMapping {
     static {
         COLUMN_MAPPING = new HashMap<>();
         COLUMN_MAPPING.put("wwid", "wwid");
-        COLUMN_MAPPING.put("action_orientedint", "Action Oriented Sten");
-        COLUMN_MAPPING.put("balances_stakeholdersint", "Balances Stakeholders Sten");
-        COLUMN_MAPPING.put("being_resilientint", "Being Resilient Sten");
-        COLUMN_MAPPING.put("builds_effective_teamsint", "Builds Effective Teams Sten");
-        COLUMN_MAPPING.put("builds_networksint", "Builds Networks Sten");
-        COLUMN_MAPPING.put("collaboratesint", "Collaborates Sten");
-        COLUMN_MAPPING.put("communicates_effectivelyint", "Communicates Effectively Sten");
+        COLUMN_MAPPING.put("action_oriented", "Action Oriented Sten");
+        COLUMN_MAPPING.put("balances_stakeholders", "Balances Stakeholders Sten");
+        COLUMN_MAPPING.put("being_resilient", "Being Resilient Sten");
+        COLUMN_MAPPING.put("builds_effective_teams", "Builds Effective Teams Sten");
+        COLUMN_MAPPING.put("builds_networks", "Builds Networks Sten");
+        COLUMN_MAPPING.put("collaborates", "Collaborates Sten");
+        COLUMN_MAPPING.put("communicates_effectively", "Communicates Effectively Sten");
         COLUMN_MAPPING.put("courage", "Courage Sten");
-        COLUMN_MAPPING.put("cultivates_innovationint", "Cultivates Innovation Sten");
+        COLUMN_MAPPING.put("cultivates_innovation", "Cultivates Innovation Sten");
         COLUMN_MAPPING.put("customer_focus", "Customer Focus Sten");
         COLUMN_MAPPING.put("decision_quality", "Decision Quality Sten");
         COLUMN_MAPPING.put("develops_talent", "Develops Talent Sten");

@@ -1,6 +1,6 @@
-package entity;
+package dimension;
 
-public class Competencies {
+public class DCompetencies {
     private String wwid;
     private int action_oriented;
     private int balances_stakeholders;

@@ -1,8 +1,6 @@
-package domain;
+package dimension;
 
-import java.util.List;
-
-public class CriticalExperience {
+public class DExperiences {
 
     private String wwid;
     private int functionMovement;
