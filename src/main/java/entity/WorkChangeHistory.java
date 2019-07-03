@@ -3,7 +3,7 @@ package entity;
 
 import java.sql.Date;
 
-public class WorkerChangeHsitory {
+public class WorkChangeHistory {
     private String wwid;
     private Date business_process_effective_date;
     private String business_process_status;
