@@ -9,18 +9,18 @@ import java.util.List;
 
 public class CompetenciesDimensionScoreService {
     public static List<DCompetenciesScored> getExperienceScores() {
-        List<DCompetenciesScored> competenciesScored = Lists.newArrayList();
+        List<DCompetenciesScored> competenciesScoredList = Lists.newArrayList();
         // TODO get DExperiences from DB and replace
-        List<DCompetencies> DCompetenciesList = Lists.newArrayList();
+        List<DCompetencies> dCompetenciesList = Lists.newArrayList();
 
-        for(DCompetencies competencies : DCompetenciesList){
-            DCompetenciesScored dCompetenciesScored = new DCompetenciesScored();
-            KF4DScoreFunctionUtils.calcMissionCriticalScore(competencies.getMissionCritical());
-            KF4DScoreFunctionUtils.calcCriticalScore(competencies.getCritical());
-            KF4DScoreFunctionUtils.calcLessCriticalScore(competencies.getLessCritical());
-
+        for (DCompetencies dCompetencies : dCompetenciesList) {
+            DCompetenciesScored dCompetenciesScored = new DCompetenciesScored(dCompetencies.getWwid(),
+                    KF4DScoreFunctionUtils.calcMissionCriticalScore(dCompetencies.getMissionCritical()),
+                    KF4DScoreFunctionUtils.calcCriticalScore(dCompetencies.getCritical()),
+                    KF4DScoreFunctionUtils.calcLessCriticalScore(dCompetencies.getLessCritical()));
+            competenciesScoredList.add(dCompetenciesScored);
         }
-        return null;
+        return competenciesScoredList;
     }
 
 }

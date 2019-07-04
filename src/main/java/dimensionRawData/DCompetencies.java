@@ -1,43 +1,40 @@
 package dimensionRawData;
 
-import dimensionScored.DCompetenciesScored;
-import util.KF4DScoreFunctionUtils;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class DCompetencies {
     private String wwid;
-    private int action_oriented;
-    private int balances_stakeholders;
-    private int being_resilient;
-    private int builds_effective_teams;
-    private int builds_networks;
-    private int collaborates;
-    private int communicates_effectively;
-    private int courage;
-    private int cultivates_innovation;
-    private int customer_focus;
-    private int decision_quality;
-    private int develops_talent;
-    private int directs_work;
-    private int drives_engagement;
-    private int drives_results;
-    private int ensures_accountability;
-    private int global_perspective;
-    private int instills_trust;
-    private int interpersonal_savvy;
-    private int manages_ambiguity;
-    private int manages_conflict;
-    private int nimble_learning;
-    private int optimizes_work_processes;
-    private int persuades;
-    private int plans_and_aligns;
-    private int resourcefulness;
-    private int self_development;
-    private int situational_adaptability;
-    private int strategic_mindset;
-    private int values_differences;
+    private Integer action_oriented;
+    private Integer balances_stakeholders;
+    private Integer being_resilient;
+    private Integer builds_effective_teams;
+    private Integer builds_networks;
+    private Integer collaborates;
+    private Integer communicates_effectively;
+    private Integer courage;
+    private Integer cultivates_innovation;
+    private Integer customer_focus;
+    private Integer decision_quality;
+    private Integer develops_talent;
+    private Integer directs_work;
+    private Integer drives_engagement;
+    private Integer drives_results;
+    private Integer ensures_accountability;
+    private Integer global_perspective;
+    private Integer instills_trust;
+    private Integer interpersonal_savvy;
+    private Integer manages_ambiguity;
+    private Integer manages_conflict;
+    private Integer nimble_learning;
+    private Integer optimizes_work_processes;
+    private Integer persuades;
+    private Integer plans_and_aligns;
+    private Integer resourcefulness;
+    private Integer self_development;
+    private Integer situational_adaptability;
+    private Integer strategic_mindset;
+    private Integer values_differences;
 
     public Map<String, Integer> getMissionCritical() {
         Map<String, Integer> result = new HashMap<>();
@@ -92,243 +89,243 @@ public class DCompetencies {
         this.wwid = wwid;
     }
 
-    public int getAction_oriented() {
+    public Integer getAction_oriented() {
         return action_oriented;
     }
 
-    public void setAction_oriented(int action_oriented) {
+    public void setAction_oriented(Integer action_oriented) {
         this.action_oriented = action_oriented;
     }
 
-    public int getBalances_stakeholders() {
+    public Integer getBalances_stakeholders() {
         return balances_stakeholders;
     }
 
-    public void setBalances_stakeholders(int balances_stakeholders) {
+    public void setBalances_stakeholders(Integer balances_stakeholders) {
         this.balances_stakeholders = balances_stakeholders;
     }
 
-    public int getBeing_resilient() {
+    public Integer getBeing_resilient() {
         return being_resilient;
     }
 
-    public void setBeing_resilient(int being_resilient) {
+    public void setBeing_resilient(Integer being_resilient) {
         this.being_resilient = being_resilient;
     }
 
-    public int getBuilds_effective_teams() {
+    public Integer getBuilds_effective_teams() {
         return builds_effective_teams;
     }
 
-    public void setBuilds_effective_teams(int builds_effective_teams) {
+    public void setBuilds_effective_teams(Integer builds_effective_teams) {
         this.builds_effective_teams = builds_effective_teams;
     }
 
-    public int getBuilds_networks() {
+    public Integer getBuilds_networks() {
         return builds_networks;
     }
 
-    public void setBuilds_networks(int builds_networks) {
+    public void setBuilds_networks(Integer builds_networks) {
         this.builds_networks = builds_networks;
     }
 
-    public int getCollaborates() {
+    public Integer getCollaborates() {
         return collaborates;
     }
 
-    public void setCollaborates(int collaborates) {
+    public void setCollaborates(Integer collaborates) {
         this.collaborates = collaborates;
     }
 
-    public int getCommunicates_effectively() {
+    public Integer getCommunicates_effectively() {
         return communicates_effectively;
     }
 
-    public void setCommunicates_effectively(int communicates_effectively) {
+    public void setCommunicates_effectively(Integer communicates_effectively) {
         this.communicates_effectively = communicates_effectively;
     }
 
-    public int getCourage() {
+    public Integer getCourage() {
         return courage;
     }
 
-    public void setCourage(int courage) {
+    public void setCourage(Integer courage) {
         this.courage = courage;
     }
 
-    public int getCultivates_innovation() {
+    public Integer getCultivates_innovation() {
         return cultivates_innovation;
     }
 
-    public void setCultivates_innovation(int cultivates_innovation) {
+    public void setCultivates_innovation(Integer cultivates_innovation) {
         this.cultivates_innovation = cultivates_innovation;
     }
 
-    public int getCustomer_focus() {
+    public Integer getCustomer_focus() {
         return customer_focus;
     }
 
-    public void setCustomer_focus(int customer_focus) {
+    public void setCustomer_focus(Integer customer_focus) {
         this.customer_focus = customer_focus;
     }
 
-    public int getDecision_quality() {
+    public Integer getDecision_quality() {
         return decision_quality;
     }
 
-    public void setDecision_quality(int decision_quality) {
+    public void setDecision_quality(Integer decision_quality) {
         this.decision_quality = decision_quality;
     }
 
-    public int getDevelops_talent() {
+    public Integer getDevelops_talent() {
         return develops_talent;
     }
 
-    public void setDevelops_talent(int develops_talent) {
+    public void setDevelops_talent(Integer develops_talent) {
         this.develops_talent = develops_talent;
     }
 
-    public int getDirects_work() {
+    public Integer getDirects_work() {
         return directs_work;
     }
 
-    public void setDirects_work(int directs_work) {
+    public void setDirects_work(Integer directs_work) {
         this.directs_work = directs_work;
     }
 
-    public int getDrives_engagement() {
+    public Integer getDrives_engagement() {
         return drives_engagement;
     }
 
-    public void setDrives_engagement(int drives_engagement) {
+    public void setDrives_engagement(Integer drives_engagement) {
         this.drives_engagement = drives_engagement;
     }
 
-    public int getDrives_results() {
+    public Integer getDrives_results() {
         return drives_results;
     }
 
-    public void setDrives_results(int drives_results) {
+    public void setDrives_results(Integer drives_results) {
         this.drives_results = drives_results;
     }
 
-    public int getEnsures_accountability() {
+    public Integer getEnsures_accountability() {
         return ensures_accountability;
     }
 
-    public void setEnsures_accountability(int ensures_accountability) {
+    public void setEnsures_accountability(Integer ensures_accountability) {
         this.ensures_accountability = ensures_accountability;
     }
 
-    public int getGlobal_perspective() {
+    public Integer getGlobal_perspective() {
         return global_perspective;
     }
 
-    public void setGlobal_perspective(int global_perspective) {
+    public void setGlobal_perspective(Integer global_perspective) {
         this.global_perspective = global_perspective;
     }
 
-    public int getInstills_trust() {
+    public Integer getInstills_trust() {
         return instills_trust;
     }
 
-    public void setInstills_trust(int instills_trust) {
+    public void setInstills_trust(Integer instills_trust) {
         this.instills_trust = instills_trust;
     }
 
-    public int getInterpersonal_savvy() {
+    public Integer getInterpersonal_savvy() {
         return interpersonal_savvy;
     }
 
-    public void setInterpersonal_savvy(int interpersonal_savvy) {
+    public void setInterpersonal_savvy(Integer interpersonal_savvy) {
         this.interpersonal_savvy = interpersonal_savvy;
     }
 
-    public int getManages_ambiguity() {
+    public Integer getManages_ambiguity() {
         return manages_ambiguity;
     }
 
-    public void setManages_ambiguity(int manages_ambiguity) {
+    public void setManages_ambiguity(Integer manages_ambiguity) {
         this.manages_ambiguity = manages_ambiguity;
     }
 
-    public int getManages_conflict() {
+    public Integer getManages_conflict() {
         return manages_conflict;
     }
 
-    public void setManages_conflict(int manages_conflict) {
+    public void setManages_conflict(Integer manages_conflict) {
         this.manages_conflict = manages_conflict;
     }
 
-    public int getNimble_learning() {
+    public Integer getNimble_learning() {
         return nimble_learning;
     }
 
-    public void setNimble_learning(int nimble_learning) {
+    public void setNimble_learning(Integer nimble_learning) {
         this.nimble_learning = nimble_learning;
     }
 
-    public int getOptimizes_work_processes() {
+    public Integer getOptimizes_work_processes() {
         return optimizes_work_processes;
     }
 
-    public void setOptimizes_work_processes(int optimizes_work_processes) {
+    public void setOptimizes_work_processes(Integer optimizes_work_processes) {
         this.optimizes_work_processes = optimizes_work_processes;
     }
 
-    public int getPersuades() {
+    public Integer getPersuades() {
         return persuades;
     }
 
-    public void setPersuades(int persuades) {
+    public void setPersuades(Integer persuades) {
         this.persuades = persuades;
     }
 
-    public int getPlans_and_aligns() {
+    public Integer getPlans_and_aligns() {
         return plans_and_aligns;
     }
 
-    public void setPlans_and_aligns(int plans_and_aligns) {
+    public void setPlans_and_aligns(Integer plans_and_aligns) {
         this.plans_and_aligns = plans_and_aligns;
     }
 
-    public int getResourcefulness() {
+    public Integer getResourcefulness() {
         return resourcefulness;
     }
 
-    public void setResourcefulness(int resourcefulness) {
+    public void setResourcefulness(Integer resourcefulness) {
         this.resourcefulness = resourcefulness;
     }
 
-    public int getSelf_development() {
+    public Integer getSelf_development() {
         return self_development;
     }
 
-    public void setSelf_development(int self_development) {
+    public void setSelf_development(Integer self_development) {
         this.self_development = self_development;
     }
 
-    public int getSituational_adaptability() {
+    public Integer getSituational_adaptability() {
         return situational_adaptability;
     }
 
-    public void setSituational_adaptability(int situational_adaptability) {
+    public void setSituational_adaptability(Integer situational_adaptability) {
         this.situational_adaptability = situational_adaptability;
     }
 
-    public int getStrategic_mindset() {
+    public Integer getStrategic_mindset() {
         return strategic_mindset;
     }
 
-    public void setStrategic_mindset(int strategic_mindset) {
+    public void setStrategic_mindset(Integer strategic_mindset) {
         this.strategic_mindset = strategic_mindset;
     }
 
-    public int getValues_differences() {
+    public Integer getValues_differences() {
         return values_differences;
     }
 
-    public void setValues_differences(int values_differences) {
+    public void setValues_differences(Integer values_differences) {
         this.values_differences = values_differences;
     }
 }
