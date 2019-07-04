@@ -15,9 +15,9 @@ public class DExperiences {
     private long base2017;
     private long base2018;
     private long base2019;
-    private long bonus2016;
-    private long bonus2017;
-    private long bonus2018;
+    private Double bonus2016;
+    private Double bonus2017;
+    private Double bonus2018;
 
     private int functionMovements;
     private int lateralMovements;
@@ -28,7 +28,7 @@ public class DExperiences {
 
     private int numberOfJNJRoles;
     private int averageTimeOfJNJRoles;
-    private double externalLengthOfService;
+    private Double externalLengthOfService;
     private int numberOfExternalRoles;
     private int averageTimeOfExternalRoles;
     private int totalRoleNumber;
@@ -36,6 +36,8 @@ public class DExperiences {
     private double averageTimeOfEachRole;
 
     private int hierarchy2Alex;
+    private Double performanceCommentsRating;
+    private Double stakeholderFeedback;
 
     public String getWwid() {
         return wwid;
@@ -109,27 +111,27 @@ public class DExperiences {
         this.base2019 = base2019;
     }
 
-    public long getBonus2016() {
+    public Double getBonus2016() {
         return bonus2016;
     }
 
-    public void setBonus2016(long bonus2016) {
+    public void setBonus2016(Double bonus2016) {
         this.bonus2016 = bonus2016;
     }
 
-    public long getBonus2017() {
+    public Double getBonus2017() {
         return bonus2017;
     }
 
-    public void setBonus2017(long bonus2017) {
+    public void setBonus2017(Double bonus2017) {
         this.bonus2017 = bonus2017;
     }
 
-    public long getBonus2018() {
+    public Double getBonus2018() {
         return bonus2018;
     }
 
-    public void setBonus2018(long bonus2018) {
+    public void setBonus2018(Double bonus2018) {
         this.bonus2018 = bonus2018;
     }
 
@@ -221,11 +223,11 @@ public class DExperiences {
         this.hierarchy2Alex = hierarchy2Alex;
     }
 
-    public double getExternalLengthOfService() {
+    public Double getExternalLengthOfService() {
         return externalLengthOfService;
     }
 
-    public void setExternalLengthOfService(double externalLengthOfService) {
+    public void setExternalLengthOfService(Double externalLengthOfService) {
         this.externalLengthOfService = externalLengthOfService;
     }
 
@@ -251,5 +253,21 @@ public class DExperiences {
 
     public void setAverageTimeOfEachRole(double averageTimeOfEachRole) {
         this.averageTimeOfEachRole = averageTimeOfEachRole;
+    }
+
+    public Double getPerformanceCommentsRating() {
+        return performanceCommentsRating;
+    }
+
+    public void setPerformanceCommentsRating(Double performanceCommentsRating) {
+        this.performanceCommentsRating = performanceCommentsRating;
+    }
+
+    public Double getStakeholderFeedback() {
+        return stakeholderFeedback;
+    }
+
+    public void setStakeholderFeedback(Double stakeholderFeedback) {
+        this.stakeholderFeedback = stakeholderFeedback;
     }
 }
