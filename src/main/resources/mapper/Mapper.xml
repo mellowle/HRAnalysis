@@ -76,6 +76,10 @@
     <insert id="addTraits" parameterType="entity.Traits" useGeneratedKeys="true" keyProperty="id">
         insert into traits(wwid, adaptability,affiliation,assertiveness,composure,confidence,credibility,curiosity,empathy,focus,humility,influence,need_for_achievement,openness_to_differences,optimism,persistence,risk_taking,situational_self_awareness,sociability,tolerance_of_ambiguity,trust) values( #{wwid}, #{adaptability}, #{affiliation}, #{assertiveness}, #{composure}, #{confidence}, #{credibility}, #{curiosity}, #{empathy}, #{focus}, #{humility}, #{influence}, #{need_for_achievement}, #{openness_to_differences}, #{optimism}, #{persistence}, #{risk_taking}, #{situational_self_awareness}, #{sociability}, #{tolerance_of_ambiguity}, #{trust})
     </insert>
+
+    <select id="getAllDrivers" resultType="entity.Drivers">
+        select * from drivers
+    </select>
 </mapper>
 
 
