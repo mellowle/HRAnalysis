@@ -1,10 +1,7 @@
 package adapter;
 
-import com.google.gson.Gson;
 import entity.DirectReport;
-import entity.PerformanceRating;
 import table.DirectReportColMapping;
-import table.PerformanceRatingColMapping;
 
 import java.util.List;
 
@@ -29,29 +26,24 @@ public class DirectReportAdapter extends Adapter {
     private void insertRecords(List<DirectReport> req) {
         try {
             req.forEach(directReport -> {
-                System.out.println("list size======" + gson.toJson(directReport));
                 mapper.addDirectReport(directReport);
                 sqlSession.commit();
             });
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
     public void generateRawTable() {
-        DirectReportAdapter directReportAdapter = new DirectReportAdapter();
-        directReportAdapter.init();
-        if(directReportAdapter.isExisted()){
-            directReportAdapter.dropTable();
+        init();
+        if (isExisted()) {
+            dropTable();
         }
-        directReportAdapter.createTable();
-        String path = "/Users/xyang137/Documents/Archive/pending/MergedDirectReports.xlsx";
-        List<DirectReport> res = directReportAdapter.generateExcel(DirectReport.class,path);
-        directReportAdapter.insertRecords(res);
-        Gson gson = new Gson();
-        System.out.println("list size======"+ gson.toJson(res));
+        createTable();
+        String path = "/Users/xyang137/Documents/Archive/done/MergedDirectReports.xlsx";
+        List<DirectReport> res = generateExcel(DirectReport.class, path);
+        insertRecords(res);
+        sqlSession.close();
     }
 }
-// MergedEmployeePerformanceRatings.xlsx

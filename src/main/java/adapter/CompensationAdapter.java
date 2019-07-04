@@ -1,10 +1,7 @@
 package adapter;
 
-import com.google.gson.Gson;
 import entity.Compensation;
-import entity.PerformanceRating;
 import table.CompensationColMapping;
-import table.PerformanceRatingColMapping;
 
 import java.util.List;
 
@@ -29,28 +26,24 @@ public class CompensationAdapter extends Adapter {
     private void insertRecords(List<Compensation> req) {
         try {
             req.forEach(compensation -> {
-                System.out.println("list size======" + gson.toJson(compensation));
                 mapper.addCompensation(compensation);
                 sqlSession.commit();
             });
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-
-    public static void main(String[] args) {
-        CompensationAdapter compensationAdapter = new CompensationAdapter();
-        compensationAdapter.init();
-        if(compensationAdapter.isExisted()){
-            compensationAdapter.dropTable();
-       }
-        compensationAdapter.createTable();
-        String path = "/Users/xyang137/Documents/Archive/pending/MergedCompensation.xlsx";
-        List<Compensation> res = compensationAdapter.generateExcel(Compensation.class,path);
-        compensationAdapter.insertRecords(res);
-        Gson gson = new Gson();
-        System.out.println("list size======"+ gson.toJson(res));
+    @Override
+    public void generateRawTable() {
+        init();
+        if(isExisted()){
+            dropTable();
+        }
+        createTable();
+        String path = "/Users/xyang137/Documents/Archive/done/MergedCompensation.xlsx";
+        List<Compensation> res = generateExcel(Compensation.class,path);
+        insertRecords(res);
+        sqlSession.close();
     }
 }

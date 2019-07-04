@@ -1,9 +1,6 @@
 package adapter;
 
-import com.google.gson.Gson;
-import entity.Drivers;
 import entity.Traits;
-import table.DriversColMapping;
 import table.TraitsColMapping;
 
 import java.util.List;
@@ -29,7 +26,6 @@ public class TraitsAdapter extends Adapter {
     private void insertRecords(List<Traits> req) {
         try {
             req.forEach(traits -> {
-                System.out.println("list size======" + gson.toJson(traits));
                 mapper.addTraits(traits);
                 sqlSession.commit();
             });
@@ -39,18 +35,16 @@ public class TraitsAdapter extends Adapter {
 
     }
 
-
-    public static void main(String[] args) {
-        TraitsAdapter traitsAdapter = new TraitsAdapter();
-        traitsAdapter.init();
-        if(traitsAdapter.isExisted()){
-            traitsAdapter.dropTable();
-       }
-        traitsAdapter.createTable();
+    @Override
+    public void generateRawTable() {
+        init();
+        if (isExisted()) {
+            dropTable();
+        }
+        createTable();
         String path = "/Users/xyang137/Documents/Archive/pending/KF4DEncoded.xlsx";
-        List<Traits> res = traitsAdapter.generateExcel(Traits.class,path);
-        traitsAdapter.insertRecords(res);
-        Gson gson = new Gson();
-        System.out.println("list size======"+ gson.toJson(res));
+        List<Traits> res = generateExcel(Traits.class, path);
+        insertRecords(res);
+        sqlSession.close();
     }
 }

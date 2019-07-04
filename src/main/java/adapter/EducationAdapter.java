@@ -2,9 +2,7 @@ package adapter;
 
 import com.google.gson.Gson;
 import entity.Education;
-import entity.PerformanceRating;
 import table.EducationColMapping;
-import table.PerformanceRatingColMapping;
 
 import java.util.List;
 
@@ -29,7 +27,6 @@ public class EducationAdapter extends Adapter {
     private void insertRecords(List<Education> req) {
         try {
             req.forEach(education -> {
-                System.out.println("list size======" + gson.toJson(education));
                 mapper.addEducation(education);
                 sqlSession.commit();
             });
@@ -39,19 +36,16 @@ public class EducationAdapter extends Adapter {
 
     }
 
-
-    public static void main(String[] args) {
-        EducationAdapter educationAdapter = new EducationAdapter();
-        educationAdapter.init();
-        if(educationAdapter.isExisted()){
-            educationAdapter.dropTable();
-       }
-        educationAdapter.createTable();
+    @Override
+    public void generateRawTable() {
+        init();
+        if(isExisted()){
+            dropTable();
+        }
+        createTable();
         String path = "/Users/xyang137/Documents/Archive/pending/MergedManageEducation.xlsx";
-        List<Education> res = educationAdapter.generateExcel(Education.class,path);
-        educationAdapter.insertRecords(res);
-        Gson gson = new Gson();
-        System.out.println("list size======"+ gson.toJson(res));
+        List<Education> res = generateExcel(Education.class,path);
+        insertRecords(res);
+        sqlSession.close();
     }
 }
-// MergedEmployeePerformanceRatings.xlsx

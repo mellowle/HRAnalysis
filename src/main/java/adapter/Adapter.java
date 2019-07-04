@@ -2,25 +2,19 @@ package adapter;
 
 import com.google.gson.Gson;
 import dao.Mapper;
-import entity.EmployeeDemographics;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import util.DataConnection;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public abstract class Adapter {
-
-//    public final static String TABLE_NAME = "employee_demographics";
-//    public static Map<String, String> COLUMN_MAPPING;
 
     public DataConnection dataConn = new DataConnection();
     public Mapper mapper = null;

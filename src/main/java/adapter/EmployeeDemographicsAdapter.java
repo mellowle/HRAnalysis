@@ -1,6 +1,5 @@
 package adapter;
 
-import com.google.gson.Gson;
 import entity.EmployeeDemographics;
 import table.EmployeeDemographicsColMapping;
 
@@ -27,7 +26,6 @@ public class EmployeeDemographicsAdapter extends Adapter {
     private void insertRecords(List<EmployeeDemographics> req) {
         try {
             req.forEach(employeeDemographics -> {
-                System.out.println("list size======" + gson.toJson(employeeDemographics));
                 mapper.addEmployeeDemographics(employeeDemographics);
                 sqlSession.commit();
             });
@@ -36,18 +34,16 @@ public class EmployeeDemographicsAdapter extends Adapter {
         }
     }
 
-
-    public static void main(String[] args) {
-        EmployeeDemographicsAdapter employeeDemographicsAdapter = new EmployeeDemographicsAdapter();
-        employeeDemographicsAdapter.init();
-//        if(employeeDemographicsAdapter.isExisted()){
-//            employeeDemographicsAdapter.dropTable();
-//        }
-//        employeeDemographicsAdapter.createTable();
+    @Override
+    public void generateRawTable() {
+        init();
+        if(isExisted()){
+            dropTable();
+        }
+        createTable();
         String path = "/Users/xyang137/Documents/MergedEmployeeDemographics.xlsx";
-        List<EmployeeDemographics> res = employeeDemographicsAdapter.generateExcel(EmployeeDemographics.class, path);
-        employeeDemographicsAdapter.insertRecords(res);
-        //System.out.println("list size======"+ gson.toJson(res));
+        List<EmployeeDemographics> res = generateExcel(EmployeeDemographics.class, path);
+        insertRecords(res);
+        sqlSession.close();
     }
 }
-// MergedEmployeePerformanceRatings.xlsx

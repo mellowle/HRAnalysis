@@ -1,9 +1,6 @@
 package adapter;
 
-import com.google.gson.Gson;
-import entity.ManagementChain;
 import entity.TalentCard;
-import table.ManagementChainColMapping;
 import table.TalentCardColMapping;
 
 import java.util.List;
@@ -29,7 +26,6 @@ public class TalentCardAdapter extends Adapter {
     private void insertRecords(List<TalentCard> req) {
         try {
             req.forEach(talentCard -> {
-                System.out.println("list size======" + gson.toJson(talentCard));
                 mapper.addTalentCard(talentCard);
                 sqlSession.commit();
             });
@@ -39,18 +35,16 @@ public class TalentCardAdapter extends Adapter {
 
     }
 
-
-    public static void main(String[] args) {
-        TalentCardAdapter talentCardAdapter = new TalentCardAdapter();
-        talentCardAdapter.init();
-        if(talentCardAdapter.isExisted()){
-            talentCardAdapter.dropTable();
-       }
-        talentCardAdapter.createTable();
+    @Override
+    public void generateRawTable() {
+        init();
+        if(isExisted()){
+            dropTable();
+        }
+        createTable();
         String path = "/Users/xyang137/Documents/Archive/pending/MergedTalentCard.xlsx";
-        List<TalentCard> res = talentCardAdapter.generateExcel(TalentCard.class,path);
-        talentCardAdapter.insertRecords(res);
-        Gson gson = new Gson();
-        System.out.println("list size======"+ gson.toJson(res));
+        List<TalentCard> res = generateExcel(TalentCard.class,path);
+        insertRecords(res);
+        sqlSession.close();
     }
 }

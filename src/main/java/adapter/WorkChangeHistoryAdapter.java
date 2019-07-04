@@ -1,9 +1,6 @@
 package adapter;
 
-import com.google.gson.Gson;
-import entity.TalentCard;
 import entity.WorkChangeHistory;
-import table.TalentCardColMapping;
 import table.WorkerChangeHistoryColMapping;
 
 import java.util.List;
@@ -29,7 +26,6 @@ public class WorkChangeHistoryAdapter extends Adapter {
     private void insertRecords(List<WorkChangeHistory> req) {
         try {
             req.forEach(workChangeHistory -> {
-                System.out.println("list size======" + gson.toJson(workChangeHistory));
                 mapper.addWorkChangeHistory(workChangeHistory);
                 sqlSession.commit();
             });
@@ -39,18 +35,16 @@ public class WorkChangeHistoryAdapter extends Adapter {
 
     }
 
-
-    public static void main(String[] args) {
-        WorkChangeHistoryAdapter workChangeHistoryAdapter = new WorkChangeHistoryAdapter();
-        workChangeHistoryAdapter.init();
-        if(workChangeHistoryAdapter.isExisted()){
-            workChangeHistoryAdapter.dropTable();
-       }
-        workChangeHistoryAdapter.createTable();
+    @Override
+    public void generateRawTable() {
+        init();
+        if (isExisted()) {
+            dropTable();
+        }
+        createTable();
         String path = "/Users/xyang137/Documents/Archive/pending/MergedWorkerChangeHistory.xlsx";
-        List<WorkChangeHistory> res = workChangeHistoryAdapter.generateExcel(WorkChangeHistory.class,path);
-        workChangeHistoryAdapter.insertRecords(res);
-        Gson gson = new Gson();
-        System.out.println("list size======"+ gson.toJson(res));
+        List<WorkChangeHistory> res = generateExcel(WorkChangeHistory.class, path);
+        insertRecords(res);
+        sqlSession.close();
     }
 }

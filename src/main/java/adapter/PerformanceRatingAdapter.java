@@ -1,6 +1,5 @@
 package adapter;
 
-import com.google.gson.Gson;
 import entity.PerformanceRating;
 import table.PerformanceRatingColMapping;
 
@@ -27,7 +26,6 @@ public class PerformanceRatingAdapter extends Adapter {
     private void insertRecords(List<PerformanceRating> req) {
         try {
             req.forEach(performanceRating -> {
-                System.out.println("list size======" + gson.toJson(performanceRating));
                 mapper.addPerformanceRating(performanceRating);
                 sqlSession.commit();
             });
@@ -36,19 +34,16 @@ public class PerformanceRatingAdapter extends Adapter {
         }
     }
 
-
-    public static void main(String[] args) {
-        PerformanceRatingAdapter performanceRatingAdapter = new PerformanceRatingAdapter();
-        performanceRatingAdapter.init();
-        if(performanceRatingAdapter.isExisted()){
-            performanceRatingAdapter.dropTable();
-       }
-        performanceRatingAdapter.createTable();
+    @Override
+    public void generateRawTable() {
+        init();
+        if(isExisted()){
+            dropTable();
+        }
+        createTable();
         String path = "/Users/xyang137/Documents/Archive/pending/MergedEmployeePerformanceRatings.xlsx";
-        List<PerformanceRating> res = performanceRatingAdapter.generateExcel(PerformanceRating.class,path);
-        performanceRatingAdapter.insertRecords(res);
-        Gson gson = new Gson();
-        System.out.println("list size======"+ gson.toJson(res));
+        List<PerformanceRating> res = generateExcel(PerformanceRating.class,path);
+        insertRecords(res);
+        sqlSession.close();
     }
 }
-// MergedEmployeePerformanceRatings.xlsx
