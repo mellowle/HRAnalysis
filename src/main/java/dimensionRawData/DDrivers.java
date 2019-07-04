@@ -12,6 +12,17 @@ public class DDrivers {
     private Integer power;
     private Integer structure;
 
+    public DDrivers(String wwid, String balance, String challenge, String collaboration, String independence,
+                    String power, String structure) {
+        this.wwid = wwid;
+        this.balance = balance == null ? null : Integer.valueOf(balance);
+        this.challenge = challenge == null ? null : Integer.valueOf(challenge);
+        this.collaboration = collaboration == null ? null : Integer.valueOf(collaboration);
+        this.independence = independence == null ? null : Integer.valueOf(independence);
+        this.power = power == null ? null : Integer.valueOf(power);
+        this.structure = structure == null ? null : Integer.valueOf(structure);
+    }
+
     public Map<String, Integer> getDrivers() {
         Map<String, Integer> result = new HashMap<>();
         result.put("balance", this.balance);
