@@ -3,8 +3,6 @@ package util;
 import KF4DConstants.CompetenciesConstants;
 import KF4DConstants.DriversConstants;
 import KF4DConstants.TraitsConstants;
-import dimensionRawData.DDrivers;
-import entity.Drivers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,63 +11,46 @@ public class KF4DScoreFunctionUtils {
 
     public static Map<String, Double> calcMissionCriticalScore(Map<String, Integer> missionCritical) {
         Map<String, Double> result = new HashMap<>();
-        double strategic_mindset_point =
+
+        Double strategic_mindset_point =
                 CompetenciesConstants.POINT_STRATEGIC_MINDSET / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("strategic_mindset " + strategic_mindset_point);
+        Double global_perspective_point =
+                CompetenciesConstants.POINT_GLOBAL_PERSPECTIVE / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+        Double instills_trust_point =
+                CompetenciesConstants.POINT_INSTILLS_TRUST / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+        Double persuades_point =
+                CompetenciesConstants.POINT_PERSUADES / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+        Double communicates_effectively_point =
+                CompetenciesConstants.POINT_COMMUNICATES_EFFECTIVELY / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+        Double collaborates_point =
+                CompetenciesConstants.POINT_COLLABORATES / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+        Double cultivates_innovation_point =
+                CompetenciesConstants.POINT_CULTIVATES_INNOVATION / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+        Double nimble_learning_point =
+                CompetenciesConstants.POINT_NIMBLE_LEARNING / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+        Double develops_talent_point =
+                CompetenciesConstants.POINT_DEVELOPS_TALENT / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+        Double situational_adaptability_point =
+                CompetenciesConstants.POINT_SITUATIONAL_ADAPTABILITY / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+
         result.put("strategic_mindset", calcScoreWithUCPZone(missionCritical.get("strategic_mindset"), strategic_mindset_point,
                 CompetenciesConstants.MAX_STRATEGIC_MINDSET, CompetenciesConstants.MIN_STRATEGIC_MINDSET));
-
-        double global_perspective_point =
-                CompetenciesConstants.POINT_GLOBAL_PERSPECTIVE / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("global_perspective " + global_perspective_point);
         result.put("global_perspective", calcScoreWithUCPZone(missionCritical.get("global_perspective"), global_perspective_point,
                 CompetenciesConstants.MAX_GLOBAL_PERSPECTIVE, CompetenciesConstants.MIN_GLOBAL_PERSPECTIVE));
-
-        double instills_trust_point =
-                CompetenciesConstants.POINT_INSTILLS_TRUST / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("instills_trust " + instills_trust_point);
         result.put("instills_trust", calcScoreWithUCPZone(missionCritical.get("instills_trust"), instills_trust_point,
                 CompetenciesConstants.MAX_INSTILLS_TRUST, CompetenciesConstants.MIN_INSTILLS_TRUST));
-
-        double persuades_point =
-                CompetenciesConstants.POINT_PERSUADES / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("persuades " + persuades_point);
         result.put("persuades", calcScoreWithUCPZone(missionCritical.get("persuades"), persuades_point,
                 CompetenciesConstants.MAX_PERSUADES, CompetenciesConstants.MIN_PERSUADES));
-
-        double communicates_effectively_point =
-                CompetenciesConstants.POINT_COMMUNICATES_EFFECTIVELY / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("communicates_effectively " + communicates_effectively_point);
         result.put("communicates_effectively", calcScoreWithUCPZone(missionCritical.get("communicates_effectively"), communicates_effectively_point,
                 CompetenciesConstants.MAX_COMMUNICATES_EFFECTIVELY, CompetenciesConstants.MIN_COMMUNICATES_EFFECTIVELY));
-
-        double collaborates_point =
-                CompetenciesConstants.POINT_COLLABORATES / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("collaborates " + collaborates_point);
         result.put("collaborates", calcScoreWithUCPZone(missionCritical.get("collaborates"), collaborates_point,
                 CompetenciesConstants.MAX_COLLABORATES, CompetenciesConstants.MIN_COLLABORATES));
-
-        double cultivates_innovation_point =
-                CompetenciesConstants.POINT_CULTIVATES_INNOVATION / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("cultivates_innovation " + cultivates_innovation_point);
         result.put("cultivates_innovation", calcScoreWithUCPZone(missionCritical.get("cultivates_innovation"), cultivates_innovation_point,
                 CompetenciesConstants.MAX_CULTIVATES_INNOVATION, CompetenciesConstants.MIN_CULTIVATES_INNOVATION));
-
-        double nimble_learning_point =
-                CompetenciesConstants.POINT_NIMBLE_LEARNING / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("nimble_learning " + nimble_learning_point);
         result.put("nimble_learning", calcScoreWithUCPZone(missionCritical.get("nimble_learning"), nimble_learning_point,
                 CompetenciesConstants.MAX_NIMBLE_LEARNING, CompetenciesConstants.MIN_NIMBLE_LEARNING));
-
-        double develops_talent_point =
-                CompetenciesConstants.POINT_DEVELOPS_TALENT / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("develops_talent " + develops_talent_point);
         result.put("develops_talent", calcScoreWithUCPZone(missionCritical.get("develops_talent"), develops_talent_point,
                 CompetenciesConstants.MAX_DEVELOPS_TALENT, CompetenciesConstants.MIN_DEVELOPS_TALENT));
-
-        double situational_adaptability_point =
-                CompetenciesConstants.POINT_SITUATIONAL_ADAPTABILITY / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        System.err.println("situational_adaptability " + situational_adaptability_point);
         result.put("situational_adaptability", calcScoreWithUCPZone(missionCritical.get("situational_adaptability"), situational_adaptability_point,
                 CompetenciesConstants.MAX_SITUATIONAL_ADAPTABILITY, CompetenciesConstants.MIN_SITUATIONAL_ADAPTABILITY));
 
@@ -80,48 +61,26 @@ public class KF4DScoreFunctionUtils {
     public static Map<String, Double> calcCriticalScore(Map<String, Integer> critical) {
         Map<String, Double> result = new HashMap<>();
 
-        double builds_networks_point =
+        Double builds_networks_point =
                 CompetenciesConstants.POINT_BUILDS_NETWORKS / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        System.err.println(builds_networks_point);
-        result.put("builds_networks", calcScoreWithZone(critical.get("builds_networks"), builds_networks_point, true));
-
-        double decision_quality_point =
+        Double decision_quality_point =
                 CompetenciesConstants.POINT_DECISION_QUALITY / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        System.err.println(decision_quality_point);
-
-        double being_resilient_point =
+        Double being_resilient_point =
                 CompetenciesConstants.POINT_BEING_RESILIENT / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        System.err.println(being_resilient_point);
-
-        double courage_point =
+        Double courage_point =
                 CompetenciesConstants.POINT_COURAGE / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        System.err.println(courage_point);
-
-        double action_oriented_point =
+        Double action_oriented_point =
                 CompetenciesConstants.POINT_ACTION_ORIENTED / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        System.err.println(action_oriented_point);
-
-        double manages_ambiguity_point =
+        Double manages_ambiguity_point =
                 CompetenciesConstants.POINT_MANAGES_AMBIGUITY / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        System.err.println(manages_ambiguity_point);
-
-        double interpersonal_savvy_point =
+        Double interpersonal_savvy_point =
                 CompetenciesConstants.POINT_INTERPERSONAL_SAVVY / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-
-        System.err.println(interpersonal_savvy_point);
-
-        double resourcefulness_point =
+        Double resourcefulness_point =
                 CompetenciesConstants.POINT_RESOURCEFULNESS / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-
-        System.err.println(resourcefulness_point);
-
-        double self_development_point =
+        Double self_development_point =
                 CompetenciesConstants.POINT_SELF_DEVELOPMENT / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        System.err.println(self_development_point);
-
-        double values_differences_point =
+        Double values_differences_point =
                 CompetenciesConstants.POINT_VALUES_DIFFERENCES / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        System.err.println(values_differences_point);
 
         result.put("builds_networks", calcScoreWithZone(critical.get("builds_networks"), builds_networks_point, true));
         result.put("decision_quality", calcScoreWithZone(critical.get("decision_quality"), decision_quality_point, false));
@@ -133,6 +92,7 @@ public class KF4DScoreFunctionUtils {
         result.put("resourcefulness", calcScoreWithZone(critical.get("resourcefulness"), resourcefulness_point, false));
         result.put("self_development", calcScoreWithZone(critical.get("self_development"), self_development_point, false));
         result.put("values_differences", calcScoreWithZone(critical.get("values_differences"), values_differences_point, false));
+
         return result;
     }
 
@@ -140,38 +100,27 @@ public class KF4DScoreFunctionUtils {
     public static Map<String, Double> calcLessCriticalScore(Map<String, Integer> lessCritical) {
         Map<String, Double> result = new HashMap<>();
 
-        double drives_engagement_point =
+        Double drives_engagement_point =
                 CompetenciesConstants.POINT_DRIVES_ENGAGEMENT / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(drives_engagement_point);
-        double balances_stakeholders_point =
+        Double balances_stakeholders_point =
                 CompetenciesConstants.POINT_BALANCES_STAKEHOLDERS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(balances_stakeholders_point);
-        double ensures_accountability_point =
+        Double ensures_accountability_point =
                 CompetenciesConstants.POINT_ENSURES_ACCOUNTABILITY / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(ensures_accountability_point);
-        double drives_results_point =
+        Double drives_results_point =
                 CompetenciesConstants.POINT_DRIVES_RESULTS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(drives_results_point);
-
-        double customer_focus_point =
+        Double customer_focus_point =
                 CompetenciesConstants.POINT_CUSTOMER_FOCUS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(customer_focus_point);
-
-        double manages_conflict_point =
+        Double manages_conflict_point =
                 CompetenciesConstants.POINT_MANAGES_CONFLICT / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(manages_conflict_point);
-        double builds_effective_teams_point =
+        Double builds_effective_teams_point =
                 CompetenciesConstants.POINT_BUILDS_EFFECTIVE_TEAMS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(builds_effective_teams_point);
-        double plans_and_aligns_point =
+        Double plans_and_aligns_point =
                 CompetenciesConstants.POINT_PLANS_AND_ALIGNS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(plans_and_aligns_point);
-        double directs_work_point =
+        Double directs_work_point =
                 CompetenciesConstants.POINT_DIRECTS_WORK / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(directs_work_point);
-        double optimizes_work_processes_point =
+        Double optimizes_work_processes_point =
                 CompetenciesConstants.POINT_OPTIMIZES_WORK_PROCESSES / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        System.err.println(optimizes_work_processes_point);
+
         result.put("drives_engagement", calcScoreWithZone(lessCritical.get("drives_engagement"), drives_engagement_point, false));
         result.put("balances_stakeholders", calcScoreWithZone(lessCritical.get("balances_stakeholders"), balances_stakeholders_point, true));
         result.put("ensures_accountability", calcScoreWithZone(lessCritical.get("ensures_accountability"), ensures_accountability_point, false));
@@ -214,7 +163,7 @@ public class KF4DScoreFunctionUtils {
 
     }
 
-    public static Map<String, Double> calcDriversScore(Map<String, Integer> drivers){
+    public static Map<String, Double> calcDriversScore(Map<String, Integer> drivers) {
         Map<String, Double> result = new HashMap<>();
 
         result.put("balance", calcScoreWithUCPPoint(drivers.get("balance"), DriversConstants.POINT_DRIVER, DriversConstants.UCP_BALANCE));
@@ -227,14 +176,20 @@ public class KF4DScoreFunctionUtils {
         return result;
     }
 
-    private static double calcScoreWithUCPPoint(int score, double points, double ucp) {
-        double result;
-        double pointsUCP10 = (10 - ucp) / 10 * points;
-        double points0UCP = ucp / 10 * points;
-        if (score == ucp) {
+    private static Double calcScoreWithUCPPoint(Integer score, Double points, Double ucp) {
+        Double result;
+
+        if (score == null) {
+            return null;
+        }
+
+        Double pointsUCP10 = (10 - ucp) / 10 * points;
+        Double points0UCP = ucp / 10 * points;
+
+        if (score.doubleValue() == ucp) {
             result = points;
         }
-        else if (score > ucp && score <= 10) {
+        else if (score.doubleValue() > ucp && score.doubleValue() <= 10) {
             result = points - (score - ucp) * pointsUCP10 / (10 - ucp);
         }
         else {
@@ -244,53 +199,66 @@ public class KF4DScoreFunctionUtils {
         return result;
     }
 
-    private static double calcScoreWithUCPZone(int score, double points, double max, double min) {
-        double result;
-        double mean = (max + min) / 2;
-        double pointsMinMax = (max - min) / (2 * 10) * points;
-        double pointsMax10 = (10 - max) / 10 * points;
-        double points0Min = min / 10 * points;
+    private static Double calcScoreWithUCPZone(Integer score, Double points, Double max, Double min) {
+        Double result;
 
-        if (score == mean) {
+        if (score == null) {
+            return null;
+        }
+
+        Double mean = (max + min) / 2;
+        Double pointsMinMax = (max - min) / (2 * 10) * points;
+        Double pointsMax10 = (10 - max) / 10 * points;
+        Double points0Min = min / 10 * points;
+
+        if (score.doubleValue() == mean) {
             result = points;
         }
-        else if (score < mean && score >= min) {
+        else if (score.doubleValue() < mean && score.doubleValue() >= min) {
             result = points - (mean - score) * pointsMinMax / (mean - min);
         }
-        else if (score > mean && score <= max) {
+        else if (score.doubleValue() > mean && score.doubleValue() <= max) {
             result = points - (score - mean) * pointsMinMax / (10 - max);
         }
-        else if (score > max && score <= 10) {
+        else if (score.doubleValue() > max && score.doubleValue() <= 10) {
             result = points - pointsMinMax - (score - max) * pointsMax10 / (10 - max);
         }
         else {
             result = points - pointsMinMax - pointsMax10 - (min - score) * points0Min / min;
         }
+
         return result;
     }
 
-    private static double calcScoreWithZone(int score, double points, boolean isDerails) {
-        double result;
-        double pointsZeroZone = 0;
-        double pointsLowZone = points / 3;
-        double pointsMidZone;
-        double pointsHighZone;
+    private static Double calcScoreWithZone(Integer score, Double points, boolean isDerails) {
+        Double result;
+
+        if (score == null) {
+            return null;
+        }
+
+        Double pointsZeroZone = 0d;
+        Double pointsLowZone = points / 3;
+        Double pointsMidZone;
+        Double pointsHighZone;
+
         if (isDerails) {
             pointsMidZone = points;
             pointsHighZone = points / 3 * 2;
         }
+
         else {
             pointsMidZone = points / 3 * 2;
             pointsHighZone = points;
         }
 
-        if (score < 4) {
+        if (score.doubleValue() < 4) {
             result = pointsZeroZone;
         }
-        else if (score >= 4 && score < 6) {
+        else if (score.doubleValue() >= 4 && score.doubleValue() < 6) {
             result = pointsLowZone;
         }
-        else if (score >= 6 && score < 8) {
+        else if (score.doubleValue() >= 6 && score.doubleValue() < 8) {
             result = pointsMidZone;
         }
         else {
@@ -303,19 +271,19 @@ public class KF4DScoreFunctionUtils {
 
     public static void main(String... args) {
 
-        DDrivers d = new DDrivers();
-        d.setBalance(4);
-        d.setChallenge(6);
-        d.setCollaboration(5);
-        d.setIndependence(7);
-        d.setPower(8);
-        d.setStructure(5);
-
-        System.err.println(DriversConstants.POINT_DRIVER);
-        System.err.println(TraitsConstants.POINT_TRAIT);
-        Map<String, Integer> ds = d.getDrivers();
-        System.err.println(ds);
-        System.err.println(calcDriversScore(ds));
+        //        DDrivers d = new DDrivers();
+        //        d.setBalance(4);
+        //        d.setChallenge(6);
+        //        d.setCollaboration(5);
+        //        d.setIndependence(7);
+        //        d.setPower(8);
+        //        d.setStructure(5);
+        //
+        //        System.err.println(DriversConstants.POINT_DRIVER);
+        //        System.err.println(TraitsConstants.POINT_TRAIT);
+        //        Map<String, Integer> ds = d.getDrivers();
+        //        System.err.println(ds);
+        //        System.err.println(calcDriversScore(ds));
         //        DCompetencies d = new DCompetencies();
         //        d.setStrategic_mindset(5);
         //        d.setGlobal_perspective(7);
@@ -361,35 +329,35 @@ public class KF4DScoreFunctionUtils {
         //        Map<String, Integer> lC = d.getLessCritical();
         //        System.err.println(calcLessCriticalScore(lC));
 
-//        DTraits t = new DTraits();
-//
-//        t.setAdaptability(5);
-//        t.setAffiliation(5);
-//        t.setAssertiveness(8);
-//        t.setComposure(6);
-//
-//        t.setConfidence(3);
-//        t.setCredibility(7);
-//        t.setCuriosity(5);
-//        t.setEmpathy(8);
-//
-//        t.setFocus(9);
-//        t.setHumility(6);
-//        t.setInfluence(8);
-//        t.setNeed_for_achievement(7);
-//
-//        t.setOpenness_to_differences(2);
-//        t.setOptimism(5);
-//        t.setPersistence(8);
-//        t.setRisk_taking(3);
-//
-//        t.setSituational_self_awareness(2);
-//        t.setSociability(6);
-//        t.setTolerance_of_ambiguity(6);
-//        t.setTrust(5);
-//
-//        Map<String, Integer> ts = t.getTraits();
-//        System.err.println(calcTraitsScore(ts));
+        //        DTraits t = new DTraits();
+        //
+        //        t.setAdaptability(5);
+        //        t.setAffiliation(5);
+        //        t.setAssertiveness(8);
+        //        t.setComposure(6);
+        //
+        //        t.setConfidence(3);
+        //        t.setCredibility(7);
+        //        t.setCuriosity(5);
+        //        t.setEmpathy(8);
+        //
+        //        t.setFocus(9);
+        //        t.setHumility(6);
+        //        t.setInfluence(8);
+        //        t.setNeed_for_achievement(7);
+        //
+        //        t.setOpenness_to_differences(2);
+        //        t.setOptimism(5);
+        //        t.setPersistence(8);
+        //        t.setRisk_taking(3);
+        //
+        //        t.setSituational_self_awareness(2);
+        //        t.setSociability(6);
+        //        t.setTolerance_of_ambiguity(6);
+        //        t.setTrust(5);
+        //
+        //        Map<String, Integer> ts = t.getTraits();
+        //        System.err.println(calcTraitsScore(ts));
 
         //        result.put("adaptability", this.adaptability);
         //        result.put("affiliation", this.affiliation);
