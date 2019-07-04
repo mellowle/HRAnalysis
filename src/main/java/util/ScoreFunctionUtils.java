@@ -69,52 +69,57 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static double functionMovementScore(String functionMovement) {
-        if (Constants.YES.equals(functionMovement)) {
-            return 1;
-        }
+    public static double functionMovementScore(int functionMovement) {
 
-        return 0;
+        if (functionMovement >= 5) {
+            return 5;
+        } else {
+            return functionMovement;
+        }
     }
 
-    public static double lateralMovementScore(String lateralMovement) {
-        if (Constants.YES.equals(lateralMovement)) {
-            return 1;
+    public static double lateralMovementScore(int lateralMovement) {
+        if (lateralMovement >= 5) {
+            return 5;
+        } else {
+            return lateralMovement;
         }
 
-        return 0;
     }
 
-    public static double promotionScore(String promotion) {
-        if (Constants.YES.equals(promotion)) {
-            return 1;
+    public static double promotionScore(int promotion) {
+        if (promotion >= 5) {
+            return 5;
+        } else {
+            return promotion;
         }
-
-        return 0;
     }
 
-    public static double regionMovementScore(String regionMovement) {
-        if (Constants.YES.equals(regionMovement)) {
-            return 1;
+    public static double regionMovementScore(int regionMovement) {
+        if (regionMovement >= 5) {
+            return 5;
+        } else {
+            return regionMovement;
         }
 
-        return 0;
     }
 
-    public static double sectorMovementScore(String sectorMovement) {
-        if (Constants.YES.equals(sectorMovement)) {
-            return 1;
+    public static double sectorMovementScore(int sectorMovement) {
+        if (sectorMovement >= 5) {
+            return 5;
+        } else {
+            return sectorMovement;
         }
 
-        return 0;
     }
 
-    public static double countryMovementScore(String countryMovement) {
-        if (Constants.YES.equals(countryMovement)) {
-            return 1;
+    public static double countryMovementScore(int countryMovement) {
+        if (countryMovement >= 5) {
+            return 5;
+        } else {
+            return countryMovement;
         }
 
-        return 0;
     }
 
     public static double externalRoleNumberScore(int externalRoleNumber) {
