@@ -22,11 +22,6 @@ public class ManagementChainAdapter extends Adapter {
 
     }
 
-    @Override
-    void generateRawTable() {
-
-    }
-
     //insert data
     private void insertRecords(List<ManagementChain> req) {
         try {
