@@ -33,5 +33,49 @@
         )
     </update>
 
+    <insert id="addEmployeeDemographics" parameterType="entity.EmployeeDemographics" useGeneratedKeys="true" keyProperty="id">
+        insert into employee_demographics(wwid, employee_pay_grade,home_location_code,position_id,job_profile,job_profile_id,job_function,job_sub_function,sector,time_in_position,length_of_service_in_years,original_hire_date,hire_date_most_recent) values(#{wwid}, #{employee_pay_grade},#{home_location_code},#{position_id},#{job_profile},#{job_profile_id},#{job_function},#{job_sub_function},#{sector},#{time_in_position},#{length_of_service_in_years},#{original_hire_date},#{hire_date_most_recent})
+    </insert>
+
+    <insert id="addPerformanceRating" parameterType="entity.PerformanceRating" useGeneratedKeys="true" keyProperty="id">
+        insert into performance_rating(wwid, review_period_start_date,review_period_end_date,results_rating,leadership_rating,overall_rating) values(#{wwid}, #{review_period_start_date},#{review_period_end_date},#{results_rating},#{leadership_rating},#{overall_rating})
+    </insert>
+
+    <insert id="addCompensation" parameterType="entity.Compensation" useGeneratedKeys="true" keyProperty="id">
+        insert into compensation(wwid, base_2017,base_2018,base_2019,bonus_2016,bonus_2017,bonus_2018) values(#{wwid}, #{base_2017},#{base_2018},#{base_2019},#{bonus_2016},#{bonus_2017},#{bonus_2018})
+    </insert>
+
+    <insert id="addDirectReport" parameterType="entity.DirectReport" useGeneratedKeys="true" keyProperty="id">
+        insert into direct_report(wwid, direct_report) values(#{wwid}, #{direct_report})
+    </insert>
+
+    <insert id="addEducation" parameterType="entity.Education" useGeneratedKeys="true" keyProperty="id">
+        insert into education(wwid, highest_degree_received) values(#{wwid}, #{highest_degree_received})
+    </insert>
+
+    <insert id="addManagementChain" parameterType="entity.ManagementChain" useGeneratedKeys="true" keyProperty="id">
+        insert into management_chain(wwid, management_chain_level_01,management_chain_level_02,management_chain_level_03,management_chain_level_04,management_chain_level_05,management_chain_level_06,management_chain_level_07,management_chain_level_08,management_chain_level_09) values(#{wwid}, #{management_chain_level_01},#{management_chain_level_02},#{management_chain_level_03},#{management_chain_level_04},#{management_chain_level_05},#{management_chain_level_06},#{management_chain_level_07},#{management_chain_level_08},#{management_chain_level_09})
+    </insert>
+
+    <insert id="addTalentCard" parameterType="entity.TalentCard" useGeneratedKeys="true" keyProperty="id">
+        insert into talent_card(wwid, number_of_jnj_roles,average_time_of_jnj_roles,number_of_external_roles,average_time_of_external_roles) values(#{wwid}, #{number_of_jnj_roles},#{average_time_of_jnj_roles},#{number_of_external_roles},#{average_time_of_external_roles})
+    </insert>
+
+    <insert id="addWorkChangeHistory" parameterType="entity.WorkChangeHistory" useGeneratedKeys="true" keyProperty="id">
+        insert into worker_change_history(wwid, business_process_effective_date,business_process_status,business_process_type,business_process_reason,business_process_completed_date,position_current,position_proposed,region_current,region_proposed,company_current,company_proposed,job_profile_current,job_profile_proposed,location_current,location_proposed,compensation_grade_current,compensation_grade_proposed,pay_group_change,base_pay_current,base_pay_proposed,base_pay_change_amount,base_pay_change_percent) values(#{wwid}, #{business_process_effective_date},#{business_process_status},#{business_process_type},#{business_process_reason},#{business_process_completed_date},#{position_current},#{position_proposed},#{region_current},#{region_proposed},#{company_current},#{company_proposed},#{job_profile_current},#{job_profile_proposed},#{location_current},#{location_proposed},#{compensation_grade_current},#{compensation_grade_proposed},#{pay_group_change},#{base_pay_current},#{base_pay_proposed},#{base_pay_change_amount},#{base_pay_change_percent})
+    </insert>
+
+    <insert id="addCompetencies" parameterType="entity.Competencies" useGeneratedKeys="true" keyProperty="id">
+        insert into competencies(wwid, action_oriented,balances_stakeholders,being_resilient,builds_effective_teams,builds_networks,collaborates,communicates_effectively,courage,cultivates_innovation,customer_focus,decision_quality,develops_talent,directs_work,drives_engagement,drives_results,ensures_accountability,global_perspective,instills_trust,interpersonal_savvy,manages_ambiguity,manages_conflict,nimble_learning,optimizes_work_processes,persuades,plans_and_aligns,resourcefulness,self_development,situational_adaptability,strategic_mindset,values_differences) values(#{wwid}, #{action_oriented},#{balances_stakeholders},#{being_resilient},#{builds_effective_teams},#{builds_networks},#{collaborates},#{communicates_effectively},#{courage},#{cultivates_innovation},#{customer_focus},#{decision_quality},#{develops_talent},#{directs_work},#{drives_engagement},#{drives_results},#{ensures_accountability},#{global_perspective},#{instills_trust},#{interpersonal_savvy},#{manages_ambiguity},#{manages_conflict},#{nimble_learning},#{optimizes_work_processes},#{persuades},#{plans_and_aligns},#{resourcefulness},#{self_development},#{situational_adaptability},#{strategic_mindset},#{values_differences})
+    </insert>
+
+    <insert id="addDrivers" parameterType="entity.Drivers" useGeneratedKeys="true" keyProperty="id">
+        insert into drivers(wwid, balance,challenge,collaboration,independence,power,structure) values(#{wwid}, #{balance},#{challenge},#{collaboration},#{independence},#{power},#{structure})
+    </insert>
+
+    <insert id="addTraits" parameterType="entity.Traits" useGeneratedKeys="true" keyProperty="id">
+        insert into traits(wwid, adaptability,affiliation,assertiveness,composure,confidence,credibility,curiosity,empathy,focus,humility,influence,need_for_achievement,openness_to_differences,optimism,persistence,risk_taking,situational_self_awareness,sociability,tolerance_of_ambiguity,trust) values( #{wwid}, #{adaptability}, #{affiliation}, #{assertiveness}, #{composure}, #{confidence}, #{credibility}, #{curiosity}, #{empathy}, #{focus}, #{humility}, #{influence}, #{need_for_achievement}, #{openness_to_differences}, #{optimism}, #{persistence}, #{risk_taking}, #{situational_self_awareness}, #{sociability}, #{tolerance_of_ambiguity}, #{trust})
+    </insert>
 </mapper>
+
 
