@@ -31,5 +31,7 @@ public interface Mapper {
     int addDrivers(Drivers drivers);
 
     int addTraits(Traits traits);
+
+    List<Drivers> getAllDrivers();
 }
 
