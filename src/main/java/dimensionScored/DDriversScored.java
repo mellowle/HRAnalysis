@@ -2,13 +2,13 @@ package dimensionScored;
 
 public class DDriversScored {
     private String wwid;
-    private int balance;
-    private int challenge;
-    private int collaboration;
-    private int independence;
-    private int power;
-    private int structure;
-    private int result;
+    private double balance;
+    private double challenge;
+    private double collaboration;
+    private double independence;
+    private double power;
+    private double structure;
+    private double result;
 
     public String getWwid() {
         return wwid;
@@ -18,51 +18,59 @@ public class DDriversScored {
         this.wwid = wwid;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public int getChallenge() {
+    public double getChallenge() {
         return challenge;
     }
 
-    public void setChallenge(int challenge) {
+    public void setChallenge(double challenge) {
         this.challenge = challenge;
     }
 
-    public int getCollaboration() {
+    public double getCollaboration() {
         return collaboration;
     }
 
-    public void setCollaboration(int collaboration) {
+    public void setCollaboration(double collaboration) {
         this.collaboration = collaboration;
     }
 
-    public int getIndependence() {
+    public double getIndependence() {
         return independence;
     }
 
-    public void setIndependence(int independence) {
+    public void setIndependence(double independence) {
         this.independence = independence;
     }
 
-    public int getPower() {
+    public double getPower() {
         return power;
     }
 
-    public void setPower(int power) {
+    public void setPower(double power) {
         this.power = power;
     }
 
-    public int getStructure() {
+    public double getStructure() {
         return structure;
     }
 
-    public void setStructure(int structure) {
+    public void setStructure(double structure) {
         this.structure = structure;
+    }
+
+    public double getResult() {
+        return result;
+    }
+
+    public void setResult(double result) {
+        this.result = result;
     }
 }
