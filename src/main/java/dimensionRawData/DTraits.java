@@ -1,5 +1,8 @@
 package dimensionRawData;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DTraits {
     private String wwid;
     private int adaptability;
@@ -22,6 +25,31 @@ public class DTraits {
     private int sociability;
     private int tolerance_of_ambiguity;
     private int trust;
+
+    public Map<String, Integer> getTraits() {
+        Map<String, Integer> result = new HashMap<>();
+        result.put("adaptability", this.adaptability);
+        result.put("affiliation", this.affiliation);
+        result.put("assertiveness", this.assertiveness);
+        result.put("composure", this.composure);
+        result.put("confidence", this.confidence);
+        result.put("credibility", this.credibility);
+        result.put("curiosity", this.curiosity);
+        result.put("empathy", this.empathy);
+        result.put("focus", this.focus);
+        result.put("humility", this.humility);
+        result.put("influence", this.influence);
+        result.put("need_for_achievement", this.need_for_achievement);
+        result.put("openness_to_differences", this.openness_to_differences);
+        result.put("optimism", this.optimism);
+        result.put("persistence", this.persistence);
+        result.put("risk_taking", this.risk_taking);
+        result.put("situational_self_awareness", this.situational_self_awareness);
+        result.put("sociability", this.sociability);
+        result.put("tolerance_of_ambiguity", this.tolerance_of_ambiguity);
+        result.put("trust", this.trust);
+        return result;
+    }
 
     public String getWwid() {
         return wwid;

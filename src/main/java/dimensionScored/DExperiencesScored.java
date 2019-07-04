@@ -4,9 +4,9 @@ public class DExperiencesScored {
     private String wwid;
     private int isMBA;
     private int teamSize;
-    private int performance2016;
-    private int performance2017;
-    private int performance2018;
+    private double performance2016;
+    private double performance2017;
+    private double performance2018;
     private int bonusIncrement20162017;
     private int bonusIncrement20172018;
 
@@ -57,27 +57,27 @@ public class DExperiencesScored {
         this.teamSize = teamSize;
     }
 
-    public int getPerformance2016() {
+    public double getPerformance2016() {
         return performance2016;
     }
 
-    public void setPerformance2016(int performance2016) {
+    public void setPerformance2016(double performance2016) {
         this.performance2016 = performance2016;
     }
 
-    public int getPerformance2017() {
+    public double getPerformance2017() {
         return performance2017;
     }
 
-    public void setPerformance2017(int performance2017) {
+    public void setPerformance2017(double performance2017) {
         this.performance2017 = performance2017;
     }
 
-    public int getPerformance2018() {
+    public double getPerformance2018() {
         return performance2018;
     }
 
-    public void setPerformance2018(int performance2018) {
+    public void setPerformance2018(double performance2018) {
         this.performance2018 = performance2018;
     }
 

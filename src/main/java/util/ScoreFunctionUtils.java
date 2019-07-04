@@ -1,14 +1,14 @@
-package service;
+package util;
 
 import constants.Constants;
-import constants.RatingEnum;
+import util.RatingEnum;
 
 public class ScoreFunctionUtils {
 
-    public static final double MBA_SCORE_5 = 5;
-    public static final double MBA_SCORE_0 = 0;
+    public static final int MBA_SCORE_5 = 5;
+    public static final int MBA_SCORE_0 = 0;
 
-    public static double isMBAScore(String highestDegreeReceived) {
+    public static int isMBAScore(String highestDegreeReceived) {
         if (Constants.MBA.equals(highestDegreeReceived)) {
             return MBA_SCORE_5;
         } else {
@@ -17,7 +17,7 @@ public class ScoreFunctionUtils {
 
     }
 
-    public static double teamSizeScore(int teamSize) {
+    public static int teamSizeScore(int teamSize) {
         if (teamSize > 5) {
             return 5;
         } else if (teamSize > 3 && teamSize <= 5) {
@@ -69,55 +69,60 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static double functionMovementScore(String functionMovement) {
-        if (Constants.YES.equals(functionMovement)) {
-            return 1;
-        }
+    public static int functionMovementScore(int functionMovement) {
 
-        return 0;
+        if (functionMovement >= 5) {
+            return 5;
+        } else {
+            return functionMovement;
+        }
     }
 
-    public static double lateralMovementScore(String lateralMovement) {
-        if (Constants.YES.equals(lateralMovement)) {
-            return 1;
+    public static int lateralMovementScore(int lateralMovement) {
+        if (lateralMovement >= 5) {
+            return 5;
+        } else {
+            return lateralMovement;
         }
 
-        return 0;
     }
 
-    public static double promotionScore(String promotion) {
-        if (Constants.YES.equals(promotion)) {
-            return 1;
+    public static int promotionScore(int promotion) {
+        if (promotion >= 5) {
+            return 5;
+        } else {
+            return promotion;
+        }
+    }
+
+    public static int regionMovementScore(int regionMovement) {
+        if (regionMovement >= 5) {
+            return 5;
+        } else {
+            return regionMovement;
         }
 
-        return 0;
     }
 
-    public static double regionMovementScore(String regionMovement) {
-        if (Constants.YES.equals(regionMovement)) {
-            return 1;
+    public static int sectorMovementScore(int sectorMovement) {
+        if (sectorMovement >= 5) {
+            return 5;
+        } else {
+            return sectorMovement;
         }
 
-        return 0;
     }
 
-    public static double sectorMovementScore(String sectorMovement) {
-        if (Constants.YES.equals(sectorMovement)) {
-            return 1;
+    public static int countryMovementScore(int countryMovement) {
+        if (countryMovement >= 5) {
+            return 5;
+        } else {
+            return countryMovement;
         }
 
-        return 0;
     }
 
-    public static double countryMovementScore(String countryMovement) {
-        if (Constants.YES.equals(countryMovement)) {
-            return 1;
-        }
-
-        return 0;
-    }
-
-    public static double externalRoleNumberScore(int externalRoleNumber) {
+    public static int externalRoleNumberScore(int externalRoleNumber) {
         if (externalRoleNumber >= 5) {
             return 5;
         } else if (externalRoleNumber == 4) {
@@ -133,7 +138,7 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static double externalLengthOfServiceScore(double externalLengthOfService, double averageExternalLengthOfService) {
+    public static int externalLengthOfServiceScore(double externalLengthOfService, double averageExternalLengthOfService) {
         if (externalLengthOfService > averageExternalLengthOfService) {
             return 2;
         }
@@ -141,7 +146,7 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static double totalRoleNumberScore(int totalRoleNumber) {
+    public static int totalRoleNumberScore(int totalRoleNumber) {
         if (totalRoleNumber <= 3) {
             return 0;
         } else if (totalRoleNumber > 7 && totalRoleNumber <= 9) {
@@ -155,7 +160,7 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static double totalWorkingYearsScore(double totalWorkingYears) {
+    public static int totalWorkingYearsScore(double totalWorkingYears) {
         if (totalWorkingYears > 30) {
             return 1;
         } else if (totalWorkingYears > 20 && totalWorkingYears <= 30) {
@@ -169,7 +174,7 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static double averageDurationOnEachRoleScore(double averageDurationOnEachRole) {
+    public static int averageDurationOnEachRoleScore(double averageDurationOnEachRole) {
         if (averageDurationOnEachRole > 0 && averageDurationOnEachRole <= 5) {
             return 5;
         } else if (averageDurationOnEachRole > 5 && averageDurationOnEachRole <= 10) {
@@ -181,7 +186,7 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static double numberOfReportingToCEOScore(int numberOfReportingToCEO) {
+    public static int numberOfReportingToCEOScore(int numberOfReportingToCEO) {
         if (numberOfReportingToCEO >= 10) {
             return 1;
         } else if (numberOfReportingToCEO > 8 && numberOfReportingToCEO <= 9) {

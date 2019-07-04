@@ -13,9 +13,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class WorkChangeHistoryAdapter {
+public class FixedWorkChangeHistoryAdapter {
 
-    public static List<FixedWorkChangeHistory> getWorkChangeHistoryFlatList() {
+    public static List<FixedWorkChangeHistory> getFixedWorkChangeHistoryList() {
         //TODO: get work change history from DB and replace below
         List<WorkChangeHistory> workChangeHistoryListFromDB = Lists.newArrayList();
         List<FixedWorkChangeHistory> fixedWorkChangeHistoryList = Lists.newArrayList();
@@ -41,7 +41,7 @@ public class WorkChangeHistoryAdapter {
             fixedWorkChangeHistory.setLateralMovement(getLateralMovements(entry.getValue()));
             fixedWorkChangeHistory.setFunctionMovement(getFunctionMovements(entry.getValue()));
             fixedWorkChangeHistory.setSectorMovements(getFunctionMovements(entry.getValue()));
-
+            fixedWorkChangeHistoryList.add(fixedWorkChangeHistory);
         }
 
         return fixedWorkChangeHistoryList;

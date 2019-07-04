@@ -2,6 +2,7 @@ package adapter;
 
 import com.google.gson.Gson;
 import dao.Mapper;
+import entity.EmployeeDemographics;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -24,6 +25,7 @@ public abstract class Adapter {
     public DataConnection dataConn = new DataConnection();
     public Mapper mapper = null;
     SqlSession sqlSession;
+    static Gson gson = new Gson();
 
     {
         try {
@@ -64,6 +66,8 @@ public abstract class Adapter {
     //insert records
     abstract void insertRecords();
 
+    abstract void generateRawTable();
+
     //通过map,生成数据库列
     private List<Map<String, String>> generateColList(Map<String, String> map) {
         List<Map<String, String>> cols = new LinkedList<>();
@@ -71,7 +75,7 @@ public abstract class Adapter {
             Map<String, String> colMap = new HashMap<>();
             colMap.put("code", col);
             colMap.put("type", "STRING");
-            colMap.put("length", "45");
+            colMap.put("length", "500");
             cols.add(colMap);
         });
         return cols;
@@ -124,48 +128,25 @@ public abstract class Adapter {
                     //value:cell value
                     //key: colData.key wwid set+Wwid
                     String key = colData.getKey();
-                    //System.out.println("key =="+key);
                     String field = key.substring(0, 1).toUpperCase() + key.substring(1); //wwid -> Wwid
-                    //System.out.println("field =="+field);
                     Method setField = null;
                     try {
                         //get parameter type
-
                         setField = tClass.getDeclaredMethod("set" + field, String.class);
-                        if(cell != null){
+                        if (cell != null) {
                             switch (cell.getCellType()) {
                                 case Cell.CELL_TYPE_STRING:
                                     setField.invoke(obj, cell.getRichStringCellValue().getString());
-//                                    if(obj.getClass().getDeclaredField(key).getType().toString().equals("float")){
-//
-//                                        setField.invoke(obj, Float.parseFloat(cell.getRichStringCellValue().getString()));
-//                                    }else if(obj.getClass().getDeclaredField(key).getType().toString().equals("long")){
-//
-//                                        setField.invoke(obj, Long.parseLong(cell.getRichStringCellValue().getString()));
-//                                    }else{
-//                                        setField.invoke(obj, cell.getRichStringCellValue().getString());
-//                                    }
-
                                     break;
                                 case Cell.CELL_TYPE_NUMERIC:
                                     if (DateUtil.isCellDateFormatted(cell)) {
-//                                        System.out.println("date value  "+ cell.getDateCellValue());
-//                                        System.out.println("反射类型  "+ obj.getClass().getDeclaredField(key).getType());
-
                                         String date = cell.getDateCellValue().toString();
-                                        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy",Locale.US);
-                                        Date d=sdf.parse(date);
-                                        sdf=new SimpleDateFormat("yyyyMMdd");
+                                        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US);
+                                        Date d = sdf.parse(date);
+                                        sdf = new SimpleDateFormat("yyyyMMdd");
                                         setField.invoke(obj, String.valueOf(sdf.format(d)));
                                     } else {
                                         setField.invoke(obj, String.valueOf(cell.getNumericCellValue()));
-//                                        if(obj.getClass().getDeclaredField(key).getType().equals("float")){
-//                                            setField.invoke(obj, (float)cell.getNumericCellValue());
-//                                        }else if(obj.getClass().getDeclaredField(key).getType().equals("long")){
-//                                            setField.invoke(obj, (long)cell.getNumericCellValue());
-//                                        }else{
-//                                            setField.invoke(obj, String.valueOf(cell.getNumericCellValue()));
-//                                        }
                                     }
                                     break;
                                 case Cell.CELL_TYPE_BOOLEAN:
@@ -173,14 +154,11 @@ public abstract class Adapter {
                                     break;
                                 case Cell.CELL_TYPE_FORMULA:
                                     setField.invoke(obj, String.valueOf(cell.getCellFormula()));
-//                                    setField.invoke(obj, cell.getCellFormula());
                                     break;
                                 default:
                                     setField.invoke(obj, cell.getRichStringCellValue().getString());
                             }
                         }
-
-
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -191,8 +169,9 @@ public abstract class Adapter {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
             return res;
         }
     }

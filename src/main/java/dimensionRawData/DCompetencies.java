@@ -1,5 +1,11 @@
 package dimensionRawData;
 
+import dimensionScored.DCompetenciesScored;
+import util.KF4DScoreFunctionUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class DCompetencies {
     private String wwid;
     private int action_oriented;
@@ -32,6 +38,51 @@ public class DCompetencies {
     private int situational_adaptability;
     private int strategic_mindset;
     private int values_differences;
+
+    public Map<String, Integer> getMissionCritical() {
+        Map<String, Integer> result = new HashMap<>();
+        result.put("strategic_mindset", this.strategic_mindset);
+        result.put("global_perspective", this.global_perspective);
+        result.put("instills_trust", this.instills_trust);
+        result.put("persuades", this.persuades);
+        result.put("communicates_effectively", this.communicates_effectively);
+        result.put("collaborates", this.collaborates);
+        result.put("cultivates_innovation", this.cultivates_innovation);
+        result.put("nimble_learning", this.nimble_learning);
+        result.put("develops_talent", this.develops_talent);
+        result.put("situational_adaptability", this.situational_adaptability);
+        return result;
+    }
+
+    public Map<String, Integer> getCritical() {
+        Map<String, Integer> result = new HashMap<>();
+        result.put("builds_networks", this.builds_networks);
+        result.put("decision_quality", this.decision_quality);
+        result.put("being_resilient", this.being_resilient);
+        result.put("courage", this.courage);
+        result.put("action_oriented", this.action_oriented);
+        result.put("manages_ambiguity", this.manages_ambiguity);
+        result.put("interpersonal_savvy", this.interpersonal_savvy);
+        result.put("resourcefulness", this.resourcefulness);
+        result.put("self_development", this.self_development);
+        result.put("values_differences", this.values_differences);
+        return result;
+    }
+
+    public Map<String, Integer> getLessCritical() {
+        Map<String, Integer> result = new HashMap<>();
+        result.put("drives_engagement", this.drives_engagement);
+        result.put("balances_stakeholders", this.balances_stakeholders);
+        result.put("ensures_accountability", this.ensures_accountability);
+        result.put("drives_results", this.drives_results);
+        result.put("customer_focus", this.customer_focus);
+        result.put("manages_conflict", this.manages_conflict);
+        result.put("builds_effective_teams", this.builds_effective_teams);
+        result.put("plans_and_aligns", this.plans_and_aligns);
+        result.put("directs_work", this.directs_work);
+        result.put("optimizes_work_processes", this.optimizes_work_processes);
+        return result;
+    }
 
     public String getWwid() {
         return wwid;
