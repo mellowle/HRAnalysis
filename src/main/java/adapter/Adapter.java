@@ -1,5 +1,6 @@
 package adapter;
 
+import com.google.gson.Gson;
 import dao.Mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.poi.ss.usermodel.*;
@@ -123,76 +124,63 @@ public abstract class Adapter {
                     //value:cell value
                     //key: colData.key wwid set+Wwid
                     String key = colData.getKey();
+                    //System.out.println("key =="+key);
                     String field = key.substring(0, 1).toUpperCase() + key.substring(1); //wwid -> Wwid
+                    //System.out.println("field =="+field);
                     Method setField = null;
                     try {
                         //get parameter type
-                        //System.out.println(key+"==="+obj.getClass().getDeclaredField(key).getType());
 
-                        setField = tClass.getMethod("set" + field, obj.getClass().getDeclaredField(key).getType());
-                        switch (cell.getCellType()) {
-                            case Cell.CELL_TYPE_STRING:
-//                                System.out.println("String value  "+ cell.getRichStringCellValue().getString());
-//                                System.out.println("反射类型  "+ obj.getClass().getDeclaredField(key).getType());
-                                if(obj.getClass().getDeclaredField(key).getType().toString().equals("float")){
-                                //    System.out.println("反射类型 1 float");
-                                    setField.invoke(obj, Float.parseFloat(cell.getRichStringCellValue().getString()));
-                                }else if(obj.getClass().getDeclaredField(key).getType().toString().equals("long")){
-                                  //  System.out.println("反射类型 1 long");
-                                    setField.invoke(obj, Long.parseLong(cell.getRichStringCellValue().getString()));
-                                }else{
-                                  //  System.out.println("String value  "+ cell.getRichStringCellValue().getString());
-                            //  System.out.println("反射类型  "+ obj.getClass().getDeclaredField(key).getType());
+                        setField = tClass.getDeclaredMethod("set" + field, String.class);
+                        if(cell != null){
+                            switch (cell.getCellType()) {
+                                case Cell.CELL_TYPE_STRING:
                                     setField.invoke(obj, cell.getRichStringCellValue().getString());
-                                }
+//                                    if(obj.getClass().getDeclaredField(key).getType().toString().equals("float")){
+//
+//                                        setField.invoke(obj, Float.parseFloat(cell.getRichStringCellValue().getString()));
+//                                    }else if(obj.getClass().getDeclaredField(key).getType().toString().equals("long")){
+//
+//                                        setField.invoke(obj, Long.parseLong(cell.getRichStringCellValue().getString()));
+//                                    }else{
+//                                        setField.invoke(obj, cell.getRichStringCellValue().getString());
+//                                    }
 
-                                break;
-                            case Cell.CELL_TYPE_NUMERIC:
-                                if (DateUtil.isCellDateFormatted(cell)) {
-                                    System.out.println("date value  "+ cell.getDateCellValue());
-                                    System.out.println("反射类型  "+ obj.getClass().getDeclaredField(key).getType());
+                                    break;
+                                case Cell.CELL_TYPE_NUMERIC:
+                                    if (DateUtil.isCellDateFormatted(cell)) {
+//                                        System.out.println("date value  "+ cell.getDateCellValue());
+//                                        System.out.println("反射类型  "+ obj.getClass().getDeclaredField(key).getType());
 
-                                    String date = cell.getDateCellValue().toString();
-                                    SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy",Locale.US);
-                                    Date d=sdf.parse(date);
-                                    sdf=new SimpleDateFormat("yyyyMMdd");
-                                    setField.invoke(obj, java.sql.Date.valueOf(sdf.format(d)));
-                                } else {
-                                    if(obj.getClass().getDeclaredField(key).getType().equals("float")){
-                                        setField.invoke(obj, (float)cell.getNumericCellValue());
-                                    }else if(obj.getClass().getDeclaredField(key).getType().equals("long")){
-                                        setField.invoke(obj, (long)cell.getNumericCellValue());
-                                    }else{
-                                        setField.invoke(obj, cell.getNumericCellValue());
+                                        String date = cell.getDateCellValue().toString();
+                                        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy",Locale.US);
+                                        Date d=sdf.parse(date);
+                                        sdf=new SimpleDateFormat("yyyyMMdd");
+                                        setField.invoke(obj, String.valueOf(sdf.format(d)));
+                                    } else {
+                                        setField.invoke(obj, String.valueOf(cell.getNumericCellValue()));
+//                                        if(obj.getClass().getDeclaredField(key).getType().equals("float")){
+//                                            setField.invoke(obj, (float)cell.getNumericCellValue());
+//                                        }else if(obj.getClass().getDeclaredField(key).getType().equals("long")){
+//                                            setField.invoke(obj, (long)cell.getNumericCellValue());
+//                                        }else{
+//                                            setField.invoke(obj, String.valueOf(cell.getNumericCellValue()));
+//                                        }
                                     }
-                                    //System.out.println("number value  "+ cell.getNumericCellValue());
-                                   // System.out.println("反射类型  "+ obj.getClass().getDeclaredField(key).getType());
-                                    //setField.invoke(obj, cell.getNumericCellValue());
-                                }
-                                break;
-                            case Cell.CELL_TYPE_BOOLEAN:
-                                setField.invoke(obj, cell.getBooleanCellValue());
-                                break;
-                            case Cell.CELL_TYPE_FORMULA:
-                                setField.invoke(obj, cell.getCellFormula());
-                                break;
-                            default:
-                               // System.out.println("default date value  "+ cell.getRichStringCellValue().getString());
-                               // System.out.println("反射类型  "+ obj.getClass().getDeclaredField(key).getType());
-                                setField.invoke(obj, cell.getRichStringCellValue().getString());
+                                    break;
+                                case Cell.CELL_TYPE_BOOLEAN:
+                                    setField.invoke(obj, String.valueOf(cell.getNumericCellValue()));
+                                    break;
+                                case Cell.CELL_TYPE_FORMULA:
+                                    setField.invoke(obj, String.valueOf(cell.getCellFormula()));
+//                                    setField.invoke(obj, cell.getCellFormula());
+                                    break;
+                                default:
+                                    setField.invoke(obj, cell.getRichStringCellValue().getString());
+                            }
                         }
 
-//                        CellType type = cell.getCellTypeEnum();
-//                        if (type == CellType.STRING) {
-//                            setField.invoke(obj, cell.getRichStringCellValue().toString());
-//                        } else if (type == CellType.NUMERIC) {
-//                            System.out.println("number type "+cell.getNumericCellValue());
-//                            setField.invoke(obj, cell.getNumericCellValue());
-//                        } else if (type == CellType.BOOLEAN) {
-//                            setField.invoke(obj, cell.getBooleanCellValue());
-//                        } else {
-//                            setField.invoke(obj, cell.getRichStringCellValue().getString());
-//                        }
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
