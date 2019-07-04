@@ -1,5 +1,6 @@
 package dao;
 
+import dimensionScored.DDriversScored;
 import entity.*;
 import org.apache.ibatis.annotations.Param;
 
@@ -33,5 +34,9 @@ public interface Mapper {
     int addTraits(Traits traits);
 
     List<Drivers> getAllDrivers();
+
+    List<Drivers> getJoinedDrivers();
+
+    int addDriversScored(DDriversScored dDriversScored);
 }
 

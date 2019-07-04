@@ -80,6 +80,15 @@
     <select id="getAllDrivers" resultType="entity.Drivers">
         select * from drivers
     </select>
+
+    <select id="getJoinedDrivers" resultType="entity.Drivers">
+        select c.wwid, d.balance,d.challenge,d.collaboration,d.independence,d.power,d.structure from compensation as c left join drivers as d on c.wwid = d.wwid
+    </select>
+
+    <insert id="addDriversScored" parameterType="dimensionScored.DDriversScored" useGeneratedKeys="true" keyProperty="id">
+        insert into drivers_score(wwid, balance,challenge,collaboration,independence,power,structure,result) values(#{wwid}, #{balance},#{challenge},#{collaboration},#{independence},#{power},#{structure},#{result})
+    </insert>
+
 </mapper>
 
 

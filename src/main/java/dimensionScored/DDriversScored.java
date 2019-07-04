@@ -26,12 +26,15 @@ public class DDriversScored {
     }
 
     private void sumUp() {
-        this.result = this.balance
-                + this.challenge
-                + this.collaboration
-                + this.independence
-                + this.power
-                + this.structure;
+        if(balance != null&&challenge != null&&collaboration != null&&independence != null&&power != null&&power != null){
+            this.result = this.balance
+                    + this.challenge
+                    + this.collaboration
+                    + this.independence
+                    + this.power
+                    + this.power;
+        }
+
     }
 
     public String getWwid() {

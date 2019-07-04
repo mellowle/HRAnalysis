@@ -4,22 +4,27 @@ import com.google.common.collect.Lists;
 import dao.Mapper;
 import dimensionRawData.DDrivers;
 import dimensionScored.DDriversScored;
+import entity.Compensation;
 import entity.Drivers;
 import org.apache.ibatis.session.SqlSession;
+import table.DriversColMapping;
 import util.DataConnection;
 import util.KF4DScoreFunctionUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class DriversDimensionScoreService {
 
     public static DataConnection dataConn = new DataConnection();
     public static Mapper mapper = null;
     public static SqlSession sqlSession;
+    public static String tableName = DriversColMapping.TABLE_NAME_SCORED;
 
-    static
-    {
+    static {
         try {
             sqlSession = dataConn.getSqlSession();
             mapper = sqlSession.getMapper(Mapper.class);
@@ -31,17 +36,17 @@ public class DriversDimensionScoreService {
     public static List<DDriversScored> getDriversScores() {
 
 
-
         List<DDriversScored> dDriversScoredList = Lists.newArrayList();
 
         // TODO get DExperiences from DB and replace
         // transfer from string to it
-        try{
+        try {
             List<DDrivers> dDriversList = Lists.newArrayList();
-            List<Drivers> driversList =  mapper.getAllDrivers();
+            //
+            List<Drivers> driversList = mapper.getJoinedDrivers();
             sqlSession.commit();
             driversList.forEach(drivers -> {
-                DDrivers dDrivers = new DDrivers(drivers.getWwid(),drivers.getBalance(),drivers.getChallenge(),drivers.getCollaboration(),drivers.getIndependence(),drivers.getPower(),drivers.getStructure());
+                DDrivers dDrivers = new DDrivers(drivers.getWwid(), drivers.getBalance(), drivers.getChallenge(), drivers.getCollaboration(), drivers.getIndependence(), drivers.getPower(), drivers.getStructure());
                 dDriversList.add(dDrivers);
             });
 
@@ -52,20 +57,71 @@ public class DriversDimensionScoreService {
                 System.out.println(dTraitsScored.getResult());
             }
             return dDriversScoredList;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
 
     }
 
+    public static void generateScoreTable() {
+        //create table
+        if (isExisted()) {
+            dropTable();
+        }
+        createTable();
+
+        //get list
+        List<DDriversScored> dDriversScoreds = getDriversScores();
+        insertRecords(dDriversScoreds);
 
 
-    public static void main(String args[]){
+    }
 
-        getDriversScores();
+    public static void main(String args[]) {
+
+        generateScoreTable();
 
 //        String balance = "4.0";
 //        System.out.println(Double.valueOf(balance).intValue());
     }
+
+    //create table
+    public static void createTable() {
+        mapper.createTable(tableName, generateColList(DriversColMapping.COLUMN_MAPPING_SCORED));
+    }
+
+    //通过map,生成数据库列
+    private static List<Map<String, String>> generateColList(Map<String, String> map) {
+        List<Map<String, String>> cols = new LinkedList<>();
+        map.forEach((col, v) -> {
+            Map<String, String> colMap = new HashMap<>();
+            colMap.put("code", col);
+            colMap.put("type", "STRING");
+            colMap.put("length", "500");
+            cols.add(colMap);
+        });
+        return cols;
+    }
+
+    public static boolean isExisted() {
+        return mapper.isTableExist(tableName) == 0 ? false : true;
+    }
+
+    //drop table
+    public static void dropTable() {
+        mapper.deleteTable(tableName);
+    }
+
+    public static void insertRecords(List<DDriversScored> req) {
+        try {
+            req.forEach(dDriversScored -> {
+                mapper.addDriversScored(dDriversScored);
+                sqlSession.commit();
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
