@@ -2,19 +2,21 @@ package adapter;
 
 import com.google.gson.Gson;
 import entity.EmployeeDemographics;
+import entity.PerformanceRating;
 import table.EmployeeDemographicsColMapping;
+import table.PerformanceRatingColMapping;
 
 import java.util.List;
 
-public class EmployeeDemographicsAdapter extends Adapter {
+public class EmployeePerformanceRatingsAdapter extends Adapter {
     @Override
     void setMapping() {
-        this.COLUMN_MAPPING = EmployeeDemographicsColMapping.COLUMN_MAPPING;
+        this.COLUMN_MAPPING = PerformanceRatingColMapping.COLUMN_MAPPING;
     }
 
     @Override
     void setTableName() {
-        this.tableName = EmployeeDemographicsColMapping.TABLE_NAME;
+        this.tableName = PerformanceRatingColMapping.TABLE_NAME;
     }
 
     //insert data
@@ -24,14 +26,14 @@ public class EmployeeDemographicsAdapter extends Adapter {
     }
 
     public static void main(String[] args) {
-        EmployeeDemographicsAdapter employeeDemographicsAdapter = new EmployeeDemographicsAdapter();
-        employeeDemographicsAdapter.init();
+        EmployeePerformanceRatingsAdapter employeePerformanceRatingsAdapter = new EmployeePerformanceRatingsAdapter();
+        employeePerformanceRatingsAdapter.init();
 //        if(employeeDemographicsAdapter.isExisted()){
 //            employeeDemographicsAdapter.dropTable();
 //        }
 //        employeeDemographicsAdapter.createTable();
-        String path = "/Users/xyang137/Documents/MergedEmployeeDemographics.xlsx";
-        List<EmployeeDemographics> res = employeeDemographicsAdapter.generateExcel(EmployeeDemographics.class,path);
+        String path = "/Users/xyang137/Documents/MergedEmployeePerformanceRatings.xlsx";
+        List<PerformanceRating> res = employeePerformanceRatingsAdapter.generateExcel(PerformanceRating.class,path);
         Gson gson = new Gson();
         System.out.println("list size======"+ gson.toJson(res));
     }
