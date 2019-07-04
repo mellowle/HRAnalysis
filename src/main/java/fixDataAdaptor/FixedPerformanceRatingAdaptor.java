@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class PerformanceRatingAdaptor {
+public class FixedPerformanceRatingAdaptor {
 
     public static List<FixedPerformanceRating> getFixedPerformanceRating() {
         //TODO get performance rating raw data from DB and replace

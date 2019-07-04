@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class WorkChangeHistoryAdapter {
+public class FixedWorkChangeHistoryAdapter {
 
     public static List<FixedWorkChangeHistory> getFixedWorkChangeHistoryList() {
         //TODO: get work change history from DB and replace below
