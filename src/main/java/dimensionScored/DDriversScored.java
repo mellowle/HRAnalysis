@@ -1,14 +1,38 @@
 package dimensionScored;
 
+import java.util.Map;
+
 public class DDriversScored {
     private String wwid;
-    private double balance;
-    private double challenge;
-    private double collaboration;
-    private double independence;
-    private double power;
-    private double structure;
-    private double result;
+    private Double balance;
+    private Double challenge;
+    private Double collaboration;
+    private Double independence;
+    private Double power;
+    private Double structure;
+    private Double result;
+
+    public DDriversScored(String wwid, Map<String, Double> drivers) {
+        this.wwid = wwid;
+        this.balance = drivers.get("balance");
+        this.challenge = drivers.get("challenge");
+        this.collaboration = drivers.get("collaboration");
+        this.independence = drivers.get("independence");
+        this.power = drivers.get("power");
+        this.structure = drivers.get("structure");
+
+        sumUp();
+
+    }
+
+    private void sumUp() {
+        this.result = this.balance
+                + this.challenge
+                + this.collaboration
+                + this.independence
+                + this.power
+                + this.structure;
+    }
 
     public String getWwid() {
         return wwid;
@@ -18,59 +42,59 @@ public class DDriversScored {
         this.wwid = wwid;
     }
 
-    public double getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
 
-    public double getChallenge() {
+    public Double getChallenge() {
         return challenge;
     }
 
-    public void setChallenge(double challenge) {
+    public void setChallenge(Double challenge) {
         this.challenge = challenge;
     }
 
-    public double getCollaboration() {
+    public Double getCollaboration() {
         return collaboration;
     }
 
-    public void setCollaboration(double collaboration) {
+    public void setCollaboration(Double collaboration) {
         this.collaboration = collaboration;
     }
 
-    public double getIndependence() {
+    public Double getIndependence() {
         return independence;
     }
 
-    public void setIndependence(double independence) {
+    public void setIndependence(Double independence) {
         this.independence = independence;
     }
 
-    public double getPower() {
+    public Double getPower() {
         return power;
     }
 
-    public void setPower(double power) {
+    public void setPower(Double power) {
         this.power = power;
     }
 
-    public double getStructure() {
+    public Double getStructure() {
         return structure;
     }
 
-    public void setStructure(double structure) {
+    public void setStructure(Double structure) {
         this.structure = structure;
     }
 
-    public double getResult() {
+    public Double getResult() {
         return result;
     }
 
-    public void setResult(double result) {
+    public void setResult(Double result) {
         this.result = result;
     }
 }

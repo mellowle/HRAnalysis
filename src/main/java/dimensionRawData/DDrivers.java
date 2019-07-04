@@ -5,12 +5,12 @@ import java.util.Map;
 
 public class DDrivers {
     private String wwid;
-    private int balance;
-    private int challenge;
-    private int collaboration;
-    private int independence;
-    private int power;
-    private int structure;
+    private Integer balance;
+    private Integer challenge;
+    private Integer collaboration;
+    private Integer independence;
+    private Integer power;
+    private Integer structure;
 
     public Map<String, Integer> getDrivers() {
         Map<String, Integer> result = new HashMap<>();
@@ -31,51 +31,51 @@ public class DDrivers {
         this.wwid = wwid;
     }
 
-    public int getBalance() {
+    public Integer getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(Integer balance) {
         this.balance = balance;
     }
 
-    public int getChallenge() {
+    public Integer getChallenge() {
         return challenge;
     }
 
-    public void setChallenge(int challenge) {
+    public void setChallenge(Integer challenge) {
         this.challenge = challenge;
     }
 
-    public int getCollaboration() {
+    public Integer getCollaboration() {
         return collaboration;
     }
 
-    public void setCollaboration(int collaboration) {
+    public void setCollaboration(Integer collaboration) {
         this.collaboration = collaboration;
     }
 
-    public int getIndependence() {
+    public Integer getIndependence() {
         return independence;
     }
 
-    public void setIndependence(int independence) {
+    public void setIndependence(Integer independence) {
         this.independence = independence;
     }
 
-    public int getPower() {
+    public Integer getPower() {
         return power;
     }
 
-    public void setPower(int power) {
+    public void setPower(Integer power) {
         this.power = power;
     }
 
-    public int getStructure() {
+    public Integer getStructure() {
         return structure;
     }
 
-    public void setStructure(int structure) {
+    public void setStructure(Integer structure) {
         this.structure = structure;
     }
 }
