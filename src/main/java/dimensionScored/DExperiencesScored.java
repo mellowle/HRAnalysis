@@ -2,36 +2,36 @@ package dimensionScored;
 
 public class DExperiencesScored {
     private String wwid;
-    private int isMBA;
-    private int teamSize;
-    private double performance2016;
-    private double performance2017;
-    private double performance2018;
-    private int bonusIncrement20162017;
-    private int bonusIncrement20172018;
+    private Integer isMBA;
+    private Integer teamSize;
+    private Double performance2016;
+    private Double performance2017;
+    private Double performance2018;
+    private Integer bonusIncrement20162017;
+    private Integer bonusIncrement20172018;
 
-    private int functionMovements;
-    private int lateralMovements;
-    private int promotions;
-    private int reginMovements;
-    private int countryMovements;
-    private int sectorMovements;
+    private Integer functionMovements;
+    private Integer lateralMovements;
+    private Integer promotions;
+    private Integer reginMovements;
+    private Integer countryMovements;
+    private Integer sectorMovements;
 
-    private int roleNumberExternal;
-    private int lengthOfServiceExternal;
+    private Integer roleNumberExternal;
+    private Integer lengthOfServiceExternal;
 
-    private int roleNumberRanking;
-    private int totalWorkingYearRanking;
-    private int averageDurationOfEachRoleRanking;
+    private Integer roleNumberRanking;
+    private Integer totalWorkingYearRanking;
+    private Integer averageDurationOfEachRoleRanking;
 
-    private int hierarchy2Alex;
+    private Integer hierarchy2Alex;
 
-    private int performanceComments2018;
-    private int stakeholderFeedback;
+    private Double performanceComments2018;
+    private Double stakeholderFeedback;
 
-    private float dataCompleteness;
+    private Double dataCompleteness;
 
-    private int result;
+    private Double result;
 
     public String getWwid() {
         return wwid;
@@ -41,187 +41,187 @@ public class DExperiencesScored {
         this.wwid = wwid;
     }
 
-    public int getIsMBA() {
+    public Integer getIsMBA() {
         return isMBA;
     }
 
-    public void setIsMBA(int isMBA) {
+    public void setIsMBA(Integer isMBA) {
         this.isMBA = isMBA;
     }
 
-    public int getTeamSize() {
+    public Integer getTeamSize() {
         return teamSize;
     }
 
-    public void setTeamSize(int teamSize) {
+    public void setTeamSize(Integer teamSize) {
         this.teamSize = teamSize;
     }
 
-    public double getPerformance2016() {
+    public Double getPerformance2016() {
         return performance2016;
     }
 
-    public void setPerformance2016(double performance2016) {
+    public void setPerformance2016(Double performance2016) {
         this.performance2016 = performance2016;
     }
 
-    public double getPerformance2017() {
+    public Double getPerformance2017() {
         return performance2017;
     }
 
-    public void setPerformance2017(double performance2017) {
+    public void setPerformance2017(Double performance2017) {
         this.performance2017 = performance2017;
     }
 
-    public double getPerformance2018() {
+    public Double getPerformance2018() {
         return performance2018;
     }
 
-    public void setPerformance2018(double performance2018) {
+    public void setPerformance2018(Double performance2018) {
         this.performance2018 = performance2018;
     }
 
-    public int getBonusIncrement20162017() {
+    public Integer getBonusIncrement20162017() {
         return bonusIncrement20162017;
     }
 
-    public void setBonusIncrement20162017(int bonusIncrement20162017) {
+    public void setBonusIncrement20162017(Integer bonusIncrement20162017) {
         this.bonusIncrement20162017 = bonusIncrement20162017;
     }
 
-    public int getBonusIncrement20172018() {
+    public Integer getBonusIncrement20172018() {
         return bonusIncrement20172018;
     }
 
-    public void setBonusIncrement20172018(int bonusIncrement20172018) {
+    public void setBonusIncrement20172018(Integer bonusIncrement20172018) {
         this.bonusIncrement20172018 = bonusIncrement20172018;
     }
 
-    public int getFunctionMovements() {
+    public Integer getFunctionMovements() {
         return functionMovements;
     }
 
-    public void setFunctionMovements(int functionMovements) {
+    public void setFunctionMovements(Integer functionMovements) {
         this.functionMovements = functionMovements;
     }
 
-    public int getLateralMovements() {
+    public Integer getLateralMovements() {
         return lateralMovements;
     }
 
-    public void setLateralMovements(int lateralMovements) {
+    public void setLateralMovements(Integer lateralMovements) {
         this.lateralMovements = lateralMovements;
     }
 
-    public int getPromotions() {
+    public Integer getPromotions() {
         return promotions;
     }
 
-    public void setPromotions(int promotions) {
+    public void setPromotions(Integer promotions) {
         this.promotions = promotions;
     }
 
-    public int getReginMovements() {
+    public Integer getReginMovements() {
         return reginMovements;
     }
 
-    public void setReginMovements(int reginMovements) {
+    public void setReginMovements(Integer reginMovements) {
         this.reginMovements = reginMovements;
     }
 
-    public int getCountryMovements() {
+    public Integer getCountryMovements() {
         return countryMovements;
     }
 
-    public void setCountryMovements(int countryMovements) {
+    public void setCountryMovements(Integer countryMovements) {
         this.countryMovements = countryMovements;
     }
 
-    public int getSectorMovements() {
+    public Integer getSectorMovements() {
         return sectorMovements;
     }
 
-    public void setSectorMovements(int sectorMovements) {
+    public void setSectorMovements(Integer sectorMovements) {
         this.sectorMovements = sectorMovements;
     }
 
-    public int getRoleNumberExternal() {
+    public Integer getRoleNumberExternal() {
         return roleNumberExternal;
     }
 
-    public void setRoleNumberExternal(int roleNumberExternal) {
+    public void setRoleNumberExternal(Integer roleNumberExternal) {
         this.roleNumberExternal = roleNumberExternal;
     }
 
-    public int getLengthOfServiceExternal() {
+    public Integer getLengthOfServiceExternal() {
         return lengthOfServiceExternal;
     }
 
-    public void setLengthOfServiceExternal(int lengthOfServiceExternal) {
+    public void setLengthOfServiceExternal(Integer lengthOfServiceExternal) {
         this.lengthOfServiceExternal = lengthOfServiceExternal;
     }
 
-    public int getRoleNumberRanking() {
+    public Integer getRoleNumberRanking() {
         return roleNumberRanking;
     }
 
-    public void setRoleNumberRanking(int roleNumberRanking) {
+    public void setRoleNumberRanking(Integer roleNumberRanking) {
         this.roleNumberRanking = roleNumberRanking;
     }
 
-    public int getTotalWorkingYearRanking() {
+    public Integer getTotalWorkingYearRanking() {
         return totalWorkingYearRanking;
     }
 
-    public void setTotalWorkingYearRanking(int totalWorkingYearRanking) {
+    public void setTotalWorkingYearRanking(Integer totalWorkingYearRanking) {
         this.totalWorkingYearRanking = totalWorkingYearRanking;
     }
 
-    public int getAverageDurationOfEachRoleRanking() {
+    public Integer getAverageDurationOfEachRoleRanking() {
         return averageDurationOfEachRoleRanking;
     }
 
-    public void setAverageDurationOfEachRoleRanking(int averageDurationOfEachRoleRanking) {
+    public void setAverageDurationOfEachRoleRanking(Integer averageDurationOfEachRoleRanking) {
         this.averageDurationOfEachRoleRanking = averageDurationOfEachRoleRanking;
     }
 
-    public int getHierarchy2Alex() {
+    public Integer getHierarchy2Alex() {
         return hierarchy2Alex;
     }
 
-    public void setHierarchy2Alex(int hierarchy2Alex) {
+    public void setHierarchy2Alex(Integer hierarchy2Alex) {
         this.hierarchy2Alex = hierarchy2Alex;
     }
 
-    public int getPerformanceComments2018() {
+    public Double getPerformanceComments2018() {
         return performanceComments2018;
     }
 
-    public void setPerformanceComments2018(int performanceComments2018) {
+    public void setPerformanceComments2018(Double performanceComments2018) {
         this.performanceComments2018 = performanceComments2018;
     }
 
-    public int getStakeholderFeedback() {
+    public Double getStakeholderFeedback() {
         return stakeholderFeedback;
     }
 
-    public void setStakeholderFeedback(int stakeholderFeedback) {
+    public void setStakeholderFeedback(Double stakeholderFeedback) {
         this.stakeholderFeedback = stakeholderFeedback;
     }
 
-    public float getDataCompleteness() {
+    public Double getDataCompleteness() {
         return dataCompleteness;
     }
 
-    public void setDataCompleteness(float dataCompleteness) {
+    public void setDataCompleteness(Double dataCompleteness) {
         this.dataCompleteness = dataCompleteness;
     }
 
-    public int getResult() {
+    public Double getResult() {
         return result;
     }
 
-    public void setResult(int result) {
+    public void setResult(Double result) {
         this.result = result;
     }
 }

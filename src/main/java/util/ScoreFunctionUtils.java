@@ -53,16 +53,16 @@ public class ScoreFunctionUtils {
         }
     }
 
-    public static double year2017BaseIncrementScore(double baseIncrement2017, double averageBaseIncrement2017) {
-        if (baseIncrement2017 > averageBaseIncrement2017) {
+    public static int year2017BonusIncrementScore(double bonusIncrement2017, double averageBaseIncrement2017) {
+        if (bonusIncrement2017 > averageBaseIncrement2017) {
             return 2;
         }
 
         return 0;
     }
 
-    public static double year2018BaseIncrementScore(double baseIncrement2018, double averageBaseIncrement2018) {
-        if (baseIncrement2018 > averageBaseIncrement2018) {
+    public static int year2018BonusIncrementScore(double bonusIncrement2018, double averageBaseIncrement2018) {
+        if (bonusIncrement2018 > averageBaseIncrement2018) {
             return 2;
         }
 
