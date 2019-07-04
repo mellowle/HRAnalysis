@@ -49,6 +49,8 @@ public class CompetenciesAdapter {
             fixedCompetencies.setSituational_adaptability(Integer.parseInt(competencies.getSituational_adaptability()));
             fixedCompetencies.setStrategic_mindset(Integer.parseInt(competencies.getStrategic_mindset()));
             fixedCompetencies.setValues_differences(Integer.parseInt(competencies.getValues_differences()));
+
+            fixedCompetenciesList.add(fixedCompetencies);
         });
 
         return fixedCompetenciesList;

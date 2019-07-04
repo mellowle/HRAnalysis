@@ -9,19 +9,24 @@ import table.ManagementChainColMapping;
 import java.util.List;
 
 public class ManagementChainAdapter extends Adapter {
-    @Override
+//    @Override
     void setMapping() {
         this.COLUMN_MAPPING = ManagementChainColMapping.COLUMN_MAPPING;
     }
 
-    @Override
+//    @Override
     void setTableName() {
         this.tableName = ManagementChainColMapping.TABLE_NAME;
     }
 
     //insert data
-    @Override
+//    @Override
     void insertRecords() {
+
+    }
+
+    @Override
+    void generateRawTable() {
 
     }
 
