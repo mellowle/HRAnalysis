@@ -1,6 +1,6 @@
 package KF4DConstants;
 
-public class KF4DConstants {
+public class CompetenciesConstants {
     public static final double WEIGHT_MISSION_CRITICAL = 0.5;
     public static final double WEIGHT_CRITICAL = 0.3;
     public static final double WEIGHT_LESS_CRITICAL = 0.2;
