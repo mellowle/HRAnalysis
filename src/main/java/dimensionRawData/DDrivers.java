@@ -15,12 +15,12 @@ public class DDrivers {
     public DDrivers(String wwid, String balance, String challenge, String collaboration, String independence,
                     String power, String structure) {
         this.wwid = wwid;
-        this.balance = balance == null ? null : Integer.valueOf(balance);
-        this.challenge = challenge == null ? null : Integer.valueOf(challenge);
-        this.collaboration = collaboration == null ? null : Integer.valueOf(collaboration);
-        this.independence = independence == null ? null : Integer.valueOf(independence);
-        this.power = power == null ? null : Integer.valueOf(power);
-        this.structure = structure == null ? null : Integer.valueOf(structure);
+        this.balance = balance == null ? null : Double.valueOf(balance).intValue();
+        this.challenge = challenge == null ? null : Double.valueOf(challenge).intValue();
+        this.collaboration = collaboration == null ? null : Double.valueOf(collaboration).intValue();
+        this.independence = independence == null ? null : Double.valueOf(independence).intValue();
+        this.power = power == null ? null : Double.valueOf(power).intValue();
+        this.structure = structure == null ? null : Double.valueOf(structure).intValue();
     }
 
     public Map<String, Integer> getDrivers() {
