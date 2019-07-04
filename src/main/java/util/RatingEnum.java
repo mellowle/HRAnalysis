@@ -1,4 +1,4 @@
-package constants;
+package util;
 
 public enum RatingEnum {
     EXCEEDS_EXCEEDS("Exceeds / Exceeds", 4),

@@ -1,5 +1,8 @@
 package dimensionRawData;
 
+import dimensionScored.DCompetenciesScored;
+import util.KF4DScoreFunctionUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,5 +1,8 @@
 package dimensionRawData;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DDrivers {
     private String wwid;
     private int balance;
@@ -8,6 +11,17 @@ public class DDrivers {
     private int independence;
     private int power;
     private int structure;
+
+    public Map<String, Integer> getDrivers() {
+        Map<String, Integer> result = new HashMap<>();
+        result.put("balance", this.balance);
+        result.put("challenge", this.challenge);
+        result.put("collaboration", this.collaboration);
+        result.put("independence", this.independence);
+        result.put("power", this.power);
+        result.put("structure", this.structure);
+        return result;
+    }
 
     public String getWwid() {
         return wwid;
