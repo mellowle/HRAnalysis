@@ -1,4 +1,4 @@
-package KF4DConstants;
+package Constants.KF4DConstants;
 
 public class CompetenciesConstants {
     public static final double WEIGHT_MISSION_CRITICAL = 0.5;

@@ -1,8 +1,8 @@
 package util;
 
-import KF4DConstants.CompetenciesConstants;
-import KF4DConstants.DriversConstants;
-import KF4DConstants.TraitsConstants;
+import Constants.KF4DConstants.CompetenciesConstants;
+import Constants.KF4DConstants.DriversConstants;
+import Constants.KF4DConstants.TraitsConstants;
 
 import java.util.HashMap;
 import java.util.Map;

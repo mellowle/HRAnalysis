@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class DriversColMapping {
     public final static String TABLE_NAME = "drivers";
-    public final static String TABLE_NAME_SCORED = "drivers_score";
+    public final static String TABLE_NAME_SCORED = "dimension_drivers_score";
     public static Map<String, String> COLUMN_MAPPING;
     public static Map<String, String> COLUMN_MAPPING_SCORED;
 

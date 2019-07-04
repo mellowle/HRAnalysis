@@ -1,4 +1,4 @@
-package util;
+package Constants.ExperiencesConstants;
 
 public class Constants {
     public static final String MBA = "Master of Business Administration (MBA)";

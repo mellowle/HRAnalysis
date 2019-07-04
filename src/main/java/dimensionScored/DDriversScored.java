@@ -22,17 +22,19 @@ public class DDriversScored {
         this.structure = drivers.get("structure");
 
         sumUp();
-
     }
 
     private void sumUp() {
-        if(balance != null&&challenge != null&&collaboration != null&&independence != null&&power != null&&power != null){
+        if (balance != null) {
             this.result = this.balance
                     + this.challenge
                     + this.collaboration
                     + this.independence
                     + this.power
                     + this.power;
+        }
+        else {
+            this.result = null;
         }
 
     }

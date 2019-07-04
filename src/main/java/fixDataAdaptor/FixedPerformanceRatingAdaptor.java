@@ -1,7 +1,7 @@
 package fixDataAdaptor;
 
 import com.google.common.collect.Lists;
-import constants.Constants;
+import Constants.ExperiencesConstants.Constants;
 import entity.PerformanceRating;
 import fixedEntity.FixedPerformanceRating;
 

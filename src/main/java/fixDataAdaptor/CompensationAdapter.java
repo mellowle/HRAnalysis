@@ -1,18 +1,10 @@
 package fixDataAdaptor;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
-import constants.Constants;
 import entity.Compensation;
-import entity.WorkChangeHistory;
 import fixedEntity.FixedCompensation;
-import fixedEntity.FixedWorkChangeHistory;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class CompensationAdapter {
 

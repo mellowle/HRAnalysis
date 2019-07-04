@@ -86,7 +86,29 @@
     </select>
 
     <insert id="addDriversScored" parameterType="dimensionScored.DDriversScored" useGeneratedKeys="true" keyProperty="id">
-        insert into drivers_score(wwid, balance,challenge,collaboration,independence,power,structure,result) values(#{wwid}, #{balance},#{challenge},#{collaboration},#{independence},#{power},#{structure},#{result})
+        insert into dimension_drivers_score(wwid, balance,challenge,collaboration,independence,power,structure,result) values(#{wwid}, #{balance},#{challenge},#{collaboration},#{independence},#{power},#{structure},#{result})
+    </insert>
+
+    <select id="getJoinedCompetencies" resultType="entity.Competencies">
+        select c.wwid, d.optimizes_work_processes, d.plans_and_aligns, d.being_resilient, d.strategic_mindset, d.courage, d.decision_quality, d.drives_results, d.action_oriented, d.collaborates, d.instills_trust, d.global_perspective, d.develops_talent, d.interpersonal_savvy, d.ensures_accountability, d.manages_ambiguity, d.situational_adaptability, d.self_development, d.customer_focus, d.nimble_learning, d.resourcefulness, d.builds_networks, d.balances_stakeholders, d.manages_conflict, d.drives_engagement, d.communicates_effectively, d.persuades, d.cultivates_innovation, d.directs_work, d.builds_effective_teams, d.values_differences from compensation as c left join competencies as d on c.wwid = d.wwid
+    </select>
+
+    <insert id="addCompetenciesScored" parameterType="dimensionScored.DCompetenciesScored" useGeneratedKeys="true" keyProperty="id">
+        insert into dimension_competencies_score
+        (wwid, action_oriented, balances_stakeholders, being_resilient, builds_effective_teams, builds_networks, collaborates, communicates_effectively, courage, cultivates_innovation, customer_focus, decision_quality, develops_talent, directs_work, drives_engagement, drives_results, ensures_accountability, global_perspective, instills_trust, interpersonal_savvy, manages_ambiguity, manages_conflict, nimble_learning, optimizes_work_processes, persuades, plans_and_aligns, resourcefulness, self_development, situational_adaptability, strategic_mindset, values_differences, result)
+        values
+        (#{wwid}, #{action_oriented}, #{balances_stakeholders}, #{being_resilient}, #{builds_effective_teams}, #{builds_networks}, #{collaborates}, #{communicates_effectively}, #{courage}, #{cultivates_innovation}, #{customer_focus}, #{decision_quality}, #{develops_talent}, #{directs_work}, #{drives_engagement}, #{drives_results}, #{ensures_accountability}, #{global_perspective}, #{instills_trust}, #{interpersonal_savvy}, #{manages_ambiguity}, #{manages_conflict}, #{nimble_learning}, #{optimizes_work_processes}, #{persuades}, #{plans_and_aligns}, #{resourcefulness}, #{self_development}, #{situational_adaptability}, #{strategic_mindset}, #{values_differences}, #{result})
+    </insert>
+
+    <select id="getJoinedTraits" resultType="entity.Traits">
+        select c.wwid, d.trust, d.empathy, d.need_for_achievement, d.composure, d.curiosity, d.optimism, d.humility, d.confidence, d.focus, d.openness_to_differences, d.risk_taking, d.adaptability, d.wwid, d.situational_self_awareness, d.influence, d.sociability, d.affiliation, d.persistence, d.credibility, d.tolerance_of_ambiguity, d.assertiveness from compensation as c left join traits as d on c.wwid = d.wwid
+    </select>
+
+    <insert id="addTraitsScored" parameterType="dimensionScored.DTraitsScored" useGeneratedKeys="true" keyProperty="id">
+        insert into dimension_traits_score
+        (trust, empathy, need_for_achievement, composure, curiosity, optimism, humility, confidence, focus, openness_to_differences, risk_taking, adaptability, wwid, situational_self_awareness, influence, sociability, result, affiliation, persistence, credibility, tolerance_of_ambiguity, assertiveness)
+        values
+        (#{trust}, #{empathy}, #{need_for_achievement}, #{composure}, #{curiosity}, #{optimism}, #{humility}, #{confidence}, #{focus}, #{openness_to_differences}, #{risk_taking}, #{adaptability}, #{wwid}, #{situational_self_awareness}, #{influence}, #{sociability}, #{result}, #{affiliation}, #{persistence}, #{credibility}, #{tolerance_of_ambiguity}, #{assertiveness})
     </insert>
 
 </mapper>

@@ -7,7 +7,7 @@ import util.RatingEnum;
 import util.ScoreFunctionUtils;
 
 import java.util.List;
-import util.Constants;
+import Constants.ExperiencesConstants.Constants;
 
 public class ExperienceDimensionScoreService {
 

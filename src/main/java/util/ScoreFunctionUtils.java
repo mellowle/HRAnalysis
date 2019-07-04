@@ -1,7 +1,6 @@
 package util;
 
-import constants.Constants;
-import util.RatingEnum;
+import Constants.ExperiencesConstants.Constants;
 
 public class ScoreFunctionUtils {
 

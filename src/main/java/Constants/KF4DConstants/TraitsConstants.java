@@ -1,4 +1,4 @@
-package KF4DConstants;
+package Constants.KF4DConstants;
 
 public class TraitsConstants {
 
