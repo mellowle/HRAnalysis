@@ -28,8 +28,12 @@ public class DExperiences {
 
     private int numberOfJNJRoles;
     private int averageTimeOfJNJRoles;
+    private double externalLengthOfService;
     private int numberOfExternalRoles;
     private int averageTimeOfExternalRoles;
+    private int totalRoleNumber;
+    private int totalWorkingYears;
+    private double averageTimeOfEachRole;
 
     private int hierarchy2Alex;
 
@@ -215,5 +219,37 @@ public class DExperiences {
 
     public void setHierarchy2Alex(int hierarchy2Alex) {
         this.hierarchy2Alex = hierarchy2Alex;
+    }
+
+    public double getExternalLengthOfService() {
+        return externalLengthOfService;
+    }
+
+    public void setExternalLengthOfService(double externalLengthOfService) {
+        this.externalLengthOfService = externalLengthOfService;
+    }
+
+    public int getTotalRoleNumber() {
+        return totalRoleNumber;
+    }
+
+    public void setTotalRoleNumber(int totalRoleNumber) {
+        this.totalRoleNumber = totalRoleNumber;
+    }
+
+    public int getTotalWorkingYears() {
+        return totalWorkingYears;
+    }
+
+    public void setTotalWorkingYears(int totalWorkingYears) {
+        this.totalWorkingYears = totalWorkingYears;
+    }
+
+    public double getAverageTimeOfEachRole() {
+        return averageTimeOfEachRole;
+    }
+
+    public void setAverageTimeOfEachRole(double averageTimeOfEachRole) {
+        this.averageTimeOfEachRole = averageTimeOfEachRole;
     }
 }
