@@ -56,7 +56,7 @@ public class CompetenciesAdapter {
         return fixedCompetenciesList;
     }
 
-    public static void main(String[] args) {
+    public static void generateSetters(String[] args) {
         Class clz = FixedCompetencies.class;
         Field[] declaredFields = clz.getDeclaredFields();
         for (Field f : declaredFields){
