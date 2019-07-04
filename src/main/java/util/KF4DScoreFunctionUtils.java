@@ -267,5 +267,5 @@ public class KF4DScoreFunctionUtils {
 
         return result;
     }
-    
+
 }

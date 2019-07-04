@@ -26,6 +26,36 @@ public class DTraits {
     private Integer tolerance_of_ambiguity;
     private Integer trust;
 
+    public DTraits(String wwid, String adaptability, String affiliation, String assertiveness,
+                   String composure, String confidence, String credibility, String curiosity, String empathy,
+                   String focus, String humility, String influence, String need_for_achievement,
+                   String openness_to_differences, String optimism, String persistence, String risk_taking,
+                   String situational_self_awareness, String sociability, String tolerance_of_ambiguity,
+                   String trust) {
+        this.wwid = wwid;
+        this.adaptability = adaptability == null ? null : Double.valueOf(adaptability).intValue();
+        this.affiliation = affiliation == null ? null : Double.valueOf(affiliation).intValue();
+        this.assertiveness = assertiveness == null ? null : Double.valueOf(assertiveness).intValue();
+        this.composure = composure == null ? null : Double.valueOf(composure).intValue();
+        this.confidence = confidence == null ? null : Double.valueOf(confidence).intValue();
+        this.credibility = credibility == null ? null : Double.valueOf(credibility).intValue();
+        this.curiosity = curiosity == null ? null : Double.valueOf(curiosity).intValue();
+        this.empathy = empathy == null ? null : Double.valueOf(empathy).intValue();
+        this.focus = focus == null ? null : Double.valueOf(focus).intValue();
+        this.humility = humility == null ? null : Double.valueOf(humility).intValue();
+        this.influence = influence == null ? null : Double.valueOf(influence).intValue();
+        this.need_for_achievement = need_for_achievement == null ? null : Double.valueOf(need_for_achievement).intValue();
+        this.openness_to_differences = openness_to_differences == null ? null : Double.valueOf(openness_to_differences).intValue();
+        this.optimism = optimism == null ? null : Double.valueOf(optimism).intValue();
+        this.persistence = persistence == null ? null : Double.valueOf(persistence).intValue();
+        this.risk_taking = risk_taking == null ? null : Double.valueOf(risk_taking).intValue();
+        this.situational_self_awareness = situational_self_awareness == null ? null : Double.valueOf(situational_self_awareness).intValue();
+        this.sociability = sociability == null ? null : Double.valueOf(sociability).intValue();
+        this.tolerance_of_ambiguity = tolerance_of_ambiguity == null ? null : Double.valueOf(tolerance_of_ambiguity).intValue();
+        this.trust = trust == null ? null : Double.valueOf(trust).intValue();
+
+    }
+
     public Map<String, Integer> getTraits() {
         Map<String, Integer> result = new HashMap<>();
         result.put("adaptability", this.adaptability);

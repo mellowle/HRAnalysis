@@ -36,6 +36,51 @@ public class DCompetencies {
     private Integer strategic_mindset;
     private Integer values_differences;
 
+    public DCompetencies(String wwid, String action_oriented, String balances_stakeholders,
+                         String being_resilient, String builds_effective_teams, String builds_networks,
+                         String collaborates, String communicates_effectively, String courage,
+                         String cultivates_innovation, String customer_focus, String decision_quality,
+                         String develops_talent, String directs_work, String drives_engagement,
+                         String drives_results, String ensures_accountability, String global_perspective,
+                         String instills_trust, String interpersonal_savvy, String manages_ambiguity,
+                         String manages_conflict, String nimble_learning, String optimizes_work_processes,
+                         String persuades, String plans_and_aligns, String resourcefulness,
+                         String self_development, String situational_adaptability, String strategic_mindset,
+                         String values_differences) {
+        this.wwid = wwid;
+        this.action_oriented = action_oriented == null ? null : Double.valueOf(action_oriented).intValue();
+        this.balances_stakeholders = balances_stakeholders == null ? null : Double.valueOf(balances_stakeholders).intValue();
+        this.being_resilient = being_resilient == null ? null : Double.valueOf(being_resilient).intValue();
+        this.builds_effective_teams = builds_effective_teams == null ? null : Double.valueOf(builds_effective_teams).intValue();
+        this.builds_networks = builds_networks == null ? null : Double.valueOf(builds_networks).intValue();
+        this.collaborates = collaborates == null ? null : Double.valueOf(collaborates).intValue();
+        this.communicates_effectively = communicates_effectively == null ? null : Double.valueOf(communicates_effectively).intValue();
+        this.courage = courage == null ? null : Double.valueOf(courage).intValue();
+        this.cultivates_innovation = cultivates_innovation == null ? null : Double.valueOf(cultivates_innovation).intValue();
+        this.customer_focus = customer_focus == null ? null : Double.valueOf(customer_focus).intValue();
+        this.decision_quality = decision_quality == null ? null : Double.valueOf(decision_quality).intValue();
+        this.develops_talent = develops_talent == null ? null : Double.valueOf(develops_talent).intValue();
+        this.directs_work = directs_work == null ? null : Double.valueOf(directs_work).intValue();
+        this.drives_engagement = drives_engagement == null ? null : Double.valueOf(drives_engagement).intValue();
+        this.drives_results = drives_results == null ? null : Double.valueOf(drives_results).intValue();
+        this.ensures_accountability = ensures_accountability == null ? null : Double.valueOf(ensures_accountability).intValue();
+        this.global_perspective = global_perspective == null ? null : Double.valueOf(global_perspective).intValue();
+        this.instills_trust = instills_trust == null ? null : Double.valueOf(instills_trust).intValue();
+        this.interpersonal_savvy = interpersonal_savvy == null ? null : Double.valueOf(interpersonal_savvy).intValue();
+        this.manages_ambiguity = manages_ambiguity == null ? null : Double.valueOf(manages_ambiguity).intValue();
+        this.manages_conflict = manages_conflict == null ? null : Double.valueOf(manages_conflict).intValue();
+        this.nimble_learning = nimble_learning == null ? null : Double.valueOf(nimble_learning).intValue();
+        this.optimizes_work_processes = optimizes_work_processes == null ? null : Double.valueOf(optimizes_work_processes).intValue();
+        this.persuades = persuades == null ? null : Double.valueOf(persuades).intValue();
+        this.plans_and_aligns = plans_and_aligns == null ? null : Double.valueOf(plans_and_aligns).intValue();
+        this.resourcefulness = resourcefulness == null ? null : Double.valueOf(resourcefulness).intValue();
+        this.self_development = self_development == null ? null : Double.valueOf(self_development).intValue();
+        this.situational_adaptability = situational_adaptability == null ? null : Double.valueOf(situational_adaptability).intValue();
+        this.strategic_mindset = strategic_mindset == null ? null : Double.valueOf(strategic_mindset).intValue();
+        this.values_differences = values_differences == null ? null : Double.valueOf(values_differences).intValue();
+
+    }
+
     public Map<String, Integer> getMissionCritical() {
         Map<String, Integer> result = new HashMap<>();
         result.put("strategic_mindset", this.strategic_mindset);
