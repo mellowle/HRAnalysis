@@ -3,6 +3,8 @@ package service;
 import com.google.common.collect.Lists;
 import dimensionRawData.DExperiences;
 import dimensionScored.DExperiencesScored;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.util.StringUtil;
 import util.RatingEnum;
 import util.ScoreFunctionUtils;
 
@@ -21,9 +23,12 @@ public class ExperienceDimensionScoreService {
             experiencesScored.setWwid(dexperience.getWwid());
             experiencesScored.setIsMBA(ScoreFunctionUtils.isMBAScore(dexperience.getHighestDegreeReceived()));
             experiencesScored.setTeamSize(ScoreFunctionUtils.teamSizeScore(dexperience.getDirectReport()));
-            experiencesScored.setPerformance2016(RatingEnum.getRatingScore(dexperience.getOverallRating2016()));
-            experiencesScored.setPerformance2017(RatingEnum.getRatingScore(dexperience.getOverallRating2017()));
-            experiencesScored.setPerformance2018(RatingEnum.getRatingScore(dexperience.getOverallRating2018()));
+            experiencesScored.setPerformance2016(getPerformanceScore(dexperience.getOverallRating2016(),
+                    dexperience.getOverallRating2017(), dexperience.getOverallRating2018()).getPerformance2016());
+            experiencesScored.setPerformance2017(getPerformanceScore(dexperience.getOverallRating2016(),
+                    dexperience.getOverallRating2017(), dexperience.getOverallRating2018()).getPerformance2017());
+            experiencesScored.setPerformance2018(getPerformanceScore(dexperience.getOverallRating2016(),
+                    dexperience.getOverallRating2017(), dexperience.getOverallRating2018()).getPerformance2018());
             double averageBonusIncrement2017 = getAverageAttributes(DExperiencesList).getAverageIncremental2017();
             double averageBonusIncrement2018 = getAverageAttributes(DExperiencesList).getAverageIncremental2018();
             experiencesScored.setBonusIncrement20162017(ScoreFunctionUtils.year2017BonusIncrementScore(
@@ -224,6 +229,17 @@ public class ExperienceDimensionScoreService {
 
         return resultAndCompleteness;
     }
+
+    private static PerformanceRating getPerformanceScore(String performance2016, String performance2017, String performance2018) {
+        PerformanceRating performanceRating = new PerformanceRating();
+        if (StringUtils.isEmpty(performance2016) && StringUtils.isEmpty(performance2017) && StringUtils.isEmpty(performance2018)) {
+            return performanceRating;
+        }
+
+        performanceRating.setPerformance2016(RatingEnum.getRatingScore(performance2016));
+        performanceRating.setPerformance2017(RatingEnum.getRatingScore(performance2017));
+        performanceRating.setPerformance2018(RatingEnum.getRatingScore(performance2018));
+    }
 }
 
 class AverageAttributes {
@@ -275,5 +291,36 @@ class ResultAndCompleteness {
 
     public void setDataCompleteness(double dataCompleteness) {
         this.dataCompleteness = dataCompleteness;
+    }
+}
+
+class PerformanceRating {
+
+    private Double performance2016;
+    private Double performance2017;
+    private Double performance2018;
+
+    public Double getPerformance2016() {
+        return performance2016;
+    }
+
+    public void setPerformance2016(Double performance2016) {
+        this.performance2016 = performance2016;
+    }
+
+    public Double getPerformance2017() {
+        return performance2017;
+    }
+
+    public void setPerformance2017(Double performance2017) {
+        this.performance2017 = performance2017;
+    }
+
+    public Double getPerformance2018() {
+        return performance2018;
+    }
+
+    public void setPerformance2018(Double performance2018) {
+        this.performance2018 = performance2018;
     }
 }
