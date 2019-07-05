@@ -4,6 +4,7 @@ import dimensionScored.DCompetenciesScored;
 import dimensionScored.DDriversScored;
 import dimensionScored.DTraitsScored;
 import entity.*;
+import fixedEntity.FixedEducation;
 import org.apache.ibatis.annotations.Param;
 
 
@@ -48,5 +49,9 @@ public interface Mapper {
     List<Traits> getJoinedTraits();
 
     int addTraitsScored(DTraitsScored dTraitsScored);
+
+    List<Education> getAllEducation();
+
+    int addFixedEducation(FixedEducation fixedEducation);
 }
 

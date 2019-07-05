@@ -111,6 +111,17 @@
         (#{trust}, #{empathy}, #{need_for_achievement}, #{composure}, #{curiosity}, #{optimism}, #{humility}, #{confidence}, #{focus}, #{openness_to_differences}, #{risk_taking}, #{adaptability}, #{wwid}, #{situational_self_awareness}, #{influence}, #{sociability}, #{result}, #{affiliation}, #{persistence}, #{credibility}, #{tolerance_of_ambiguity}, #{assertiveness})
     </insert>
 
+    <!--get raw table for fix table-->
+    <select id="getAllEducation" resultType="entity.Education">
+        select * from education
+    </select>
+
+    <!--insert value to fix table-->
+    <insert id="addFixedEducation" parameterType="fixedEntity.FixedEducation" useGeneratedKeys="true" keyProperty="id">
+        insert into education_fixed(wwid, highestEducation) values(#{wwid}, #{highestEducation})
+    </insert>
+
+
 </mapper>
 
 
