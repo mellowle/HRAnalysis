@@ -4,40 +4,37 @@ public class DExperiences {
 
     private String wwid;
 
-    private String highestDegreeReceived;
+    private String highestEducation;
 
-    private int directReport;
+    private String direct_report;
 
     private String overallRating2016;
     private String overallRating2017;
     private String overallRating2018;
 
-    private long base2017;
-    private long base2018;
-    private long base2019;
-    private Double bonus2016;
-    private Double bonus2017;
-    private Double bonus2018;
+    private Double bonus_2016;
+    private Double bonus_2017;
+    private Double bonus_2018;
 
-    private int functionMovements;
-    private int lateralMovements;
-    private int promotions;
-    private int regionMovdments;
-    private int countryMovements;
-    private int sectorMovements;
+    private Integer functionMovement;
+    private Integer lateralMovement;
+    private Integer promotions;
+    private Integer regionMovdments;
+    private Integer countryMovements;
+    private Integer sectorMovements;
 
-    private int numberOfJNJRoles;
-    private int averageTimeOfJNJRoles;
-    private Double externalLengthOfService;
-    private int numberOfExternalRoles;
-    private int averageTimeOfExternalRoles;
-    private int totalRoleNumber;
-    private int totalWorkingYears;
-    private double averageTimeOfEachRole;
+    private String numberOfJNJRoles;
+    private String averageTimeOfJNJRoles;
+    private String external_length_of_service;
+    private String number_of_external_roles;
+    private String averageTimeOfExternalRoles;
+    private String total_role_number;
+    private String total_working_years;
+    private String average_time_of_each_role;
 
-    private int hierarchy2Alex;
-    private Double performanceCommentsRating;
-    private Double stakeholderFeedback;
+    private String hierarchy_count;
+    private String performance_comments;
+    private String feedback;
 
     public String getWwid() {
         return wwid;
@@ -47,20 +44,20 @@ public class DExperiences {
         this.wwid = wwid;
     }
 
-    public String getHighestDegreeReceived() {
-        return highestDegreeReceived;
+    public String getHighestEducation() {
+        return highestEducation;
     }
 
-    public void setHighestDegreeReceived(String highestDegreeReceived) {
-        this.highestDegreeReceived = highestDegreeReceived;
+    public void setHighestEducation(String highestEducation) {
+        this.highestEducation = highestEducation;
     }
 
-    public int getDirectReport() {
-        return directReport;
+    public String getDirect_report() {
+        return direct_report;
     }
 
-    public void setDirectReport(int directReport) {
-        this.directReport = directReport;
+    public void setDirect_report(String direct_report) {
+        this.direct_report = direct_report;
     }
 
     public String getOverallRating2016() {
@@ -87,187 +84,163 @@ public class DExperiences {
         this.overallRating2018 = overallRating2018;
     }
 
-    public long getBase2017() {
-        return base2017;
+    public Double getBonus_2016() {
+        return bonus_2016;
     }
 
-    public void setBase2017(long base2017) {
-        this.base2017 = base2017;
+    public void setBonus_2016(Double bonus_2016) {
+        this.bonus_2016 = bonus_2016;
     }
 
-    public long getBase2018() {
-        return base2018;
+    public Double getBonus_2017() {
+        return bonus_2017;
     }
 
-    public void setBase2018(long base2018) {
-        this.base2018 = base2018;
+    public void setBonus_2017(Double bonus_2017) {
+        this.bonus_2017 = bonus_2017;
     }
 
-    public long getBase2019() {
-        return base2019;
+    public Double getBonus_2018() {
+        return bonus_2018;
     }
 
-    public void setBase2019(long base2019) {
-        this.base2019 = base2019;
+    public void setBonus_2018(Double bonus_2018) {
+        this.bonus_2018 = bonus_2018;
     }
 
-    public Double getBonus2016() {
-        return bonus2016;
+    public Integer getFunctionMovement() {
+        return functionMovement;
     }
 
-    public void setBonus2016(Double bonus2016) {
-        this.bonus2016 = bonus2016;
+    public void setFunctionMovement(Integer functionMovement) {
+        this.functionMovement = functionMovement;
     }
 
-    public Double getBonus2017() {
-        return bonus2017;
+    public Integer getLateralMovement() {
+        return lateralMovement;
     }
 
-    public void setBonus2017(Double bonus2017) {
-        this.bonus2017 = bonus2017;
+    public void setLateralMovement(Integer lateralMovement) {
+        this.lateralMovement = lateralMovement;
     }
 
-    public Double getBonus2018() {
-        return bonus2018;
-    }
-
-    public void setBonus2018(Double bonus2018) {
-        this.bonus2018 = bonus2018;
-    }
-
-    public int getFunctionMovements() {
-        return functionMovements;
-    }
-
-    public void setFunctionMovements(int functionMovements) {
-        this.functionMovements = functionMovements;
-    }
-
-    public int getLateralMovements() {
-        return lateralMovements;
-    }
-
-    public void setLateralMovements(int lateralMovements) {
-        this.lateralMovements = lateralMovements;
-    }
-
-    public int getPromotions() {
+    public Integer getPromotions() {
         return promotions;
     }
 
-    public void setPromotions(int promotions) {
+    public void setPromotions(Integer promotions) {
         this.promotions = promotions;
     }
 
-    public int getRegionMovdments() {
+    public Integer getRegionMovdments() {
         return regionMovdments;
     }
 
-    public void setRegionMovdments(int regionMovdments) {
+    public void setRegionMovdments(Integer regionMovdments) {
         this.regionMovdments = regionMovdments;
     }
 
-    public int getCountryMovements() {
+    public Integer getCountryMovements() {
         return countryMovements;
     }
 
-    public void setCountryMovements(int countryMovements) {
+    public void setCountryMovements(Integer countryMovements) {
         this.countryMovements = countryMovements;
     }
 
-    public int getSectorMovements() {
+    public Integer getSectorMovements() {
         return sectorMovements;
     }
 
-    public void setSectorMovements(int sectorMovements) {
+    public void setSectorMovements(Integer sectorMovements) {
         this.sectorMovements = sectorMovements;
     }
 
-    public int getNumberOfJNJRoles() {
+    public String getNumberOfJNJRoles() {
         return numberOfJNJRoles;
     }
 
-    public void setNumberOfJNJRoles(int numberOfJNJRoles) {
+    public void setNumberOfJNJRoles(String numberOfJNJRoles) {
         this.numberOfJNJRoles = numberOfJNJRoles;
     }
 
-    public int getAverageTimeOfJNJRoles() {
+    public String getAverageTimeOfJNJRoles() {
         return averageTimeOfJNJRoles;
     }
 
-    public void setAverageTimeOfJNJRoles(int averageTimeOfJNJRoles) {
+    public void setAverageTimeOfJNJRoles(String averageTimeOfJNJRoles) {
         this.averageTimeOfJNJRoles = averageTimeOfJNJRoles;
     }
 
-    public int getNumberOfExternalRoles() {
-        return numberOfExternalRoles;
+    public String getExternal_length_of_service() {
+        return external_length_of_service;
     }
 
-    public void setNumberOfExternalRoles(int numberOfExternalRoles) {
-        this.numberOfExternalRoles = numberOfExternalRoles;
+    public void setExternal_length_of_service(String external_length_of_service) {
+        this.external_length_of_service = external_length_of_service;
     }
 
-    public int getAverageTimeOfExternalRoles() {
+    public String getNumber_of_external_roles() {
+        return number_of_external_roles;
+    }
+
+    public void setNumber_of_external_roles(String number_of_external_roles) {
+        this.number_of_external_roles = number_of_external_roles;
+    }
+
+    public String getAverageTimeOfExternalRoles() {
         return averageTimeOfExternalRoles;
     }
 
-    public void setAverageTimeOfExternalRoles(int averageTimeOfExternalRoles) {
+    public void setAverageTimeOfExternalRoles(String averageTimeOfExternalRoles) {
         this.averageTimeOfExternalRoles = averageTimeOfExternalRoles;
     }
 
-    public int getHierarchy2Alex() {
-        return hierarchy2Alex;
+    public String getTotal_role_number() {
+        return total_role_number;
     }
 
-    public void setHierarchy2Alex(int hierarchy2Alex) {
-        this.hierarchy2Alex = hierarchy2Alex;
+    public void setTotal_role_number(String total_role_number) {
+        this.total_role_number = total_role_number;
     }
 
-    public Double getExternalLengthOfService() {
-        return externalLengthOfService;
+    public String getTotal_working_years() {
+        return total_working_years;
     }
 
-    public void setExternalLengthOfService(Double externalLengthOfService) {
-        this.externalLengthOfService = externalLengthOfService;
+    public void setTotal_working_years(String total_working_years) {
+        this.total_working_years = total_working_years;
     }
 
-    public int getTotalRoleNumber() {
-        return totalRoleNumber;
+    public String getAverage_time_of_each_role() {
+        return average_time_of_each_role;
     }
 
-    public void setTotalRoleNumber(int totalRoleNumber) {
-        this.totalRoleNumber = totalRoleNumber;
+    public void setAverage_time_of_each_role(String average_time_of_each_role) {
+        this.average_time_of_each_role = average_time_of_each_role;
     }
 
-    public int getTotalWorkingYears() {
-        return totalWorkingYears;
+    public String getHierarchy_count() {
+        return hierarchy_count;
     }
 
-    public void setTotalWorkingYears(int totalWorkingYears) {
-        this.totalWorkingYears = totalWorkingYears;
+    public void setHierarchy_count(String hierarchy_count) {
+        this.hierarchy_count = hierarchy_count;
     }
 
-    public double getAverageTimeOfEachRole() {
-        return averageTimeOfEachRole;
+    public String getPerformance_comments() {
+        return performance_comments;
     }
 
-    public void setAverageTimeOfEachRole(double averageTimeOfEachRole) {
-        this.averageTimeOfEachRole = averageTimeOfEachRole;
+    public void setPerformance_comments(String performance_comments) {
+        this.performance_comments = performance_comments;
     }
 
-    public Double getPerformanceCommentsRating() {
-        return performanceCommentsRating;
+    public String getFeedback() {
+        return feedback;
     }
 
-    public void setPerformanceCommentsRating(Double performanceCommentsRating) {
-        this.performanceCommentsRating = performanceCommentsRating;
-    }
-
-    public Double getStakeholderFeedback() {
-        return stakeholderFeedback;
-    }
-
-    public void setStakeholderFeedback(Double stakeholderFeedback) {
-        this.stakeholderFeedback = stakeholderFeedback;
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
     }
 }

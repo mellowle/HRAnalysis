@@ -1,6 +1,8 @@
 package util;
 
 import Constants.ExperiencesConstants.Constants;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.util.StringUtil;
 
 public class ScoreFunctionUtils {
 
@@ -16,12 +18,18 @@ public class ScoreFunctionUtils {
 
     }
 
-    public static int teamSizeScore(int teamSize) {
-        if (teamSize > 5) {
+    public static int teamSizeScore(String teamSize) {
+
+        if (teamSize == null) {
+            return 0;
+        }
+
+        double teamSizeInt = Double.valueOf(teamSize);
+        if (teamSizeInt > 5) {
             return 5;
-        } else if (teamSize > 3 && teamSize <= 5) {
+        } else if (teamSizeInt > 3 && teamSizeInt <= 5) {
             return 3;
-        } else if (teamSize > 1 && teamSize <= 3) {
+        } else if (teamSizeInt > 1 && teamSizeInt <= 3) {
             return 1;
         } else {
             return 0;
@@ -68,7 +76,11 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static int functionMovementScore(int functionMovement) {
+    public static int functionMovementScore(Integer functionMovement) {
+
+        if (functionMovement == null) {
+            return 0;
+        }
 
         if (functionMovement >= 5) {
             return 5;
@@ -77,7 +89,11 @@ public class ScoreFunctionUtils {
         }
     }
 
-    public static int lateralMovementScore(int lateralMovement) {
+    public static int lateralMovementScore(Integer lateralMovement) {
+        if (lateralMovement == null) {
+            return 0;
+        }
+
         if (lateralMovement >= 5) {
             return 5;
         } else {
@@ -86,7 +102,11 @@ public class ScoreFunctionUtils {
 
     }
 
-    public static int promotionScore(int promotion) {
+    public static int promotionScore(Integer promotion) {
+        if (promotion == null) {
+            return 0;
+        }
+
         if (promotion >= 5) {
             return 5;
         } else {
@@ -94,7 +114,15 @@ public class ScoreFunctionUtils {
         }
     }
 
-    public static int regionMovementScore(int regionMovement) {
+    public static int regionMovementScore(Integer regionMovement) {
+        if (regionMovement == null) {
+            return 0;
+        }
+
+        //TODO fix 0 to null
+        if (regionMovement == null) {
+            return 0;
+        }
         if (regionMovement >= 5) {
             return 5;
         } else {
@@ -103,7 +131,11 @@ public class ScoreFunctionUtils {
 
     }
 
-    public static int sectorMovementScore(int sectorMovement) {
+    public static int sectorMovementScore(Integer sectorMovement) {
+        if (sectorMovement == null) {
+            return 0;
+        }
+
         if (sectorMovement >= 5) {
             return 5;
         } else {
@@ -121,78 +153,112 @@ public class ScoreFunctionUtils {
 
     }
 
-    public static int externalRoleNumberScore(int externalRoleNumber) {
-        if (externalRoleNumber >= 5) {
-            return 5;
-        } else if (externalRoleNumber == 4) {
-            return 4;
-        } else if (externalRoleNumber == 3) {
-            return 3;
-        } else if (externalRoleNumber == 2) {
-            return 2;
-        } else if (externalRoleNumber == 1) {
-            return 1;
-        }
-
-        return 0;
-    }
-
-    public static int externalLengthOfServiceScore(double externalLengthOfService, double averageExternalLengthOfService) {
-        if (externalLengthOfService > averageExternalLengthOfService) {
-            return 2;
-        }
-
-        return 0;
-    }
-
-    public static int totalRoleNumberScore(int totalRoleNumber) {
-        if (totalRoleNumber <= 3) {
+    public static int externalRoleNumberScore(String externalRoleNumber) {
+        //TODO fix 0 to null
+        if (StringUtils.isEmpty(externalRoleNumber) || externalRoleNumber == null) {
             return 0;
-        } else if (totalRoleNumber > 7 && totalRoleNumber <= 9) {
-            return 1;
-        } else if (totalRoleNumber > 5 && totalRoleNumber <= 7) {
-            return 3;
-        } else if (totalRoleNumber > 3 && totalRoleNumber <= 5) {
-            return 5;
         }
-
-        return 0;
-    }
-
-    public static int totalWorkingYearsScore(double totalWorkingYears) {
-        if (totalWorkingYears > 30) {
-            return 1;
-        } else if (totalWorkingYears > 20 && totalWorkingYears <= 30) {
-            return 2;
-        } else if (totalWorkingYears > 10 && totalWorkingYears <= 20) {
-            return 3;
-        } else if (totalWorkingYears <= 10) {
+        double externalRoleNumberInt = Double.valueOf(externalRoleNumber);
+        if (externalRoleNumberInt >= 5) {
             return 5;
-        }
-
-        return 0;
-    }
-
-    public static int averageDurationOnEachRoleScore(double averageDurationOnEachRole) {
-        if (averageDurationOnEachRole > 0 && averageDurationOnEachRole <= 5) {
-            return 5;
-        } else if (averageDurationOnEachRole > 5 && averageDurationOnEachRole <= 10) {
-            return 3;
-        } else if (averageDurationOnEachRole > 10) {
-            return 1;
-        }
-
-        return 0;
-    }
-
-    public static int numberOfReportingToCEOScore(int numberOfReportingToCEO) {
-        if (numberOfReportingToCEO >= 10) {
-            return 1;
-        } else if (numberOfReportingToCEO > 8 && numberOfReportingToCEO <= 9) {
-            return 2;
-        } else if (numberOfReportingToCEO >6 && numberOfReportingToCEO <= 7) {
+        } else if (externalRoleNumberInt == 4) {
             return 4;
-        } else if (numberOfReportingToCEO <= 5) {
+        } else if (externalRoleNumberInt == 3) {
+            return 3;
+        } else if (externalRoleNumberInt == 2) {
+            return 2;
+        } else if (externalRoleNumberInt == 1) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    public static int externalLengthOfServiceScore(String externalLengthOfService, Double averageExternalLengthOfService) {
+        if (externalLengthOfService == null) {
+            return 0;
+        }
+
+        double exterLengthOfServiceD = Double.valueOf(externalLengthOfService);
+
+        if (exterLengthOfServiceD > averageExternalLengthOfService) {
+            return 2;
+        }
+
+        return 0;
+    }
+
+    public static int totalRoleNumberScore(String totalRoleNumber) {
+
+        if (totalRoleNumber == null || StringUtils.isEmpty(totalRoleNumber)) {
+            return 0;
+        }
+        double totalRoleNumberi = Double.valueOf(totalRoleNumber);
+
+        if (totalRoleNumberi <= 3) {
+            return 0;
+        } else if (totalRoleNumberi > 7 && totalRoleNumberi <= 9) {
+            return 1;
+        } else if (totalRoleNumberi > 5 && totalRoleNumberi <= 7) {
+            return 3;
+        } else if (totalRoleNumberi > 3 && totalRoleNumberi <= 5) {
+            return 5;
+        }
+
+        return 0;
+    }
+
+    public static int totalWorkingYearsScore(String totalWorkingYears) {
+        if (StringUtils.isEmpty(totalWorkingYears) || totalWorkingYears == null) {
+            return 0;
+        }
+        double totalWokYers = Double.valueOf(totalWorkingYears);
+
+        if (totalWokYers > 30) {
+            return 1;
+        } else if (totalWokYers > 20 && totalWokYers <= 30) {
+            return 2;
+        } else if (totalWokYers > 10 && totalWokYers <= 20) {
+            return 3;
+        } else if (totalWokYers <= 10) {
+            return 5;
+        }
+
+        return 0;
+    }
+
+    public static int averageDurationOnEachRoleScore(String averageDurationOnEachRole) {
+        if (averageDurationOnEachRole == null && StringUtils.isEmpty(averageDurationOnEachRole)){
+            return 0;
+        }
+
+        double averageDuration = Double.valueOf(averageDurationOnEachRole);
+
+        if (averageDuration > 0 && averageDuration <= 5) {
+            return 5;
+        } else if (averageDuration > 5 && averageDuration <= 10) {
+            return 3;
+        } else if (averageDuration > 10) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    public static int numberOfReportingToCEOScore(String numberOfReportingToCEO) {
+        if (StringUtils.isEmpty(numberOfReportingToCEO) || numberOfReportingToCEO == null) {
+            return 0;
+        }
+
+        double hierarchyCount = Double.valueOf(numberOfReportingToCEO);
+
+        if (hierarchyCount >= 10) {
+            return 1;
+        } else if (hierarchyCount > 8 && hierarchyCount <= 9) {
+            return 2;
+        } else if (hierarchyCount >6 && hierarchyCount <= 7) {
+            return 4;
+        } else if (hierarchyCount <= 5) {
             return 5;
         }
 

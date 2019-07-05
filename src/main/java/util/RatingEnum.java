@@ -1,5 +1,7 @@
 package util;
 
+import org.apache.commons.lang3.StringUtils;
+
 public enum RatingEnum {
     EXCEEDS_EXCEEDS("Exceeds / Exceeds", 4),
     EXCEEDS_FULLYMEETS("Exceeds / Fully Meets", 3.5),
@@ -22,6 +24,9 @@ public enum RatingEnum {
 
     public static double getRatingScore(String rating) {
         for (RatingEnum ratingE : RatingEnum.values()) {
+            if (ratingE == null || StringUtils.isEmpty(rating)) {
+                return 3;
+            }
             if (rating.equals(ratingE.getRating())) {
                 return ratingE.getScore();
             }
