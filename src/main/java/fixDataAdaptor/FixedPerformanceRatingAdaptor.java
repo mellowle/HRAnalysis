@@ -2,19 +2,37 @@ package fixDataAdaptor;
 
 import com.google.common.collect.Lists;
 import Constants.ExperiencesConstants.Constants;
+import dao.Mapper;
 import entity.PerformanceRating;
 import fixedEntity.FixedPerformanceRating;
+import org.apache.ibatis.session.SqlSession;
+import table.PerformanceRatingColMapping;
+import util.DataConnection;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FixedPerformanceRatingAdaptor {
 
+    public static DataConnection dataConn = new DataConnection();
+    public static Mapper mapper = null;
+    public static SqlSession sqlSession;
+    public static String tableName = PerformanceRatingColMapping.TABLE_NAME_FIXED;
+
+    static {
+        try {
+            sqlSession = dataConn.getSqlSession();
+            mapper = sqlSession.getMapper(Mapper.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static List<FixedPerformanceRating> getFixedPerformanceRating() {
         //TODO get performance rating raw data from DB and replace
-        List<PerformanceRating> performanceRatingList = Lists.newArrayList();
+        List<PerformanceRating> performanceRatingList = mapper.getAllPerformanceRating();
+        sqlSession.commit();
         List<FixedPerformanceRating> fixedPerformanceRatingList = Lists.newArrayList();
 
         removeRatingsBefore2016(performanceRatingList);
@@ -56,5 +74,53 @@ public class FixedPerformanceRatingAdaptor {
         }
 
     }
+    public static void generateScoreTable() {
+        if (isExisted()) {
+            dropTable();
+        }
+        createTable();
 
+        List<FixedPerformanceRating> fixedPerformanceRating = getFixedPerformanceRating();
+        insertRecords(fixedPerformanceRating);
+    }
+
+    public static boolean isExisted() {
+        return mapper.isTableExist(tableName) != 0;
+    }
+
+    public static void dropTable() {
+        mapper.deleteTable(tableName);
+    }
+
+    public static void createTable() {
+        mapper.createTable(tableName, generateColList(PerformanceRatingColMapping.COLUMN_MAPPING_FIXED));
+    }
+
+    //通过map,生成数据库列
+    private static List<Map<String, String>> generateColList(Map<String, String> map) {
+        List<Map<String, String>> cols = new LinkedList<>();
+        map.forEach((col, v)->{
+            Map<String, String> colMap = new HashMap<>();
+            colMap.put("code", col);
+            colMap.put("type", "STRING");
+            colMap.put("length", "500");
+            cols.add(colMap);
+        });
+        return cols;
+    }
+
+    public static void insertRecords(List<FixedPerformanceRating> req) {
+        try {
+            req.forEach(fixedPerformanceRating->{
+                mapper.addFixedPerformanceRating(fixedPerformanceRating);
+                sqlSession.commit();
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String... args) {
+        generateScoreTable();
+    }
 }
