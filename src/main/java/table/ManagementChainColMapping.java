@@ -19,5 +19,6 @@ public class ManagementChainColMapping {
         COLUMN_MAPPING.put("management_chain_level_07", "Management Chain - Level 07");
         COLUMN_MAPPING.put("management_chain_level_08", "Management Chain - Level 08");
         COLUMN_MAPPING.put("management_chain_level_09", "Management Chain - Level 09");
+        COLUMN_MAPPING.put("hierarchy", "hierarchy");
     }
 }

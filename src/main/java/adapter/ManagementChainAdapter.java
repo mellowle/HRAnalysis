@@ -25,7 +25,7 @@ public class ManagementChainAdapter extends Adapter {
     //insert data
     private void insertRecords(List<ManagementChain> req) {
         try {
-            req.forEach(managementChain->{
+            req.forEach(managementChain -> {
                 mapper.addManagementChain(managementChain);
                 sqlSession.commit();
             });
@@ -38,15 +38,15 @@ public class ManagementChainAdapter extends Adapter {
     @Override
     public void generateRawTable() {
         init();
-        if (isExisted()) {
-            dropTable();
-        }
-        createTable();
-        String path = "/Users/xyang137/Documents/Archive/pending/MergedManagementChain.xlsx";
+//        if (isExisted()) {
+//            dropTable();
+//        }
+//        createTable();
+        String path = "/Users/xyang137/Documents/Archive/done/MergedManagementChain.xlsx";
         List<ManagementChain> res = generateExcel(ManagementChain.class, path);
-        res.forEach(managementChain->{
-            managementChain.setHierarchy();
-        });
+        for (int i = 0; i < res.size(); i++) {
+            res.get(i).setHierarchy();
+        }
         insertRecords(res);
         sqlSession.close();
     }

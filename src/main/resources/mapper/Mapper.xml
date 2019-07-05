@@ -54,7 +54,7 @@
     </insert>
 
     <insert id="addManagementChain" parameterType="entity.ManagementChain" useGeneratedKeys="true" keyProperty="id">
-        insert into management_chain(wwid, management_chain_level_01,management_chain_level_02,management_chain_level_03,management_chain_level_04,management_chain_level_05,management_chain_level_06,management_chain_level_07,management_chain_level_08,management_chain_level_09) values(#{wwid}, #{management_chain_level_01},#{management_chain_level_02},#{management_chain_level_03},#{management_chain_level_04},#{management_chain_level_05},#{management_chain_level_06},#{management_chain_level_07},#{management_chain_level_08},#{management_chain_level_09})
+        insert into management_chain(wwid, management_chain_level_01,management_chain_level_02,management_chain_level_03,management_chain_level_04,management_chain_level_05,management_chain_level_06,management_chain_level_07,management_chain_level_08,management_chain_level_09,hierarchy) values(#{wwid}, #{management_chain_level_01},#{management_chain_level_02},#{management_chain_level_03},#{management_chain_level_04},#{management_chain_level_05},#{management_chain_level_06},#{management_chain_level_07},#{management_chain_level_08},#{management_chain_level_09},#{hierarchy})
     </insert>
 
     <insert id="addTalentCard" parameterType="entity.TalentCard" useGeneratedKeys="true" keyProperty="id">
