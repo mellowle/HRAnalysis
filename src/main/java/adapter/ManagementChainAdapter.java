@@ -6,18 +6,18 @@ import table.ManagementChainColMapping;
 import java.util.List;
 
 public class ManagementChainAdapter extends Adapter {
-//    @Override
+    //    @Override
     void setMapping() {
         this.COLUMN_MAPPING = ManagementChainColMapping.COLUMN_MAPPING;
     }
 
-//    @Override
+    //    @Override
     void setTableName() {
         this.tableName = ManagementChainColMapping.TABLE_NAME;
     }
 
     //insert data
-//    @Override
+    //    @Override
     void insertRecords() {
 
     }
@@ -25,7 +25,7 @@ public class ManagementChainAdapter extends Adapter {
     //insert data
     private void insertRecords(List<ManagementChain> req) {
         try {
-            req.forEach(managementChain -> {
+            req.forEach(managementChain->{
                 mapper.addManagementChain(managementChain);
                 sqlSession.commit();
             });
@@ -44,6 +44,9 @@ public class ManagementChainAdapter extends Adapter {
         createTable();
         String path = "/Users/xyang137/Documents/Archive/pending/MergedManagementChain.xlsx";
         List<ManagementChain> res = generateExcel(ManagementChain.class, path);
+        res.forEach(managementChain->{
+            managementChain.setHierarchy();
+        });
         insertRecords(res);
         sqlSession.close();
     }
