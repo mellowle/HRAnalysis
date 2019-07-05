@@ -6,7 +6,51 @@ public class TalentCard {
     private String average_time_of_jnj_roles;
     private String number_of_external_roles;
     private String average_time_of_external_roles;
+    private String externalLengthOfService;
+    private String totalRoleNumber;
+    private String totalWorkingYears;
+    private String averageTimeOfEachRole;
 
+    public void setExternalLengthOfService() {
+        if (number_of_external_roles != null && average_time_of_external_roles != null) {
+            this.externalLengthOfService = String.valueOf(Double.valueOf(number_of_external_roles) * Double.valueOf(average_time_of_external_roles));
+        }
+    }
+
+    public void setTotalRoleNumber() {
+        if (number_of_jnj_roles != null && number_of_external_roles != null) {
+            this.totalRoleNumber = String.valueOf(Double.valueOf(number_of_jnj_roles) + Double.valueOf(number_of_external_roles));
+        }
+
+    }
+
+    public void setTotalWorkingYears() {
+        if (number_of_jnj_roles != null
+                && average_time_of_jnj_roles != null
+                && number_of_external_roles != null
+                & average_time_of_external_roles != null) {
+            this.totalWorkingYears = String.valueOf(
+                    Double.valueOf(number_of_jnj_roles) * Double.valueOf(average_time_of_jnj_roles)
+                            + Double.valueOf(number_of_external_roles) * Double.valueOf(average_time_of_external_roles)
+            );
+        }
+
+    }
+
+    public void setAverageTimeOfEachRole() {
+        if (number_of_jnj_roles != null
+                && average_time_of_jnj_roles != null
+                && number_of_external_roles != null
+                & average_time_of_external_roles != null) {
+            this.averageTimeOfEachRole = String.valueOf(
+                    (Double.valueOf(number_of_jnj_roles) * Double.valueOf(average_time_of_jnj_roles)
+                            + Double.valueOf(number_of_external_roles) * Double.valueOf(average_time_of_external_roles)) /
+                            (Double.valueOf(number_of_jnj_roles) + Double.valueOf(number_of_external_roles))
+            );
+        }
+
+    }
+    
     public String getWwid() {
         return wwid;
     }

@@ -44,6 +44,12 @@ public class TalentCardAdapter extends Adapter {
         createTable();
         String path = "/Users/xyang137/Documents/Archive/pending/MergedTalentCard.xlsx";
         List<TalentCard> res = generateExcel(TalentCard.class,path);
+        res.forEach(talentCard -> {
+            talentCard.setAverageTimeOfEachRole();
+            talentCard.setTotalRoleNumber();
+            talentCard.setExternalLengthOfService();
+            talentCard.setTotalWorkingYears();
+        });
         insertRecords(res);
         sqlSession.close();
     }
