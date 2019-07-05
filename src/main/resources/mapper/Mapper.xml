@@ -129,6 +129,9 @@
         insert into worker_change_history_fixed(wwid,functionMovement,lateralMovement,promotions,regionMovements,countryMovements,sectorMovements) values(#{wwid}, #{functionMovement}, #{lateralMovement}, #{promotions}, #{regionMovements}, #{countryMovements}, #{sectorMovements})
     </insert>
 
+    <select id="getAllExperiences" resultType="dimensionRawData.DExperiences">
+        select * from experiences
+    </select>
 
 </mapper>
 
