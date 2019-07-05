@@ -33,6 +33,17 @@ public class KF4DScoreFunctionUtils {
         Double situational_adaptability_point =
                 CompetenciesConstants.POINT_SITUATIONAL_ADAPTABILITY / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
 
+//        System.err.println("strategic_mindset," + strategic_mindset_point);
+//        System.err.println("global_perspective," + global_perspective_point);
+//        System.err.println("instills_trust," + instills_trust_point);
+//        System.err.println("persuades," + persuades_point);
+//        System.err.println("communicates_effectively," + communicates_effectively_point);
+//        System.err.println("collaborates," + collaborates_point);
+//        System.err.println("cultivates_innovation," + cultivates_innovation_point);
+//        System.err.println("nimble_learning," + nimble_learning_point);
+//        System.err.println("develops_talent," + develops_talent_point);
+//        System.err.println("situational_adaptability," + situational_adaptability_point);
+
         result.put("strategic_mindset", calcScoreWithUCPZone(missionCritical.get("strategic_mindset"), strategic_mindset_point,
                 CompetenciesConstants.MAX_STRATEGIC_MINDSET, CompetenciesConstants.MIN_STRATEGIC_MINDSET));
         result.put("global_perspective", calcScoreWithUCPZone(missionCritical.get("global_perspective"), global_perspective_point,
@@ -82,6 +93,17 @@ public class KF4DScoreFunctionUtils {
         Double values_differences_point =
                 CompetenciesConstants.POINT_VALUES_DIFFERENCES / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
 
+//        System.err.println("builds_networks," + builds_networks_point);
+//        System.err.println("decision_quality," + decision_quality_point);
+//        System.err.println("being_resilient," + being_resilient_point);
+//        System.err.println("courage," + courage_point);
+//        System.err.println("action_oriented," + action_oriented_point);
+//        System.err.println("manages_ambiguity," + manages_ambiguity_point);
+//        System.err.println("interpersonal_savvy," + interpersonal_savvy_point);
+//        System.err.println("resourcefulness," + resourcefulness_point);
+//        System.err.println("self_development," + self_development_point);
+//        System.err.println("values_differences," + values_differences_point);
+
         result.put("builds_networks", calcScoreWithZone(critical.get("builds_networks"), builds_networks_point, true));
         result.put("decision_quality", calcScoreWithZone(critical.get("decision_quality"), decision_quality_point, false));
         result.put("being_resilient", calcScoreWithZone(critical.get("being_resilient"), being_resilient_point, false));
@@ -120,6 +142,17 @@ public class KF4DScoreFunctionUtils {
                 CompetenciesConstants.POINT_DIRECTS_WORK / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
         Double optimizes_work_processes_point =
                 CompetenciesConstants.POINT_OPTIMIZES_WORK_PROCESSES / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
+
+//        System.err.println("drives_engagement," + drives_engagement_point);
+//        System.err.println("balances_stakeholders," + balances_stakeholders_point);
+//        System.err.println("ensures_accountability," + ensures_accountability_point);
+//        System.err.println("drives_results," + drives_results_point);
+//        System.err.println("customer_focus," + customer_focus_point);
+//        System.err.println("manages_conflict," + manages_conflict_point);
+//        System.err.println("builds_effective_teams," + builds_effective_teams_point);
+//        System.err.println("plans_and_aligns," + plans_and_aligns_point);
+//        System.err.println("directs_work," + directs_work_point);
+//        System.err.println("optimizes_work_processes," + optimizes_work_processes_point);
 
         result.put("drives_engagement", calcScoreWithZone(lessCritical.get("drives_engagement"), drives_engagement_point, false));
         result.put("balances_stakeholders", calcScoreWithZone(lessCritical.get("balances_stakeholders"), balances_stakeholders_point, true));
