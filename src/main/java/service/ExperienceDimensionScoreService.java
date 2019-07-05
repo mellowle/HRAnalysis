@@ -239,6 +239,8 @@ public class ExperienceDimensionScoreService {
         performanceRating.setPerformance2016(RatingEnum.getRatingScore(performance2016));
         performanceRating.setPerformance2017(RatingEnum.getRatingScore(performance2017));
         performanceRating.setPerformance2018(RatingEnum.getRatingScore(performance2018));
+
+        return performanceRating;
     }
 }
 
