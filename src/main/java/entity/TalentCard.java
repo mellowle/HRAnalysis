@@ -51,7 +51,7 @@ public class TalentCard {
         }
 
     }
-    
+
     public String getWwid() {
         return wwid;
     }

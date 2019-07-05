@@ -1,5 +1,6 @@
 package dao;
 
+import dimensionRawData.DExperiences;
 import dimensionScored.DCompetenciesScored;
 import dimensionScored.DDriversScored;
 import dimensionScored.DTraitsScored;
@@ -59,6 +60,8 @@ public interface Mapper {
     List<PerformanceRating> getAllPerformanceRating();
 
     int addFixedPerformanceRating(FixedPerformanceRating fixedPerformanceRating);
+
+    List<DExperiences> getAllExperiences();
 
     List<WorkChangeHistory> getAllWorkChangeHistory();
 

@@ -144,6 +144,9 @@
 
 
 
+    <select id="getAllExperiences" resultType="dimensionRawData.DExperiences">
+        select * from experiences
+    </select>
 
 </mapper>
 
