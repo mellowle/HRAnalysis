@@ -22,7 +22,7 @@
                     varchar(${item.length}) DEFAULT NULL
                 </when>
                 <when test="item.type=='NUMBER'">
-                    int
+                    int DEFAULT NULL
                 </when>
                 <otherwise>
                     TIMESTAMP(${item.length})
@@ -116,9 +116,17 @@
         select * from education
     </select>
 
+    <select id="getAllWorkChangeHistory" resultType="entity.WorkChangeHistory">
+        select * from worker_change_history
+    </select>
+
     <!--insert value to fix table-->
     <insert id="addFixedEducation" parameterType="fixedEntity.FixedEducation" useGeneratedKeys="true" keyProperty="id">
         insert into education_fixed(wwid, highestEducation) values(#{wwid}, #{highestEducation})
+    </insert>
+
+    <insert id="addFixedWorkChangeHistory" parameterType="fixedEntity.FixedWorkChangeHistory" useGeneratedKeys="true" keyProperty="id">
+        insert into worker_change_history_fixed(wwid,functionMovement,lateralMovement,promotions,regionMovements,countryMovements,sectorMovements) values(#{wwid}, #{functionMovement}, #{lateralMovement}, #{promotions}, #{regionMovements}, #{countryMovements}, #{sectorMovements})
     </insert>
 
 
