@@ -11,6 +11,53 @@ public class ManagementChain {
     private String management_chain_level_07;
     private String management_chain_level_08;
     private String management_chain_level_09;
+    private String hierarchy;
+
+    public String getHierarchy() {
+        return hierarchy;
+    }
+
+    public void setHierarchy(){
+        int result = 0;
+        if(this.management_chain_level_01 !=null){
+            result++;
+        }
+        if(this.management_chain_level_02 !=null){
+            result++;
+        }
+        if(this.management_chain_level_03 !=null){
+            result++;
+        }
+        if(this.management_chain_level_04 !=null){
+            result++;
+        }
+        if(this.management_chain_level_05 !=null){
+            result++;
+        }
+        if(this.management_chain_level_06 !=null){
+            result++;
+        }
+        if(this.management_chain_level_07 !=null){
+            result++;
+        }
+        if(this.management_chain_level_08 !=null){
+            result++;
+        }
+        if(this.management_chain_level_09 !=null){
+            result++;
+        }
+        this.hierarchy = String.valueOf(result);
+    }
+
+    public static void main(String... args){
+        ManagementChain mc = new ManagementChain();
+        mc.setHierarchy();
+        System.err.println(mc.getHierarchy());
+        mc.setManagement_chain_level_01("3434");
+        mc.setManagement_chain_level_02("4444");
+        mc.setHierarchy();
+        System.err.println(mc.getHierarchy());
+    }
 
     public String getWwid() {
         return wwid;
