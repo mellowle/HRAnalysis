@@ -118,43 +118,45 @@ public abstract class Adapter {
 
                 for (Map.Entry<String, String> colData : COLUMN_MAPPING.entrySet()) {
 
-                    cell = row.getCell(colMapByName.get(colData.getValue()));//gives the index of column from  colMapByName Map by passing column name
-                    //value:cell value
-                    //key: colData.key wwid set+Wwid
-                    String key = colData.getKey();
-                    String field = key.substring(0, 1).toUpperCase() + key.substring(1); //wwid -> Wwid
-                    Method setField = null;
-                    try {
-                        //get parameter type
-                        setField = tClass.getDeclaredMethod("set" + field, String.class);
-                        if (cell != null) {
-                            switch (cell.getCellType()) {
-                                case Cell.CELL_TYPE_STRING:
-                                    setField.invoke(obj, cell.getRichStringCellValue().getString());
-                                    break;
-                                case Cell.CELL_TYPE_NUMERIC:
-                                    if (DateUtil.isCellDateFormatted(cell)) {
-                                        String date = cell.getDateCellValue().toString();
-                                        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US);
-                                        Date d = sdf.parse(date);
-                                        sdf = new SimpleDateFormat("yyyyMMdd");
-                                        setField.invoke(obj, String.valueOf(sdf.format(d)));
-                                    } else {
+                    if(colMapByName.get(colData.getValue()) != null ){
+                        cell = row.getCell(colMapByName.get(colData.getValue()));//gives the index of column from  colMapByName Map by passing column name
+                        //value:cell value
+                        //key: colData.key wwid set+Wwid
+                        String key = colData.getKey();
+                        String field = key.substring(0, 1).toUpperCase() + key.substring(1); //wwid -> Wwid
+                        Method setField = null;
+                        try {
+                            //get parameter type
+                            setField = tClass.getDeclaredMethod("set" + field, String.class);
+                            if (cell != null) {
+                                switch (cell.getCellType()) {
+                                    case Cell.CELL_TYPE_STRING:
+                                        setField.invoke(obj, cell.getRichStringCellValue().getString());
+                                        break;
+                                    case Cell.CELL_TYPE_NUMERIC:
+                                        if (DateUtil.isCellDateFormatted(cell)) {
+                                            String date = cell.getDateCellValue().toString();
+                                            SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US);
+                                            Date d = sdf.parse(date);
+                                            sdf = new SimpleDateFormat("yyyyMMdd");
+                                            setField.invoke(obj, String.valueOf(sdf.format(d)));
+                                        } else {
+                                            setField.invoke(obj, String.valueOf(cell.getNumericCellValue()));
+                                        }
+                                        break;
+                                    case Cell.CELL_TYPE_BOOLEAN:
                                         setField.invoke(obj, String.valueOf(cell.getNumericCellValue()));
-                                    }
-                                    break;
-                                case Cell.CELL_TYPE_BOOLEAN:
-                                    setField.invoke(obj, String.valueOf(cell.getNumericCellValue()));
-                                    break;
-                                case Cell.CELL_TYPE_FORMULA:
-                                    setField.invoke(obj, String.valueOf(cell.getCellFormula()));
-                                    break;
-                                default:
-                                    setField.invoke(obj, cell.getRichStringCellValue().getString());
+                                        break;
+                                    case Cell.CELL_TYPE_FORMULA:
+                                        setField.invoke(obj, String.valueOf(cell.getCellFormula()));
+                                        break;
+                                    default:
+                                        setField.invoke(obj, cell.getRichStringCellValue().getString());
+                                }
                             }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
                 }
                 res.add(obj);

@@ -42,7 +42,7 @@ public class TalentCardAdapter extends Adapter {
             dropTable();
         }
         createTable();
-        String path = "/Users/xyang137/Documents/Archive/pending/MergedTalentCard.xlsx";
+        String path = "/Users/xyang137/Documents/Archive/done/MergedTalentCard.xlsx";
         List<TalentCard> res = generateExcel(TalentCard.class,path);
         res.forEach(talentCard -> {
             talentCard.setAverageTimeOfEachRole();

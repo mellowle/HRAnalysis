@@ -4,9 +4,9 @@ public class Constants {
     public static final String MBA = "Master of Business Administration (MBA)";
     public static final String YES = "Yes";
     public static final String NO = "No";
-    public static final String YEAR_END_2016 = "2016/12/31";
-    public static final String YEAR_END_2017 = "2017/12/31";
-    public static final String YEAR_END_2018 = "2018/12/31";
+    public static final String YEAR_END_2016 = "20161231";
+    public static final String YEAR_END_2017 = "20171231";
+    public static final String YEAR_END_2018 = "20181231";
 
     public static final double MBA_WEIGHT = 0.01;
     public static final double TEAM_SIZE_WEIGHT = 0.03;

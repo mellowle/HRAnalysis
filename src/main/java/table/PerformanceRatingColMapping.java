@@ -20,10 +20,8 @@ public class PerformanceRatingColMapping {
 
         COLUMN_MAPPING_FIXED = new HashMap<>();
         COLUMN_MAPPING_FIXED.put("wwid", "Employee ID (WWID)");
-        COLUMN_MAPPING_FIXED.put("reviewPeriodStartDate", "Review Period - Start Date");
-        COLUMN_MAPPING_FIXED.put("reviewPeriodEndDate", "Review Period - End Date");
-        COLUMN_MAPPING_FIXED.put("resultsRating", "Results Rating");
-        COLUMN_MAPPING_FIXED.put("leadershipRating", "Leadership Rating");
-        COLUMN_MAPPING_FIXED.put("overallRating", "Overall Rating");
+        COLUMN_MAPPING_FIXED.put("overallRating2016", "Review Period - Start Date");
+        COLUMN_MAPPING_FIXED.put("overallRating2017", "Review Period - End Date");
+        COLUMN_MAPPING_FIXED.put("overallRating2018", "Results Rating");
     }
 }

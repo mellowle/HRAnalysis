@@ -6,20 +6,20 @@ public class TalentCard {
     private String average_time_of_jnj_roles;
     private String number_of_external_roles;
     private String average_time_of_external_roles;
-    private String externalLengthOfService;
-    private String totalRoleNumber;
-    private String totalWorkingYears;
-    private String averageTimeOfEachRole;
+    private String external_length_of_service;
+    private String total_role_number;
+    private String total_working_years;
+    private String average_time_of_each_role;
 
     public void setExternalLengthOfService() {
         if (number_of_external_roles != null && average_time_of_external_roles != null) {
-            this.externalLengthOfService = String.valueOf(Double.valueOf(number_of_external_roles) * Double.valueOf(average_time_of_external_roles));
+            this.external_length_of_service = String.valueOf(Double.valueOf(number_of_external_roles) * Double.valueOf(average_time_of_external_roles));
         }
     }
 
     public void setTotalRoleNumber() {
         if (number_of_jnj_roles != null && number_of_external_roles != null) {
-            this.totalRoleNumber = String.valueOf(Double.valueOf(number_of_jnj_roles) + Double.valueOf(number_of_external_roles));
+            this.total_role_number = String.valueOf(Double.valueOf(number_of_jnj_roles) + Double.valueOf(number_of_external_roles));
         }
 
     }
@@ -28,8 +28,8 @@ public class TalentCard {
         if (number_of_jnj_roles != null
                 && average_time_of_jnj_roles != null
                 && number_of_external_roles != null
-                & average_time_of_external_roles != null) {
-            this.totalWorkingYears = String.valueOf(
+                && average_time_of_external_roles != null) {
+            this.total_working_years = String.valueOf(
                     Double.valueOf(number_of_jnj_roles) * Double.valueOf(average_time_of_jnj_roles)
                             + Double.valueOf(number_of_external_roles) * Double.valueOf(average_time_of_external_roles)
             );
@@ -41,8 +41,9 @@ public class TalentCard {
         if (number_of_jnj_roles != null
                 && average_time_of_jnj_roles != null
                 && number_of_external_roles != null
-                & average_time_of_external_roles != null) {
-            this.averageTimeOfEachRole = String.valueOf(
+                && average_time_of_external_roles != null
+                && ((Double.valueOf(number_of_jnj_roles) + Double.valueOf(number_of_external_roles))!=0d)) {
+            this.average_time_of_each_role = String.valueOf(
                     (Double.valueOf(number_of_jnj_roles) * Double.valueOf(average_time_of_jnj_roles)
                             + Double.valueOf(number_of_external_roles) * Double.valueOf(average_time_of_external_roles)) /
                             (Double.valueOf(number_of_jnj_roles) + Double.valueOf(number_of_external_roles))

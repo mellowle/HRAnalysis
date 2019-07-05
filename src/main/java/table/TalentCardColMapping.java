@@ -14,5 +14,9 @@ public class TalentCardColMapping {
         COLUMN_MAPPING.put("average_time_of_jnj_roles", "AverageTimeOfJnJRole");
         COLUMN_MAPPING.put("number_of_external_roles", "NumberOfExternalRoles");
         COLUMN_MAPPING.put("average_time_of_external_roles", "AverageTimeOfExternalRoles");
+        COLUMN_MAPPING.put("external_length_of_service", "external_length_of_service");
+        COLUMN_MAPPING.put("total_role_number", "total_role_number");
+        COLUMN_MAPPING.put("total_working_years", "total_working_years");
+        COLUMN_MAPPING.put("average_time_of_each_role", "average_time_of_each_role");
     }
 }

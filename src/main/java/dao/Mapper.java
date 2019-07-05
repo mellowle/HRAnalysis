@@ -60,5 +60,10 @@ public interface Mapper {
 
     int addFixedPerformanceRating(FixedPerformanceRating fixedPerformanceRating);
 
+    List<WorkChangeHistory> getAllWorkChangeHistory();
+
+    int addFixedWorkChangeHistory(FixedWorkChangeHistory fixedWorkChangeHistory);
+
+    int addUnstructuredData(UnstructuredData unstructuredData);
 }
 

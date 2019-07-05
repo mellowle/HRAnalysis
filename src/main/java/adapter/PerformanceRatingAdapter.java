@@ -41,7 +41,7 @@ public class PerformanceRatingAdapter extends Adapter {
             dropTable();
         }
         createTable();
-        String path = "/Users/xyang137/Documents/Archive/pending/MergedEmployeePerformanceRatings.xlsx";
+        String path = "/Users/xyang137/Documents/Archive/done/MergedEmployeePerformanceRatings.xlsx";
         List<PerformanceRating> res = generateExcel(PerformanceRating.class,path);
         insertRecords(res);
         sqlSession.close();

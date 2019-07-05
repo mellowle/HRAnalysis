@@ -58,7 +58,7 @@
     </insert>
 
     <insert id="addTalentCard" parameterType="entity.TalentCard" useGeneratedKeys="true" keyProperty="id">
-        insert into talent_card(wwid, number_of_jnj_roles,average_time_of_jnj_roles,number_of_external_roles,average_time_of_external_roles) values(#{wwid}, #{number_of_jnj_roles},#{average_time_of_jnj_roles},#{number_of_external_roles},#{average_time_of_external_roles})
+        insert into talent_card(wwid, number_of_jnj_roles,average_time_of_jnj_roles,number_of_external_roles,average_time_of_external_roles,external_length_of_service,total_role_number,total_working_years,average_time_of_each_role) values(#{wwid}, #{number_of_jnj_roles},#{average_time_of_jnj_roles},#{number_of_external_roles},#{average_time_of_external_roles},#{external_length_of_service}, #{total_role_number}, #{total_working_years}, #{average_time_of_each_role})
     </insert>
 
     <insert id="addWorkChangeHistory" parameterType="entity.WorkChangeHistory" useGeneratedKeys="true" keyProperty="id">
@@ -120,6 +120,11 @@
         select * from worker_change_history
     </select>
 
+    <select id="getAllPerformanceRating" resultType="entity.PerformanceRating">
+        select * from performance_rating
+    </select>
+
+
     <!--insert value to fix table-->
     <insert id="addFixedEducation" parameterType="fixedEntity.FixedEducation" useGeneratedKeys="true" keyProperty="id">
         insert into education_fixed(wwid, highestEducation) values(#{wwid}, #{highestEducation})
@@ -128,6 +133,16 @@
     <insert id="addFixedWorkChangeHistory" parameterType="fixedEntity.FixedWorkChangeHistory" useGeneratedKeys="true" keyProperty="id">
         insert into worker_change_history_fixed(wwid,functionMovement,lateralMovement,promotions,regionMovements,countryMovements,sectorMovements) values(#{wwid}, #{functionMovement}, #{lateralMovement}, #{promotions}, #{regionMovements}, #{countryMovements}, #{sectorMovements})
     </insert>
+
+    <insert id="addFixedPerformanceRating" parameterType="fixedEntity.FixedPerformanceRating" useGeneratedKeys="true" keyProperty="id">
+        insert into performance_rating_fixed(wwid, overallRating2016, overallRating2017, overallRating2018) values(#{wwid}, #{overallRating2016}, #{overallRating2017}, #{overallRating2018})
+    </insert>
+
+    <insert id="addUnstructuredData" parameterType="entity.UnstructuredData" useGeneratedKeys="true" keyProperty="id">
+        insert into unstructured_data(wwid, performance_comments,feedback) values(#{wwid}, #{performance_comments},#{feedback})
+    </insert>
+
+
 
 
 </mapper>

@@ -42,7 +42,7 @@ public class WorkChangeHistoryAdapter extends Adapter {
             dropTable();
         }
         createTable();
-        String path = "/Users/xyang137/Documents/Archive/pending/MergedWorkerChangeHistory.xlsx";
+        String path = "/Users/xyang137/Documents/Archive/pending/ChangeHistoryReportEncode.xlsx";
         List<WorkChangeHistory> res = generateExcel(WorkChangeHistory.class, path);
         insertRecords(res);
         sqlSession.close();
