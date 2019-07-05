@@ -5,6 +5,7 @@ import dimensionScored.DDriversScored;
 import dimensionScored.DTraitsScored;
 import entity.*;
 import fixedEntity.FixedEducation;
+import fixedEntity.FixedPerformanceRating;
 import fixedEntity.FixedWorkChangeHistory;
 import org.apache.ibatis.annotations.Param;
 
@@ -55,8 +56,9 @@ public interface Mapper {
 
     int addFixedEducation(FixedEducation fixedEducation);
 
-    List<WorkChangeHistory> getAllWorkChangeHistory();
+    List<PerformanceRating> getAllPerformanceRating();
 
-    int addFixedWorkChangeHistory(FixedWorkChangeHistory fixedWorkChangeHistory);
+    int addFixedPerformanceRating(FixedPerformanceRating fixedPerformanceRating);
+
 }
 
