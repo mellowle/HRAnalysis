@@ -1,7 +1,7 @@
 package adapter;
 
-import excel.excelEntity.Traits;
-import excel.excelMapping.TraitsColMapping;
+import entity.excelEntity.Traits;
+import excelMapping.TraitsColMapping;
 
 import java.util.List;
 

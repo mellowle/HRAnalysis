@@ -1,13 +1,13 @@
 package dao;
 
-import dimensionRawData.DExperiences;
-import dimensionScored.DCompetenciesScored;
-import dimensionScored.DDriversScored;
-import dimensionScored.DTraitsScored;
-import excel.excelEntity.*;
+import entity.dimensionRawData.DExperiences;
+import entity.dimensionScored.DCompetenciesScored;
+import entity.dimensionScored.DDriversScored;
+import entity.dimensionScored.DTraitsScored;
+import entity.excelEntity.*;
 import fixedEntity.EducationFixed;
-import fixedEntity.PerformanceRatingFixed;
-import fixedEntity.WorkerChangeHistoryFixed;
+import entity.excelEntity.fixed.PerformanceRatingFixed;
+import entity.excelEntity.fixed.WorkerChangeHistoryFixed;
 import org.apache.ibatis.annotations.Param;
 
 

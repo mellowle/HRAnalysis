@@ -1,7 +1,7 @@
 package adapter;
 
-import excel.excelEntity.EmployeeDemographics;
-import excel.excelMapping.EmployeeDemographicsColMapping;
+import entity.excelEntity.EmployeeDemographics;
+import excelMapping.EmployeeDemographicsColMapping;
 
 import java.util.List;
 

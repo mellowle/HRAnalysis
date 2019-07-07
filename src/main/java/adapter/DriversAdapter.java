@@ -1,7 +1,7 @@
 package adapter;
 
-import excel.excelEntity.Drivers;
-import excel.excelMapping.DriversColMapping;
+import entity.excelEntity.Drivers;
+import excelMapping.DriversColMapping;
 
 import java.util.List;
 

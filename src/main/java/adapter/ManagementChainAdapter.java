@@ -1,7 +1,7 @@
 package adapter;
 
-import excel.excelEntity.ManagementChain;
-import excel.excelMapping.ManagementChainColMapping;
+import entity.excelEntity.ManagementChain;
+import excelMapping.ManagementChainColMapping;
 
 import java.util.List;
 

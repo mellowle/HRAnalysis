@@ -1,7 +1,7 @@
 package adapter;
 
-import excel.excelEntity.Compensation;
-import excel.excelMapping.CompensationColMapping;
+import entity.excelEntity.Compensation;
+import excelMapping.CompensationColMapping;
 
 import java.util.List;
 

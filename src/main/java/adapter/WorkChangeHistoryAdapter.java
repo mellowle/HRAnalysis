@@ -1,7 +1,7 @@
 package adapter;
 
-import excel.excelEntity.WorkerChangeHistory;
-import excel.excelMapping.WorkerChangeHistoryColMapping;
+import entity.excelEntity.WorkerChangeHistory;
+import excelMapping.WorkerChangeHistoryColMapping;
 
 import java.util.List;
 

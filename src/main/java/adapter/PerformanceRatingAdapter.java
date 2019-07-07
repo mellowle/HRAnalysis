@@ -1,7 +1,7 @@
 package adapter;
 
-import excel.excelEntity.PerformanceRating;
-import excel.excelMapping.PerformanceRatingColMapping;
+import entity.excelEntity.PerformanceRating;
+import excelMapping.PerformanceRatingColMapping;
 
 import java.util.List;
 

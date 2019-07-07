@@ -1,7 +1,7 @@
 package adapter;
 
-import excel.excelEntity.TalentCard;
-import excel.excelMapping.TalentCardColMapping;
+import entity.excelEntity.TalentCard;
+import excelMapping.TalentCardColMapping;
 
 import java.util.List;
 

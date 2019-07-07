@@ -1,7 +1,7 @@
 package adapter;
 
-import excel.excelEntity.Education;
-import excel.excelMapping.EducationColMapping;
+import entity.excelEntity.Education;
+import excelMapping.EducationColMapping;
 
 import java.util.List;
 
