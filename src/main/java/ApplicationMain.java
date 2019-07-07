@@ -6,7 +6,7 @@ import service.excelService.*;
 
 import java.util.List;
 
-public class application {
+public class ApplicationMain {
     public static void main (String... args) throws Exception {
         CompensationExcelService compensationExcelService = new CompensationExcelService();
         CompetenciesExcelService competenciesExcelService = new CompetenciesExcelService();
