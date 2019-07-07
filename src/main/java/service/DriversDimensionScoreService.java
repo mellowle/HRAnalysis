@@ -4,9 +4,9 @@ import com.google.common.collect.Lists;
 import dao.Mapper;
 import dimensionRawData.DDrivers;
 import dimensionScored.DDriversScored;
-import entity.Drivers;
+import excel.excelEntity.Drivers;
 import org.apache.ibatis.session.SqlSession;
-import table.DriversColMapping;
+import excel.excelMapping.DriversColMapping;
 import util.DataConnection;
 import util.KF4DScoreFunctionUtils;
 

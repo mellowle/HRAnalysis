@@ -1,7 +1,7 @@
 package adapter;
 
-import entity.WorkChangeHistory;
-import table.WorkerChangeHistoryColMapping;
+import excel.excelEntity.WorkerChangeHistory;
+import excel.excelMapping.WorkerChangeHistoryColMapping;
 
 import java.util.List;
 
@@ -23,10 +23,10 @@ public class WorkChangeHistoryAdapter extends Adapter {
     }
 
     //insert data
-    private void insertRecords(List<WorkChangeHistory> req) {
+    private void insertRecords(List<WorkerChangeHistory> req) {
         try {
-            req.forEach(workChangeHistory -> {
-                mapper.addWorkChangeHistory(workChangeHistory);
+            req.forEach(workerChangeHistory-> {
+                mapper.addWorkChangeHistory(workerChangeHistory);
                 sqlSession.commit();
             });
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class WorkChangeHistoryAdapter extends Adapter {
         }
         createTable();
         String path = "/Users/xyang137/Documents/Archive/pending/ChangeHistoryReportEncode.xlsx";
-        List<WorkChangeHistory> res = generateExcel(WorkChangeHistory.class, path);
+        List<WorkerChangeHistory> res = generateExcel(WorkerChangeHistory.class, path);
         insertRecords(res);
         sqlSession.close();
     }

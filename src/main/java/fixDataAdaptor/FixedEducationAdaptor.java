@@ -2,14 +2,12 @@ package fixDataAdaptor;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import Constants.ExperiencesConstants.Constants;
+import Constants.ExperiencesConstants.ExperiencesConstants;
 import dao.Mapper;
-import dimensionScored.DCompetenciesScored;
-import entity.Education;
-import fixedEntity.FixedEducation;
+import excel.excelEntity.Education;
+import fixedEntity.EducationFixed;
 import org.apache.ibatis.session.SqlSession;
-import table.CompetenciesColMapping;
-import table.EducationColMapping;
+import excel.excelMapping.EducationColMapping;
 import util.DataConnection;
 
 import java.io.IOException;
@@ -32,12 +30,12 @@ public class FixedEducationAdaptor {
         }
     }
 
-    public static List<FixedEducation> getFixedEducationList() {
+    public static List<EducationFixed> getFixedEducationList() {
         //TODO get education list from DB and replace
         //get data from database
         List<Education> educationList = mapper.getAllEducation();
         sqlSession.commit();
-        List<FixedEducation> fixedEducationList = Lists.newArrayList();
+        List<EducationFixed> educationFixedList = Lists.newArrayList();
 
         Map<String, List<Education>> educationMap = educationList.stream().collect(Collectors
                 .groupingBy(Education::getWwid));
@@ -49,17 +47,17 @@ public class FixedEducationAdaptor {
                 educationSet.add(education.getHighest_degree_received());
             }
 
-            FixedEducation fixedEducation = new FixedEducation();
-            fixedEducation.setWwid(entry.getKey());
-            if (educationSet.contains(Constants.MBA)) {
-                fixedEducation.setHighestEducation(Constants.MBA);
+            EducationFixed educationFixed = new EducationFixed();
+            educationFixed.setWwid(entry.getKey());
+            if (educationSet.contains(ExperiencesConstants.MBA)) {
+                educationFixed.setHighestEducation(ExperiencesConstants.MBA);
             }
 
-            fixedEducationList.add(fixedEducation);
+            educationFixedList.add(educationFixed);
 
         }
 
-        return fixedEducationList;
+        return educationFixedList;
     }
 
     //create table
@@ -69,8 +67,8 @@ public class FixedEducationAdaptor {
         }
         createTable();
 
-        List<FixedEducation> fixedEducations = getFixedEducationList();
-        insertRecords(fixedEducations);
+        List<EducationFixed> educationFixeds = getFixedEducationList();
+        insertRecords(educationFixeds);
 
 
     }
@@ -100,10 +98,10 @@ public class FixedEducationAdaptor {
         return cols;
     }
 
-    public static void insertRecords(List<FixedEducation> req) {
+    public static void insertRecords(List<EducationFixed> req) {
         try {
-            req.forEach(fixedEducation->{
-                mapper.addFixedEducation(fixedEducation);
+            req.forEach(educationFixed->{
+                mapper.addFixedEducation(educationFixed);
                 sqlSession.commit();
             });
         } catch (Exception e) {

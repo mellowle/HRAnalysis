@@ -1,7 +1,7 @@
 package adapter;
 
-import entity.Competencies;
-import table.CompetenciesColMapping;
+import excel.excelEntity.Competencies;
+import excel.excelMapping.CompetenciesColMapping;
 
 import java.util.List;
 

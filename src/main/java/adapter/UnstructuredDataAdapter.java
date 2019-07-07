@@ -1,9 +1,7 @@
 package adapter;
 
-import entity.Traits;
-import entity.UnstructuredData;
-import table.TraitsColMapping;
-import table.UnstructuredDataColMapping;
+import excel.excelEntity.UnstructuredData;
+import excel.excelMapping.UnstructuredDataColMapping;
 
 import java.util.List;
 

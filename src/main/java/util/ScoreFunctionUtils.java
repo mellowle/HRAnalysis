@@ -1,37 +1,41 @@
 package util;
 
-import Constants.ExperiencesConstants.Constants;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.util.StringUtil;
+import Constants.ExperiencesConstants.ExperiencesConstants;
+import Constants.ExperiencesConstants.RatingEnum;
 
 public class ScoreFunctionUtils {
 
     public static final int MBA_SCORE_5 = 5;
     public static final int MBA_SCORE_0 = 0;
 
-    public static int isMBAScore(String highestDegreeReceived) {
-        if (Constants.MBA.equals(highestDegreeReceived)) {
+    public static Integer isMBAScore(String highestDegreeReceived) {
+        if (highestDegreeReceived == null) {
+            return null;
+        }
+        if (ExperiencesConstants.MBA.equals(highestDegreeReceived)) {
             return MBA_SCORE_5;
-        } else {
+        }
+        else {
             return MBA_SCORE_0;
         }
-
     }
 
-    public static int teamSizeScore(String teamSize) {
+    public static Integer teamSizeScore(Integer teamSize) {
 
         if (teamSize == null) {
-            return 0;
+            return null;
         }
 
-        double teamSizeInt = Double.valueOf(teamSize);
-        if (teamSizeInt > 5) {
+        if (teamSize > 5) {
             return 5;
-        } else if (teamSizeInt > 3 && teamSizeInt <= 5) {
+        }
+        else if (teamSize > 3 && teamSize <= 5) {
             return 3;
-        } else if (teamSizeInt > 1 && teamSizeInt <= 3) {
+        }
+        else if (teamSize > 1 && teamSize <= 3) {
             return 1;
-        } else {
+        }
+        else {
             return 0;
         }
     }
@@ -39,7 +43,8 @@ public class ScoreFunctionUtils {
     public static double year2016PerformanceScore(RatingEnum year2016Performance) {
         if (year2016Performance == null) {
             return 3;
-        } else {
+        }
+        else {
             return year2016Performance.getScore();
         }
     }
@@ -47,7 +52,8 @@ public class ScoreFunctionUtils {
     public static double year2017PerformanceScore(RatingEnum year2017Performance) {
         if (year2017Performance == null) {
             return 3;
-        } else {
+        }
+        else {
             return year2017Performance.getScore();
         }
     }
@@ -55,12 +61,16 @@ public class ScoreFunctionUtils {
     public static double year2018PerformanceScore(RatingEnum year2018Performance) {
         if (year2018Performance == null) {
             return 3;
-        } else {
+        }
+        else {
             return year2018Performance.getScore();
         }
     }
 
-    public static int year2017BonusIncrementScore(double bonusIncrement2017, double averageBaseIncrement2017) {
+    public static Integer year2017BonusIncrementScore(Double bonusIncrement2017, double averageBaseIncrement2017) {
+        if (bonusIncrement2017 == null) {
+            return null;
+        }
         if (bonusIncrement2017 > averageBaseIncrement2017) {
             return 2;
         }
@@ -68,7 +78,10 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static int year2018BonusIncrementScore(double bonusIncrement2018, double averageBaseIncrement2018) {
+    public static Integer year2018BonusIncrementScore(Double bonusIncrement2018, double averageBaseIncrement2018) {
+        if (bonusIncrement2018 == null) {
+            return null;
+        }
         if (bonusIncrement2018 > averageBaseIncrement2018) {
             return 2;
         }
@@ -76,189 +89,192 @@ public class ScoreFunctionUtils {
         return 0;
     }
 
-    public static int functionMovementScore(Integer functionMovement) {
+    public static Integer functionMovementScore(Integer functionMovements) {
 
-        if (functionMovement == null) {
-            return 0;
+        if (functionMovements == null) {
+            return null;
         }
 
-        if (functionMovement >= 5) {
+        if (functionMovements >= 5) {
             return 5;
-        } else {
-            return functionMovement;
+        }
+        else {
+            return functionMovements;
         }
     }
 
-    public static int lateralMovementScore(Integer lateralMovement) {
-        if (lateralMovement == null) {
-            return 0;
+    public static Integer lateralMovementScore(Integer lateralMovements) {
+        if (lateralMovements == null) {
+            return null;
         }
 
-        if (lateralMovement >= 5) {
+        if (lateralMovements >= 5) {
             return 5;
-        } else {
-            return lateralMovement;
         }
-
-    }
-
-    public static int promotionScore(Integer promotion) {
-        if (promotion == null) {
-            return 0;
-        }
-
-        if (promotion >= 5) {
-            return 5;
-        } else {
-            return promotion;
-        }
-    }
-
-    public static int regionMovementScore(Integer regionMovement) {
-        if (regionMovement == null) {
-            return 0;
-        }
-
-        //TODO fix 0 to null
-        if (regionMovement == null) {
-            return 0;
-        }
-        if (regionMovement >= 5) {
-            return 5;
-        } else {
-            return regionMovement;
+        else {
+            return lateralMovements;
         }
 
     }
 
-    public static int sectorMovementScore(Integer sectorMovement) {
-        if (sectorMovement == null) {
-            return 0;
+    public static Integer promotionScore(Integer promotions) {
+        if (promotions == null) {
+            return null;
         }
 
-        if (sectorMovement >= 5) {
+        if (promotions >= 5) {
             return 5;
-        } else {
-            return sectorMovement;
+        }
+        else {
+            return promotions;
+        }
+    }
+
+    public static Integer regionMovementScore(Integer regionMovements) {
+        if (regionMovements == null) {
+            return null;
+        }
+
+        if (regionMovements >= 5) {
+            return 5;
+        }
+        else {
+            return regionMovements;
         }
 
     }
 
-    public static int countryMovementScore(int countryMovement) {
-        if (countryMovement >= 5) {
+    public static Integer sectorMovementScore(Integer sectorMovements) {
+        if (sectorMovements == null) {
+            return null;
+        }
+
+        if (sectorMovements >= 5) {
             return 5;
-        } else {
-            return countryMovement;
+        }
+        else {
+            return sectorMovements;
         }
 
     }
 
-    public static int externalRoleNumberScore(String externalRoleNumber) {
-        //TODO fix 0 to null
-        if (StringUtils.isEmpty(externalRoleNumber) || externalRoleNumber == null) {
-            return 0;
-        }
-        double externalRoleNumberInt = Double.valueOf(externalRoleNumber);
-        if (externalRoleNumberInt >= 5) {
-            return 5;
-        } else if (externalRoleNumberInt == 4) {
-            return 4;
-        } else if (externalRoleNumberInt == 3) {
-            return 3;
-        } else if (externalRoleNumberInt == 2) {
-            return 2;
-        } else if (externalRoleNumberInt == 1) {
-            return 1;
+    public static Integer countryMovementScore(Integer countryMovements) {
+        if (countryMovements == null) {
+            return null;
         }
 
-        return 0;
+        if (countryMovements >= 5) {
+            return 5;
+        }
+        else {
+            return countryMovements;
+        }
+
     }
 
-    public static int externalLengthOfServiceScore(String externalLengthOfService, Double averageExternalLengthOfService) {
+    public static Integer externalRoleNumberScore(Integer externalRoleNumber) {
+        if (externalRoleNumber == null) {
+            return null;
+        }
+
+        if (externalRoleNumber >= 5) {
+            return 5;
+        }
+        else {
+            return externalRoleNumber;
+        }
+
+    }
+
+    public static Integer externalLengthOfServiceScore(Double externalLengthOfService,
+                                                       double averageExternalLengthOfService) {
         if (externalLengthOfService == null) {
-            return 0;
+            return null;
         }
 
-        double exterLengthOfServiceD = Double.valueOf(externalLengthOfService);
-
-        if (exterLengthOfServiceD > averageExternalLengthOfService) {
+        if (externalLengthOfService > averageExternalLengthOfService) {
             return 2;
         }
 
         return 0;
     }
 
-    public static int totalRoleNumberScore(String totalRoleNumber) {
+    public static Integer totalRoleNumberScore(Integer totalRoleNumber) {
 
-        if (totalRoleNumber == null || StringUtils.isEmpty(totalRoleNumber)) {
+        if (totalRoleNumber == null) {
+            return null;
+        }
+
+        if (totalRoleNumber <= 3) {
             return 0;
         }
-        double totalRoleNumberi = Double.valueOf(totalRoleNumber);
-
-        if (totalRoleNumberi <= 3) {
-            return 0;
-        } else if (totalRoleNumberi > 7 && totalRoleNumberi <= 9) {
+        else if (totalRoleNumber > 7 && totalRoleNumber <= 9) {
             return 1;
-        } else if (totalRoleNumberi > 5 && totalRoleNumberi <= 7) {
+        }
+        else if (totalRoleNumber > 5 && totalRoleNumber <= 7) {
             return 3;
-        } else if (totalRoleNumberi > 3 && totalRoleNumberi <= 5) {
+        }
+        else if (totalRoleNumber > 3 && totalRoleNumber <= 5) {
             return 5;
         }
 
         return 0;
     }
 
-    public static int totalWorkingYearsScore(String totalWorkingYears) {
-        if (StringUtils.isEmpty(totalWorkingYears) || totalWorkingYears == null) {
-            return 0;
+    public static Integer totalWorkingYearsScore(Double totalWorkingYears) {
+        if (totalWorkingYears == null) {
+            return null;
         }
-        double totalWokYers = Double.valueOf(totalWorkingYears);
 
-        if (totalWokYers > 30) {
+        if (totalWorkingYears > 30) {
             return 1;
-        } else if (totalWokYers > 20 && totalWokYers <= 30) {
+        }
+        else if (totalWorkingYears > 20 && totalWorkingYears <= 30) {
             return 2;
-        } else if (totalWokYers > 10 && totalWokYers <= 20) {
+        }
+        else if (totalWorkingYears > 10 && totalWorkingYears <= 20) {
             return 3;
-        } else if (totalWokYers <= 10) {
+        }
+        else if (totalWorkingYears <= 10) {
             return 5;
         }
 
         return 0;
     }
 
-    public static int averageDurationOnEachRoleScore(String averageDurationOnEachRole) {
-        if (averageDurationOnEachRole == null && StringUtils.isEmpty(averageDurationOnEachRole)){
-            return 0;
+    public static Integer averageDurationOnEachRoleScore(Double averageDurationOnEachRole) {
+        if (averageDurationOnEachRole == null) {
+            return null;
         }
 
-        double averageDuration = Double.valueOf(averageDurationOnEachRole);
-
-        if (averageDuration > 0 && averageDuration <= 5) {
+        if (averageDurationOnEachRole > 0 && averageDurationOnEachRole <= 5) {
             return 5;
-        } else if (averageDuration > 5 && averageDuration <= 10) {
+        }
+        else if (averageDurationOnEachRole > 5 && averageDurationOnEachRole <= 10) {
             return 3;
-        } else if (averageDuration > 10) {
+        }
+        else if (averageDurationOnEachRole > 10) {
             return 1;
         }
 
         return 0;
     }
 
-    public static int numberOfReportingToCEOScore(String numberOfReportingToCEO) {
-        if (StringUtils.isEmpty(numberOfReportingToCEO) || numberOfReportingToCEO == null) {
-            return 0;
+    public static Integer numberOfReportingToCEOScore(Integer hierarchyCount) {
+        if (hierarchyCount == null) {
+            return null;
         }
-
-        double hierarchyCount = Double.valueOf(numberOfReportingToCEO);
 
         if (hierarchyCount >= 10) {
             return 1;
-        } else if (hierarchyCount > 8 && hierarchyCount <= 9) {
+        }
+        else if (hierarchyCount > 8 && hierarchyCount <= 9) {
             return 2;
-        } else if (hierarchyCount >6 && hierarchyCount <= 7) {
+        }
+        else if (hierarchyCount > 6 && hierarchyCount <= 7) {
             return 4;
-        } else if (hierarchyCount <= 5) {
+        }
+        else if (hierarchyCount <= 5) {
             return 5;
         }
 

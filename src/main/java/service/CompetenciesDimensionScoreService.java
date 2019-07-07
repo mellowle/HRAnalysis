@@ -4,9 +4,9 @@ import com.google.common.collect.Lists;
 import dao.Mapper;
 import dimensionRawData.DCompetencies;
 import dimensionScored.DCompetenciesScored;
-import entity.Competencies;
+import excel.excelEntity.Competencies;
 import org.apache.ibatis.session.SqlSession;
-import table.CompetenciesColMapping;
+import excel.excelMapping.CompetenciesColMapping;
 import util.DataConnection;
 import util.KF4DScoreFunctionUtils;
 

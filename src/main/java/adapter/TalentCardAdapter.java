@@ -1,7 +1,7 @@
 package adapter;
 
-import entity.TalentCard;
-import table.TalentCardColMapping;
+import excel.excelEntity.TalentCard;
+import excel.excelMapping.TalentCardColMapping;
 
 import java.util.List;
 
@@ -45,10 +45,10 @@ public class TalentCardAdapter extends Adapter {
         String path = "/Users/xyang137/Documents/Archive/done/MergedTalentCard.xlsx";
         List<TalentCard> res = generateExcel(TalentCard.class,path);
         res.forEach(talentCard -> {
-            talentCard.setAverageTimeOfEachRole();
-            talentCard.setTotalRoleNumber();
-            talentCard.setExternalLengthOfService();
-            talentCard.setTotalWorkingYears();
+//            talentCard.setAverageTimeOfEachRole();
+//            talentCard.setTotalRoleNumber();
+//            talentCard.setExternalLengthOfService();
+//            talentCard.setTotalWorkingYears();
         });
         insertRecords(res);
         sqlSession.close();

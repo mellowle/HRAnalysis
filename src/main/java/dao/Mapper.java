@@ -4,10 +4,10 @@ import dimensionRawData.DExperiences;
 import dimensionScored.DCompetenciesScored;
 import dimensionScored.DDriversScored;
 import dimensionScored.DTraitsScored;
-import entity.*;
-import fixedEntity.FixedEducation;
-import fixedEntity.FixedPerformanceRating;
-import fixedEntity.FixedWorkChangeHistory;
+import excel.excelEntity.*;
+import fixedEntity.EducationFixed;
+import fixedEntity.PerformanceRatingFixed;
+import fixedEntity.WorkerChangeHistoryFixed;
 import org.apache.ibatis.annotations.Param;
 
 
@@ -31,7 +31,7 @@ public interface Mapper {
 
     int addTalentCard(TalentCard talentCard);
 
-    int addWorkChangeHistory(WorkChangeHistory workChangeHistory);
+    int addWorkChangeHistory(WorkerChangeHistory workerChangeHistory);
 
     int addCompetencies(Competencies competencies);
 
@@ -55,17 +55,17 @@ public interface Mapper {
 
     List<Education> getAllEducation();
 
-    int addFixedEducation(FixedEducation fixedEducation);
+    int addFixedEducation(EducationFixed educationFixed);
 
     List<PerformanceRating> getAllPerformanceRating();
 
-    int addFixedPerformanceRating(FixedPerformanceRating fixedPerformanceRating);
+    int addFixedPerformanceRating(PerformanceRatingFixed performanceRatingFixed);
 
     List<DExperiences> getAllExperiences();
 
-    List<WorkChangeHistory> getAllWorkChangeHistory();
+    List<WorkerChangeHistory> getAllWorkChangeHistory();
 
-    int addFixedWorkChangeHistory(FixedWorkChangeHistory fixedWorkChangeHistory);
+    int addFixedWorkChangeHistory(WorkerChangeHistoryFixed workerChangeHistoryFixed);
 
     int addUnstructuredData(UnstructuredData unstructuredData);
 }

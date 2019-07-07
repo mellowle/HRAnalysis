@@ -1,7 +1,7 @@
 package adapter;
 
-import entity.DirectReport;
-import table.DirectReportColMapping;
+import excel.excelEntity.DirectReport;
+import excel.excelMapping.DirectReportColMapping;
 
 import java.util.List;
 

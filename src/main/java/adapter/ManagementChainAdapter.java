@@ -1,7 +1,7 @@
 package adapter;
 
-import entity.ManagementChain;
-import table.ManagementChainColMapping;
+import excel.excelEntity.ManagementChain;
+import excel.excelMapping.ManagementChainColMapping;
 
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class ManagementChainAdapter extends Adapter {
         String path = "/Users/xyang137/Documents/Archive/done/MergedManagementChain.xlsx";
         List<ManagementChain> res = generateExcel(ManagementChain.class, path);
         for (int i = 0; i < res.size(); i++) {
-            res.get(i).setHierarchy();
+            res.get(i).setHierarchy_count();
         }
         insertRecords(res);
         sqlSession.close();

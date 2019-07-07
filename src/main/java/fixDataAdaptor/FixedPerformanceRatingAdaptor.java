@@ -1,12 +1,12 @@
 package fixDataAdaptor;
 
+import Constants.ExperiencesConstants.ExperiencesConstants;
 import com.google.common.collect.Lists;
-import Constants.ExperiencesConstants.Constants;
 import dao.Mapper;
-import entity.PerformanceRating;
-import fixedEntity.FixedPerformanceRating;
+import excel.excelEntity.PerformanceRating;
+import fixedEntity.PerformanceRatingFixed;
 import org.apache.ibatis.session.SqlSession;
-import table.PerformanceRatingColMapping;
+import excel.excelMapping.PerformanceRatingColMapping;
 import util.DataConnection;
 
 import java.io.IOException;
@@ -29,11 +29,11 @@ public class FixedPerformanceRatingAdaptor {
         }
     }
 
-    public static List<FixedPerformanceRating> getFixedPerformanceRating() {
+    public static List<PerformanceRatingFixed> getFixedPerformanceRating() {
         //TODO get performance rating raw data from DB and replace
         List<PerformanceRating> performanceRatingList = mapper.getAllPerformanceRating();
         sqlSession.commit();
-        List<FixedPerformanceRating> fixedPerformanceRatingList = Lists.newArrayList();
+        List<PerformanceRatingFixed> performanceRatingFixedList = Lists.newArrayList();
 
         removeRatingsBefore2016(performanceRatingList);
 
@@ -41,33 +41,33 @@ public class FixedPerformanceRatingAdaptor {
                 Collectors.groupingBy(PerformanceRating::getWwid));
 
         for (Map.Entry<String, List<PerformanceRating>> entry : performanceRatingMap.entrySet()){
-            FixedPerformanceRating fixedPerformanceRating = new FixedPerformanceRating();
-            fixedPerformanceRating.setWwid(entry.getKey());
+            PerformanceRatingFixed performanceRatingFixed = new PerformanceRatingFixed();
+            performanceRatingFixed.setWwid(entry.getKey());
 
             for (PerformanceRating rating : entry.getValue()) {
-                if (Constants.YEAR_END_2016.equals(rating.getReview_period_end_date())) {
-                    fixedPerformanceRating.setOverallRating2016(rating.getOverall_rating());
-                } else if (Constants.YEAR_END_2017.equals(rating.getReview_period_end_date())) {
-                    fixedPerformanceRating.setOverallRating2017(rating.getOverall_rating());
-                } else if (Constants.YEAR_END_2018.equals(rating.getReview_period_end_date())) {
-                    fixedPerformanceRating.setOverallRating2018(rating.getOverall_rating());
-                }
+//                if (ExperiencesConstants.YEAR_END_2016.equals(rating.getReview_period_end_date())) {
+//                    performanceRatingFixed.setOverallRating2016(rating.getOverall_rating());
+//                } else if (ExperiencesConstants.YEAR_END_2017.equals(rating.getReview_period_end_date())) {
+//                    performanceRatingFixed.setOverallRating2017(rating.getOverall_rating());
+//                } else if (ExperiencesConstants.YEAR_END_2018.equals(rating.getReview_period_end_date())) {
+//                    performanceRatingFixed.setOverallRating2018(rating.getOverall_rating());
+//                }
             }
 
-            fixedPerformanceRatingList.add(fixedPerformanceRating);
+            performanceRatingFixedList.add(performanceRatingFixed);
 
         }
 
-        return fixedPerformanceRatingList;
+        return performanceRatingFixedList;
     }
 
     private static void removeRatingsBefore2016(List<PerformanceRating> performanceRatings) {
         Iterator<PerformanceRating> iter = performanceRatings.iterator();
         while(iter.hasNext()) {
             PerformanceRating performanceRating = iter.next();
-            if (!Constants.YEAR_END_2016.equals(performanceRating.getReview_period_end_date()) &&
-                    !Constants.YEAR_END_2017.equals(performanceRating.getReview_period_end_date()) &&
-                    !Constants.YEAR_END_2018.equals(performanceRating.getReview_period_end_date())) {
+            if (!ExperiencesConstants.YEAR_END_2016.equals(performanceRating.getReview_period_end_date()) &&
+                    !ExperiencesConstants.YEAR_END_2017.equals(performanceRating.getReview_period_end_date()) &&
+                    !ExperiencesConstants.YEAR_END_2018.equals(performanceRating.getReview_period_end_date())) {
 
                 iter.remove();
             }
@@ -80,8 +80,8 @@ public class FixedPerformanceRatingAdaptor {
         }
         createTable();
 
-        List<FixedPerformanceRating> fixedPerformanceRating = getFixedPerformanceRating();
-        insertRecords(fixedPerformanceRating);
+        List<PerformanceRatingFixed> performanceRatingFixed = getFixedPerformanceRating();
+        insertRecords(performanceRatingFixed);
     }
 
     public static boolean isExisted() {
@@ -109,10 +109,10 @@ public class FixedPerformanceRatingAdaptor {
         return cols;
     }
 
-    public static void insertRecords(List<FixedPerformanceRating> req) {
+    public static void insertRecords(List<PerformanceRatingFixed> req) {
         try {
-            req.forEach(fixedPerformanceRating->{
-                mapper.addFixedPerformanceRating(fixedPerformanceRating);
+            req.forEach(performanceRatingFixed->{
+                mapper.addFixedPerformanceRating(performanceRatingFixed);
                 sqlSession.commit();
             });
         } catch (Exception e) {

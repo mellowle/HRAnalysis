@@ -1,8 +1,7 @@
 package adapter;
 
-import com.google.gson.Gson;
-import entity.Education;
-import table.EducationColMapping;
+import excel.excelEntity.Education;
+import excel.excelMapping.EducationColMapping;
 
 import java.util.List;
 
