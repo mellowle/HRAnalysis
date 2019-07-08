@@ -31,7 +31,7 @@ public class DDriversScored {
                     + this.collaboration
                     + this.independence
                     + this.power
-                    + this.power;
+                    + this.structure;
         }
         else {
             this.result = null;
