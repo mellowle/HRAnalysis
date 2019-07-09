@@ -30,7 +30,7 @@ public class CompetenciesDimensionScoreService extends Score2EntityService {
 
 
         List<DCompetencies> dCompetenciesList = Lists.newArrayList();
-        //
+
         List<Competencies> results = TableUtils.getAllRecords(Competencies.class);
         results.forEach(competencies->{
             DCompetencies dCompetencies = new DCompetencies(competencies.getWwid(), competencies.getAction_oriented(), competencies.getBalances_stakeholders(),

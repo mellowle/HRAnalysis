@@ -22,15 +22,37 @@ public interface Mapper {
 
     int addCompensation(Compensation compensation);
 
+
+    //~~~~~~~~~~~Competencies~~~~~~~~~~~~~~
     int addCompetencies(Competencies competencies);
 
     List<Competencies> getAllCompetencies();
 
+    int addDCompetenciesScored(DCompetenciesScored dCompetenciesScored);
+    //~~~~~~~~~~~Competencies~~~~~~~~~~~~~~
+
+
+
+    //~~~~~~~~~~~Drivers~~~~~~~~~~~~~~
     int addDrivers(Drivers drivers);
 
+    List<Drivers> getAllDrivers();
+
+    int addDDriversScored(DDriversScored dDriversScored);
+    //~~~~~~~~~~~Drivers~~~~~~~~~~~~~~
+
+
+
+    //~~~~~~~~~~~Traits~~~~~~~~~~~~~~
     int addTraits(Traits traits);
 
-    int addDCompetenciesScored(DCompetenciesScored dCompetenciesScored);
+    List<Traits> getAllTraits();
+
+    int addDTraitsScored(DTraitsScored dTraitsScored);
+    //~~~~~~~~~~~Traits~~~~~~~~~~~~~~
+
+
+
 
 
     int addEmployeeDemographics(EmployeeDemographics employeeDemographics);
@@ -47,14 +69,7 @@ public interface Mapper {
 
     int addWorkChangeHistory(WorkerChangeHistory workerChangeHistory);
 
-
-    List<Drivers> getAllDrivers();
-
     List<Drivers> getJoinedDrivers();
-
-    int addDriversScored(DDriversScored dDriversScored);
-
-
 
 
     List<Traits> getJoinedTraits();

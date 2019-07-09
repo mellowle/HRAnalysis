@@ -7,7 +7,6 @@ public class WorkerChangeHistoryColMapping {
     public final static String EXCEL_NAME = "ChangeHistoryReportEncode.xlsx";
     public final static String TABLE_NAME = "worker_change_history";
     public static final String TABLE_NAME_FIXED = "worker_change_history_fixed";
-    public static final Map<String, String> COLUMN_MAPPING_FIXED;
     public static Map<String, String> COLUMN_MAPPING;
 
     static {
@@ -35,14 +34,5 @@ public class WorkerChangeHistoryColMapping {
         COLUMN_MAPPING.put("base_pay_proposed", "Base Pay - Proposed");
         COLUMN_MAPPING.put("base_pay_change_amount", "Base Pay Change - Amount");
         COLUMN_MAPPING.put("base_pay_change_percent", "Base Pay Change - Percent");
-
-        COLUMN_MAPPING_FIXED = new HashMap<>();
-        COLUMN_MAPPING_FIXED.put("wwid", "WWID");
-        COLUMN_MAPPING_FIXED.put("functionMovement", "Business Process Effective Date");
-        COLUMN_MAPPING_FIXED.put("lateralMovement", "Business Process Status");
-        COLUMN_MAPPING_FIXED.put("promotions", "Business Process Type");
-        COLUMN_MAPPING_FIXED.put("regionMovements", "Business Process Reason");
-        COLUMN_MAPPING_FIXED.put("countryMovements", "Business Process Reason");
-        COLUMN_MAPPING_FIXED.put("sectorMovements", "Business Process Reason");
     }
 }

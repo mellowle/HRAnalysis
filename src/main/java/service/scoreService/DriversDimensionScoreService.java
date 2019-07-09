@@ -1,111 +1,48 @@
 package service.scoreService;
 
 import com.google.common.collect.Lists;
-import dao.Mapper;
 import entity.dimensionRawData.DDrivers;
 import entity.dimensionScored.DDriversScored;
 import entity.excelEntity.Drivers;
-import org.apache.ibatis.session.SqlSession;
 import excelMapping.DriversColMapping;
-import util.DataConnection;
 import util.KF4DScoreFunctionUtils;
+import util.TableUtils;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
-public class DriversDimensionScoreService {
-    public static DataConnection dataConn = new DataConnection();
-    public static Mapper mapper = null;
-    public static SqlSession sqlSession;
-    public static String tableName = DriversColMapping.TABLE_NAME_SCORED;
+public class DriversDimensionScoreService extends Score2EntityService {
 
-    static {
-        try {
-            sqlSession = dataConn.getSqlSession();
-            mapper = sqlSession.getMapper(Mapper.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public DriversDimensionScoreService() {
+        this.TABLE_NAME_SCORED = DriversColMapping.TABLE_NAME_SCORED;
+        this.CLAZZ = DDriversScored.class;
     }
 
-    public static List<DDriversScored> getDriversScores() {
-        List<DDriversScored> dDriversScoredList = Lists.newArrayList();
-
-        try {
-            List<DDrivers> dDriversList = Lists.newArrayList();
-
-            List<Drivers> results = mapper.getJoinedDrivers();
-            sqlSession.commit();
-            results.forEach(drivers->{
-                DDrivers dDrivers = new DDrivers(drivers.getWwid(), drivers.getBalance(), drivers.getChallenge(), drivers.getCollaboration(), drivers.getIndependence(), drivers.getPower(), drivers.getStructure());
-                dDriversList.add(dDrivers);
-            });
-
-            for (DDrivers dDrivers : dDriversList) {
-                DDriversScored dTraitsScored = new DDriversScored(dDrivers.getWwid(), KF4DScoreFunctionUtils.calcDriversScore(dDrivers.getDrivers()));
-                dDriversScoredList.add(dTraitsScored);
-            }
-            return dDriversScoredList;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-
+    public static void main(String... args) throws Exception {
+        DriversDimensionScoreService c = new DriversDimensionScoreService();
+        List<DDriversScored> results = c.getScoredResults();
+        System.out.println(results.size());
+        c.initTable();
+        c.insertRecords(results);
     }
 
-    public static void generateScoreTable() {
-        if (isExisted()) {
-            dropTable();
-        }
 
-        createTable();
+    public static List<DDriversScored> getScoredResults() throws Exception {
+        List<DDriversScored> scoredResults = Lists.newArrayList();
 
-        List<DDriversScored> dDriversScoredList = getDriversScores();
-        insertRecords(dDriversScoredList);
+        List<DDrivers> dDriversList = Lists.newArrayList();
 
-    }
+        List<Drivers> results = TableUtils.getAllRecords(Drivers.class);
 
-    public static void createTable() {
-        mapper.createTable(tableName, generateColList(DriversColMapping.COLUMN_MAPPING_SCORED));
-    }
-
-    //通过map,生成数据库列
-    private static List<Map<String, String>> generateColList(Map<String, String> map) {
-        List<Map<String, String>> cols = new LinkedList<>();
-        map.forEach((col, v)->{
-            Map<String, String> colMap = new HashMap<>();
-            colMap.put("code", col);
-            colMap.put("type", "STRING");
-            colMap.put("length", "500");
-            cols.add(colMap);
+        results.forEach(drivers->{
+            DDrivers dDrivers = new DDrivers(drivers.getWwid(), drivers.getBalance(), drivers.getChallenge(), drivers.getCollaboration(), drivers.getIndependence(), drivers.getPower(), drivers.getStructure());
+            dDriversList.add(dDrivers);
         });
-        return cols;
-    }
 
-    public static boolean isExisted() {
-        return mapper.isTableExist(tableName) != 0;
-    }
-
-    public static void dropTable() {
-        mapper.deleteTable(tableName);
-    }
-
-    public static void insertRecords(List<DDriversScored> req) {
-        try {
-            req.forEach(dDriversScored->{
-                mapper.addDriversScored(dDriversScored);
-                sqlSession.commit();
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (DDrivers dDrivers : dDriversList) {
+            DDriversScored dTraitsScored = new DDriversScored(dDrivers.getWwid(), KF4DScoreFunctionUtils.calcDriversScore(dDrivers.getDrivers()));
+            scoredResults.add(dTraitsScored);
         }
-    }
 
-    public static void main(String... args) {
-        generateScoreTable();
+        return scoredResults;
     }
-
 }
