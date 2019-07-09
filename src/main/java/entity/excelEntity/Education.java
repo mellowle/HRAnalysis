@@ -1,8 +1,8 @@
 package entity.excelEntity;
 
 public class Education {
-    public String wwid;
-    public String highest_degree_received;
+    private String wwid;
+    private String highest_degree_received;
 
     public String getWwid() {
         return wwid;

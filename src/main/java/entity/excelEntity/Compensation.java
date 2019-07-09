@@ -1,10 +1,10 @@
 package entity.excelEntity;
 
 public class Compensation {
-    public String wwid;
-    public Double bonus2016;
-    public Double bonus2017;
-    public Double bonus2018;
+    private String wwid;
+    private Double bonus2016;
+    private Double bonus2017;
+    private Double bonus2018;
 
     public String getWwid() {
         return wwid;

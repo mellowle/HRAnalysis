@@ -3,19 +3,19 @@ package entity.excelEntity;
 import java.util.Date;
 
 public class EmployeeDemographics {
-    public String wwid;
-    public Integer employee_pay_grade;
-    public String home_location_code;
-    public String position_id;
-    public String job_profile;
-    public Long job_profile_id;
-    public String job_function;
-    public String job_sub_function;
-    public String sector;
-    public Double time_in_position;
-    public Double length_of_service_in_years;
-    public Date original_hire_date;
-    public Date hire_date_most_recent;
+    private String wwid;
+    private Integer employee_pay_grade;
+    private String home_location_code;
+    private String position_id;
+    private String job_profile;
+    private Long job_profile_id;
+    private String job_function;
+    private String job_sub_function;
+    private String sector;
+    private Double time_in_position;
+    private Double length_of_service_in_years;
+    private Date original_hire_date;
+    private Date hire_date_most_recent;
 
     public String getWwid() {
         return wwid;

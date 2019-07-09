@@ -1,15 +1,15 @@
 package entity.excelEntity;
 
 public class TalentCard {
-    public String wwid;
-    public Integer jnj_roles;
-    public Integer external_roles;
-    public Integer total_roles;
-    public Double average_time_of_jnj_role;
-    public Double average_time_of_external_role;
-    public Double total_working_year;
-    public Double external_length_of_service;
-    public Double average_time_of_each_role;
+    private String wwid;
+    private Integer jnj_roles;
+    private Integer external_roles;
+    private Integer total_roles;
+    private Double average_time_of_jnj_role;
+    private Double average_time_of_external_role;
+    private Double total_working_year;
+    private Double external_length_of_service;
+    private Double average_time_of_each_role;
 
     public String getWwid() {
         return wwid;

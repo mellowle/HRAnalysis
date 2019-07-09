@@ -1,8 +1,8 @@
 package entity.excelEntity;
 
 public class DirectReport {
-    public String wwid;
-    public Integer direct_report;
+    private String wwid;
+    private Integer direct_report;
 
     public String getWwid() {
         return wwid;

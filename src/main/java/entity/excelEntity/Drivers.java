@@ -1,13 +1,13 @@
 package entity.excelEntity;
 
 public class Drivers {
-    public String wwid;
-    public Integer balance;
-    public Integer challenge;
-    public Integer collaboration;
-    public Integer independence;
-    public Integer power;
-    public Integer structure;
+    private String wwid;
+    private Integer balance;
+    private Integer challenge;
+    private Integer collaboration;
+    private Integer independence;
+    private Integer power;
+    private Integer structure;
 
     public String getWwid() {
         return wwid;

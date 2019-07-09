@@ -18,7 +18,6 @@ public class CompensationExcelService extends Row2EntityService {
     public static void main(String... args) throws Exception {
         CompensationExcelService c = new CompensationExcelService();
         List<Compensation> results = c.getResults();
-//        results.forEach(System.err::println);
         System.out.println(results.size());
         c.initTable();
         c.insertRecords(results);

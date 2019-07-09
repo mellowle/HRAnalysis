@@ -1,17 +1,17 @@
 package entity.excelEntity;
 
 public class ManagementChain {
-    public String wwid;
-    public String management_chain_level_01;
-    public String management_chain_level_02;
-    public String management_chain_level_03;
-    public String management_chain_level_04;
-    public String management_chain_level_05;
-    public String management_chain_level_06;
-    public String management_chain_level_07;
-    public String management_chain_level_08;
-    public String management_chain_level_09;
-    public Integer hierarchy_count;
+    private String wwid;
+    private String management_chain_level_01;
+    private String management_chain_level_02;
+    private String management_chain_level_03;
+    private String management_chain_level_04;
+    private String management_chain_level_05;
+    private String management_chain_level_06;
+    private String management_chain_level_07;
+    private String management_chain_level_08;
+    private String management_chain_level_09;
+    private Integer hierarchy_count;
 
 
     public void setHierarchy_count() {

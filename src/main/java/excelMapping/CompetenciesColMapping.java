@@ -6,7 +6,7 @@ import java.util.Map;
 public class CompetenciesColMapping {
     public final static String EXCEL_NAME = "KF4DEncoded.xlsx";
     public final static String TABLE_NAME = "competencies";
-    public final static String TABLE_NAME_SCORED = "dimension_competencies_score";
+    public static final String TABLE_NAME_SCORED = "d_competencies_scored";
     public static Map<String, String> COLUMN_MAPPING;
     public static Map<String, String> COLUMN_MAPPING_SCORED;
 

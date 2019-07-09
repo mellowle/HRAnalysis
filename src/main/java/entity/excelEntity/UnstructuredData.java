@@ -1,9 +1,9 @@
 package entity.excelEntity;
 
 public class UnstructuredData {
-    public String wwid;
-    public Double performance_comments;
-    public Double feedback;
+    private String wwid;
+    private Double performance_comments;
+    private Double feedback;
 
     public String getWwid() {
         return wwid;

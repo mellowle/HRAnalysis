@@ -22,10 +22,17 @@ public interface Mapper {
 
     int addCompensation(Compensation compensation);
 
+    int addCompetencies(Competencies competencies);
+
+    int addDrivers(Drivers drivers);
+
+    int addTraits(Traits traits);
+
+
+
     int addEmployeeDemographics(EmployeeDemographics employeeDemographics);
 
     int addPerformanceRating(PerformanceRating performanceRating);
-
 
     int addDirectReport(DirectReport directReport);
 
@@ -37,11 +44,6 @@ public interface Mapper {
 
     int addWorkChangeHistory(WorkerChangeHistory workerChangeHistory);
 
-    int addCompetencies(Competencies competencies);
-
-    int addDrivers(Drivers drivers);
-
-    int addTraits(Traits traits);
 
     List<Drivers> getAllDrivers();
 

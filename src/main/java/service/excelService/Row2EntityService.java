@@ -114,7 +114,8 @@ public abstract class Row2EntityService {
                 if (colMapByName.get(entry.getValue()) != null) {
                     cell = row.getCell(colMapByName.get(entry.getValue()));
                     fieldName = entry.getKey();
-                    field = Clazz.getField(fieldName);
+                    field = Clazz.getDeclaredField(fieldName);
+                    field.setAccessible(true);
                     Class fieldType = field.getType();
                     methodName = "set" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
                     method = Clazz.getDeclaredMethod(methodName, fieldType);
@@ -144,25 +145,25 @@ public abstract class Row2EntityService {
         return results;
     }
 
-    private Map<String, String> getFieldTypeNameMapping(Class Clazz) throws Exception {
+    private Map<String, String> getFieldTypeNameMapping() {
         Map<String, String> results = Maps.newHashMap();
         Field field;
-        String fieldName;
 
-        for (Map.Entry<String, String> entry : COLUMN_MAPPING.entrySet()) {
-            fieldName = entry.getKey();
-            field = Clazz.getField(fieldName);
-            results.put(fieldName, Pojo2DBEnum.getDBType(field.getType().getName()));
+        Field[] fields = CLAZZ.getDeclaredFields();
+        for (int i = 0; i < fields.length; i++) {
+            field = fields[i];
+            field.setAccessible(true);
+            results.put(field.getName(), Pojo2DBEnum.getDBType(field.getType().getName()));
         }
 
         return results;
     }
 
-    public void initTable() throws Exception {
+    public void initTable() {
         if (TableUtils.isExisted(this.TABLE_NAME)) {
             TableUtils.dropTable(this.TABLE_NAME);
         }
-        TableUtils.createTable(this.TABLE_NAME, getFieldTypeNameMapping(CLAZZ));
+        TableUtils.createTable(this.TABLE_NAME, getFieldTypeNameMapping());
     }
 
     public <T> void insertRecords(List<T> list) throws Exception {

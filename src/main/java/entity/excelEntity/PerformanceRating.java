@@ -3,12 +3,12 @@ package entity.excelEntity;
 import java.util.Date;
 
 public class PerformanceRating {
-    public String wwid;
-    public Date review_period_start_date;
-    public Date review_period_end_date;
-    public String results_rating;
-    public String leadership_rating;
-    public String overall_rating;
+    private String wwid;
+    private Date review_period_start_date;
+    private Date review_period_end_date;
+    private String results_rating;
+    private String leadership_rating;
+    private String overall_rating;
 
     public String getWwid() {
         return wwid;
