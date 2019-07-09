@@ -6,7 +6,7 @@
 <mapper namespace="dao.Mapper">
 
     <select id="isTableExist" resultType="int">
-        select count(*) from information_schema.TABLES where table_name = #{tableName}
+        SELECT COUNT(*) from information_schema.TABLES where table_name = #{tableName}
     </select>
 
     <update id="deleteTable">
@@ -14,139 +14,139 @@
     </update>
 
     <update id="createTable">
-        CREATE TABLE ${newTableName} (
+        CREATE TABLE `${newTableName}` (
         <foreach item="item" index="index" collection="columns" open="" separator="," close=",">
-            ${item.code}
+            `${item.code}`
             <choose>
-                <when test="item.type=='STRING'">
-                    varchar(${item.length}) DEFAULT NULL
-                </when>
-                <when test="item.type=='NUMBER'">
-                    int DEFAULT NULL
+                <when test="item.type=='varchar'">
+                    varchar(255) DEFAULT NULL
                 </when>
                 <otherwise>
-                    TIMESTAMP(${item.length})
+                    ${item.type} DEFAULT NULL
                 </otherwise>
             </choose>
         </foreach>
         `id` bigint(21) PRIMARY KEY NOT NULL AUTO_INCREMENT
-        )
+        )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
     </update>
 
-    <insert id="addEmployeeDemographics" parameterType="entity.excelEntity.EmployeeDemographics" useGeneratedKeys="true" keyProperty="id">
-        insert into employee_demographics(wwid, employee_pay_grade,home_location_code,position_id,job_profile,job_profile_id,job_function,job_sub_function,sector,time_in_position,length_of_service_in_years,original_hire_date,hire_date_most_recent) values(#{wwid}, #{employee_pay_grade},#{home_location_code},#{position_id},#{job_profile},#{job_profile_id},#{job_function},#{job_sub_function},#{sector},#{time_in_position},#{length_of_service_in_years},#{original_hire_date},#{hire_date_most_recent})
-    </insert>
-
-    <insert id="addPerformanceRating" parameterType="entity.excelEntity.PerformanceRating" useGeneratedKeys="true" keyProperty="id">
-        insert into performance_rating(wwid, review_period_start_date,review_period_end_date,results_rating,leadership_rating,overall_rating) values(#{wwid}, #{review_period_start_date},#{review_period_end_date},#{results_rating},#{leadership_rating},#{overall_rating})
-    </insert>
-
     <insert id="addCompensation" parameterType="entity.excelEntity.Compensation" useGeneratedKeys="true" keyProperty="id">
-        insert into compensation(wwid, base_2017,base_2018,base_2019,bonus_2016,bonus_2017,bonus_2018) values(#{wwid}, #{base_2017},#{base_2018},#{base_2019},#{bonus_2016},#{bonus_2017},#{bonus_2018})
+        INSERT INTO compensation(wwid, bonus2016,bonus2017,bonus2018)
+        VALUES
+        (#{wwid}, #{bonus2016},#{bonus2017},#{bonus2018})
     </insert>
 
-    <insert id="addDirectReport" parameterType="entity.excelEntity.DirectReport" useGeneratedKeys="true" keyProperty="id">
-        insert into direct_report(wwid, direct_report) values(#{wwid}, #{direct_report})
-    </insert>
+<!--    <insert id="addEmployeeDemographics" parameterType="entity.excelEntity.EmployeeDemographics" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into employee_demographics(wwid, employee_pay_grade,home_location_code,position_id,job_profile,job_profile_id,job_function,job_sub_function,sector,time_in_position,length_of_service_in_years,original_hire_date,hire_date_most_recent) values(#{wwid}, #{employee_pay_grade},#{home_location_code},#{position_id},#{job_profile},#{job_profile_id},#{job_function},#{job_sub_function},#{sector},#{time_in_position},#{length_of_service_in_years},#{original_hire_date},#{hire_date_most_recent})-->
+<!--    </insert>-->
 
-    <insert id="addEducation" parameterType="entity.excelEntity.Education" useGeneratedKeys="true" keyProperty="id">
-        insert into education(wwid, highest_degree_received) values(#{wwid}, #{highest_degree_received})
-    </insert>
-
-    <insert id="addManagementChain" parameterType="entity.excelEntity.ManagementChain" useGeneratedKeys="true" keyProperty="id">
-        insert into management_chain(wwid, management_chain_level_01,management_chain_level_02,management_chain_level_03,management_chain_level_04,management_chain_level_05,management_chain_level_06,management_chain_level_07,management_chain_level_08,management_chain_level_09,hierarchy) values(#{wwid}, #{management_chain_level_01},#{management_chain_level_02},#{management_chain_level_03},#{management_chain_level_04},#{management_chain_level_05},#{management_chain_level_06},#{management_chain_level_07},#{management_chain_level_08},#{management_chain_level_09},#{hierarchy})
-    </insert>
-
-    <insert id="addTalentCard" parameterType="entity.excelEntity.TalentCard" useGeneratedKeys="true" keyProperty="id">
-        insert into talent_card(wwid, number_of_jnj_roles,average_time_of_jnj_role,number_of_external_roles,average_time_of_external_role,external_length_of_service,total_role_number,total_working_years,average_time_of_each_role) values(#{wwid}, #{number_of_jnj_roles},#{average_time_of_jnj_role},#{number_of_external_roles},#{average_time_of_external_role},#{external_length_of_service}, #{total_role_number}, #{total_working_years}, #{average_time_of_each_role})
-    </insert>
-
-    <insert id="addWorkChangeHistory" parameterType="entity.excelEntity.WorkerChangeHistory" useGeneratedKeys="true" keyProperty="id">
-        insert into worker_change_history(wwid, business_process_effective_date,business_process_status,business_process_type,business_process_reason,business_process_completed_date,position_current,position_proposed,region_current,region_proposed,company_current,company_proposed,job_profile_current,job_profile_proposed,location_current,location_proposed,compensation_grade_current,compensation_grade_proposed,pay_group_change,base_pay_current,base_pay_proposed,base_pay_change_amount,base_pay_change_percent) values(#{wwid}, #{business_process_effective_date},#{business_process_status},#{business_process_type},#{business_process_reason},#{business_process_completed_date},#{position_current},#{position_proposed},#{region_current},#{region_proposed},#{company_current},#{company_proposed},#{job_profile_current},#{job_profile_proposed},#{location_current},#{location_proposed},#{compensation_grade_current},#{compensation_grade_proposed},#{pay_group_change},#{base_pay_current},#{base_pay_proposed},#{base_pay_change_amount},#{base_pay_change_percent})
-    </insert>
-
-    <insert id="addCompetencies" parameterType="entity.excelEntity.Competencies" useGeneratedKeys="true" keyProperty="id">
-        insert into competencies(wwid, action_oriented,balances_stakeholders,being_resilient,builds_effective_teams,builds_networks,collaborates,communicates_effectively,courage,cultivates_innovation,customer_focus,decision_quality,develops_talent,directs_work,drives_engagement,drives_results,ensures_accountability,global_perspective,instills_trust,interpersonal_savvy,manages_ambiguity,manages_conflict,nimble_learning,optimizes_work_processes,persuades,plans_and_aligns,resourcefulness,self_development,situational_adaptability,strategic_mindset,values_differences) values(#{wwid}, #{action_oriented},#{balances_stakeholders},#{being_resilient},#{builds_effective_teams},#{builds_networks},#{collaborates},#{communicates_effectively},#{courage},#{cultivates_innovation},#{customer_focus},#{decision_quality},#{develops_talent},#{directs_work},#{drives_engagement},#{drives_results},#{ensures_accountability},#{global_perspective},#{instills_trust},#{interpersonal_savvy},#{manages_ambiguity},#{manages_conflict},#{nimble_learning},#{optimizes_work_processes},#{persuades},#{plans_and_aligns},#{resourcefulness},#{self_development},#{situational_adaptability},#{strategic_mindset},#{values_differences})
-    </insert>
-
-    <insert id="addDrivers" parameterType="entity.excelEntity.Drivers" useGeneratedKeys="true" keyProperty="id">
-        insert into drivers(wwid, balance,challenge,collaboration,independence,power,structure) values(#{wwid}, #{balance},#{challenge},#{collaboration},#{independence},#{power},#{structure})
-    </insert>
-
-    <insert id="addTraits" parameterType="entity.excelEntity.Traits" useGeneratedKeys="true" keyProperty="id">
-        insert into traits(wwid, adaptability,affiliation,assertiveness,composure,confidence,credibility,curiosity,empathy,focus,humility,influence,need_for_achievement,openness_to_differences,optimism,persistence,risk_taking,situational_self_awareness,sociability,tolerance_of_ambiguity,trust) values( #{wwid}, #{adaptability}, #{affiliation}, #{assertiveness}, #{composure}, #{confidence}, #{credibility}, #{curiosity}, #{empathy}, #{focus}, #{humility}, #{influence}, #{need_for_achievement}, #{openness_to_differences}, #{optimism}, #{persistence}, #{risk_taking}, #{situational_self_awareness}, #{sociability}, #{tolerance_of_ambiguity}, #{trust})
-    </insert>
-
-    <select id="getAllDrivers" resultType="entity.excelEntity.Drivers">
-        select * from drivers
-    </select>
-
-    <select id="getJoinedDrivers" resultType="entity.excelEntity.Drivers">
-        select c.wwid, d.balance,d.challenge,d.collaboration,d.independence,d.power,d.structure from compensation as c left join drivers as d on c.wwid = d.wwid
-    </select>
-
-    <insert id="addDriversScored" parameterType="entity.dimensionScored.DDriversScored" useGeneratedKeys="true" keyProperty="id">
-        insert into dimension_drivers_score(wwid, balance,challenge,collaboration,independence,power,structure,result) values(#{wwid}, #{balance},#{challenge},#{collaboration},#{independence},#{power},#{structure},#{result})
-    </insert>
-
-    <select id="getJoinedCompetencies" resultType="entity.excelEntity.Competencies">
-        select c.wwid, d.optimizes_work_processes, d.plans_and_aligns, d.being_resilient, d.strategic_mindset, d.courage, d.decision_quality, d.drives_results, d.action_oriented, d.collaborates, d.instills_trust, d.global_perspective, d.develops_talent, d.interpersonal_savvy, d.ensures_accountability, d.manages_ambiguity, d.situational_adaptability, d.self_development, d.customer_focus, d.nimble_learning, d.resourcefulness, d.builds_networks, d.balances_stakeholders, d.manages_conflict, d.drives_engagement, d.communicates_effectively, d.persuades, d.cultivates_innovation, d.directs_work, d.builds_effective_teams, d.values_differences from compensation as c left join competencies as d on c.wwid = d.wwid
-    </select>
-
-    <insert id="addCompetenciesScored" parameterType="entity.dimensionScored.DCompetenciesScored" useGeneratedKeys="true" keyProperty="id">
-        insert into dimension_competencies_score
-        (wwid, action_oriented, balances_stakeholders, being_resilient, builds_effective_teams, builds_networks, collaborates, communicates_effectively, courage, cultivates_innovation, customer_focus, decision_quality, develops_talent, directs_work, drives_engagement, drives_results, ensures_accountability, global_perspective, instills_trust, interpersonal_savvy, manages_ambiguity, manages_conflict, nimble_learning, optimizes_work_processes, persuades, plans_and_aligns, resourcefulness, self_development, situational_adaptability, strategic_mindset, values_differences, result)
-        values
-        (#{wwid}, #{action_oriented}, #{balances_stakeholders}, #{being_resilient}, #{builds_effective_teams}, #{builds_networks}, #{collaborates}, #{communicates_effectively}, #{courage}, #{cultivates_innovation}, #{customer_focus}, #{decision_quality}, #{develops_talent}, #{directs_work}, #{drives_engagement}, #{drives_results}, #{ensures_accountability}, #{global_perspective}, #{instills_trust}, #{interpersonal_savvy}, #{manages_ambiguity}, #{manages_conflict}, #{nimble_learning}, #{optimizes_work_processes}, #{persuades}, #{plans_and_aligns}, #{resourcefulness}, #{self_development}, #{situational_adaptability}, #{strategic_mindset}, #{values_differences}, #{result})
-    </insert>
-
-    <select id="getJoinedTraits" resultType="entity.excelEntity.Traits">
-        select c.wwid, d.trust, d.empathy, d.need_for_achievement, d.composure, d.curiosity, d.optimism, d.humility, d.confidence, d.focus, d.openness_to_differences, d.risk_taking, d.adaptability, d.wwid, d.situational_self_awareness, d.influence, d.sociability, d.affiliation, d.persistence, d.credibility, d.tolerance_of_ambiguity, d.assertiveness from compensation as c left join traits as d on c.wwid = d.wwid
-    </select>
-
-    <insert id="addTraitsScored" parameterType="entity.dimensionScored.DTraitsScored" useGeneratedKeys="true" keyProperty="id">
-        insert into dimension_traits_score
-        (trust, empathy, need_for_achievement, composure, curiosity, optimism, humility, confidence, focus, openness_to_differences, risk_taking, adaptability, wwid, situational_self_awareness, influence, sociability, result, affiliation, persistence, credibility, tolerance_of_ambiguity, assertiveness)
-        values
-        (#{trust}, #{empathy}, #{need_for_achievement}, #{composure}, #{curiosity}, #{optimism}, #{humility}, #{confidence}, #{focus}, #{openness_to_differences}, #{risk_taking}, #{adaptability}, #{wwid}, #{situational_self_awareness}, #{influence}, #{sociability}, #{result}, #{affiliation}, #{persistence}, #{credibility}, #{tolerance_of_ambiguity}, #{assertiveness})
-    </insert>
-
-    <!--get raw table for fix table-->
-    <select id="getAllEducation" resultType="entity.excelEntity.Education">
-        select * from education
-    </select>
-
-    <select id="getAllWorkChangeHistory" resultType="entity.excelEntity.WorkerChangeHistory">
-        select * from worker_change_history
-    </select>
-
-    <select id="getAllPerformanceRating" resultType="entity.excelEntity.PerformanceRating">
-        select * from performance_rating
-    </select>
+<!--    <insert id="addPerformanceRating" parameterType="entity.excelEntity.PerformanceRating" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into performance_rating(wwid, review_period_start_date,review_period_end_date,results_rating,leadership_rating,overall_rating) values(#{wwid}, #{review_period_start_date},#{review_period_end_date},#{results_rating},#{leadership_rating},#{overall_rating})-->
+<!--    </insert>-->
 
 
-    <!--insert value to fix table-->
-    <insert id="addFixedEducation" parameterType="fixedEntity.EducationFixed" useGeneratedKeys="true" keyProperty="id">
-        insert into education_fixed(wwid, highestEducation) values(#{wwid}, #{highestEducation})
-    </insert>
+<!--    <insert id="addDirectReport" parameterType="entity.excelEntity.DirectReport" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into direct_report(wwid, direct_report) values(#{wwid}, #{direct_report})-->
+<!--    </insert>-->
 
-    <insert id="addFixedWorkChangeHistory" parameterType="entity.excelEntity.fixed.WorkerChangeHistoryFixed" useGeneratedKeys="true" keyProperty="id">
-        insert into worker_change_history_fixed(wwid,functionMovement,lateralMovement,promotions,regionMovements,countryMovements,sectorMovements) values(#{wwid}, #{functionMovement}, #{lateralMovement}, #{promotions}, #{regionMovements}, #{countryMovements}, #{sectorMovements})
-    </insert>
+<!--    <insert id="addEducation" parameterType="entity.excelEntity.Education" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into education(wwid, highest_degree_received) values(#{wwid}, #{highest_degree_received})-->
+<!--    </insert>-->
 
-    <insert id="addFixedPerformanceRating" parameterType="entity.excelEntity.fixed.PerformanceRatingFixed" useGeneratedKeys="true" keyProperty="id">
-        insert into performance_rating_fixed(wwid, overallRating2016, overallRating2017, overallRating2018) values(#{wwid}, #{overallRating2016}, #{overallRating2017}, #{overallRating2018})
-    </insert>
+<!--    <insert id="addManagementChain" parameterType="entity.excelEntity.ManagementChain" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into management_chain(wwid, management_chain_level_01,management_chain_level_02,management_chain_level_03,management_chain_level_04,management_chain_level_05,management_chain_level_06,management_chain_level_07,management_chain_level_08,management_chain_level_09,hierarchy) values(#{wwid}, #{management_chain_level_01},#{management_chain_level_02},#{management_chain_level_03},#{management_chain_level_04},#{management_chain_level_05},#{management_chain_level_06},#{management_chain_level_07},#{management_chain_level_08},#{management_chain_level_09},#{hierarchy})-->
+<!--    </insert>-->
 
-    <insert id="addUnstructuredData" parameterType="entity.excelEntity.UnstructuredData" useGeneratedKeys="true" keyProperty="id">
-        insert into unstructured_data(wwid, performance_comments,feedback) values(#{wwid}, #{performance_comments},#{feedback})
-    </insert>
+<!--    <insert id="addTalentCard" parameterType="entity.excelEntity.TalentCard" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into talent_card(wwid, number_of_jnj_roles,average_time_of_jnj_role,number_of_external_roles,average_time_of_external_role,external_length_of_service,total_role_number,total_working_years,average_time_of_each_role) values(#{wwid}, #{number_of_jnj_roles},#{average_time_of_jnj_role},#{number_of_external_roles},#{average_time_of_external_role},#{external_length_of_service}, #{total_role_number}, #{total_working_years}, #{average_time_of_each_role})-->
+<!--    </insert>-->
+
+<!--    <insert id="addWorkChangeHistory" parameterType="entity.excelEntity.WorkerChangeHistory" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into worker_change_history(wwid, business_process_effective_date,business_process_status,business_process_type,business_process_reason,business_process_completed_date,position_current,position_proposed,region_current,region_proposed,company_current,company_proposed,job_profile_current,job_profile_proposed,location_current,location_proposed,compensation_grade_current,compensation_grade_proposed,pay_group_change,base_pay_current,base_pay_proposed,base_pay_change_amount,base_pay_change_percent) values(#{wwid}, #{business_process_effective_date},#{business_process_status},#{business_process_type},#{business_process_reason},#{business_process_completed_date},#{position_current},#{position_proposed},#{region_current},#{region_proposed},#{company_current},#{company_proposed},#{job_profile_current},#{job_profile_proposed},#{location_current},#{location_proposed},#{compensation_grade_current},#{compensation_grade_proposed},#{pay_group_change},#{base_pay_current},#{base_pay_proposed},#{base_pay_change_amount},#{base_pay_change_percent})-->
+<!--    </insert>-->
+
+<!--    <insert id="addCompetencies" parameterType="entity.excelEntity.Competencies" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into competencies(wwid, action_oriented,balances_stakeholders,being_resilient,builds_effective_teams,builds_networks,collaborates,communicates_effectively,courage,cultivates_innovation,customer_focus,decision_quality,develops_talent,directs_work,drives_engagement,drives_results,ensures_accountability,global_perspective,instills_trust,interpersonal_savvy,manages_ambiguity,manages_conflict,nimble_learning,optimizes_work_processes,persuades,plans_and_aligns,resourcefulness,self_development,situational_adaptability,strategic_mindset,values_differences) values(#{wwid}, #{action_oriented},#{balances_stakeholders},#{being_resilient},#{builds_effective_teams},#{builds_networks},#{collaborates},#{communicates_effectively},#{courage},#{cultivates_innovation},#{customer_focus},#{decision_quality},#{develops_talent},#{directs_work},#{drives_engagement},#{drives_results},#{ensures_accountability},#{global_perspective},#{instills_trust},#{interpersonal_savvy},#{manages_ambiguity},#{manages_conflict},#{nimble_learning},#{optimizes_work_processes},#{persuades},#{plans_and_aligns},#{resourcefulness},#{self_development},#{situational_adaptability},#{strategic_mindset},#{values_differences})-->
+<!--    </insert>-->
+
+<!--    <insert id="addDrivers" parameterType="entity.excelEntity.Drivers" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into drivers(wwid, balance,challenge,collaboration,independence,power,structure) values(#{wwid}, #{balance},#{challenge},#{collaboration},#{independence},#{power},#{structure})-->
+<!--    </insert>-->
+
+<!--    <insert id="addTraits" parameterType="entity.excelEntity.Traits" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into traits(wwid, adaptability,affiliation,assertiveness,composure,confidence,credibility,curiosity,empathy,focus,humility,influence,need_for_achievement,openness_to_differences,optimism,persistence,risk_taking,situational_self_awareness,sociability,tolerance_of_ambiguity,trust) values( #{wwid}, #{adaptability}, #{affiliation}, #{assertiveness}, #{composure}, #{confidence}, #{credibility}, #{curiosity}, #{empathy}, #{focus}, #{humility}, #{influence}, #{need_for_achievement}, #{openness_to_differences}, #{optimism}, #{persistence}, #{risk_taking}, #{situational_self_awareness}, #{sociability}, #{tolerance_of_ambiguity}, #{trust})-->
+<!--    </insert>-->
+
+<!--    <select id="getAllDrivers" resultType="entity.excelEntity.Drivers">-->
+<!--        select * from drivers-->
+<!--    </select>-->
+
+<!--    <select id="getJoinedDrivers" resultType="entity.excelEntity.Drivers">-->
+<!--        select c.wwid, d.balance,d.challenge,d.collaboration,d.independence,d.power,d.structure from compensation as c left join drivers as d on c.wwid = d.wwid-->
+<!--    </select>-->
+
+<!--    <insert id="addDriversScored" parameterType="entity.dimensionScored.DDriversScored" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into dimension_drivers_score(wwid, balance,challenge,collaboration,independence,power,structure,result) values(#{wwid}, #{balance},#{challenge},#{collaboration},#{independence},#{power},#{structure},#{result})-->
+<!--    </insert>-->
+
+<!--    <select id="getJoinedCompetencies" resultType="entity.excelEntity.Competencies">-->
+<!--        select c.wwid, d.optimizes_work_processes, d.plans_and_aligns, d.being_resilient, d.strategic_mindset, d.courage, d.decision_quality, d.drives_results, d.action_oriented, d.collaborates, d.instills_trust, d.global_perspective, d.develops_talent, d.interpersonal_savvy, d.ensures_accountability, d.manages_ambiguity, d.situational_adaptability, d.self_development, d.customer_focus, d.nimble_learning, d.resourcefulness, d.builds_networks, d.balances_stakeholders, d.manages_conflict, d.drives_engagement, d.communicates_effectively, d.persuades, d.cultivates_innovation, d.directs_work, d.builds_effective_teams, d.values_differences from compensation as c left join competencies as d on c.wwid = d.wwid-->
+<!--    </select>-->
+
+<!--    <insert id="addCompetenciesScored" parameterType="entity.dimensionScored.DCompetenciesScored" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into dimension_competencies_score-->
+<!--        (wwid, action_oriented, balances_stakeholders, being_resilient, builds_effective_teams, builds_networks, collaborates, communicates_effectively, courage, cultivates_innovation, customer_focus, decision_quality, develops_talent, directs_work, drives_engagement, drives_results, ensures_accountability, global_perspective, instills_trust, interpersonal_savvy, manages_ambiguity, manages_conflict, nimble_learning, optimizes_work_processes, persuades, plans_and_aligns, resourcefulness, self_development, situational_adaptability, strategic_mindset, values_differences, result)-->
+<!--        values-->
+<!--        (#{wwid}, #{action_oriented}, #{balances_stakeholders}, #{being_resilient}, #{builds_effective_teams}, #{builds_networks}, #{collaborates}, #{communicates_effectively}, #{courage}, #{cultivates_innovation}, #{customer_focus}, #{decision_quality}, #{develops_talent}, #{directs_work}, #{drives_engagement}, #{drives_results}, #{ensures_accountability}, #{global_perspective}, #{instills_trust}, #{interpersonal_savvy}, #{manages_ambiguity}, #{manages_conflict}, #{nimble_learning}, #{optimizes_work_processes}, #{persuades}, #{plans_and_aligns}, #{resourcefulness}, #{self_development}, #{situational_adaptability}, #{strategic_mindset}, #{values_differences}, #{result})-->
+<!--    </insert>-->
+
+<!--    <select id="getJoinedTraits" resultType="entity.excelEntity.Traits">-->
+<!--        select c.wwid, d.trust, d.empathy, d.need_for_achievement, d.composure, d.curiosity, d.optimism, d.humility, d.confidence, d.focus, d.openness_to_differences, d.risk_taking, d.adaptability, d.wwid, d.situational_self_awareness, d.influence, d.sociability, d.affiliation, d.persistence, d.credibility, d.tolerance_of_ambiguity, d.assertiveness from compensation as c left join traits as d on c.wwid = d.wwid-->
+<!--    </select>-->
+
+<!--    <insert id="addTraitsScored" parameterType="entity.dimensionScored.DTraitsScored" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into dimension_traits_score-->
+<!--        (trust, empathy, need_for_achievement, composure, curiosity, optimism, humility, confidence, focus, openness_to_differences, risk_taking, adaptability, wwid, situational_self_awareness, influence, sociability, result, affiliation, persistence, credibility, tolerance_of_ambiguity, assertiveness)-->
+<!--        values-->
+<!--        (#{trust}, #{empathy}, #{need_for_achievement}, #{composure}, #{curiosity}, #{optimism}, #{humility}, #{confidence}, #{focus}, #{openness_to_differences}, #{risk_taking}, #{adaptability}, #{wwid}, #{situational_self_awareness}, #{influence}, #{sociability}, #{result}, #{affiliation}, #{persistence}, #{credibility}, #{tolerance_of_ambiguity}, #{assertiveness})-->
+<!--    </insert>-->
+
+<!--    &lt;!&ndash;get raw table for fix table&ndash;&gt;-->
+<!--    <select id="getAllEducation" resultType="entity.excelEntity.Education">-->
+<!--        select * from education-->
+<!--    </select>-->
+
+<!--    <select id="getAllWorkChangeHistory" resultType="entity.excelEntity.WorkerChangeHistory">-->
+<!--        select * from worker_change_history-->
+<!--    </select>-->
+
+<!--    <select id="getAllPerformanceRating" resultType="entity.excelEntity.PerformanceRating">-->
+<!--        select * from performance_rating-->
+<!--    </select>-->
+
+
+<!--    &lt;!&ndash;insert value to fix table&ndash;&gt;-->
+<!--    <insert id="addFixedEducation" parameterType="fixedEntity.EducationFixed" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into education_fixed(wwid, highestEducation) values(#{wwid}, #{highestEducation})-->
+<!--    </insert>-->
+
+<!--    <insert id="addFixedWorkChangeHistory" parameterType="entity.excelEntity.fixed.WorkerChangeHistoryFixed" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into worker_change_history_fixed(wwid,functionMovement,lateralMovement,promotions,regionMovements,countryMovements,sectorMovements) values(#{wwid}, #{functionMovement}, #{lateralMovement}, #{promotions}, #{regionMovements}, #{countryMovements}, #{sectorMovements})-->
+<!--    </insert>-->
+
+<!--    <insert id="addFixedPerformanceRating" parameterType="entity.excelEntity.fixed.PerformanceRatingFixed" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into performance_rating_fixed(wwid, overallRating2016, overallRating2017, overallRating2018) values(#{wwid}, #{overallRating2016}, #{overallRating2017}, #{overallRating2018})-->
+<!--    </insert>-->
+
+<!--    <insert id="addUnstructuredData" parameterType="entity.excelEntity.UnstructuredData" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into unstructured_data(wwid, performance_comments,feedback) values(#{wwid}, #{performance_comments},#{feedback})-->
+<!--    </insert>-->
 
 
 
-    <select id="getAllExperiences" resultType="entity.dimensionRawData.DExperiences">
-        select * from experiences
-    </select>
+<!--    <select id="getAllExperiences" resultType="entity.dimensionRawData.DExperiences">-->
+<!--        select * from experiences-->
+<!--    </select>-->
 
 </mapper>
 

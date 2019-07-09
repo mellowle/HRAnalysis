@@ -17,7 +17,7 @@ public class TraitsExcelService extends Row2EntityService {
     public List<Traits> getResults() throws Exception {
         List<Traits> results;
         this.COLUMN_MAPPING = TraitsColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(Traits.class, TraitsColMapping.EXCEL_NAME);
+        results = sheet2Entities(Traits.class);
         return results;
     }
 }

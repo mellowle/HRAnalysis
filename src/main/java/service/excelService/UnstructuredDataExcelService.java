@@ -17,7 +17,7 @@ public class UnstructuredDataExcelService extends Row2EntityService {
     public List<UnstructuredData> getResults() throws Exception {
         List<UnstructuredData> results;
         this.COLUMN_MAPPING = UnstructuredDataColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(UnstructuredData.class, UnstructuredDataColMapping.EXCEL_NAME);
+        results = sheet2Entities(UnstructuredData.class);
         return results;
     }
 }

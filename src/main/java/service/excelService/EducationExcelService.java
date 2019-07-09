@@ -52,7 +52,7 @@ public class EducationExcelService extends Row2EntityService {
     public List<Education> getResults() throws Exception {
         List<Education> results;
         this.COLUMN_MAPPING = EducationColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(Education.class, EducationColMapping.EXCEL_NAME);
+        results = sheet2Entities(Education.class);
         return results;
     }
 }

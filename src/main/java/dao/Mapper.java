@@ -20,11 +20,12 @@ public interface Mapper {
 
     void createTable(@Param("newTableName") String newTableName, @Param("columns") List<Map<String, String>> columns);
 
+    int addCompensation(Compensation compensation);
+
     int addEmployeeDemographics(EmployeeDemographics employeeDemographics);
 
     int addPerformanceRating(PerformanceRating performanceRating);
 
-    int addCompensation(Compensation compensation);
 
     int addDirectReport(DirectReport directReport);
 

@@ -1,8 +1,11 @@
 package service.excelService;
 
-import Constants.Constants;
+import Constants.PojectConstants;
+import Constants.Pojo2DBEnum;
+import com.google.common.collect.Maps;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import util.TableUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,6 +17,9 @@ import java.util.*;
 public abstract class Row2EntityService {
 
     public Map<String, String> COLUMN_MAPPING;
+    public String TABLE_NAME;
+    public String EXCEL_NAME;
+    public Class CLAZZ;
 
     public static Workbook getWorkBook(String path) throws Exception {
         FileInputStream input = new FileInputStream(new File(path));
@@ -71,9 +77,9 @@ public abstract class Row2EntityService {
         return cellValue;
     }
 
-    public <T> List<T> sheet2Entities(Class<T> tClass, String excelName) throws Exception {
+    public <T> List<T> sheet2Entities(Class<T> Clazz) throws Exception {
         List<T> results = new ArrayList<>();
-        Workbook book = getWorkBook(Constants.INPUT_FILE_PATH + excelName);
+        Workbook book = getWorkBook(PojectConstants.INPUT_FILE_PATH + EXCEL_NAME);
 
         Sheet sheet = book.getSheetAt(0);
         int rowNum = sheet.getLastRowNum() + 1;
@@ -102,16 +108,16 @@ public abstract class Row2EntityService {
             //create row object
             row = sheet.getRow(i);
 
-            obj = tClass.newInstance();
+            obj = Clazz.newInstance();
 
             for (Map.Entry<String, String> entry : COLUMN_MAPPING.entrySet()) {
                 if (colMapByName.get(entry.getValue()) != null) {
                     cell = row.getCell(colMapByName.get(entry.getValue()));
                     fieldName = entry.getKey();
-                    field = tClass.getField(fieldName);
+                    field = Clazz.getField(fieldName);
                     Class fieldType = field.getType();
                     methodName = "set" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-                    method = tClass.getDeclaredMethod(methodName, fieldType);
+                    method = Clazz.getDeclaredMethod(methodName, fieldType);
                     String cellValue = getCellValue(cell);
                     //                    System.out.println(fieldName + "," + methodName);
 
@@ -137,4 +143,30 @@ public abstract class Row2EntityService {
         }
         return results;
     }
+
+    private Map<String, String> getFieldTypeNameMapping(Class Clazz) throws Exception {
+        Map<String, String> results = Maps.newHashMap();
+        Field field;
+        String fieldName;
+
+        for (Map.Entry<String, String> entry : COLUMN_MAPPING.entrySet()) {
+            fieldName = entry.getKey();
+            field = Clazz.getField(fieldName);
+            results.put(fieldName, Pojo2DBEnum.getDBType(field.getType().getName()));
+        }
+
+        return results;
+    }
+
+    public void initTable() throws Exception {
+        if (TableUtils.isExisted(this.TABLE_NAME)) {
+            TableUtils.dropTable(this.TABLE_NAME);
+        }
+        TableUtils.createTable(this.TABLE_NAME, getFieldTypeNameMapping(CLAZZ));
+    }
+
+    public <T> void insertRecords(List<T> list) throws Exception {
+        TableUtils.insertRecords(list, CLAZZ);
+    }
+
 }

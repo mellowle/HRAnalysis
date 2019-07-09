@@ -39,7 +39,7 @@ public class PerformanceRatingExcelService extends Row2EntityService {
     public List<PerformanceRating> getResults() throws Exception {
         List<PerformanceRating> results;
         this.COLUMN_MAPPING = PerformanceRatingColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(PerformanceRating.class, PerformanceRatingColMapping.EXCEL_NAME);
+        results = sheet2Entities(PerformanceRating.class);
         return results;
     }
 

@@ -17,7 +17,7 @@ public class ManagementChainExcelService extends Row2EntityService {
     public List<ManagementChain> getResults() throws Exception {
         List<ManagementChain> results;
         this.COLUMN_MAPPING = ManagementChainColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(ManagementChain.class, ManagementChainColMapping.EXCEL_NAME);
+        results = sheet2Entities(ManagementChain.class);
         results.forEach(result->{
             result.setHierarchy_count();
         });

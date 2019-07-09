@@ -17,7 +17,7 @@ public class TalentCardExcelService extends Row2EntityService {
     public List<TalentCard> getResults() throws Exception {
         List<TalentCard> results;
         this.COLUMN_MAPPING = TalentCardColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(TalentCard.class, TalentCardColMapping.EXCEL_NAME);
+        results = sheet2Entities(TalentCard.class);
         return results;
     }
 }

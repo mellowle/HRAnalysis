@@ -25,7 +25,7 @@ public class WorkerChangeHistoryExcelService extends Row2EntityService {
     public List<WorkerChangeHistory> getResults() throws Exception {
         List<WorkerChangeHistory> results;
         this.COLUMN_MAPPING = WorkerChangeHistoryColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(WorkerChangeHistory.class, WorkerChangeHistoryColMapping.EXCEL_NAME);
+        results = sheet2Entities(WorkerChangeHistory.class);
         return results;
     }
 

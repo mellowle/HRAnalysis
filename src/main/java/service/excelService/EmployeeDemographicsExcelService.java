@@ -17,7 +17,7 @@ public class EmployeeDemographicsExcelService extends Row2EntityService {
     public List<EmployeeDemographics> getResults() throws Exception {
         List<EmployeeDemographics> results;
         this.COLUMN_MAPPING = EmployeeDemographicsColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(EmployeeDemographics.class, EmployeeDemographicsColMapping.EXCEL_NAME);
+        results = sheet2Entities(EmployeeDemographics.class);
         return results;
     }
 }

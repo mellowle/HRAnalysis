@@ -17,7 +17,7 @@ public class CompetenciesExcelService extends Row2EntityService {
     public List<Competencies> getResults() throws Exception {
         List<Competencies> results;
         this.COLUMN_MAPPING = CompetenciesColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(Competencies.class, CompetenciesColMapping.EXCEL_NAME);
+        results = sheet2Entities(Competencies.class);
         return results;
     }
 }

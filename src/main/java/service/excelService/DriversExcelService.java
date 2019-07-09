@@ -17,7 +17,7 @@ public class DriversExcelService extends Row2EntityService {
     public List<Drivers> getResults() throws Exception {
         List<Drivers> results;
         this.COLUMN_MAPPING = DriversColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(Drivers.class, DriversColMapping.EXCEL_NAME);
+        results = sheet2Entities(Drivers.class);
         return results;
     }
 }

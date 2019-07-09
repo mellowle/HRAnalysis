@@ -17,7 +17,7 @@ public class DirectReportExcelService extends Row2EntityService {
     public List<DirectReport> getResults() throws Exception {
         List<DirectReport> results;
         this.COLUMN_MAPPING = DirectReportColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(DirectReport.class, DirectReportColMapping.EXCEL_NAME);
+        results = sheet2Entities(DirectReport.class);
         return results;
     }
 }
