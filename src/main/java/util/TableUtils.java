@@ -59,4 +59,12 @@ public class TableUtils {
             sqlSession.commit();
         }
     }
+
+    public static <T> List<T> getAllRecords(Class<T> clazz) throws Exception {
+        List<T> results;
+        String methodName = "getAll" + clazz.getSimpleName();
+        Method method = mapper.getClass().getDeclaredMethod(methodName);
+        results = (List<T>)method.invoke(mapper);
+        return results;
+    }
 }

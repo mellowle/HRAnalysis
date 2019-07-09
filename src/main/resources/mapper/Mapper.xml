@@ -58,6 +58,19 @@
         VALUES
         (#{wwid}, #{adaptability}, #{affiliation}, #{assertiveness}, #{composure}, #{confidence}, #{credibility}, #{curiosity}, #{empathy}, #{focus}, #{humility}, #{influence}, #{need_for_achievement}, #{openness_to_differences}, #{optimism}, #{persistence}, #{risk_taking}, #{situational_self_awareness}, #{sociability}, #{tolerance_of_ambiguity}, #{trust})
     </insert>
+
+    <select id="getAllCompetencies" resultType="entity.excelEntity.Competencies">
+        SELECT * FROM competencies
+    </select>
+
+    <insert id="addDCompetenciesScored" parameterType="entity.dimensionScored.DCompetenciesScored" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO d_competencies_scored
+        (wwid, action_oriented, balances_stakeholders, being_resilient, builds_effective_teams, builds_networks, collaborates, communicates_effectively, courage, cultivates_innovation, customer_focus, decision_quality, develops_talent, directs_work, drives_engagement, drives_results, ensures_accountability, global_perspective, instills_trust, interpersonal_savvy, manages_ambiguity, manages_conflict, nimble_learning, optimizes_work_processes, persuades, plans_and_aligns, resourcefulness, self_development, situational_adaptability, strategic_mindset, values_differences, result)
+        VALUES
+        (#{wwid}, #{action_oriented}, #{balances_stakeholders}, #{being_resilient}, #{builds_effective_teams}, #{builds_networks}, #{collaborates}, #{communicates_effectively}, #{courage}, #{cultivates_innovation}, #{customer_focus}, #{decision_quality}, #{develops_talent}, #{directs_work}, #{drives_engagement}, #{drives_results}, #{ensures_accountability}, #{global_perspective}, #{instills_trust}, #{interpersonal_savvy}, #{manages_ambiguity}, #{manages_conflict}, #{nimble_learning}, #{optimizes_work_processes}, #{persuades}, #{plans_and_aligns}, #{resourcefulness}, #{self_development}, #{situational_adaptability}, #{strategic_mindset}, #{values_differences}, #{result})
+    </insert>
+
+
     <!--    <insert id="addEmployeeDemographics" parameterType="entity.excelEntity.EmployeeDemographics" useGeneratedKeys="true" keyProperty="id">-->
     <!--        insert into employee_demographics(wwid, employee_pay_grade,home_location_code,position_id,job_profile,job_profile_id,job_function,job_sub_function,sector,time_in_position,length_of_service_in_years,original_hire_date,hire_date_most_recent) values(#{wwid}, #{employee_pay_grade},#{home_location_code},#{position_id},#{job_profile},#{job_profile_id},#{job_function},#{job_sub_function},#{sector},#{time_in_position},#{length_of_service_in_years},#{original_hire_date},#{hire_date_most_recent})-->
     <!--    </insert>-->
@@ -106,12 +119,7 @@
     <!--        select c.wwid, d.optimizes_work_processes, d.plans_and_aligns, d.being_resilient, d.strategic_mindset, d.courage, d.decision_quality, d.drives_results, d.action_oriented, d.collaborates, d.instills_trust, d.global_perspective, d.develops_talent, d.interpersonal_savvy, d.ensures_accountability, d.manages_ambiguity, d.situational_adaptability, d.self_development, d.customer_focus, d.nimble_learning, d.resourcefulness, d.builds_networks, d.balances_stakeholders, d.manages_conflict, d.drives_engagement, d.communicates_effectively, d.persuades, d.cultivates_innovation, d.directs_work, d.builds_effective_teams, d.values_differences from compensation as c left join competencies as d on c.wwid = d.wwid-->
     <!--    </select>-->
 
-    <!--    <insert id="addCompetenciesScored" parameterType="entity.dimensionScored.DCompetenciesScored" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into dimension_competencies_score-->
-    <!--        (wwid, action_oriented, balances_stakeholders, being_resilient, builds_effective_teams, builds_networks, collaborates, communicates_effectively, courage, cultivates_innovation, customer_focus, decision_quality, develops_talent, directs_work, drives_engagement, drives_results, ensures_accountability, global_perspective, instills_trust, interpersonal_savvy, manages_ambiguity, manages_conflict, nimble_learning, optimizes_work_processes, persuades, plans_and_aligns, resourcefulness, self_development, situational_adaptability, strategic_mindset, values_differences, result)-->
-    <!--        values-->
-    <!--        (#{wwid}, #{action_oriented}, #{balances_stakeholders}, #{being_resilient}, #{builds_effective_teams}, #{builds_networks}, #{collaborates}, #{communicates_effectively}, #{courage}, #{cultivates_innovation}, #{customer_focus}, #{decision_quality}, #{develops_talent}, #{directs_work}, #{drives_engagement}, #{drives_results}, #{ensures_accountability}, #{global_perspective}, #{instills_trust}, #{interpersonal_savvy}, #{manages_ambiguity}, #{manages_conflict}, #{nimble_learning}, #{optimizes_work_processes}, #{persuades}, #{plans_and_aligns}, #{resourcefulness}, #{self_development}, #{situational_adaptability}, #{strategic_mindset}, #{values_differences}, #{result})-->
-    <!--    </insert>-->
+
 
     <!--    <select id="getJoinedTraits" resultType="entity.excelEntity.Traits">-->
     <!--        select c.wwid, d.trust, d.empathy, d.need_for_achievement, d.composure, d.curiosity, d.optimism, d.humility, d.confidence, d.focus, d.openness_to_differences, d.risk_taking, d.adaptability, d.wwid, d.situational_self_awareness, d.influence, d.sociability, d.affiliation, d.persistence, d.credibility, d.tolerance_of_ambiguity, d.assertiveness from compensation as c left join traits as d on c.wwid = d.wwid-->

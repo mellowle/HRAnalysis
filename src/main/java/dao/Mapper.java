@@ -24,10 +24,13 @@ public interface Mapper {
 
     int addCompetencies(Competencies competencies);
 
+    List<Competencies> getAllCompetencies();
+
     int addDrivers(Drivers drivers);
 
     int addTraits(Traits traits);
 
+    int addDCompetenciesScored(DCompetenciesScored dCompetenciesScored);
 
 
     int addEmployeeDemographics(EmployeeDemographics employeeDemographics);
@@ -51,9 +54,8 @@ public interface Mapper {
 
     int addDriversScored(DDriversScored dDriversScored);
 
-    List<Competencies> getJoinedCompetencies();
 
-    int addCompetenciesScored(DCompetenciesScored dCompetenciesScored);
+
 
     List<Traits> getJoinedTraits();
 
