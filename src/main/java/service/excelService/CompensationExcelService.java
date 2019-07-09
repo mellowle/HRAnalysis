@@ -2,11 +2,10 @@ package service.excelService;
 
 import entity.excelEntity.Compensation;
 import excelMapping.CompensationColMapping;
-import util.TableUtils;
 
 import java.util.List;
 
-public class CompensationExcelService extends Row2EntityService {
+public class CompensationExcelService extends AbstractExcelService {
 
     public CompensationExcelService(){
         this.COLUMN_MAPPING = CompensationColMapping.COLUMN_MAPPING;
@@ -24,9 +23,9 @@ public class CompensationExcelService extends Row2EntityService {
     }
 
     public List<Compensation> getResults() throws Exception {
-        List<Compensation> results;
-        results = sheet2Entities(Compensation.class);
-        return results;
+//        List<Compensation> results;
+//        results = sheet2Entities(Compensation.class);
+        return sheet2Entities();
     }
 
 

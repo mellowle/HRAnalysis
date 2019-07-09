@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public abstract class Row2EntityService {
+public abstract class AbstractExcelService {
 
     public Map<String, String> COLUMN_MAPPING;
     public String TABLE_NAME;
@@ -77,7 +77,7 @@ public abstract class Row2EntityService {
         return cellValue;
     }
 
-    public <T> List<T> sheet2Entities(Class<T> Clazz) throws Exception {
+    public <T> List<T> sheet2Entities() throws Exception {
         List<T> results = new ArrayList<>();
         Workbook book = getWorkBook(PojectConstants.INPUT_FILE_PATH + EXCEL_NAME);
 
@@ -108,17 +108,17 @@ public abstract class Row2EntityService {
             //create row object
             row = sheet.getRow(i);
 
-            obj = Clazz.newInstance();
+            obj = (T)CLAZZ.newInstance();
 
             for (Map.Entry<String, String> entry : COLUMN_MAPPING.entrySet()) {
                 if (colMapByName.get(entry.getValue()) != null) {
                     cell = row.getCell(colMapByName.get(entry.getValue()));
                     fieldName = entry.getKey();
-                    field = Clazz.getDeclaredField(fieldName);
+                    field = CLAZZ.getDeclaredField(fieldName);
                     field.setAccessible(true);
                     Class fieldType = field.getType();
                     methodName = "set" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-                    method = Clazz.getDeclaredMethod(methodName, fieldType);
+                    method = CLAZZ.getDeclaredMethod(methodName, fieldType);
                     String cellValue = getCellValue(cell);
                     //                    System.out.println(fieldName + "," + methodName);
 
@@ -146,7 +146,7 @@ public abstract class Row2EntityService {
     }
 
     private Map<String, String> getFieldTypeNameMapping() {
-        Map<String, String> results = Maps.newHashMap();
+        Map<String, String> results = Maps.newLinkedHashMap();
         Field field;
 
         Field[] fields = CLAZZ.getDeclaredFields();

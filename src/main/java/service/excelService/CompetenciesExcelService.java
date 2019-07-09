@@ -5,7 +5,7 @@ import excelMapping.CompetenciesColMapping;
 
 import java.util.List;
 
-public class CompetenciesExcelService extends Row2EntityService {
+public class CompetenciesExcelService extends AbstractExcelService {
 
     public CompetenciesExcelService(){
         this.COLUMN_MAPPING = CompetenciesColMapping.COLUMN_MAPPING;
@@ -20,13 +20,11 @@ public class CompetenciesExcelService extends Row2EntityService {
         System.out.println(results.size());
         c.initTable();
         c.insertRecords(results);
+        System.err.println("done");
     }
 
     public List<Competencies> getResults() throws Exception {
-        List<Competencies> results;
-        this.COLUMN_MAPPING = CompetenciesColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(Competencies.class);
-        return results;
+        return sheet2Entities();
     }
 
 }

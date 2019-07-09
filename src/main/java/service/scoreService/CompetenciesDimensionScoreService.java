@@ -10,7 +10,7 @@ import util.TableUtils;
 
 import java.util.List;
 
-public class CompetenciesDimensionScoreService extends Score2EntityService {
+public class CompetenciesDimensionScoreService extends AbstractScoreService {
 
     public CompetenciesDimensionScoreService() {
         this.TABLE_NAME_SCORED = CompetenciesColMapping.TABLE_NAME_SCORED;
@@ -23,11 +23,11 @@ public class CompetenciesDimensionScoreService extends Score2EntityService {
         System.out.println(results.size());
         c.initTable();
         c.insertRecords(results);
+        System.err.println("done");
     }
 
     public List<DCompetenciesScored> getScoredResults() throws Exception {
         List<DCompetenciesScored> scoredResults = Lists.newArrayList();
-
 
         List<DCompetencies> dCompetenciesList = Lists.newArrayList();
 
@@ -46,7 +46,6 @@ public class CompetenciesDimensionScoreService extends Score2EntityService {
                     competencies.getValues_differences());
             dCompetenciesList.add(dCompetencies);
         });
-
 
         for (DCompetencies dCompetencies : dCompetenciesList) {
             DCompetenciesScored dCompetenciesScored = new DCompetenciesScored(dCompetencies.getWwid(),

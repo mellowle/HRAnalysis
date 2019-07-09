@@ -4,7 +4,6 @@ import Constants.ExperiencesConstants.ExperiencesConstants;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import entity.excelEntity.WorkerChangeHistory;
-import excelMapping.WorkerChangeHistoryColMapping;
 import entity.excelEntity.fixed.WorkerChangeHistoryFixed;
 
 import java.util.Iterator;
@@ -13,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class WorkerChangeHistoryExcelService extends Row2EntityService {
+public class WorkerChangeHistoryExcelService extends AbstractExcelService {
 
     public static void main(String... args) throws Exception {
         WorkerChangeHistoryExcelService c = new WorkerChangeHistoryExcelService();
@@ -23,10 +22,10 @@ public class WorkerChangeHistoryExcelService extends Row2EntityService {
     }
 
     public List<WorkerChangeHistory> getResults() throws Exception {
-        List<WorkerChangeHistory> results;
-        this.COLUMN_MAPPING = WorkerChangeHistoryColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(WorkerChangeHistory.class);
-        return results;
+//        List<WorkerChangeHistory> results;
+//        this.COLUMN_MAPPING = WorkerChangeHistoryColMapping.COLUMN_MAPPING;
+//        results = sheet2Entities(WorkerChangeHistory.class);
+        return sheet2Entities();
     }
 
     public List<WorkerChangeHistoryFixed> getResultsFixed() throws Exception {

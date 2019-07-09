@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-public class Score2EntityService {
+public class AbstractScoreService {
 
     public String TABLE_NAME_SCORED;
     public Class CLAZZ;
@@ -26,7 +26,7 @@ public class Score2EntityService {
     }
 
     private Map<String, String> getFieldTypeNameMapping() {
-        Map<String, String> results = Maps.newHashMap();
+        Map<String, String> results = Maps.newLinkedHashMap();
         Field field;
 
         Field[] fields = CLAZZ.getDeclaredFields();

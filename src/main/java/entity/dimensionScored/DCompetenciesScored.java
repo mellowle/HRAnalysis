@@ -4,36 +4,39 @@ import java.util.Map;
 
 public class DCompetenciesScored {
     private String wwid;
-    private Double action_oriented;
-    private Double balances_stakeholders;
-    private Double being_resilient;
-    private Double builds_effective_teams;
-    private Double builds_networks;
-    private Double collaborates;
-    private Double communicates_effectively;
-    private Double courage;
-    private Double cultivates_innovation;
-    private Double customer_focus;
-    private Double decision_quality;
-    private Double develops_talent;
-    private Double directs_work;
-    private Double drives_engagement;
-    private Double drives_results;
-    private Double ensures_accountability;
+    private Double strategic_mindset;
     private Double global_perspective;
     private Double instills_trust;
-    private Double interpersonal_savvy;
-    private Double manages_ambiguity;
-    private Double manages_conflict;
-    private Double nimble_learning;
-    private Double optimizes_work_processes;
     private Double persuades;
-    private Double plans_and_aligns;
+    private Double communicates_effectively;
+    private Double collaborates;
+    private Double cultivates_innovation;
+    private Double nimble_learning;
+    private Double develops_talent;
+    private Double situational_adaptability;
+
+    private Double builds_networks;
+    private Double decision_quality;
+    private Double being_resilient;
+    private Double courage;
+    private Double action_oriented;
+    private Double manages_ambiguity;
+    private Double interpersonal_savvy;
     private Double resourcefulness;
     private Double self_development;
-    private Double situational_adaptability;
-    private Double strategic_mindset;
     private Double values_differences;
+
+    private Double drives_engagement;
+    private Double balances_stakeholders;
+    private Double ensures_accountability;
+    private Double drives_results;
+    private Double customer_focus;
+    private Double manages_conflict;
+    private Double builds_effective_teams;
+    private Double plans_and_aligns;
+    private Double directs_work;
+    private Double optimizes_work_processes;
+
     private Double result;
 
     public DCompetenciesScored(String wwid, Map<String, Double> missionCritical, Map<String, Double> critical,

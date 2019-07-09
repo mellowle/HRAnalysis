@@ -10,7 +10,7 @@ import util.TableUtils;
 
 import java.util.List;
 
-public class DriversDimensionScoreService extends Score2EntityService {
+public class DriversDimensionScoreService extends AbstractScoreService {
 
     public DriversDimensionScoreService() {
         this.TABLE_NAME_SCORED = DriversColMapping.TABLE_NAME_SCORED;
@@ -23,8 +23,8 @@ public class DriversDimensionScoreService extends Score2EntityService {
         System.out.println(results.size());
         c.initTable();
         c.insertRecords(results);
+        System.err.println("done");
     }
-
 
     public static List<DDriversScored> getScoredResults() throws Exception {
         List<DDriversScored> scoredResults = Lists.newArrayList();

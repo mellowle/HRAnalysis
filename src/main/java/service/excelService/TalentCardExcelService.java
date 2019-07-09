@@ -1,11 +1,10 @@
 package service.excelService;
 
 import entity.excelEntity.TalentCard;
-import excelMapping.TalentCardColMapping;
 
 import java.util.List;
 
-public class TalentCardExcelService extends Row2EntityService {
+public class TalentCardExcelService extends AbstractExcelService {
 
     public static void main(String... args) throws Exception {
         TalentCardExcelService c = new TalentCardExcelService();
@@ -15,9 +14,9 @@ public class TalentCardExcelService extends Row2EntityService {
     }
 
     public List<TalentCard> getResults() throws Exception {
-        List<TalentCard> results;
-        this.COLUMN_MAPPING = TalentCardColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(TalentCard.class);
-        return results;
+//        List<TalentCard> results;
+//        this.COLUMN_MAPPING = TalentCardColMapping.COLUMN_MAPPING;
+//        results = sheet2Entities(TalentCard.class);
+        return sheet2Entities();
     }
 }

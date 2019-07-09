@@ -5,7 +5,7 @@ import excelMapping.ManagementChainColMapping;
 
 import java.util.List;
 
-public class ManagementChainExcelService extends Row2EntityService {
+public class ManagementChainExcelService extends AbstractExcelService {
 
     public static void main(String... args) throws Exception {
         ManagementChainExcelService c = new ManagementChainExcelService();
@@ -17,7 +17,7 @@ public class ManagementChainExcelService extends Row2EntityService {
     public List<ManagementChain> getResults() throws Exception {
         List<ManagementChain> results;
         this.COLUMN_MAPPING = ManagementChainColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(ManagementChain.class);
+        results = sheet2Entities();
         results.forEach(result->{
             result.setHierarchy_count();
         });

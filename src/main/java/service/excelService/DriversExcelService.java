@@ -5,7 +5,7 @@ import excelMapping.DriversColMapping;
 
 import java.util.List;
 
-public class DriversExcelService extends Row2EntityService {
+public class DriversExcelService extends AbstractExcelService {
 
     public DriversExcelService() {
         this.COLUMN_MAPPING = DriversColMapping.COLUMN_MAPPING;
@@ -20,12 +20,10 @@ public class DriversExcelService extends Row2EntityService {
         System.out.println(results.size());
         c.initTable();
         c.insertRecords(results);
+        System.err.println("done");
     }
 
     public List<Drivers> getResults() throws Exception {
-        List<Drivers> results;
-        this.COLUMN_MAPPING = DriversColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(Drivers.class);
-        return results;
+        return sheet2Entities();
     }
 }

@@ -3,7 +3,6 @@ package service.excelService;
 import Constants.ExperiencesConstants.ExperiencesConstants;
 import com.google.common.collect.Lists;
 import entity.excelEntity.PerformanceRating;
-import excelMapping.PerformanceRatingColMapping;
 import entity.excelEntity.fixed.PerformanceRatingFixed;
 
 import java.util.Iterator;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class PerformanceRatingExcelService extends Row2EntityService {
+public class PerformanceRatingExcelService extends AbstractExcelService {
 
     public static void main(String... args) throws Exception {
         PerformanceRatingExcelService c = new PerformanceRatingExcelService();
@@ -37,10 +36,10 @@ public class PerformanceRatingExcelService extends Row2EntityService {
     }
 
     public List<PerformanceRating> getResults() throws Exception {
-        List<PerformanceRating> results;
-        this.COLUMN_MAPPING = PerformanceRatingColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(PerformanceRating.class);
-        return results;
+//        List<PerformanceRating> results;
+//        this.COLUMN_MAPPING = PerformanceRatingColMapping.COLUMN_MAPPING;
+//        results = sheet2Entities(PerformanceRating.class);
+        return sheet2Entities();
     }
 
     public List<PerformanceRatingFixed> getResultsFixed() throws Exception {

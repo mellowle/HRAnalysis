@@ -4,14 +4,13 @@ import Constants.ExperiencesConstants.ExperiencesConstants;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import entity.excelEntity.Education;
-import excelMapping.EducationColMapping;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class EducationExcelService extends Row2EntityService {
+public class EducationExcelService extends AbstractExcelService {
 
     public static void main(String... args) throws Exception {
         EducationExcelService c = new EducationExcelService();
@@ -50,9 +49,9 @@ public class EducationExcelService extends Row2EntityService {
     }
 
     public List<Education> getResults() throws Exception {
-        List<Education> results;
-        this.COLUMN_MAPPING = EducationColMapping.COLUMN_MAPPING;
-        results = sheet2Entities(Education.class);
-        return results;
+//        List<Education> results;
+//        this.COLUMN_MAPPING = EducationColMapping.COLUMN_MAPPING;
+//        results = sheet2Entities(Education.class);
+        return sheet2Entities();
     }
 }

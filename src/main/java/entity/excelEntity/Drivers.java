@@ -2,6 +2,7 @@ package entity.excelEntity;
 
 public class Drivers {
     private String wwid;
+
     private Integer balance;
     private Integer challenge;
     private Integer collaboration;

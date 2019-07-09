@@ -10,7 +10,7 @@ import util.TableUtils;
 
 import java.util.List;
 
-public class TraitsDimensionScoreService extends Score2EntityService {
+public class TraitsDimensionScoreService extends AbstractScoreService {
 
     public TraitsDimensionScoreService() {
         this.TABLE_NAME_SCORED = TraitsColMapping.TABLE_NAME_SCORED;
@@ -23,6 +23,7 @@ public class TraitsDimensionScoreService extends Score2EntityService {
         System.out.println(results.size());
         c.initTable();
         c.insertRecords(results);
+        System.err.println("done");
     }
 
     public static List<DTraitsScored> getScoredResults() throws Exception {
