@@ -13,6 +13,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public abstract class AbstractExcelService {
 
@@ -77,7 +78,7 @@ public abstract class AbstractExcelService {
         return cellValue;
     }
 
-    public <T> List<T> sheet2Entities() throws Exception {
+    public <T> List<T> sheet2Entities(Class<T> clazz) throws Exception {
         List<T> results = new ArrayList<>();
         Workbook book = getWorkBook(PojectConstants.INPUT_FILE_PATH + EXCEL_NAME);
 
@@ -108,17 +109,17 @@ public abstract class AbstractExcelService {
             //create row object
             row = sheet.getRow(i);
 
-            obj = (T)CLAZZ.newInstance();
+            obj = clazz.newInstance();
 
             for (Map.Entry<String, String> entry : COLUMN_MAPPING.entrySet()) {
                 if (colMapByName.get(entry.getValue()) != null) {
                     cell = row.getCell(colMapByName.get(entry.getValue()));
                     fieldName = entry.getKey();
-                    field = CLAZZ.getDeclaredField(fieldName);
+                    field = clazz.getDeclaredField(fieldName);
                     field.setAccessible(true);
                     Class fieldType = field.getType();
                     methodName = "set" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-                    method = CLAZZ.getDeclaredMethod(methodName, fieldType);
+                    method = clazz.getDeclaredMethod(methodName, fieldType);
                     String cellValue = getCellValue(cell);
                     //                    System.out.println(fieldName + "," + methodName);
 

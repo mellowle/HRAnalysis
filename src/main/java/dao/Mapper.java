@@ -22,6 +22,22 @@ public interface Mapper {
 
     int addCompensation(Compensation compensation);
 
+    int addDirectReport(DirectReport directReport);
+
+    int addEducation(Education education);
+
+    int addEmployeeDemographics(EmployeeDemographics employeeDemographics);
+
+    int addManagementChain(ManagementChain managementChain);
+
+    int addPerformanceRatingFixed(PerformanceRatingFixed performanceRatingFixed);
+
+    int addTalentCard(TalentCard talentCard);
+
+    int addUnstructuredData(UnstructuredData unstructuredData);
+
+    int addWorkerChangeHistoryFixed(WorkerChangeHistoryFixed workerChangeHistoryFixed);
+
 
     //~~~~~~~~~~~Competencies~~~~~~~~~~~~~~
     int addCompetencies(Competencies competencies);
@@ -55,17 +71,15 @@ public interface Mapper {
 
 
 
-    int addEmployeeDemographics(EmployeeDemographics employeeDemographics);
 
-    int addPerformanceRating(PerformanceRating performanceRating);
 
-    int addDirectReport(DirectReport directReport);
 
-    int addEducation(Education education);
 
-    int addManagementChain(ManagementChain managementChain);
 
-    int addTalentCard(TalentCard talentCard);
+
+
+
+
 
     int addWorkChangeHistory(WorkerChangeHistory workerChangeHistory);
 
@@ -86,8 +100,8 @@ public interface Mapper {
 
     List<WorkerChangeHistory> getAllWorkChangeHistory();
 
-    int addFixedWorkChangeHistory(WorkerChangeHistoryFixed workerChangeHistoryFixed);
 
-    int addUnstructuredData(UnstructuredData unstructuredData);
+
+
 }
 

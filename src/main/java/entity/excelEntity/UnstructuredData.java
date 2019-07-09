@@ -2,8 +2,8 @@ package entity.excelEntity;
 
 public class UnstructuredData {
     private String wwid;
-    private Double performance_comments;
-    private Double feedback;
+    private Double performance_comments2018;
+    private Double stakeholder_feedback;
 
     public String getWwid() {
         return wwid;
@@ -13,28 +13,19 @@ public class UnstructuredData {
         this.wwid = wwid;
     }
 
-    public Double getPerformance_comments() {
-        return performance_comments;
+    public Double getPerformance_comments2018() {
+        return performance_comments2018;
     }
 
-    public void setPerformance_comments(Double performance_comments) {
-        this.performance_comments = performance_comments;
+    public void setPerformance_comments2018(Double performance_comments2018) {
+        this.performance_comments2018 = performance_comments2018;
     }
 
-    public Double getFeedback() {
-        return feedback;
+    public Double getStakeholder_feedback() {
+        return stakeholder_feedback;
     }
 
-    public void setFeedback(Double feedback) {
-        this.feedback = feedback;
-    }
-
-    @Override
-    public String toString() {
-        return "UnstructuredData{" +
-                "wwid='" + wwid + '\'' +
-                ", performance_comments=" + performance_comments +
-                ", feedback=" + feedback +
-                '}';
+    public void setStakeholder_feedback(Double stakeholders_feedback) {
+        this.stakeholder_feedback = stakeholders_feedback;
     }
 }

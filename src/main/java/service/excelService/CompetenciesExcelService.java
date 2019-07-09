@@ -1,9 +1,11 @@
 package service.excelService;
 
+import com.google.common.collect.Sets;
 import entity.excelEntity.Competencies;
 import excelMapping.CompetenciesColMapping;
 
 import java.util.List;
+import java.util.Set;
 
 public class CompetenciesExcelService extends AbstractExcelService {
 
@@ -18,13 +20,18 @@ public class CompetenciesExcelService extends AbstractExcelService {
         CompetenciesExcelService c = new CompetenciesExcelService();
         List<Competencies> results = c.getResults();
         System.out.println(results.size());
+        Set<String> tmp = Sets.newHashSet();
+        results.forEach(result->{
+            tmp.add(result.getWwid());
+        });
+        System.err.println(tmp.size());
         c.initTable();
         c.insertRecords(results);
         System.err.println("done");
     }
 
     public List<Competencies> getResults() throws Exception {
-        return sheet2Entities();
+        return sheet2Entities(Competencies.class);
     }
 
 }

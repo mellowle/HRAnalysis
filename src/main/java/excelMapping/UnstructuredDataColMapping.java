@@ -11,7 +11,7 @@ public class UnstructuredDataColMapping {
     static {
         COLUMN_MAPPING = new HashMap<>();
         COLUMN_MAPPING.put("wwid", "wwid");
-        COLUMN_MAPPING.put("performance_comments", "2018 Year-end performance comments rating");
-        COLUMN_MAPPING.put("feedback", "Stakeholder feedback rating");
+        COLUMN_MAPPING.put("performance_comments2018", "2018 Year-end performance comments rating");
+        COLUMN_MAPPING.put("stakeholder_feedback", "Stakeholder feedback rating");
     }
 }

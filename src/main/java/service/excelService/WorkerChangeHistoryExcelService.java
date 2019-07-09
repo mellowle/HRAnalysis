@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import entity.excelEntity.WorkerChangeHistory;
 import entity.excelEntity.fixed.WorkerChangeHistoryFixed;
+import excelMapping.WorkerChangeHistoryColMapping;
 
 import java.util.Iterator;
 import java.util.List;
@@ -14,18 +15,29 @@ import java.util.stream.Collectors;
 
 public class WorkerChangeHistoryExcelService extends AbstractExcelService {
 
+    public WorkerChangeHistoryExcelService() {
+        this.COLUMN_MAPPING = WorkerChangeHistoryColMapping.COLUMN_MAPPING;
+        this.EXCEL_NAME = WorkerChangeHistoryColMapping.EXCEL_NAME;
+        this.TABLE_NAME = WorkerChangeHistoryColMapping.TABLE_NAME_FIXED;
+        this.CLAZZ = WorkerChangeHistoryFixed.class;
+    }
+
     public static void main(String... args) throws Exception {
         WorkerChangeHistoryExcelService c = new WorkerChangeHistoryExcelService();
         List<WorkerChangeHistoryFixed> results = c.getResultsFixed();
-        results.forEach(System.err::println);
         System.out.println(results.size());
+        Set<String> tmp = Sets.newHashSet();
+        results.forEach(result->{
+            tmp.add(result.getWwid());
+        });
+        System.err.println(tmp.size());
+        c.initTable();
+        c.insertRecords(results);
+        System.err.println("done");
     }
 
     public List<WorkerChangeHistory> getResults() throws Exception {
-//        List<WorkerChangeHistory> results;
-//        this.COLUMN_MAPPING = WorkerChangeHistoryColMapping.COLUMN_MAPPING;
-//        results = sheet2Entities(WorkerChangeHistory.class);
-        return sheet2Entities();
+        return sheet2Entities(WorkerChangeHistory.class);
     }
 
     public List<WorkerChangeHistoryFixed> getResultsFixed() throws Exception {

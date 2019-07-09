@@ -1,9 +1,11 @@
 package service.excelService;
 
+import com.google.common.collect.Sets;
 import entity.excelEntity.Traits;
 import excelMapping.TraitsColMapping;
 
 import java.util.List;
+import java.util.Set;
 
 public class TraitsExcelService extends AbstractExcelService {
 
@@ -18,12 +20,17 @@ public class TraitsExcelService extends AbstractExcelService {
         TraitsExcelService c = new TraitsExcelService();
         List<Traits> results = c.getResults();
         System.out.println(results.size());
+        Set<String> tmp = Sets.newHashSet();
+        results.forEach(result->{
+            tmp.add(result.getWwid());
+        });
+        System.err.println(tmp.size());
         c.initTable();
         c.insertRecords(results);
         System.err.println("done");
     }
 
     public List<Traits> getResults() throws Exception {
-        return sheet2Entities();
+        return sheet2Entities(Traits.class);
     }
 }

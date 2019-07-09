@@ -32,11 +32,69 @@
 
     <insert id="addCompensation" parameterType="entity.excelEntity.Compensation" useGeneratedKeys="true"
             keyProperty="id">
-        INSERT INTO compensation(wwid, bonus2016,bonus2017,bonus2018)
+        INSERT INTO compensation
+        (wwid,bonus2016,bonus2017,bonus2018)
         VALUES
-        (#{wwid}, #{bonus2016},#{bonus2017},#{bonus2018})
+        (#{wwid},#{bonus2016},#{bonus2017},#{bonus2018})
     </insert>
 
+    <insert id="addDirectReport" parameterType="entity.excelEntity.DirectReport" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO direct_report
+        (wwid, direct_report)
+        VALUES
+        (#{wwid},#{direct_report})
+    </insert>
+
+    <insert id="addEducation" parameterType="entity.excelEntity.Education" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO education
+        (wwid, highest_degree_received)
+        VALUES
+        (#{wwid},#{highest_degree_received})
+    </insert>
+
+    <insert id="addEmployeeDemographics" parameterType="entity.excelEntity.EmployeeDemographics" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO employee_demographics
+        (wwid, employee_pay_grade,home_location_code,position_id,job_profile,job_profile_id,job_function,job_sub_function,sector,time_in_position,length_of_service_in_years,original_hire_date,hire_date_most_recent)
+        VALUES
+        (#{wwid}, #{employee_pay_grade},#{home_location_code},#{position_id},#{job_profile},#{job_profile_id},#{job_function},#{job_sub_function},#{sector},#{time_in_position},#{length_of_service_in_years},#{original_hire_date},#{hire_date_most_recent})
+    </insert>
+
+    <insert id="addManagementChain" parameterType="entity.excelEntity.ManagementChain" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO management_chain
+        (wwid, management_chain_level_01,management_chain_level_02,management_chain_level_03,management_chain_level_04,management_chain_level_05,management_chain_level_06,management_chain_level_07,management_chain_level_08,management_chain_level_09,hierarchy_count)
+        VALUES
+        (#{wwid}, #{management_chain_level_01},#{management_chain_level_02},#{management_chain_level_03},#{management_chain_level_04},#{management_chain_level_05},#{management_chain_level_06},#{management_chain_level_07},#{management_chain_level_08},#{management_chain_level_09},#{hierarchy_count})
+    </insert>
+
+    <insert id="addPerformanceRatingFixed" parameterType="entity.excelEntity.fixed.PerformanceRatingFixed" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO performance_rating_fixed
+        (wwid, overall_rating2016, overall_rating2017, overall_rating2018)
+        VALUES
+        (#{wwid}, #{overall_rating2016}, #{overall_rating2017}, #{overall_rating2018})
+    </insert>
+
+    <insert id="addTalentCard" parameterType="entity.excelEntity.TalentCard" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO talent_card
+        (wwid,jnj_roles,external_roles,total_roles,average_time_of_jnj_role,average_time_of_external_role,total_working_year,external_length_of_service,average_time_of_each_role )
+        VALUES
+        (#{wwid},#{jnj_roles},#{external_roles},#{total_roles},#{average_time_of_jnj_role},#{average_time_of_external_role},#{total_working_year},#{external_length_of_service},#{average_time_of_each_role} )
+    </insert>
+
+    <insert id="addUnstructuredData" parameterType="entity.excelEntity.UnstructuredData" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO unstructured_data
+        (wwid, performance_comments2018,stakeholder_feedback)
+        VALUES
+        (#{wwid}, #{performance_comments2018},#{stakeholder_feedback})
+    </insert>
+
+    <insert id="addWorkerChangeHistoryFixed" parameterType="entity.excelEntity.fixed.WorkerChangeHistoryFixed" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO worker_change_history_fixed
+        (wwid,function_movements,lateral_movements,promotions,region_movements,country_movements,sector_movements)
+        VALUES
+        (#{wwid}, #{function_movements}, #{lateral_movements}, #{promotions}, #{region_movements}, #{country_movements}, #{sector_movements})
+    </insert>
+
+<!--KF4D-->
     <insert id="addCompetencies" parameterType="entity.excelEntity.Competencies" useGeneratedKeys="true"
             keyProperty="id">
         INSERT INTO competencies
@@ -81,7 +139,6 @@
         (#{wwid}, #{balance},#{challenge},#{collaboration},#{independence},#{power},#{structure},#{result})
     </insert>
 
-
     <select id="getAllTraits" resultType="entity.excelEntity.Traits">
         SELECT * FROM traits
     </select>
@@ -92,31 +149,20 @@
         VALUES
         (#{trust}, #{empathy}, #{need_for_achievement}, #{composure}, #{curiosity}, #{optimism}, #{humility}, #{confidence}, #{focus}, #{openness_to_differences}, #{risk_taking}, #{adaptability}, #{wwid}, #{situational_self_awareness}, #{influence}, #{sociability}, #{result}, #{affiliation}, #{persistence}, #{credibility}, #{tolerance_of_ambiguity}, #{assertiveness})
     </insert>
-
-    <!--    <insert id="addEmployeeDemographics" parameterType="entity.excelEntity.EmployeeDemographics" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into employee_demographics(wwid, employee_pay_grade,home_location_code,position_id,job_profile,job_profile_id,job_function,job_sub_function,sector,time_in_position,length_of_service_in_years,original_hire_date,hire_date_most_recent) values(#{wwid}, #{employee_pay_grade},#{home_location_code},#{position_id},#{job_profile},#{job_profile_id},#{job_function},#{job_sub_function},#{sector},#{time_in_position},#{length_of_service_in_years},#{original_hire_date},#{hire_date_most_recent})-->
-    <!--    </insert>-->
-
-    <!--    <insert id="addPerformanceRating" parameterType="entity.excelEntity.PerformanceRating" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into performance_rating(wwid, review_period_start_date,review_period_end_date,results_rating,leadership_rating,overall_rating) values(#{wwid}, #{review_period_start_date},#{review_period_end_date},#{results_rating},#{leadership_rating},#{overall_rating})-->
-    <!--    </insert>-->
+<!--KF4D-->
 
 
-    <!--    <insert id="addDirectReport" parameterType="entity.excelEntity.DirectReport" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into direct_report(wwid, direct_report) values(#{wwid}, #{direct_report})-->
-    <!--    </insert>-->
 
-    <!--    <insert id="addEducation" parameterType="entity.excelEntity.Education" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into education(wwid, highest_degree_received) values(#{wwid}, #{highest_degree_received})-->
-    <!--    </insert>-->
 
-    <!--    <insert id="addManagementChain" parameterType="entity.excelEntity.ManagementChain" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into management_chain(wwid, management_chain_level_01,management_chain_level_02,management_chain_level_03,management_chain_level_04,management_chain_level_05,management_chain_level_06,management_chain_level_07,management_chain_level_08,management_chain_level_09,hierarchy) values(#{wwid}, #{management_chain_level_01},#{management_chain_level_02},#{management_chain_level_03},#{management_chain_level_04},#{management_chain_level_05},#{management_chain_level_06},#{management_chain_level_07},#{management_chain_level_08},#{management_chain_level_09},#{hierarchy})-->
-    <!--    </insert>-->
 
-    <!--    <insert id="addTalentCard" parameterType="entity.excelEntity.TalentCard" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into talent_card(wwid, number_of_jnj_roles,average_time_of_jnj_role,number_of_external_roles,average_time_of_external_role,external_length_of_service,total_role_number,total_working_years,average_time_of_each_role) values(#{wwid}, #{number_of_jnj_roles},#{average_time_of_jnj_role},#{number_of_external_roles},#{average_time_of_external_role},#{external_length_of_service}, #{total_role_number}, #{total_working_years}, #{average_time_of_each_role})-->
-    <!--    </insert>-->
+
+
+
+
+
+
+
+
 
     <!--    <insert id="addWorkChangeHistory" parameterType="entity.excelEntity.WorkerChangeHistory" useGeneratedKeys="true" keyProperty="id">-->
     <!--        insert into worker_change_history(wwid, business_process_effective_date,business_process_status,business_process_type,business_process_reason,business_process_completed_date,position_current,position_proposed,region_current,region_proposed,company_current,company_proposed,job_profile_current,job_profile_proposed,location_current,location_proposed,compensation_grade_current,compensation_grade_proposed,pay_group_change,base_pay_current,base_pay_proposed,base_pay_change_amount,base_pay_change_percent) values(#{wwid}, #{business_process_effective_date},#{business_process_status},#{business_process_type},#{business_process_reason},#{business_process_completed_date},#{position_current},#{position_proposed},#{region_current},#{region_proposed},#{company_current},#{company_proposed},#{job_profile_current},#{job_profile_proposed},#{location_current},#{location_proposed},#{compensation_grade_current},#{compensation_grade_proposed},#{pay_group_change},#{base_pay_current},#{base_pay_proposed},#{base_pay_change_amount},#{base_pay_change_percent})-->
@@ -126,20 +172,9 @@
 
 
 
-    <!--    <select id="getJoinedDrivers" resultType="entity.excelEntity.Drivers">-->
-    <!--        select c.wwid, d.balance,d.challenge,d.collaboration,d.independence,d.power,d.structure from compensation as c left join drivers as d on c.wwid = d.wwid-->
-    <!--    </select>-->
-
-
-    <!--    <select id="getJoinedCompetencies" resultType="entity.excelEntity.Competencies">-->
-    <!--        select c.wwid, d.optimizes_work_processes, d.plans_and_aligns, d.being_resilient, d.strategic_mindset, d.courage, d.decision_quality, d.drives_results, d.action_oriented, d.collaborates, d.instills_trust, d.global_perspective, d.develops_talent, d.interpersonal_savvy, d.ensures_accountability, d.manages_ambiguity, d.situational_adaptability, d.self_development, d.customer_focus, d.nimble_learning, d.resourcefulness, d.builds_networks, d.balances_stakeholders, d.manages_conflict, d.drives_engagement, d.communicates_effectively, d.persuades, d.cultivates_innovation, d.directs_work, d.builds_effective_teams, d.values_differences from compensation as c left join competencies as d on c.wwid = d.wwid-->
-    <!--    </select>-->
 
 
 
-    <!--    <select id="getJoinedTraits" resultType="entity.excelEntity.Traits">-->
-    <!--        select c.wwid, d.trust, d.empathy, d.need_for_achievement, d.composure, d.curiosity, d.optimism, d.humility, d.confidence, d.focus, d.openness_to_differences, d.risk_taking, d.adaptability, d.wwid, d.situational_self_awareness, d.influence, d.sociability, d.affiliation, d.persistence, d.credibility, d.tolerance_of_ambiguity, d.assertiveness from compensation as c left join traits as d on c.wwid = d.wwid-->
-    <!--    </select>-->
 
 
 
@@ -162,17 +197,13 @@
     <!--        insert into education_fixed(wwid, highestEducation) values(#{wwid}, #{highestEducation})-->
     <!--    </insert>-->
 
-    <!--    <insert id="addFixedWorkChangeHistory" parameterType="entity.excelEntity.fixed.WorkerChangeHistoryFixed" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into worker_change_history_fixed(wwid,functionMovement,lateralMovement,promotions,regionMovements,countryMovements,sectorMovements) values(#{wwid}, #{functionMovement}, #{lateralMovement}, #{promotions}, #{regionMovements}, #{countryMovements}, #{sectorMovements})-->
-    <!--    </insert>-->
+
 
     <!--    <insert id="addFixedPerformanceRating" parameterType="entity.excelEntity.fixed.PerformanceRatingFixed" useGeneratedKeys="true" keyProperty="id">-->
     <!--        insert into performance_rating_fixed(wwid, overallRating2016, overallRating2017, overallRating2018) values(#{wwid}, #{overallRating2016}, #{overallRating2017}, #{overallRating2018})-->
     <!--    </insert>-->
 
-    <!--    <insert id="addUnstructuredData" parameterType="entity.excelEntity.UnstructuredData" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into unstructured_data(wwid, performance_comments,feedback) values(#{wwid}, #{performance_comments},#{feedback})-->
-    <!--    </insert>-->
+
 
 
     <!--    <select id="getAllExperiences" resultType="entity.dimensionRawData.DExperiences">-->
