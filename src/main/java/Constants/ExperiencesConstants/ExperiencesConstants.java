@@ -1,6 +1,8 @@
 package Constants.ExperiencesConstants;
 
 public class ExperiencesConstants {
+    public final static String TABLE_NAME = "experiences";
+    public static final String TABLE_NAME_SCORED = "d_experiences_scored";
     public static final String MBA = "Master of Business Administration (MBA)";
     public static final String YES = "Yes";
     public static final String NO = "No";

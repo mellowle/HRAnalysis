@@ -3,6 +3,7 @@ package dao;
 import entity.dimensionRawData.DExperiences;
 import entity.dimensionScored.DCompetenciesScored;
 import entity.dimensionScored.DDriversScored;
+import entity.dimensionScored.DExperiencesScored;
 import entity.dimensionScored.DTraitsScored;
 import entity.excelEntity.*;
 import entity.excelEntity.fixed.PerformanceRatingFixed;
@@ -37,6 +38,16 @@ public interface Mapper {
     int addUnstructuredData(UnstructuredData unstructuredData);
 
     int addWorkerChangeHistoryFixed(WorkerChangeHistoryFixed workerChangeHistoryFixed);
+
+
+    //~~~~~~~~~~~Experiences~~~~~~~~~~~~~~
+    List<DExperiences> getAllDExperiences();
+
+    int addDExperiences(DExperiences dExperiences);
+
+    int addDExperiencesScored(DExperiencesScored dExperiencesScored);
+
+    //~~~~~~~~~~~Experiences~~~~~~~~~~~~~~
 
 
     //~~~~~~~~~~~Competencies~~~~~~~~~~~~~~
@@ -96,7 +107,7 @@ public interface Mapper {
 
     int addFixedPerformanceRating(PerformanceRatingFixed performanceRatingFixed);
 
-    List<DExperiences> getAllExperiences();
+
 
     List<WorkerChangeHistory> getAllWorkChangeHistory();
 

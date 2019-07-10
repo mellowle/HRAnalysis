@@ -53,6 +53,7 @@ public class TableUtils {
 
     public static <T> void insertRecords(List<T> list, Class clazz) throws Exception {
         String methodName = "add" + clazz.getSimpleName();
+        System.out.println(methodName);
         Method method = mapper.getClass().getDeclaredMethod(methodName, clazz);
         for(T item: list){
             method.invoke(mapper, item);

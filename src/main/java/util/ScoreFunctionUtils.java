@@ -5,10 +5,10 @@ import Constants.ExperiencesConstants.RatingEnum;
 
 public class ScoreFunctionUtils {
 
-    public static final int MBA_SCORE_5 = 5;
-    public static final int MBA_SCORE_0 = 0;
+    public static final Double MBA_SCORE_5 = 5d;
+    public static final Double MBA_SCORE_0 = 0d;
 
-    public static Integer isMBAScore(String highestDegreeReceived) {
+    public static Double isMBAScore(String highestDegreeReceived) {
         if (highestDegreeReceived == null) {
             return null;
         }
@@ -20,29 +20,29 @@ public class ScoreFunctionUtils {
         }
     }
 
-    public static Integer teamSizeScore(Integer teamSize) {
+    public static Double teamSizeScore(Integer teamSize) {
 
         if (teamSize == null) {
             return null;
         }
 
         if (teamSize > 5) {
-            return 5;
+            return 5d;
         }
         else if (teamSize > 3 && teamSize <= 5) {
-            return 3;
+            return 3d;
         }
         else if (teamSize > 1 && teamSize <= 3) {
-            return 1;
+            return 1d;
         }
         else {
-            return 0;
+            return 0d;
         }
     }
 
-    public static double year2016PerformanceScore(RatingEnum year2016Performance) {
+    public static Double year2016PerformanceScore(RatingEnum year2016Performance) {
         if (year2016Performance == null) {
-            return 3;
+            return 3d;
         }
         else {
             return year2016Performance.getScore();
@@ -67,217 +67,226 @@ public class ScoreFunctionUtils {
         }
     }
 
-    public static Integer year2017BonusIncrementScore(Double bonusIncrement2017, double averageBaseIncrement2017) {
+    public static Double year2017BonusIncrementScore(Double bonusIncrement2017, Double averageBaseIncrement2017) {
         if (bonusIncrement2017 == null) {
             return null;
         }
         if (bonusIncrement2017 > averageBaseIncrement2017) {
-            return 2;
+            return 2d;
         }
 
-        return 0;
+        return 0d;
     }
 
-    public static Integer year2018BonusIncrementScore(Double bonusIncrement2018, double averageBaseIncrement2018) {
+    public static Double year2018BonusIncrementScore(Double bonusIncrement2018, Double averageBaseIncrement2018) {
         if (bonusIncrement2018 == null) {
             return null;
         }
         if (bonusIncrement2018 > averageBaseIncrement2018) {
-            return 2;
+            return 2d;
         }
 
-        return 0;
+        return 0d;
     }
 
-    public static Integer functionMovementScore(Integer functionMovements) {
+    public static Double functionMovementScore(Integer functionMovements) {
 
         if (functionMovements == null) {
             return null;
         }
 
         if (functionMovements >= 5) {
-            return 5;
+            return 5d;
         }
         else {
-            return functionMovements;
+            return functionMovements.doubleValue();
         }
     }
 
-    public static Integer lateralMovementScore(Integer lateralMovements) {
+    public static Double lateralMovementScore(Integer lateralMovements) {
         if (lateralMovements == null) {
             return null;
         }
 
         if (lateralMovements >= 5) {
-            return 5;
+            return 5d;
         }
         else {
-            return lateralMovements;
+            return lateralMovements.doubleValue();
         }
 
     }
 
-    public static Integer promotionScore(Integer promotions) {
+    public static Double promotionScore(Integer promotions) {
         if (promotions == null) {
             return null;
         }
 
         if (promotions >= 5) {
-            return 5;
+            return 5d;
         }
         else {
-            return promotions;
+            return promotions.doubleValue();
         }
     }
 
-    public static Integer regionMovementScore(Integer regionMovements) {
+    public static Double regionMovementScore(Integer regionMovements) {
         if (regionMovements == null) {
             return null;
         }
 
         if (regionMovements >= 5) {
-            return 5;
+            return 5d;
         }
         else {
-            return regionMovements;
+            return regionMovements.doubleValue();
         }
 
     }
 
-    public static Integer sectorMovementScore(Integer sectorMovements) {
+    public static Double sectorMovementScore(Integer sectorMovements) {
         if (sectorMovements == null) {
             return null;
         }
 
         if (sectorMovements >= 5) {
-            return 5;
+            return 5d;
         }
         else {
-            return sectorMovements;
+            return sectorMovements.doubleValue();
         }
 
     }
 
-    public static Integer countryMovementScore(Integer countryMovements) {
+    public static Double countryMovementScore(Integer countryMovements) {
         if (countryMovements == null) {
             return null;
         }
 
         if (countryMovements >= 5) {
-            return 5;
+            return 5d;
         }
         else {
-            return countryMovements;
+            return countryMovements.doubleValue();
         }
 
     }
 
-    public static Integer externalRoleNumberScore(Integer externalRoleNumber) {
+    public static Double externalRoleNumberScore(Integer externalRoleNumber) {
         if (externalRoleNumber == null) {
             return null;
         }
 
         if (externalRoleNumber >= 5) {
-            return 5;
+            return 5d;
         }
         else {
-            return externalRoleNumber;
+            return externalRoleNumber.doubleValue();
         }
 
     }
 
-    public static Integer externalLengthOfServiceScore(Double externalLengthOfService,
-                                                       double averageExternalLengthOfService) {
+    public static Double externalLengthOfServiceScore(Double externalLengthOfService,
+                                                       Double averageExternalLengthOfService) {
         if (externalLengthOfService == null) {
             return null;
         }
 
         if (externalLengthOfService > averageExternalLengthOfService) {
-            return 2;
+            return 2d;
         }
 
-        return 0;
+        return 0d;
     }
 
-    public static Integer totalRoleNumberScore(Integer totalRoleNumber) {
+    public static Double totalRoleNumberScore(Integer totalRoleNumber) {
 
         if (totalRoleNumber == null) {
             return null;
         }
 
         if (totalRoleNumber <= 3) {
-            return 0;
+            return 0d;
         }
         else if (totalRoleNumber > 7 && totalRoleNumber <= 9) {
-            return 1;
+            return 1d;
         }
         else if (totalRoleNumber > 5 && totalRoleNumber <= 7) {
-            return 3;
+            return 3d;
         }
         else if (totalRoleNumber > 3 && totalRoleNumber <= 5) {
-            return 5;
+            return 5d;
         }
 
-        return 0;
+        return 0d;
     }
 
-    public static Integer totalWorkingYearsScore(Double totalWorkingYears) {
+    public static Double totalWorkingYearsScore(Double totalWorkingYears) {
         if (totalWorkingYears == null) {
             return null;
         }
 
         if (totalWorkingYears > 30) {
-            return 1;
+            return 1d;
         }
         else if (totalWorkingYears > 20 && totalWorkingYears <= 30) {
-            return 2;
+            return 2d;
         }
         else if (totalWorkingYears > 10 && totalWorkingYears <= 20) {
-            return 3;
+            return 3d;
         }
         else if (totalWorkingYears <= 10) {
-            return 5;
+            return 5d;
         }
 
-        return 0;
+        return 0d;
     }
 
-    public static Integer averageDurationOnEachRoleScore(Double averageDurationOnEachRole) {
+    public static Double averageDurationOnEachRoleScore(Double averageDurationOnEachRole) {
         if (averageDurationOnEachRole == null) {
             return null;
         }
 
         if (averageDurationOnEachRole > 0 && averageDurationOnEachRole <= 5) {
-            return 5;
+            return 5d;
         }
         else if (averageDurationOnEachRole > 5 && averageDurationOnEachRole <= 10) {
-            return 3;
+            return 3d;
         }
         else if (averageDurationOnEachRole > 10) {
-            return 1;
+            return 1d;
         }
 
-        return 0;
+        return 0d;
     }
 
-    public static Integer numberOfReportingToCEOScore(Integer hierarchyCount) {
+    public static Double numberOfReportingToCEOScore(Integer hierarchyCount) {
         if (hierarchyCount == null) {
             return null;
         }
 
         if (hierarchyCount >= 10) {
-            return 1;
+            return 1d;
         }
         else if (hierarchyCount > 8 && hierarchyCount <= 9) {
-            return 2;
+            return 2d;
         }
         else if (hierarchyCount > 6 && hierarchyCount <= 7) {
-            return 4;
+            return 4d;
         }
         else if (hierarchyCount <= 5) {
-            return 5;
+            return 5d;
         }
 
-        return 0;
+        return 0d;
+    }
+
+    public static Double getBonusIncremental(Double bonusPrevious, Double bonusNow) {
+        if (bonusPrevious != null && bonusNow != null) {
+            double incremental = bonusNow - bonusPrevious;
+            return incremental / bonusPrevious;
+        }
+
+        return null;
     }
 }

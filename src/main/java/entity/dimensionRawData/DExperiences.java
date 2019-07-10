@@ -3,8 +3,13 @@ package entity.dimensionRawData;
 public class DExperiences {
 
     private String wwid;
+
+    private String employee_pay_grade;
+    private String job_function;
+    private String sector;
+    private Double length_of_service_in_years;
+
     private String highest_degree_received;
-    private Integer direct_report;
 
     private String overall_rating2016;
     private String overall_rating2017;
@@ -21,6 +26,10 @@ public class DExperiences {
     private Integer country_movements;
     private Integer sector_movements;
 
+    private Integer direct_report;
+
+    private Integer hierarchy_count;
+
     private Integer jnj_roles;
     private Integer external_roles;
     private Integer total_roles;
@@ -30,10 +39,8 @@ public class DExperiences {
     private Double external_length_of_service;
     private Double average_time_of_each_role;
 
-    private Integer hierarchy_count;
-
-    private Double performance_comments;
-    private Double feedback;
+    private Double performance_comments2018;
+    private Double stakeholder_feedback;
 
     public String getWwid() {
         return wwid;
@@ -43,20 +50,44 @@ public class DExperiences {
         this.wwid = wwid;
     }
 
+    public String getEmployee_pay_grade() {
+        return employee_pay_grade;
+    }
+
+    public void setEmployee_pay_grade(String employee_pay_grade) {
+        this.employee_pay_grade = employee_pay_grade;
+    }
+
+    public String getJob_function() {
+        return job_function;
+    }
+
+    public void setJob_function(String job_function) {
+        this.job_function = job_function;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
+    }
+
+    public Double getLength_of_service_in_years() {
+        return length_of_service_in_years;
+    }
+
+    public void setLength_of_service_in_years(Double length_of_service_in_years) {
+        this.length_of_service_in_years = length_of_service_in_years;
+    }
+
     public String getHighest_degree_received() {
         return highest_degree_received;
     }
 
     public void setHighest_degree_received(String highest_degree_received) {
         this.highest_degree_received = highest_degree_received;
-    }
-
-    public Integer getDirect_report() {
-        return direct_report;
-    }
-
-    public void setDirect_report(Integer direct_report) {
-        this.direct_report = direct_report;
     }
 
     public String getOverall_rating2016() {
@@ -155,6 +186,22 @@ public class DExperiences {
         this.sector_movements = sector_movements;
     }
 
+    public Integer getDirect_report() {
+        return direct_report;
+    }
+
+    public void setDirect_report(Integer direct_report) {
+        this.direct_report = direct_report;
+    }
+
+    public Integer getHierarchy_count() {
+        return hierarchy_count;
+    }
+
+    public void setHierarchy_count(Integer hierarchy_count) {
+        this.hierarchy_count = hierarchy_count;
+    }
+
     public Integer getJnj_roles() {
         return jnj_roles;
     }
@@ -219,36 +266,31 @@ public class DExperiences {
         this.average_time_of_each_role = average_time_of_each_role;
     }
 
-    public Integer getHierarchy_count() {
-        return hierarchy_count;
+    public Double getPerformance_comments2018() {
+        return performance_comments2018;
     }
 
-    public void setHierarchy_count(Integer hierarchy_count) {
-        this.hierarchy_count = hierarchy_count;
+    public void setPerformance_comments2018(Double performance_comments2018) {
+        this.performance_comments2018 = performance_comments2018;
     }
 
-    public Double getPerformance_comments() {
-        return performance_comments;
+    public Double getStakeholder_feedback() {
+        return stakeholder_feedback;
     }
 
-    public void setPerformance_comments(Double performance_comments) {
-        this.performance_comments = performance_comments;
-    }
-
-    public Double getFeedback() {
-        return feedback;
-    }
-
-    public void setFeedback(Double feedback) {
-        this.feedback = feedback;
+    public void setStakeholder_feedback(Double stakeholder_feedback) {
+        this.stakeholder_feedback = stakeholder_feedback;
     }
 
     @Override
     public String toString() {
         return "DExperiences{" +
                 "wwid='" + wwid + '\'' +
+                ", employee_pay_grade='" + employee_pay_grade + '\'' +
+                ", job_function='" + job_function + '\'' +
+                ", sector='" + sector + '\'' +
+                ", length_of_service_in_years=" + length_of_service_in_years +
                 ", highest_degree_received='" + highest_degree_received + '\'' +
-                ", direct_report=" + direct_report +
                 ", overall_rating2016='" + overall_rating2016 + '\'' +
                 ", overall_rating2017='" + overall_rating2017 + '\'' +
                 ", overall_rating2018='" + overall_rating2018 + '\'' +
@@ -261,6 +303,8 @@ public class DExperiences {
                 ", region_movements=" + region_movements +
                 ", country_movements=" + country_movements +
                 ", sector_movements=" + sector_movements +
+                ", direct_report=" + direct_report +
+                ", hierarchy_count=" + hierarchy_count +
                 ", jnj_roles=" + jnj_roles +
                 ", external_roles=" + external_roles +
                 ", total_roles=" + total_roles +
@@ -269,9 +313,8 @@ public class DExperiences {
                 ", total_working_year=" + total_working_year +
                 ", external_length_of_service=" + external_length_of_service +
                 ", average_time_of_each_role=" + average_time_of_each_role +
-                ", hierarchy_count=" + hierarchy_count +
-                ", performance_comments=" + performance_comments +
-                ", feedback=" + feedback +
+                ", performance_comments2018=" + performance_comments2018 +
+                ", stakeholder_feedback=" + stakeholder_feedback +
                 '}';
     }
 }
