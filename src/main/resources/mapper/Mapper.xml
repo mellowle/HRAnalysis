@@ -132,7 +132,7 @@
         (#{wwid},#{employee_pay_grade},#{job_function},#{sector},#{length_of_service_in_years},#{team_size},#{performance_rating2016},#{performance_rating2017},#{performance_rating2018},#{bonus_increment20162017},#{bonus_increment20172018},#{function_movements},#{lateral_movements},#{promotions},#{region_movements},#{country_movements},#{sector_movements},#{external_roles},#{external_length_of_service},#{role_number_ranking},#{total_working_year_ranking},#{average_time_of_each_role_ranking},#{hierarchy_count},#{performance_comments2018},#{stakeholder_feedback},#{data_completeness},#{result})
     </insert>
 
-    <!--Experiences-->
+<!--Experiences-->
 
 
 <!--KF4D-->
@@ -192,64 +192,26 @@
     </insert>
 <!--KF4D-->
 
+<!--Final-->
+    <select id="getAllFinalScore" resultType="entity.dimensionScored.FinalScore">
+        SELECT compet.wwid, compet.result competencies_score,
+        e.result experiences_score,
+        t.result traits_score,
+        d.result drivers_score
+        FROM d_competencies_scored compet
+        LEFT JOIN d_experiences_scored e ON compet.wwid = e.wwid
+        LEFT JOIN d_traits_scored t ON compet.wwid = t.wwid
+        LEFT JOIN d_drivers_scored d ON compet.wwid = d.wwid
+    </select>
 
+    <insert id="addFinalScore" parameterType="entity.dimensionScored.FinalScore" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO final_score
+        (wwid, competencies_score, experiences_score, traits_score, drivers_score, competencies_and_experiences, traits_and_drivers)
+        VALUES
+        (#{wwid},#{competencies_score},#{experiences_score},#{traits_score},#{drivers_score},#{competencies_and_experiences},#{traits_and_drivers})
+    </insert>
 
-
-
-
-
-
-
-
-
-
-
-
-    <!--    <insert id="addWorkChangeHistory" parameterType="entity.excelEntity.WorkerChangeHistory" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into worker_change_history(wwid, business_process_effective_date,business_process_status,business_process_type,business_process_reason,business_process_completed_date,position_current,position_proposed,region_current,region_proposed,company_current,company_proposed,job_profile_current,job_profile_proposed,location_current,location_proposed,compensation_grade_current,compensation_grade_proposed,pay_group_change,base_pay_current,base_pay_proposed,base_pay_change_amount,base_pay_change_percent) values(#{wwid}, #{business_process_effective_date},#{business_process_status},#{business_process_type},#{business_process_reason},#{business_process_completed_date},#{position_current},#{position_proposed},#{region_current},#{region_proposed},#{company_current},#{company_proposed},#{job_profile_current},#{job_profile_proposed},#{location_current},#{location_proposed},#{compensation_grade_current},#{compensation_grade_proposed},#{pay_group_change},#{base_pay_current},#{base_pay_proposed},#{base_pay_change_amount},#{base_pay_change_percent})-->
-    <!--    </insert>-->
-
-
-
-
-
-
-
-
-
-
-
-    <!--    &lt;!&ndash;get raw table for fix table&ndash;&gt;-->
-    <!--    <select id="getAllEducation" resultType="entity.excelEntity.Education">-->
-    <!--        select * from education-->
-    <!--    </select>-->
-
-    <!--    <select id="getAllWorkChangeHistory" resultType="entity.excelEntity.WorkerChangeHistory">-->
-    <!--        select * from worker_change_history-->
-    <!--    </select>-->
-
-    <!--    <select id="getAllPerformanceRating" resultType="entity.excelEntity.PerformanceRating">-->
-    <!--        select * from performance_rating-->
-    <!--    </select>-->
-
-
-    <!--    &lt;!&ndash;insert value to fix table&ndash;&gt;-->
-    <!--    <insert id="addFixedEducation" parameterType="fixedEntity.EducationFixed" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into education_fixed(wwid, highestEducation) values(#{wwid}, #{highestEducation})-->
-    <!--    </insert>-->
-
-
-
-    <!--    <insert id="addFixedPerformanceRating" parameterType="entity.excelEntity.fixed.PerformanceRatingFixed" useGeneratedKeys="true" keyProperty="id">-->
-    <!--        insert into performance_rating_fixed(wwid, overallRating2016, overallRating2017, overallRating2018) values(#{wwid}, #{overallRating2016}, #{overallRating2017}, #{overallRating2018})-->
-    <!--    </insert>-->
-
-
-
-
-    <!--    <select id="getAllExperiences" resultType="entity.dimensionRawData.DExperiences">-->
-    <!--        select * from experiences-->
-    <!--    </select>-->
+<!--Final-->
 
 </mapper>
 

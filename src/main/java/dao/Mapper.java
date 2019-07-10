@@ -1,10 +1,7 @@
 package dao;
 
 import entity.dimensionRawData.DExperiences;
-import entity.dimensionScored.DCompetenciesScored;
-import entity.dimensionScored.DDriversScored;
-import entity.dimensionScored.DExperiencesScored;
-import entity.dimensionScored.DTraitsScored;
+import entity.dimensionScored.*;
 import entity.excelEntity.*;
 import entity.excelEntity.fixed.PerformanceRatingFixed;
 import entity.excelEntity.fixed.WorkerChangeHistoryFixed;
@@ -59,7 +56,6 @@ public interface Mapper {
     //~~~~~~~~~~~Competencies~~~~~~~~~~~~~~
 
 
-
     //~~~~~~~~~~~Drivers~~~~~~~~~~~~~~
     int addDrivers(Drivers drivers);
 
@@ -67,7 +63,6 @@ public interface Mapper {
 
     int addDDriversScored(DDriversScored dDriversScored);
     //~~~~~~~~~~~Drivers~~~~~~~~~~~~~~
-
 
 
     //~~~~~~~~~~~Traits~~~~~~~~~~~~~~
@@ -79,39 +74,11 @@ public interface Mapper {
     //~~~~~~~~~~~Traits~~~~~~~~~~~~~~
 
 
+    //~~~~~~~~~~~Final~~~~~~~~~~~~~~
+    List<FinalScore> getAllFinalScore();
 
-
-
-
-
-
-
-
-
-
-
-
-
-    int addWorkChangeHistory(WorkerChangeHistory workerChangeHistory);
-
-    List<Drivers> getJoinedDrivers();
-
-
-    List<Traits> getJoinedTraits();
-
-    int addTraitsScored(DTraitsScored dTraitsScored);
-
-    List<Education> getAllEducation();
-
-    List<PerformanceRating> getAllPerformanceRating();
-
-    int addFixedPerformanceRating(PerformanceRatingFixed performanceRatingFixed);
-
-
-
-    List<WorkerChangeHistory> getAllWorkChangeHistory();
-
-
+    int addFinalScore(FinalScore finalScore);
+    //~~~~~~~~~~~Final~~~~~~~~~~~~~~
 
 
 }
