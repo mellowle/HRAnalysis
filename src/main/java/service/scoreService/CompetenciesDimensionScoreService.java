@@ -18,14 +18,12 @@ public class CompetenciesDimensionScoreService extends AbstractScoreService {
     }
 
     public static void main(String... args) throws Exception {
-//        CompetenciesDimensionScoreService c = new CompetenciesDimensionScoreService();
-//        List<DCompetenciesScored> results = c.getScoredResults();
-//        System.out.println(results.size());
-//        c.initTable();
-//        c.insertRecords(results);
-//        System.err.println("done");
-        Double a =0d;
-        System.out.println(a);
+        CompetenciesDimensionScoreService c = new CompetenciesDimensionScoreService();
+        List<DCompetenciesScored> results = c.getScoredResults();
+        System.out.println(results.size());
+        c.initTable();
+        c.insertRecords(results);
+        System.err.println("done");
     }
 
     public List<DCompetenciesScored> getScoredResults() throws Exception {

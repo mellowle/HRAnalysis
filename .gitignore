@@ -7,3 +7,4 @@ target/
 *.docx
 *.doc
 *.zip
+mybatis-config.xml
