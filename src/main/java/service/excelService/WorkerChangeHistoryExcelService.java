@@ -37,7 +37,9 @@ public class WorkerChangeHistoryExcelService extends AbstractExcelService {
     }
 
     public List<WorkerChangeHistory> getResults() throws Exception {
-        return sheet2Entities(WorkerChangeHistory.class);
+        List<WorkerChangeHistory> results = sheet2Entities(WorkerChangeHistory.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        return results;
     }
 
     public List<WorkerChangeHistoryFixed> getResultsFixed() throws Exception {

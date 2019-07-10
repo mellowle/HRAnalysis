@@ -35,6 +35,8 @@ public class DirectReportExcelService extends AbstractExcelService {
     }
 
     public List<DirectReport> getResults() throws Exception {
-        return sheet2Entities(DirectReport.class);
+        List<DirectReport> results = sheet2Entities(DirectReport.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        return results;
     }
 }

@@ -6,6 +6,7 @@ import excelMapping.TraitsColMapping;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class TraitsExcelService extends AbstractExcelService {
 
@@ -31,6 +32,8 @@ public class TraitsExcelService extends AbstractExcelService {
     }
 
     public List<Traits> getResults() throws Exception {
-        return sheet2Entities(Traits.class);
+        List<Traits> results = sheet2Entities(Traits.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        return results;
     }
 }

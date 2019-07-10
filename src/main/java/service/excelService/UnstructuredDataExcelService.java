@@ -6,6 +6,7 @@ import excelMapping.UnstructuredDataColMapping;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class UnstructuredDataExcelService extends AbstractExcelService {
 
@@ -31,6 +32,8 @@ public class UnstructuredDataExcelService extends AbstractExcelService {
     }
 
     public List<UnstructuredData> getResults() throws Exception {
-        return sheet2Entities(UnstructuredData.class);
+        List<UnstructuredData> results = sheet2Entities(UnstructuredData.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        return results;
     }
 }

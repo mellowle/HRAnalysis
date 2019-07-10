@@ -1,11 +1,13 @@
 package service.excelService;
 
 import com.google.common.collect.Sets;
+import entity.excelEntity.ManagementChain;
 import entity.excelEntity.TalentCard;
 import excelMapping.TalentCardColMapping;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class TalentCardExcelService extends AbstractExcelService {
     public TalentCardExcelService(){
@@ -30,6 +32,8 @@ public class TalentCardExcelService extends AbstractExcelService {
     }
 
     public List<TalentCard> getResults() throws Exception {
-        return sheet2Entities(TalentCard.class);
+        List<TalentCard> results = sheet2Entities(TalentCard.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        return results;
     }
 }

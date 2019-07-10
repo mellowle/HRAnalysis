@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class PerformanceRatingExcelService extends AbstractExcelService {
 
-    public PerformanceRatingExcelService(){
+    public PerformanceRatingExcelService() {
         this.COLUMN_MAPPING = PerformanceRatingColMapping.COLUMN_MAPPING;
         this.EXCEL_NAME = PerformanceRatingColMapping.EXCEL_NAME;
         this.TABLE_NAME = PerformanceRatingColMapping.TABLE_NAME_FIXED;
@@ -59,6 +59,8 @@ public class PerformanceRatingExcelService extends AbstractExcelService {
     public List<PerformanceRatingFixed> getResultsFixed() throws Exception {
         List<PerformanceRatingFixed> results = Lists.newArrayList();
         List<PerformanceRating> performanceRatingList = getResults();
+
+        performanceRatingList = performanceRatingList.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
 
         removeRatingsBefore2016(performanceRatingList);
 

@@ -63,6 +63,8 @@ public class EducationExcelService extends AbstractExcelService {
     }
 
     public List<Education> getResults() throws Exception {
-        return sheet2Entities(Education.class);
+        List<Education> results = sheet2Entities(Education.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        return results;
     }
 }

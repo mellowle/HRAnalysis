@@ -35,6 +35,8 @@ public class EmployeeDemographicsExcelService extends AbstractExcelService {
     }
 
     public List<EmployeeDemographics> getResults() throws Exception {
-        return sheet2Entities(EmployeeDemographics.class);
+        List<EmployeeDemographics> results = sheet2Entities(EmployeeDemographics.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        return results;
     }
 }

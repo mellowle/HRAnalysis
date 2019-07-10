@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class ManagementChainExcelService extends AbstractExcelService {
 
-    public ManagementChainExcelService(){
+    public ManagementChainExcelService() {
         this.COLUMN_MAPPING = ManagementChainColMapping.COLUMN_MAPPING;
         this.EXCEL_NAME = ManagementChainColMapping.EXCEL_NAME;
         this.TABLE_NAME = ManagementChainColMapping.TABLE_NAME;
@@ -26,7 +26,7 @@ public class ManagementChainExcelService extends AbstractExcelService {
         });
         List<ManagementChain> unique = results.stream().collect(
                 Collectors.collectingAndThen(
-                        Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(ManagementChain::getWwid)))
+                        Collectors.toCollection(()->new TreeSet<>(Comparator.comparing(ManagementChain::getWwid)))
                         , ArrayList::new));
         System.err.println(unique.size());
         c.initTable();
@@ -35,8 +35,8 @@ public class ManagementChainExcelService extends AbstractExcelService {
     }
 
     public List<ManagementChain> getResults() throws Exception {
-        List<ManagementChain> results;
-        results = sheet2Entities(ManagementChain.class);
+        List<ManagementChain> results = sheet2Entities(ManagementChain.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
         results.forEach(result->{
             result.setHierarchy_count();
         });

@@ -6,10 +6,11 @@ import excelMapping.CompetenciesColMapping;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CompetenciesExcelService extends AbstractExcelService {
 
-    public CompetenciesExcelService(){
+    public CompetenciesExcelService() {
         this.COLUMN_MAPPING = CompetenciesColMapping.COLUMN_MAPPING;
         this.EXCEL_NAME = CompetenciesColMapping.EXCEL_NAME;
         this.TABLE_NAME = CompetenciesColMapping.TABLE_NAME;
@@ -31,7 +32,9 @@ public class CompetenciesExcelService extends AbstractExcelService {
     }
 
     public List<Competencies> getResults() throws Exception {
-        return sheet2Entities(Competencies.class);
+        List<Competencies> results = sheet2Entities(Competencies.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        return results;
     }
 
 }

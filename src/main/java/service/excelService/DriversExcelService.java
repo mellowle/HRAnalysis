@@ -6,6 +6,7 @@ import excelMapping.DriversColMapping;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class DriversExcelService extends AbstractExcelService {
 
@@ -31,6 +32,8 @@ public class DriversExcelService extends AbstractExcelService {
     }
 
     public List<Drivers> getResults() throws Exception {
-        return sheet2Entities(Drivers.class);
+        List<Drivers> results = sheet2Entities(Drivers.class);
+        results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        return results;
     }
 }
