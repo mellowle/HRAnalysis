@@ -11,8 +11,8 @@ public class CompensationColMapping {
     static {
         COLUMN_MAPPING = new HashMap<>();
         COLUMN_MAPPING.put("wwid", "Employee ID");
-        COLUMN_MAPPING.put("bonus2016", "Bonus for 2016");
-        COLUMN_MAPPING.put("bonus2017", "Bonus for 2017");
-        COLUMN_MAPPING.put("bonus2018", "Bonus for 2018");
+        COLUMN_MAPPING.put("bonus2016", "Bonus/Sales Incentive for 2016");
+        COLUMN_MAPPING.put("bonus2017", "Bonus/Sales Incentive for 2017");
+        COLUMN_MAPPING.put("bonus2018", "Bonus/Sales Incentive for 2018");
     }
 }

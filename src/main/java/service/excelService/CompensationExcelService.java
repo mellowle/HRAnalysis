@@ -20,6 +20,18 @@ public class CompensationExcelService extends AbstractExcelService {
         CompensationExcelService c = new CompensationExcelService();
         List<Compensation> results = c.getResults();
         System.out.println(results.size());
+
+        for (Compensation comp : results) {
+            if (comp.getBonus2016() == null && comp.getBonus2017() != null && comp.getBonus2018() != null) {
+                comp.setBonus2016(0.0);
+            }
+
+            if (comp.getBonus2016() == null && comp.getBonus2017() == null && comp.getBonus2018() != null) {
+                comp.setBonus2016(0.0);
+                comp.setBonus2017(0.0);
+            }
+        }
+
         Set<String> tmp = Sets.newHashSet();
         results.forEach(result->{
             tmp.add(result.getWwid());

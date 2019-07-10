@@ -56,7 +56,12 @@ public abstract class AbstractExcelService {
                 cellValue = cell.getBooleanCellValue() + "";
                 break;
             case Cell.CELL_TYPE_FORMULA:
-                cellValue = cell.getCellFormula() + "";
+                try{
+                    cellValue = cell.getNumericCellValue() + "";
+                } catch (IllegalStateException e) {
+                    cellValue = null;
+                }
+
                 break;
             case Cell.CELL_TYPE_BLANK:
                 cellValue = "";
