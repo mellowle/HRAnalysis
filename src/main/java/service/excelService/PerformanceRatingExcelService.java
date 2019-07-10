@@ -85,6 +85,7 @@ public class PerformanceRatingExcelService extends AbstractExcelService {
                     performanceRatingFixed.setOverall_rating2018(rating.getOverall_rating());
                 }
             }
+            performanceRatingFixed.resetInsufficientData();
 
             results.add(performanceRatingFixed);
 
