@@ -11,8 +11,7 @@ public enum RatingEnum {
     PARTIALLYMEETS_EXCEEDS("Partially Meets / Exceeds", 2.5),
     FULLYMEETS_PARTIALLYMEETS("Fully Meets / Partially Meets", -1),
     PARTIALLYMEETS_FULLYMEETS("Partially Meets / Fully Meets", -1),
-    PARTIALLYMEETS_PARTIALLYMEETS("Partially Meets / Partially Meets", -2),
-    INSUFFICIENT_DATA("Insufficient Data to Rate / Insufficient Data to Rate", 0);
+    PARTIALLYMEETS_PARTIALLYMEETS("Partially Meets / Partially Meets", -2);
 
     private String rating;
     private double score;

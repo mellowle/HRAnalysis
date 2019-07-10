@@ -48,4 +48,20 @@ public class PerformanceRatingFixed {
                 ", overall_rating2018='" + overall_rating2018 + '\'' +
                 '}';
     }
+
+    public void resetInsufficientData() {
+        if (this.overall_rating2018 == "Insufficient Data to Rate / Insufficient Data to Rate") {
+            this.overall_rating2016 = null;
+            this.overall_rating2017 = null;
+            this.overall_rating2018 = null;
+        }
+
+        if (this.overall_rating2017 == "Insufficient Data to Rate / Insufficient Data to Rate") {
+            this.overall_rating2017 = "";
+        }
+
+        if (this.overall_rating2016 == "Insufficient Data to Rate / Insufficient Data to Rate") {
+            this.overall_rating2016 = "";
+        }
+    }
 }
