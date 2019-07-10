@@ -23,7 +23,7 @@ public enum RatingEnum {
 
     public static double getRatingScore(String rating) {
         for (RatingEnum ratingE : RatingEnum.values()) {
-            if (ratingE == null || StringUtils.isEmpty(rating)) {
+            if (StringUtils.isEmpty(rating)) {
                 return 3;
             }
             if (rating.equals(ratingE.getRating())) {

@@ -34,9 +34,6 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
         if ((performance2016 == null && performance2017 == null && performance2018 == null)) {
             return null;
         }
-        if (StringUtils.isEmpty(performance2016) && StringUtils.isEmpty(performance2017) && StringUtils.isEmpty(performance2018)) {
-            return performanceRatingScored;
-        }
 
         performanceRatingScored.setPerformance2016(RatingEnum.getRatingScore(performance2016));
         performanceRatingScored.setPerformance2017(RatingEnum.getRatingScore(performance2017));
