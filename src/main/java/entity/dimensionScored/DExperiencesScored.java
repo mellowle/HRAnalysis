@@ -9,6 +9,9 @@ public class DExperiencesScored {
     private String job_function;
     private String sector;
     private Double length_of_service_in_years;
+    private String overall_rating2016;
+    private String overall_rating2017;
+    private String overall_rating2018;
 
 
 //    private Double is_mba;
@@ -195,7 +198,31 @@ public class DExperiencesScored {
         this.length_of_service_in_years = length_of_service_in_years;
     }
 
-//    public Double getIs_mba() {
+    public String getOverall_rating2016() {
+        return overall_rating2016;
+    }
+
+    public void setOverall_rating2016(String overall_rating2016) {
+        this.overall_rating2016 = overall_rating2016;
+    }
+
+    public String getOverall_rating2017() {
+        return overall_rating2017;
+    }
+
+    public void setOverall_rating2017(String overall_rating2017) {
+        this.overall_rating2017 = overall_rating2017;
+    }
+
+    public String getOverall_rating2018() {
+        return overall_rating2018;
+    }
+
+    public void setOverall_rating2018(String overall_rating2018) {
+        this.overall_rating2018 = overall_rating2018;
+    }
+
+    //    public Double getIs_mba() {
 //        return is_mba;
 //    }
 //

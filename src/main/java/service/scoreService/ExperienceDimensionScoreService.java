@@ -5,7 +5,8 @@ import Constants.ExperiencesConstants.RatingEnum;
 import com.google.common.collect.Lists;
 import entity.dimensionRawData.DExperiences;
 import entity.dimensionScored.DExperiencesScored;
-import org.apache.commons.lang3.StringUtils;
+import entity.excelEntity.fixed.ExperiencesAverageAttributes;
+import entity.excelEntity.fixed.PerformanceRatingScored;
 import util.ScoreFunctionUtils;
 import util.TableUtils;
 
@@ -42,9 +43,9 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
         return performanceRatingScored;
     }
 
-    private AverageAttributes getAverageAttributes(List<DExperiences> DExperiencesList) {
+    private ExperiencesAverageAttributes getAverageAttributes(List<DExperiences> DExperiencesList) {
 
-        AverageAttributes averageAttributes = new AverageAttributes();
+        ExperiencesAverageAttributes experiencesAverageAttributes = new ExperiencesAverageAttributes();
 
         double totalIncremental2017 = 0.0;
         int incremental2017Count = 0;
@@ -61,7 +62,7 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
                 incremental2017Count++;
             }
 
-            averageAttributes.setAverageIncremental2017(totalIncremental2017 / incremental2017Count);
+            experiencesAverageAttributes.setAverageIncremental2017(totalIncremental2017 / incremental2017Count);
 
             if (dexperiences.getBonus2017() != null && dexperiences.getBonus2018() != null) {
                 double incremental2018 = (dexperiences.getBonus2018() - dexperiences.getBonus2017()) / dexperiences.getBonus2017();
@@ -69,17 +70,17 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
                 incremental2017Count++;
             }
 
-            averageAttributes.setAverageIncremental2018(totalIncremental2018 / incremental2018Count);
+            experiencesAverageAttributes.setAverageIncremental2018(totalIncremental2018 / incremental2018Count);
 
             if (dexperiences.getExternal_length_of_service() != null) {
                 totalExternalLengthOfService += Double.valueOf(dexperiences.getExternal_length_of_service());
                 externalLengthOfServiceCount++;
             }
 
-            averageAttributes.setAverageExternalLengthOfService(totalExternalLengthOfService / externalLengthOfServiceCount);
+            experiencesAverageAttributes.setAverageExternalLengthOfService(totalExternalLengthOfService / externalLengthOfServiceCount);
 
         }
-        return averageAttributes;
+        return experiencesAverageAttributes;
     }
 
     public List<DExperiences> getAllDExperiences() throws Exception {
@@ -103,7 +104,10 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
             dExperiencesScored.setJob_function(dExperiences.getJob_function());
             dExperiencesScored.setSector(dExperiences.getSector());
             dExperiencesScored.setLength_of_service_in_years(dExperiences.getLength_of_service_in_years());
-//            dExperiencesScored.setIs_mba(ScoreFunctionUtils.isMBAScore(dExperiences.getHighest_degree_received()));
+            dExperiencesScored.setOverall_rating2016(dExperiences.getOverall_rating2016());
+            dExperiencesScored.setOverall_rating2017(dExperiences.getOverall_rating2017());
+            dExperiencesScored.setOverall_rating2018(dExperiences.getOverall_rating2018());
+            //            dExperiencesScored.setIs_mba(ScoreFunctionUtils.isMBAScore(dExperiences.getHighest_degree_received()));
             dExperiencesScored.setTeam_size(ScoreFunctionUtils.teamSizeScore(dExperiences.getDirect_report()));
 
             PerformanceRatingScored performanceRatingScored = getPerformanceScore(dExperiences.getOverall_rating2016(),
@@ -164,64 +168,5 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
     }
 }
 
-class AverageAttributes {
-    private double averageIncremental2017;
-    private double averageIncremental2018;
-    private double averageExternalLengthOfService;
 
-    public double getAverageExternalLengthOfService() {
-        return averageExternalLengthOfService;
-    }
 
-    public void setAverageExternalLengthOfService(double averageExternalLengthOfService) {
-        this.averageExternalLengthOfService = averageExternalLengthOfService;
-    }
-
-    public double getAverageIncremental2017() {
-        return averageIncremental2017;
-    }
-
-    public void setAverageIncremental2017(double averageIncremental2017) {
-        this.averageIncremental2017 = averageIncremental2017;
-    }
-
-    public double getAverageIncremental2018() {
-        return averageIncremental2018;
-    }
-
-    public void setAverageIncremental2018(double averageIncremental2018) {
-        this.averageIncremental2018 = averageIncremental2018;
-    }
-
-}
-
-class PerformanceRatingScored {
-
-    private Double performance2016;
-    private Double performance2017;
-    private Double performance2018;
-
-    public Double getPerformance2016() {
-        return performance2016;
-    }
-
-    public void setPerformance2016(Double performance2016) {
-        this.performance2016 = performance2016;
-    }
-
-    public Double getPerformance2017() {
-        return performance2017;
-    }
-
-    public void setPerformance2017(Double performance2017) {
-        this.performance2017 = performance2017;
-    }
-
-    public Double getPerformance2018() {
-        return performance2018;
-    }
-
-    public void setPerformance2018(Double performance2018) {
-        this.performance2018 = performance2018;
-    }
-}
