@@ -56,30 +56,30 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
 
         for (DExperiences dexperiences : DExperiencesList) {
 
-            if (dexperiences.getBonus2016() != null && dexperiences.getBonus2017() != null) {
+            if (dexperiences.getBonus2016() != null && dexperiences.getBonus2017() != null && dexperiences.getBonus2016() != 0d) {
                 double incremental2017 = (dexperiences.getBonus2017() - dexperiences.getBonus2016()) / dexperiences.getBonus2016();
                 totalIncremental2017 += incremental2017;
                 incremental2017Count++;
             }
 
-            experiencesAverageAttributes.setAverageIncremental2017(totalIncremental2017 / incremental2017Count);
 
-            if (dexperiences.getBonus2017() != null && dexperiences.getBonus2018() != null) {
+            if (dexperiences.getBonus2017() != null && dexperiences.getBonus2018() != null && dexperiences.getBonus2017() != 0d) {
                 double incremental2018 = (dexperiences.getBonus2018() - dexperiences.getBonus2017()) / dexperiences.getBonus2017();
                 totalIncremental2018 += incremental2018;
-                incremental2017Count++;
+                incremental2018Count++;
             }
 
-            experiencesAverageAttributes.setAverageIncremental2018(totalIncremental2018 / incremental2018Count);
 
             if (dexperiences.getExternal_length_of_service() != null) {
                 totalExternalLengthOfService += Double.valueOf(dexperiences.getExternal_length_of_service());
                 externalLengthOfServiceCount++;
             }
 
-            experiencesAverageAttributes.setAverageExternalLengthOfService(totalExternalLengthOfService / externalLengthOfServiceCount);
 
         }
+        experiencesAverageAttributes.setAverageIncremental2017(totalIncremental2017 / incremental2017Count);
+        experiencesAverageAttributes.setAverageIncremental2018(totalIncremental2018 / incremental2018Count);
+        experiencesAverageAttributes.setAverageExternalLengthOfService(totalExternalLengthOfService / externalLengthOfServiceCount);
         return experiencesAverageAttributes;
     }
 
