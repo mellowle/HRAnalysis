@@ -46,4 +46,15 @@ public class ExperiencesAverageAttributes {
     public void setExternalLengthOfService(double externalLengthOfService) {
         this.externalLengthOfService = externalLengthOfService;
     }
+
+    @Override
+    public String toString() {
+        return "ExperiencesAverageAttributes{" +
+                "bonusIncrement20162017=" + bonusIncrement20162017 +
+                ", bonusIncrement20172018=" + bonusIncrement20172018 +
+                ", baseIncrement20172018=" + baseIncrement20172018 +
+                ", baseIncrement20182019=" + baseIncrement20182019 +
+                ", externalLengthOfService=" + externalLengthOfService +
+                '}';
+    }
 }

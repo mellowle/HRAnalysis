@@ -388,10 +388,12 @@ public class ScoreFunctionUtils {
 
         if (dExperiencesScored.getBase_increment20172018() != null) {
             result += dExperiencesScored.getBase_increment20172018();
+            notNullCount++;
         }
 
         if (dExperiencesScored.getBase_increment20182019() != null) {
             result += dExperiencesScored.getBase_increment20182019();
+            notNullCount++;
         }
 
         if (dExperiencesScored.getFunction_movements() != null) {
@@ -426,10 +428,12 @@ public class ScoreFunctionUtils {
 
         if (dExperiencesScored.getTeam_size() != null) {
             result += dExperiencesScored.getTeam_size();
+            notNullCount++;
         }
 
         if (dExperiencesScored.getHierarchy_count() != null) {
             result += dExperiencesScored.getHierarchy_count();
+            notNullCount++;
         }
 
         if (dExperiencesScored.getExternal_roles() != null) {

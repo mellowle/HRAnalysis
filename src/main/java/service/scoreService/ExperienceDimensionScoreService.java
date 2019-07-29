@@ -42,6 +42,36 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
 
         List<DExperiences> results = getAllDExperiences();
 
+        // data100% score 100 test case
+//        DExperiences t = new DExperiences();
+//        t.setWwid("ttt");
+//        t.setOverall_rating2016("Exceeds / Exceeds");
+//        t.setOverall_rating2017("Exceeds / Exceeds");
+//        t.setOverall_rating2018("Exceeds / Exceeds");
+//        t.setBonus2016(10d);
+//        t.setBonus2017(10000d);
+//        t.setBonus2018(10000000d);
+//        t.setBase2017(10d);
+//        t.setBase2018(10000d);
+//        t.setBase2019(10000000d);
+//        t.setFunction_movements(7);
+//        t.setLateral_movements(7);
+//        t.setPromotions(7);
+//        t.setCountry_movements(8);
+//        t.setRegion_movements(8);
+//        t.setSector_movements(8);
+//        t.setDirect_report(10);
+//        t.setHierarchy_count(3);
+//        t.setExternal_roles(10);
+//        t.setExternal_length_of_service(9d);
+//        t.setTotal_roles(5);
+//        t.setTotal_working_year(10d);
+//        t.setAverage_time_of_each_role(4d);
+//        t.setOverall_digital_experience_percentile(1d);
+//        t.setPerformance_comments2018(5d);
+//        t.setStakeholder_feedback(5d);
+//
+//        results.add(t);
 
         ExperiencesAverageAttributes experiencesAverageAttributes = ScoreFunctionUtils.getAverageAttributes(results);
         for (DExperiences dExperiences : results) {
@@ -82,7 +112,6 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
 
             dExperiencesScored.setHierarchy_count(ScoreFunctionUtils.scoreHierarchyCount(dExperiences.getHierarchy_count()));
 
-
             dExperiencesScored.setExternal_roles(ScoreFunctionUtils.scoreExternalRoleNumber(dExperiences.getExternal_roles()));
             dExperiencesScored.setExternal_length_of_service(ScoreFunctionUtils.scoreWithAverage(
                     dExperiences.getExternal_length_of_service(), experiencesAverageAttributes.getExternalLengthOfService(), "EXTERNAL_LENGTH_OF_SERVICE"
@@ -90,7 +119,7 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
 
             dExperiencesScored.setRole_number_ranking(ScoreFunctionUtils.scoreTotalRoleNumber(dExperiences.getTotal_roles()));
             dExperiencesScored.setTotal_working_year_ranking(ScoreFunctionUtils.scoreTotalWorkingYears(dExperiences.getTotal_working_year()));
-            dExperiencesScored.setAverage_time_of_each_role_ranking(ScoreFunctionUtils.scoreAverageDurationOfEachRole(dExperiences.getAverage_time_of_external_role()));
+            dExperiencesScored.setAverage_time_of_each_role_ranking(ScoreFunctionUtils.scoreAverageDurationOfEachRole(dExperiences.getAverage_time_of_each_role()));
 
             dExperiencesScored.setDigital_experiences(ScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getOverall_digital_experience_percentile()));
 
