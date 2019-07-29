@@ -126,8 +126,7 @@ public abstract class AbstractExcelService {
                     methodName = "set" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
                     method = clazz.getDeclaredMethod(methodName, fieldType);
                     String cellValue = getCellValue(cell);
-                    //                    System.out.println(fieldName + "," + methodName);
-
+//                    System.out.println(fieldName + "," + methodName);
                     if (fieldType == String.class) {
                         method.invoke(obj, cellValue);
                     }

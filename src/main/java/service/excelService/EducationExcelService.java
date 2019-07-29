@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/** @deprecated */
 public class EducationExcelService extends AbstractExcelService {
 
     public EducationExcelService(){

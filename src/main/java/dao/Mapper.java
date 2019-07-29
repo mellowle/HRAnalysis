@@ -36,6 +36,10 @@ public interface Mapper {
 
     int addWorkerChangeHistoryFixed(WorkerChangeHistoryFixed workerChangeHistoryFixed);
 
+    //~~~~~~~~~~~DigitalExperiences~~~~~~~~~~~~~~
+    int addDigitalExperiences(DigitalExperiences digitalExperiences);
+    //~~~~~~~~~~~DigitalExperiences~~~~~~~~~~~~~~
+
 
     //~~~~~~~~~~~Experiences~~~~~~~~~~~~~~
     List<DExperiences> getAllDExperiences();
@@ -66,11 +70,11 @@ public interface Mapper {
 
 
     //~~~~~~~~~~~Traits~~~~~~~~~~~~~~
-    int addTraits(Traits traits);
-
-    List<Traits> getAllTraits();
-
-    int addDTraitsScored(DTraitsScored dTraitsScored);
+//    int addTraits(Traits traits);
+//
+//    List<Traits> getAllTraits();
+//
+//    int addDTraitsScored(DTraitsScored dTraitsScored);
     //~~~~~~~~~~~Traits~~~~~~~~~~~~~~
 
 

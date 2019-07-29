@@ -9,7 +9,7 @@ public class DExperiences {
     private String sector;
     private Double length_of_service_in_years;
 
-    private String highest_degree_received;
+//    private String highest_degree_received;
 
     private String overall_rating2016;
     private String overall_rating2017;
@@ -18,6 +18,10 @@ public class DExperiences {
     private Double bonus2016;
     private Double bonus2017;
     private Double bonus2018;
+
+    private Double base2017;
+    private Double base2018;
+    private Double base2019;
 
     private Integer function_movements;
     private Integer lateral_movements;
@@ -38,6 +42,15 @@ public class DExperiences {
     private Double total_working_year;
     private Double external_length_of_service;
     private Double average_time_of_each_role;
+
+    private Double customer_journey;
+    private Double data_analytics;
+    private Double innovation;
+    private Double digital_leadership;
+    private Double digital_commerce;
+    private Double digital_products;
+    private Double operational_efficiency;
+    private Double overall_digital_experience_percentile;
 
     private Double performance_comments2018;
     private Double stakeholder_feedback;
@@ -80,14 +93,6 @@ public class DExperiences {
 
     public void setLength_of_service_in_years(Double length_of_service_in_years) {
         this.length_of_service_in_years = length_of_service_in_years;
-    }
-
-    public String getHighest_degree_received() {
-        return highest_degree_received;
-    }
-
-    public void setHighest_degree_received(String highest_degree_received) {
-        this.highest_degree_received = highest_degree_received;
     }
 
     public String getOverall_rating2016() {
@@ -136,6 +141,30 @@ public class DExperiences {
 
     public void setBonus2018(Double bonus2018) {
         this.bonus2018 = bonus2018;
+    }
+
+    public Double getBase2017() {
+        return base2017;
+    }
+
+    public void setBase2017(Double base2017) {
+        this.base2017 = base2017;
+    }
+
+    public Double getBase2018() {
+        return base2018;
+    }
+
+    public void setBase2018(Double base2018) {
+        this.base2018 = base2018;
+    }
+
+    public Double getBase2019() {
+        return base2019;
+    }
+
+    public void setBase2019(Double base2019) {
+        this.base2019 = base2019;
     }
 
     public Integer getFunction_movements() {
@@ -266,6 +295,70 @@ public class DExperiences {
         this.average_time_of_each_role = average_time_of_each_role;
     }
 
+    public Double getCustomer_journey() {
+        return customer_journey;
+    }
+
+    public void setCustomer_journey(Double customer_journey) {
+        this.customer_journey = customer_journey;
+    }
+
+    public Double getData_analytics() {
+        return data_analytics;
+    }
+
+    public void setData_analytics(Double data_analytics) {
+        this.data_analytics = data_analytics;
+    }
+
+    public Double getInnovation() {
+        return innovation;
+    }
+
+    public void setInnovation(Double innovation) {
+        this.innovation = innovation;
+    }
+
+    public Double getDigital_leadership() {
+        return digital_leadership;
+    }
+
+    public void setDigital_leadership(Double digital_leadership) {
+        this.digital_leadership = digital_leadership;
+    }
+
+    public Double getDigital_commerce() {
+        return digital_commerce;
+    }
+
+    public void setDigital_commerce(Double digital_commerce) {
+        this.digital_commerce = digital_commerce;
+    }
+
+    public Double getDigital_products() {
+        return digital_products;
+    }
+
+    public void setDigital_products(Double digital_products) {
+        this.digital_products = digital_products;
+    }
+
+    public Double getOperational_efficiency() {
+        return operational_efficiency;
+    }
+
+    public void setOperational_efficiency(Double operational_efficiency) {
+        this.operational_efficiency = operational_efficiency;
+    }
+
+    public Double getOverall_digital_experience_percentile() {
+        return overall_digital_experience_percentile;
+    }
+
+    public void setOverall_digital_experience_percentile(Double overall_digital_experience_percentile) {
+        this.overall_digital_experience_percentile = overall_digital_experience_percentile;
+    }
+
     public Double getPerformance_comments2018() {
         return performance_comments2018;
     }
@@ -290,13 +383,15 @@ public class DExperiences {
                 ", job_function='" + job_function + '\'' +
                 ", sector='" + sector + '\'' +
                 ", length_of_service_in_years=" + length_of_service_in_years +
-                ", highest_degree_received='" + highest_degree_received + '\'' +
                 ", overall_rating2016='" + overall_rating2016 + '\'' +
                 ", overall_rating2017='" + overall_rating2017 + '\'' +
                 ", overall_rating2018='" + overall_rating2018 + '\'' +
                 ", bonus2016=" + bonus2016 +
                 ", bonus2017=" + bonus2017 +
                 ", bonus2018=" + bonus2018 +
+                ", base2017=" + base2017 +
+                ", base2018=" + base2018 +
+                ", base2019=" + base2019 +
                 ", function_movements=" + function_movements +
                 ", lateral_movements=" + lateral_movements +
                 ", promotions=" + promotions +
@@ -313,6 +408,14 @@ public class DExperiences {
                 ", total_working_year=" + total_working_year +
                 ", external_length_of_service=" + external_length_of_service +
                 ", average_time_of_each_role=" + average_time_of_each_role +
+                ", customer_journey=" + customer_journey +
+                ", data_analytics=" + data_analytics +
+                ", innovation=" + innovation +
+                ", digital_leadership=" + digital_leadership +
+                ", digital_commerce=" + digital_commerce +
+                ", digital_products=" + digital_products +
+                ", operational_efficiency=" + operational_efficiency +
+                ", overall_digital_experience_percentile=" + overall_digital_experience_percentile +
                 ", performance_comments2018=" + performance_comments2018 +
                 ", stakeholder_feedback=" + stakeholder_feedback +
                 '}';

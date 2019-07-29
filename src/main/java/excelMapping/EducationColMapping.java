@@ -2,7 +2,7 @@ package excelMapping;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/** @deprecated */
 public class EducationColMapping {
     public final static String EXCEL_NAME = "MergedManageEducation.xlsx";
     public final static String TABLE_NAME = "education";

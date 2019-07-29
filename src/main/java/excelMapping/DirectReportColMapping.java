@@ -10,7 +10,7 @@ public class DirectReportColMapping {
 
     static {
         COLUMN_MAPPING = new HashMap<>();
-        COLUMN_MAPPING.put("wwid", "Employee ID");
-        COLUMN_MAPPING.put("direct_report", "Direct Report");
+        COLUMN_MAPPING.put("wwid", "WWID");
+        COLUMN_MAPPING.put("direct_report", "Number of Direct Reports");
     }
 }

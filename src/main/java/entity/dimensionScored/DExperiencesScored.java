@@ -1,7 +1,5 @@
 package entity.dimensionScored;
 
-import Constants.ExperiencesConstants.ExperiencesConstants;
-
 public class DExperiencesScored {
     private String wwid;
 
@@ -13,14 +11,13 @@ public class DExperiencesScored {
     private String overall_rating2017;
     private String overall_rating2018;
 
-
-//    private Double is_mba;
-    private Double team_size;
     private Double performance_rating2016;
     private Double performance_rating2017;
     private Double performance_rating2018;
     private Double bonus_increment20162017;
     private Double bonus_increment20172018;
+    private Double base_increment20172018;
+    private Double base_increment20182019;
 
     private Double function_movements;
     private Double lateral_movements;
@@ -29,6 +26,9 @@ public class DExperiencesScored {
     private Double country_movements;
     private Double sector_movements;
 
+    private Double team_size;
+    private Double hierarchy_count;
+
     private Double external_roles;
     private Double external_length_of_service;
 
@@ -36,7 +36,7 @@ public class DExperiencesScored {
     private Double total_working_year_ranking;
     private Double average_time_of_each_role_ranking;
 
-    private Double hierarchy_count;
+    private Double digital_experiences;
 
     private Double performance_comments2018;
     private Double stakeholder_feedback;
@@ -44,119 +44,6 @@ public class DExperiencesScored {
     private Double data_completeness;
 
     private Double result;
-
-    public void sumUp() {
-
-        double resultScore = 0.0;
-        double nonNullCounts = 0;
-        //        if (this.is_mba != null) {
-        //            resultScore += this.is_mba * ExperiencesConstants.MBA_WEIGHT;
-        //            nonNullCounts++;
-        //        }
-
-        if (this.team_size != null) {
-            resultScore += this.team_size * ExperiencesConstants.TEAM_SIZE_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.performance_rating2016 != null) {
-            resultScore += this.performance_rating2016 * ExperiencesConstants.PERFORMANCE_2016;
-            nonNullCounts++;
-        }
-
-        if (this.performance_rating2017 != null) {
-            resultScore += this.performance_rating2017 * ExperiencesConstants.PERFORMANCE_2017;
-            nonNullCounts++;
-        }
-
-        if (this.performance_rating2018 != null) {
-            resultScore += this.performance_rating2018 * ExperiencesConstants.PERFORMANCE_2018;
-            nonNullCounts++;
-        }
-
-        if (this.bonus_increment20162017 != null) {
-            resultScore += this.bonus_increment20162017 * ExperiencesConstants.BONUS_2017_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.bonus_increment20172018 != null) {
-            resultScore += this.bonus_increment20172018 * ExperiencesConstants.BONUS_2018_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.function_movements != null) {
-            resultScore += this.function_movements * ExperiencesConstants.FUNCTION_MOVEMENT_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.lateral_movements != null) {
-            resultScore += this.lateral_movements * ExperiencesConstants.LATERAL_MOVEMENT_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.promotions != null) {
-            resultScore += this.promotions * ExperiencesConstants.PROMOTION_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.region_movements != null) {
-            resultScore += this.region_movements * ExperiencesConstants.REGION_MOVEMENT_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.sector_movements != null) {
-            resultScore += this.sector_movements * ExperiencesConstants.SECTOR_MOVEMENT_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.country_movements != null) {
-            resultScore += this.country_movements * ExperiencesConstants.COUNTRY_MOVEMENT_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.external_roles != null) {
-            resultScore += this.external_roles * ExperiencesConstants.EXTERNAL_ROLE_NUMBER_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.external_length_of_service != null) {
-            resultScore += this.external_length_of_service * ExperiencesConstants.EXTERNAL_LENGTH_SERVICE_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.role_number_ranking != null) {
-            resultScore += this.role_number_ranking * ExperiencesConstants.TOTAL_ROLE_NUMBER_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.total_working_year_ranking != null) {
-            resultScore += this.total_working_year_ranking * ExperiencesConstants.TOTAL_WORKING_YEARS_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.average_time_of_each_role_ranking != null) {
-            resultScore += this.average_time_of_each_role_ranking * ExperiencesConstants.TOTAL_WORKING_YEARS_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.hierarchy_count != null) {
-            resultScore += this.hierarchy_count * ExperiencesConstants.REPORTING_LINE_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.performance_comments2018 != null) {
-            resultScore += this.performance_comments2018 * ExperiencesConstants.PERFORMANCE_COMMENTS_WEIGHT;
-            nonNullCounts++;
-        }
-
-        if (this.stakeholder_feedback != null) {
-            resultScore += this.stakeholder_feedback * ExperiencesConstants.STAKEHOLDER_FEEDBACK_WEIGHT;
-            nonNullCounts++;
-        }
-
-        this.result = resultScore / ExperiencesConstants.HIGHEST_SCORE_WITH_WEIGHT * 100;
-        this.data_completeness = nonNullCounts / ExperiencesConstants.TOTAL_FACTORS;
-    }
 
     public String getWwid() {
         return wwid;
@@ -222,14 +109,6 @@ public class DExperiencesScored {
         this.overall_rating2018 = overall_rating2018;
     }
 
-    //    public Double getIs_mba() {
-//        return is_mba;
-//    }
-//
-//    public void setIs_mba(Double is_mba) {
-//        this.is_mba = is_mba;
-//    }
-
     public Double getTeam_size() {
         return team_size;
     }
@@ -276,6 +155,22 @@ public class DExperiencesScored {
 
     public void setBonus_increment20172018(Double bonus_increment20172018) {
         this.bonus_increment20172018 = bonus_increment20172018;
+    }
+
+    public Double getBase_increment20172018() {
+        return base_increment20172018;
+    }
+
+    public void setBase_increment20172018(Double base_increment20172018) {
+        this.base_increment20172018 = base_increment20172018;
+    }
+
+    public Double getBase_increment20182019() {
+        return base_increment20182019;
+    }
+
+    public void setBase_increment20182019(Double base_increment20182019) {
+        this.base_increment20182019 = base_increment20182019;
     }
 
     public Double getFunction_movements() {
@@ -374,6 +269,14 @@ public class DExperiencesScored {
         this.hierarchy_count = hierarchy_count;
     }
 
+    public Double getDigital_experiences() {
+        return digital_experiences;
+    }
+
+    public void setDigital_experiences(Double digital_experiences) {
+        this.digital_experiences = digital_experiences;
+    }
+
     public Double getPerformance_comments2018() {
         return performance_comments2018;
     }
@@ -404,5 +307,42 @@ public class DExperiencesScored {
 
     public void setResult(Double result) {
         this.result = result;
+    }
+
+    @Override
+    public String toString() {
+        return "DExperiencesScored{" +
+                "wwid='" + wwid + '\'' +
+                ", employee_pay_grade='" + employee_pay_grade + '\'' +
+                ", job_function='" + job_function + '\'' +
+                ", sector='" + sector + '\'' +
+                ", length_of_service_in_years=" + length_of_service_in_years +
+                ", overall_rating2016='" + overall_rating2016 + '\'' +
+                ", overall_rating2017='" + overall_rating2017 + '\'' +
+                ", overall_rating2018='" + overall_rating2018 + '\'' +
+                ", team_size=" + team_size +
+                ", performance_rating2016=" + performance_rating2016 +
+                ", performance_rating2017=" + performance_rating2017 +
+                ", performance_rating2018=" + performance_rating2018 +
+                ", bonus_increment20162017=" + bonus_increment20162017 +
+                ", bonus_increment20172018=" + bonus_increment20172018 +
+                ", function_movements=" + function_movements +
+                ", lateral_movements=" + lateral_movements +
+                ", promotions=" + promotions +
+                ", region_movements=" + region_movements +
+                ", country_movements=" + country_movements +
+                ", sector_movements=" + sector_movements +
+                ", external_roles=" + external_roles +
+                ", external_length_of_service=" + external_length_of_service +
+                ", role_number_ranking=" + role_number_ranking +
+                ", total_working_year_ranking=" + total_working_year_ranking +
+                ", average_time_of_each_role_ranking=" + average_time_of_each_role_ranking +
+                ", hierarchy_count=" + hierarchy_count +
+                ", digital_experiences=" + digital_experiences +
+                ", performance_comments2018=" + performance_comments2018 +
+                ", stakeholder_feedback=" + stakeholder_feedback +
+                ", data_completeness=" + data_completeness +
+                ", result=" + result +
+                '}';
     }
 }

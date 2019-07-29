@@ -33,6 +33,7 @@ public class CompensationExcelService extends AbstractExcelService {
 
     public List<Compensation> getResults() throws Exception {
         List<Compensation> results = sheet2Entities(Compensation.class);
+
         results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
         for (Compensation comp : results) {
             if (comp.getBonus2016() == null && comp.getBonus2017() != null && comp.getBonus2018() != null) {
@@ -42,6 +43,20 @@ public class CompensationExcelService extends AbstractExcelService {
             if (comp.getBonus2016() == null && comp.getBonus2017() == null && comp.getBonus2018() != null) {
                 comp.setBonus2016(0.0);
                 comp.setBonus2017(0.0);
+            }
+            if (comp.getBase2017() == null && comp.getBase2018() != null && comp.getBase2019() != null) {
+                comp.setBase2017(0.0);
+            }
+
+            if (comp.getBase2017() == null && comp.getBase2018() == null && comp.getBase2019() != null) {
+                if (comp.getBase2019() == 0) {
+                    comp.setBase2019(null);
+                }
+                else {
+                    comp.setBase2017(0.0);
+                    comp.setBase2018(0.0);
+
+                }
             }
         }
         return results;

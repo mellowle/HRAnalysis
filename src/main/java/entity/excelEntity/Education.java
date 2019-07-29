@@ -1,5 +1,6 @@
 package entity.excelEntity;
 
+/** @deprecated */
 public class Education {
     private String wwid;
     private String highest_degree_received;

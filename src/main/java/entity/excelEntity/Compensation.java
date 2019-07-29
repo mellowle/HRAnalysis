@@ -5,6 +5,9 @@ public class Compensation {
     private Double bonus2016;
     private Double bonus2017;
     private Double bonus2018;
+    private Double base2017;
+    private Double base2018;
+    private Double base2019;
 
     public String getWwid() {
         return wwid;
@@ -38,6 +41,29 @@ public class Compensation {
         this.bonus2018 = bonus2018;
     }
 
+    public Double getBase2017() {
+        return base2017;
+    }
+
+    public void setBase2017(Double base2017) {
+        this.base2017 = base2017;
+    }
+
+    public Double getBase2018() {
+        return base2018;
+    }
+
+    public void setBase2018(Double base2018) {
+        this.base2018 = base2018;
+    }
+
+    public Double getBase2019() {
+        return base2019;
+    }
+
+    public void setBase2019(Double base2019) {
+        this.base2019 = base2019;
+    }
 
     @Override
     public String toString() {
@@ -46,6 +72,9 @@ public class Compensation {
                 ", bonus2016=" + bonus2016 +
                 ", bonus2017=" + bonus2017 +
                 ", bonus2018=" + bonus2018 +
+                ", base2017=" + base2017 +
+                ", base2018=" + base2018 +
+                ", base2019=" + base2019 +
                 '}';
     }
 }
