@@ -4,6 +4,7 @@ public enum Pojo2DBEnum {
     STRING("java.lang.String", "varchar"),
     INTEGER("java.lang.Integer", "int"),
     DOUBLE("java.lang.Double", "double"),
+    PRIMITIVE_DOUBLE("double", "double"),
     DATE("java.util.Date", "date");
 
     private String pojoType;

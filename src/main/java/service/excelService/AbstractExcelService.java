@@ -74,7 +74,7 @@ public abstract class AbstractExcelService {
                 break;
         }
         if (cellValue != null) {
-            cellValue = cellValue.replaceAll(",|-", "").trim();
+//            cellValue = cellValue.replaceAll(",|-", "").trim();
             if (cellValue.equals("N.A")) {
                 return null;
             }

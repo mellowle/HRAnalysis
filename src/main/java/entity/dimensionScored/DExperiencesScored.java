@@ -26,17 +26,23 @@ public class DExperiencesScored {
     private Double country_movements;
     private Double sector_movements;
 
-    private Double team_size;
+    private Double direct_report;
     private Double hierarchy_count;
 
-    private Double external_roles;
+    private Double external_role_number;
     private Double external_length_of_service;
 
-    private Double role_number_ranking;
-    private Double total_working_year_ranking;
-    private Double average_time_of_each_role_ranking;
+    private Double total_role_number_ranking;
+    private Double total_working_years_ranking;
+    private Double average_duration_of_each_role_ranking;
 
-    private Double digital_experiences;
+    private Double customer_journey;
+    private Double data_analytics;
+    private Double innovation;
+    private Double digital_leadership;
+    private Double digital_commerce;
+    private Double digital_products;
+    private Double operational_efficiency;
 
     private Double performance_comments2018;
     private Double stakeholder_feedback;
@@ -109,12 +115,12 @@ public class DExperiencesScored {
         this.overall_rating2018 = overall_rating2018;
     }
 
-    public Double getTeam_size() {
-        return team_size;
+    public Double getDirect_report() {
+        return direct_report;
     }
 
-    public void setTeam_size(Double team_size) {
-        this.team_size = team_size;
+    public void setDirect_report(Double direct_report) {
+        this.direct_report = direct_report;
     }
 
     public Double getPerformance_rating2016() {
@@ -221,12 +227,12 @@ public class DExperiencesScored {
         this.sector_movements = sector_movements;
     }
 
-    public Double getExternal_roles() {
-        return external_roles;
+    public Double getExternal_role_number() {
+        return external_role_number;
     }
 
-    public void setExternal_roles(Double external_roles) {
-        this.external_roles = external_roles;
+    public void setExternal_role_number(Double external_role_number) {
+        this.external_role_number = external_role_number;
     }
 
     public Double getExternal_length_of_service() {
@@ -237,28 +243,28 @@ public class DExperiencesScored {
         this.external_length_of_service = external_length_of_service;
     }
 
-    public Double getRole_number_ranking() {
-        return role_number_ranking;
+    public Double getTotal_role_number_ranking() {
+        return total_role_number_ranking;
     }
 
-    public void setRole_number_ranking(Double role_number_ranking) {
-        this.role_number_ranking = role_number_ranking;
+    public void setTotal_role_number_ranking(Double total_role_number_ranking) {
+        this.total_role_number_ranking = total_role_number_ranking;
     }
 
-    public Double getTotal_working_year_ranking() {
-        return total_working_year_ranking;
+    public Double getTotal_working_years_ranking() {
+        return total_working_years_ranking;
     }
 
-    public void setTotal_working_year_ranking(Double total_working_year_ranking) {
-        this.total_working_year_ranking = total_working_year_ranking;
+    public void setTotal_working_years_ranking(Double total_working_years_ranking) {
+        this.total_working_years_ranking = total_working_years_ranking;
     }
 
-    public Double getAverage_time_of_each_role_ranking() {
-        return average_time_of_each_role_ranking;
+    public Double getAverage_duration_of_each_role_ranking() {
+        return average_duration_of_each_role_ranking;
     }
 
-    public void setAverage_time_of_each_role_ranking(Double average_time_of_each_role_ranking) {
-        this.average_time_of_each_role_ranking = average_time_of_each_role_ranking;
+    public void setAverage_duration_of_each_role_ranking(Double average_duration_of_each_role_ranking) {
+        this.average_duration_of_each_role_ranking = average_duration_of_each_role_ranking;
     }
 
     public Double getHierarchy_count() {
@@ -269,12 +275,60 @@ public class DExperiencesScored {
         this.hierarchy_count = hierarchy_count;
     }
 
-    public Double getDigital_experiences() {
-        return digital_experiences;
+    public Double getCustomer_journey() {
+        return customer_journey;
     }
 
-    public void setDigital_experiences(Double digital_experiences) {
-        this.digital_experiences = digital_experiences;
+    public void setCustomer_journey(Double customer_journey) {
+        this.customer_journey = customer_journey;
+    }
+
+    public Double getData_analytics() {
+        return data_analytics;
+    }
+
+    public void setData_analytics(Double data_analytics) {
+        this.data_analytics = data_analytics;
+    }
+
+    public Double getInnovation() {
+        return innovation;
+    }
+
+    public void setInnovation(Double innovation) {
+        this.innovation = innovation;
+    }
+
+    public Double getDigital_leadership() {
+        return digital_leadership;
+    }
+
+    public void setDigital_leadership(Double digital_leadership) {
+        this.digital_leadership = digital_leadership;
+    }
+
+    public Double getDigital_commerce() {
+        return digital_commerce;
+    }
+
+    public void setDigital_commerce(Double digital_commerce) {
+        this.digital_commerce = digital_commerce;
+    }
+
+    public Double getDigital_products() {
+        return digital_products;
+    }
+
+    public void setDigital_products(Double digital_products) {
+        this.digital_products = digital_products;
+    }
+
+    public Double getOperational_efficiency() {
+        return operational_efficiency;
+    }
+
+    public void setOperational_efficiency(Double operational_efficiency) {
+        this.operational_efficiency = operational_efficiency;
     }
 
     public Double getPerformance_comments2018() {
@@ -333,14 +387,20 @@ public class DExperiencesScored {
                 ", region_movements=" + region_movements +
                 ", country_movements=" + country_movements +
                 ", sector_movements=" + sector_movements +
-                ", team_size=" + team_size +
+                ", direct_report=" + direct_report +
                 ", hierarchy_count=" + hierarchy_count +
-                ", external_roles=" + external_roles +
+                ", external_role_number=" + external_role_number +
                 ", external_length_of_service=" + external_length_of_service +
-                ", role_number_ranking=" + role_number_ranking +
-                ", total_working_year_ranking=" + total_working_year_ranking +
-                ", average_time_of_each_role_ranking=" + average_time_of_each_role_ranking +
-                ", digital_experiences=" + digital_experiences +
+                ", total_role_number_ranking=" + total_role_number_ranking +
+                ", total_working_years_ranking=" + total_working_years_ranking +
+                ", average_duration_of_each_role_ranking=" + average_duration_of_each_role_ranking +
+                ", customer_journey=" + customer_journey +
+                ", data_analytics=" + data_analytics +
+                ", innovation=" + innovation +
+                ", digital_leadership=" + digital_leadership +
+                ", digital_commerce=" + digital_commerce +
+                ", digital_products=" + digital_products +
+                ", operational_efficiency=" + operational_efficiency +
                 ", performance_comments2018=" + performance_comments2018 +
                 ", stakeholder_feedback=" + stakeholder_feedback +
                 ", data_completeness=" + data_completeness +

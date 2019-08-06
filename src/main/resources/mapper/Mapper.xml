@@ -75,9 +75,9 @@
 
     <insert id="addTalentCard" parameterType="entity.excelEntity.TalentCard" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO talent_card
-        (wwid,jnj_roles,external_roles,total_roles,average_time_of_jnj_role,average_time_of_external_role,total_working_year,external_length_of_service,average_time_of_each_role )
+        (wwid,jnj_role_number,external_role_number,total_role_number,average_duration_of_jnj_role,average_duration_of_external_role,total_working_years,external_length_of_service,average_duration_of_each_role )
         VALUES
-        (#{wwid},#{jnj_roles},#{external_roles},#{total_roles},#{average_time_of_jnj_role},#{average_time_of_external_role},#{total_working_year},#{external_length_of_service},#{average_time_of_each_role} )
+        (#{wwid},#{jnj_role_number},#{external_role_number},#{total_role_number},#{average_duration_of_jnj_role},#{average_duration_of_external_role},#{total_working_years},#{external_length_of_service},#{average_duration_of_each_role} )
     </insert>
 
     <insert id="addUnstructuredData" parameterType="entity.excelEntity.UnstructuredData" useGeneratedKeys="true" keyProperty="id">
@@ -110,7 +110,7 @@
         w.function_movements, w.lateral_movements, w.promotions, w.region_movements, w.country_movements, w.sector_movements,
         d.direct_report,
         mc.hierarchy_count,
-        t.jnj_roles, t.external_roles, t.total_roles, t.average_time_of_jnj_role, t.average_time_of_external_role, t.total_working_year, t.external_length_of_service, t.average_time_of_each_role,
+        t.jnj_role_number, t.external_role_number, t.total_role_number, t.average_duration_of_jnj_role, t.average_duration_of_external_role, t.total_working_years, t.external_length_of_service, t.average_duration_of_each_role,
         un.performance_comments2018, un.stakeholder_feedback,
         de.customer_journey, de.data_analytics, de.innovation, de.digital_leadership, de.digital_commerce, de.digital_products, de.operational_efficiency, de.overall_digital_experience_percentile
         FROM competencies compet
@@ -127,16 +127,16 @@
 
     <insert id="addDExperiences" parameterType="entity.dimensionRawData.DExperiences" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO experiences
-        (wwid,employee_pay_grade,job_function,sector,length_of_service_in_years,overall_rating2016,overall_rating2017,overall_rating2018,bonus2016,bonus2017,bonus2018,base2017,base2018,base2019,function_movements,lateral_movements,promotions,region_movements,country_movements,sector_movements,direct_report,hierarchy_count, customer_journey, data_analytics, innovation, digital_leadership, digital_commerce, digital_products, operational_efficiency, overall_digital_experience_percentile,jnj_roles,external_roles,total_roles,average_time_of_jnj_role,average_time_of_external_role,total_working_year,external_length_of_service,average_time_of_each_role,performance_comments2018,stakeholder_feedback )
+        (wwid,employee_pay_grade,job_function,sector,length_of_service_in_years,overall_rating2016,overall_rating2017,overall_rating2018,bonus2016,bonus2017,bonus2018,base2017,base2018,base2019,function_movements,lateral_movements,promotions,region_movements,country_movements,sector_movements,direct_report,hierarchy_count, customer_journey, data_analytics, innovation, digital_leadership, digital_commerce, digital_products, operational_efficiency, overall_digital_experience_percentile,jnj_role_number,external_role_number,total_role_number,average_duration_of_jnj_role,average_duration_of_external_role,total_working_years,external_length_of_service,average_duration_of_each_role,performance_comments2018,stakeholder_feedback )
         VALUES
-        (#{wwid},#{employee_pay_grade},#{job_function},#{sector},#{length_of_service_in_years},#{overall_rating2016},#{overall_rating2017},#{overall_rating2018},#{bonus2016},#{bonus2017},#{bonus2018},#{base2017},#{base2018},#{base2019},#{function_movements},#{lateral_movements},#{promotions},#{region_movements},#{country_movements},#{sector_movements},#{direct_report},#{hierarchy_count},#{customer_journey},#{data_analytics},#{innovation},#{digital_leadership},#{digital_commerce},#{digital_products},#{operational_efficiency},#{overall_digital_experience_percentile},#{jnj_roles},#{external_roles},#{total_roles},#{average_time_of_jnj_role},#{average_time_of_external_role},#{total_working_year},#{external_length_of_service},#{average_time_of_each_role},#{performance_comments2018},#{stakeholder_feedback} )
+        (#{wwid},#{employee_pay_grade},#{job_function},#{sector},#{length_of_service_in_years},#{overall_rating2016},#{overall_rating2017},#{overall_rating2018},#{bonus2016},#{bonus2017},#{bonus2018},#{base2017},#{base2018},#{base2019},#{function_movements},#{lateral_movements},#{promotions},#{region_movements},#{country_movements},#{sector_movements},#{direct_report},#{hierarchy_count},#{customer_journey},#{data_analytics},#{innovation},#{digital_leadership},#{digital_commerce},#{digital_products},#{operational_efficiency},#{overall_digital_experience_percentile},#{jnj_role_number},#{external_role_number},#{total_role_number},#{average_duration_of_jnj_role},#{average_duration_of_external_role},#{total_working_years},#{external_length_of_service},#{average_duration_of_each_role},#{performance_comments2018},#{stakeholder_feedback} )
     </insert>
 
     <insert id="addDExperiencesScored" parameterType="entity.dimensionScored.DExperiencesScored" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO d_experiences_scored
-        (wwid, team_size, performance_rating2016, performance_rating2017, performance_rating2018, bonus_increment20162017, bonus_increment20172018, function_movements, lateral_movements, promotions, region_movements, country_movements, sector_movements, external_roles, external_length_of_service, role_number_ranking, total_working_year_ranking, average_time_of_each_role_ranking, hierarchy_count, performance_comments2018, stakeholder_feedback, data_completeness, result)
+        (wwid, employee_pay_grade, job_function, sector, length_of_service_in_years, overall_rating2016, overall_rating2017, overall_rating2018, performance_rating2016, performance_rating2017, performance_rating2018, bonus_increment20162017, bonus_increment20172018, base_increment20172018, base_increment20182019, function_movements, lateral_movements, promotions, region_movements, country_movements, sector_movements, direct_report, hierarchy_count, external_role_number, external_length_of_service, total_role_number_ranking, total_working_years_ranking, average_duration_of_each_role_ranking, customer_journey, data_analytics, innovation, digital_leadership, digital_commerce, digital_products, operational_efficiency, performance_comments2018, stakeholder_feedback, data_completeness, result)
         VALUES
-        (#{wwid},#{team_size},#{performance_rating2016},#{performance_rating2017},#{performance_rating2018},#{bonus_increment20162017},#{bonus_increment20172018},#{function_movements},#{lateral_movements},#{promotions},#{region_movements},#{country_movements},#{sector_movements},#{external_roles},#{external_length_of_service},#{role_number_ranking},#{total_working_year_ranking},#{average_time_of_each_role_ranking},#{hierarchy_count},#{performance_comments2018},#{stakeholder_feedback},#{data_completeness},#{result})
+        (#{wwid}, #{employee_pay_grade}, #{job_function}, #{sector}, #{length_of_service_in_years}, #{overall_rating2016}, #{overall_rating2017}, #{overall_rating2018}, #{performance_rating2016}, #{performance_rating2017}, #{performance_rating2018}, #{bonus_increment20162017}, #{bonus_increment20172018}, #{base_increment20172018}, #{base_increment20182019}, #{function_movements}, #{lateral_movements}, #{promotions}, #{region_movements}, #{country_movements}, #{sector_movements}, #{direct_report}, #{hierarchy_count}, #{external_role_number}, #{external_length_of_service}, #{total_role_number_ranking}, #{total_working_years_ranking}, #{average_duration_of_each_role_ranking}, #{customer_journey}, #{data_analytics}, #{innovation}, #{digital_leadership}, #{digital_commerce}, #{digital_products}, #{operational_efficiency}, #{performance_comments2018}, #{stakeholder_feedback}, #{data_completeness}, #{result})
     </insert>
 
 
@@ -222,6 +222,37 @@
     </insert>
 
 <!--Final-->
+
+<!--ScoreInterval-->
+    <insert id="addScoreIntervalDExperiencesInterval" parameterType="entity.ScoreInterval" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO d_experiences_interval
+        (name, min, max)
+        VALUES
+        (#{name},#{min},#{max})
+    </insert>
+
+    <insert id="addScoreIntervalDCompetenciesInterval" parameterType="entity.ScoreInterval" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO d_competencies_interval
+        (name, min, max)
+        VALUES
+        (#{name},#{min},#{max})
+    </insert>
+
+    <insert id="addScoreIntervalDTraitsInterval" parameterType="entity.ScoreInterval" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO d_traits_interval
+        (name, min, max)
+        VALUES
+        (#{name},#{min},#{max})
+    </insert>
+
+    <insert id="addScoreIntervalDDriversInterval" parameterType="entity.ScoreInterval" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO d_drivers_interval
+        (name, min, max)
+        VALUES
+        (#{name},#{min},#{max})
+    </insert>
+
+<!--ScoreInterval-->
 
 </mapper>
 

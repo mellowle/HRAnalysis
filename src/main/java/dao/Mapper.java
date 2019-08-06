@@ -1,5 +1,6 @@
 package dao;
 
+import entity.ScoreInterval;
 import entity.dimensionRawData.DExperiences;
 import entity.dimensionScored.*;
 import entity.excelEntity.*;
@@ -70,11 +71,11 @@ public interface Mapper {
 
 
     //~~~~~~~~~~~Traits~~~~~~~~~~~~~~
-//    int addTraits(Traits traits);
-//
-//    List<Traits> getAllTraits();
-//
-//    int addDTraitsScored(DTraitsScored dTraitsScored);
+    int addTraits(Traits traits);
+
+    List<Traits> getAllTraits();
+
+    int addDTraitsScored(DTraitsScored dTraitsScored);
     //~~~~~~~~~~~Traits~~~~~~~~~~~~~~
 
 
@@ -85,5 +86,14 @@ public interface Mapper {
     //~~~~~~~~~~~Final~~~~~~~~~~~~~~
 
 
+    //~~~~~~~~~~~ScoreInterval~~~~~~~~~~~~~~
+    int addScoreIntervalDExperiencesInterval(ScoreInterval scoreInterval);
+
+    int addScoreIntervalDCompetenciesInterval(ScoreInterval scoreInterval);
+
+    int addScoreIntervalDTraitsInterval(ScoreInterval scoreInterval);
+
+    int addScoreIntervalDDriversInterval(ScoreInterval scoreInterval);
+    //~~~~~~~~~~~ScoreInterval~~~~~~~~~~~~~~
 }
 

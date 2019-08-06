@@ -31,17 +31,16 @@ public class DExperiences {
     private Integer sector_movements;
 
     private Integer direct_report;
-
     private Integer hierarchy_count;
 
-    private Integer jnj_roles;
-    private Integer external_roles;
-    private Integer total_roles;
-    private Double average_time_of_jnj_role;
-    private Double average_time_of_external_role;
-    private Double total_working_year;
+    private Integer jnj_role_number;
+    private Integer external_role_number;
+    private Integer total_role_number;
+    private Double average_duration_of_jnj_role;
+    private Double average_duration_of_external_role;
+    private Double average_duration_of_each_role;
+    private Double total_working_years;
     private Double external_length_of_service;
-    private Double average_time_of_each_role;
 
     private Double customer_journey;
     private Double data_analytics;
@@ -231,52 +230,60 @@ public class DExperiences {
         this.hierarchy_count = hierarchy_count;
     }
 
-    public Integer getJnj_roles() {
-        return jnj_roles;
+    public Integer getJnj_role_number() {
+        return jnj_role_number;
     }
 
-    public void setJnj_roles(Integer jnj_roles) {
-        this.jnj_roles = jnj_roles;
+    public void setJnj_role_number(Integer jnj_role_number) {
+        this.jnj_role_number = jnj_role_number;
     }
 
-    public Integer getExternal_roles() {
-        return external_roles;
+    public Integer getExternal_role_number() {
+        return external_role_number;
     }
 
-    public void setExternal_roles(Integer external_roles) {
-        this.external_roles = external_roles;
+    public void setExternal_role_number(Integer external_role_number) {
+        this.external_role_number = external_role_number;
     }
 
-    public Integer getTotal_roles() {
-        return total_roles;
+    public Integer getTotal_role_number() {
+        return total_role_number;
     }
 
-    public void setTotal_roles(Integer total_roles) {
-        this.total_roles = total_roles;
+    public void setTotal_role_number(Integer total_role_number) {
+        this.total_role_number = total_role_number;
     }
 
-    public Double getAverage_time_of_jnj_role() {
-        return average_time_of_jnj_role;
+    public Double getAverage_duration_of_jnj_role() {
+        return average_duration_of_jnj_role;
     }
 
-    public void setAverage_time_of_jnj_role(Double average_time_of_jnj_role) {
-        this.average_time_of_jnj_role = average_time_of_jnj_role;
+    public void setAverage_duration_of_jnj_role(Double average_duration_of_jnj_role) {
+        this.average_duration_of_jnj_role = average_duration_of_jnj_role;
     }
 
-    public Double getAverage_time_of_external_role() {
-        return average_time_of_external_role;
+    public Double getAverage_duration_of_external_role() {
+        return average_duration_of_external_role;
     }
 
-    public void setAverage_time_of_external_role(Double average_time_of_external_role) {
-        this.average_time_of_external_role = average_time_of_external_role;
+    public void setAverage_duration_of_external_role(Double average_duration_of_external_role) {
+        this.average_duration_of_external_role = average_duration_of_external_role;
     }
 
-    public Double getTotal_working_year() {
-        return total_working_year;
+    public Double getAverage_duration_of_each_role() {
+        return average_duration_of_each_role;
     }
 
-    public void setTotal_working_year(Double total_working_year) {
-        this.total_working_year = total_working_year;
+    public void setAverage_duration_of_each_role(Double average_duration_of_each_role) {
+        this.average_duration_of_each_role = average_duration_of_each_role;
+    }
+
+    public Double getTotal_working_years() {
+        return total_working_years;
+    }
+
+    public void setTotal_working_years(Double total_working_years) {
+        this.total_working_years = total_working_years;
     }
 
     public Double getExternal_length_of_service() {
@@ -285,14 +292,6 @@ public class DExperiences {
 
     public void setExternal_length_of_service(Double external_length_of_service) {
         this.external_length_of_service = external_length_of_service;
-    }
-
-    public Double getAverage_time_of_each_role() {
-        return average_time_of_each_role;
-    }
-
-    public void setAverage_time_of_each_role(Double average_time_of_each_role) {
-        this.average_time_of_each_role = average_time_of_each_role;
     }
 
     public Double getCustomer_journey() {
@@ -400,14 +399,14 @@ public class DExperiences {
                 ", sector_movements=" + sector_movements +
                 ", direct_report=" + direct_report +
                 ", hierarchy_count=" + hierarchy_count +
-                ", jnj_roles=" + jnj_roles +
-                ", external_roles=" + external_roles +
-                ", total_roles=" + total_roles +
-                ", average_time_of_jnj_role=" + average_time_of_jnj_role +
-                ", average_time_of_external_role=" + average_time_of_external_role +
-                ", total_working_year=" + total_working_year +
+                ", jnj_role_number=" + jnj_role_number +
+                ", external_role_number=" + external_role_number +
+                ", total_role_number=" + total_role_number +
+                ", average_duration_of_jnj_role=" + average_duration_of_jnj_role +
+                ", average_duration_of_external_role=" + average_duration_of_external_role +
+                ", average_duration_of_each_role=" + average_duration_of_each_role +
+                ", total_working_years=" + total_working_years +
                 ", external_length_of_service=" + external_length_of_service +
-                ", average_time_of_each_role=" + average_time_of_each_role +
                 ", customer_journey=" + customer_journey +
                 ", data_analytics=" + data_analytics +
                 ", innovation=" + innovation +

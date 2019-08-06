@@ -36,9 +36,9 @@ public class ScoreFunctionUtils {
             dExperiencesScored.setPerformance_rating2018(null);
         }
         else {
-            dExperiencesScored.setPerformance_rating2016(RatingEnum.getRatingScore(dExperiences.getOverall_rating2016()) / 4 * ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("PERFORMANCE_RATING2016").getMax());
-            dExperiencesScored.setPerformance_rating2017(RatingEnum.getRatingScore(dExperiences.getOverall_rating2017()) / 4 * ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("PERFORMANCE_RATING2017").getMax());
-            dExperiencesScored.setPerformance_rating2018(RatingEnum.getRatingScore(dExperiences.getOverall_rating2018()) / 4 * ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("PERFORMANCE_RATING2018").getMax());
+            dExperiencesScored.setPerformance_rating2016(RatingEnum.getRatingScore(dExperiences.getOverall_rating2016()) / 4 * ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("performance_rating2016").getMax());
+            dExperiencesScored.setPerformance_rating2017(RatingEnum.getRatingScore(dExperiences.getOverall_rating2017()) / 4 * ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("performance_rating2017").getMax());
+            dExperiencesScored.setPerformance_rating2018(RatingEnum.getRatingScore(dExperiences.getOverall_rating2018()) / 4 * ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("performance_rating2018").getMax());
         }
 
         return dExperiencesScored;
@@ -140,10 +140,10 @@ public class ScoreFunctionUtils {
         }
 
         if (functionMovements >= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("FUNCTION_MOVEMENTS").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("function_movements").getMax();
         }
         else {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("FUNCTION_MOVEMENTS").getMax() / 5 * functionMovements.doubleValue();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("function_movements").getMax() / 5 * functionMovements.doubleValue();
         }
     }
 
@@ -154,10 +154,10 @@ public class ScoreFunctionUtils {
         }
 
         if (lateralMovements >= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("LATERAL_MOVEMENTS").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("lateral_movements").getMax();
         }
         else {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("LATERAL_MOVEMENTS").getMax() / 5 * lateralMovements.doubleValue();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("lateral_movements").getMax() / 5 * lateralMovements.doubleValue();
         }
 
     }
@@ -169,10 +169,10 @@ public class ScoreFunctionUtils {
         }
 
         if (promotions >= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("PROMOTIONS").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("promotions").getMax();
         }
         else {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("PROMOTIONS").getMax() / 5 * promotions.doubleValue();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("promotions").getMax() / 5 * promotions.doubleValue();
         }
     }
 
@@ -183,10 +183,10 @@ public class ScoreFunctionUtils {
         }
 
         if (regionMovements >= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("REGION_MOVEMENTS").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("region_movements").getMax();
         }
         else {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("REGION_MOVEMENTS").getMax() / 5 * regionMovements.doubleValue();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("region_movements").getMax() / 5 * regionMovements.doubleValue();
         }
 
     }
@@ -198,10 +198,10 @@ public class ScoreFunctionUtils {
         }
 
         if (sectorMovements >= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("SECTOR_MOVEMENTS").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("sector_movements").getMax();
         }
         else {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("SECTOR_MOVEMENTS").getMax() / 5 * sectorMovements.doubleValue();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("sector_movements").getMax() / 5 * sectorMovements.doubleValue();
         }
 
     }
@@ -213,28 +213,28 @@ public class ScoreFunctionUtils {
         }
 
         if (countryMovements >= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("COUNTRY_MOVEMENTS").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("country_movements").getMax();
         }
         else {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("COUNTRY_MOVEMENTS").getMax() / 5 * countryMovements.doubleValue();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("country_movements").getMax() / 5 * countryMovements.doubleValue();
         }
 
     }
 
-    public static Double scoreTeamSize(Integer teamSize) {
+    public static Double scoreDirectReport(Integer directReport) {
 
-        if (teamSize == null) {
+        if (directReport == null) {
             return null;
         }
 
-        if (teamSize >= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TEAM_SIZE").getMax();
+        if (directReport >= 5) {
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("direct_report").getMax();
         }
-        else if (teamSize > 3) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TEAM_SIZE").getMax() / 5 * 3;
+        else if (directReport > 3) {
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("direct_report").getMax() / 5 * 3;
         }
-        else if (teamSize > 1) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TEAM_SIZE").getMax() / 5;
+        else if (directReport > 1) {
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("direct_report").getMax() / 5;
         }
         else {
             return 0d;
@@ -248,16 +248,16 @@ public class ScoreFunctionUtils {
         }
 
         if (hierarchyCount >= 10) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("HIERARCHY_COUNT").getMax() / 5;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("hierarchy_count").getMax() / 5;
         }
         else if (hierarchyCount > 8) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("HIERARCHY_COUNT").getMax() / 5 * 2;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("hierarchy_count").getMax() / 5 * 2;
         }
         else if (hierarchyCount > 6) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("HIERARCHY_COUNT").getMax() / 5 * 4;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("hierarchy_count").getMax() / 5 * 4;
         }
         else {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("HIERARCHY_COUNT").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("hierarchy_count").getMax();
         }
     }
 
@@ -268,10 +268,10 @@ public class ScoreFunctionUtils {
         }
 
         if (externalRoleNumber >= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("EXTERNAL_ROLE_NUMBER").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("external_role_number").getMax();
         }
         else {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("EXTERNAL_ROLE_NUMBER").getMax() / 5 * externalRoleNumber.doubleValue();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("external_role_number").getMax() / 5 * externalRoleNumber.doubleValue();
         }
     }
 
@@ -285,13 +285,13 @@ public class ScoreFunctionUtils {
             return 0d;
         }
         else if (totalRoleNumber > 7 && totalRoleNumber <= 9) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TOTAL_ROLE_NUMBER").getMax() / 5;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("total_role_number").getMax() / 5;
         }
         else if (totalRoleNumber > 5 && totalRoleNumber <= 7) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TOTAL_ROLE_NUMBER").getMax() / 5 * 3;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("total_role_number").getMax() / 5 * 3;
         }
         else if (totalRoleNumber <= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TOTAL_ROLE_NUMBER").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("total_role_number").getMax();
         }
 
         return 0d;
@@ -304,16 +304,16 @@ public class ScoreFunctionUtils {
         }
 
         if (totalWorkingYears > 30) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TOTAL_WORKING_YEARS").getMax() / 5;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("total_working_years").getMax() / 5;
         }
         else if (totalWorkingYears > 20 && totalWorkingYears <= 30) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TOTAL_WORKING_YEARS").getMax() / 5 * 2;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("total_working_years").getMax() / 5 * 2;
         }
         else if (totalWorkingYears > 10 && totalWorkingYears <= 20) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TOTAL_WORKING_YEARS").getMax() / 5 * 3;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("total_working_years").getMax() / 5 * 3;
         }
         else if (totalWorkingYears <= 10) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("TOTAL_WORKING_YEARS").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("total_working_years").getMax();
         }
 
         return 0d;
@@ -326,25 +326,25 @@ public class ScoreFunctionUtils {
         }
 
         if (averageDurationOfEachRole > 0 && averageDurationOfEachRole <= 5) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("AVERAGE_DURATION_OF_EACH_ROLE").getMax();
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("average_duration_of_each_role").getMax();
         }
         else if (averageDurationOfEachRole > 5 && averageDurationOfEachRole <= 10) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("AVERAGE_DURATION_OF_EACH_ROLE").getMax() / 5 * 3;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("average_duration_of_each_role").getMax() / 5 * 3;
         }
         else if (averageDurationOfEachRole > 10) {
-            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("AVERAGE_DURATION_OF_EACH_ROLE").getMax() / 5;
+            return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("average_duration_of_each_role").getMax() / 5;
         }
 
         return 0d;
     }
 
-    public static Double scoreDigitalExperiences(Double digitalExperiences) {
+    public static Double scoreDigitalExperiences(Double digitalExperiences, String key) {
 
         if (digitalExperiences == null) {
             return null;
         }
 
-        return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get("DIGITAL_EXPERIENCES").getMax() * digitalExperiences;
+        return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get(key).getMax() / 4 * digitalExperiences;
     }
 
     public static Double scoreUnstructuredData(Double score, String key) {
@@ -365,14 +365,12 @@ public class ScoreFunctionUtils {
             result += dExperiencesScored.getPerformance_rating2016();
             notNullCount++;
         }
-
         if (dExperiencesScored.getPerformance_rating2017() != null) {
             result += dExperiencesScored.getPerformance_rating2017();
             notNullCount++;
         }
-
-        if (dExperiencesScored.getPerformance_comments2018() != null) {
-            result += dExperiencesScored.getPerformance_comments2018();
+        if (dExperiencesScored.getPerformance_rating2018() != null) {
+            result += dExperiencesScored.getPerformance_rating2018();
             notNullCount++;
         }
 
@@ -380,7 +378,6 @@ public class ScoreFunctionUtils {
             result += dExperiencesScored.getBonus_increment20162017();
             notNullCount++;
         }
-
         if (dExperiencesScored.getBonus_increment20172018() != null) {
             result += dExperiencesScored.getBonus_increment20172018();
             notNullCount++;
@@ -390,7 +387,6 @@ public class ScoreFunctionUtils {
             result += dExperiencesScored.getBase_increment20172018();
             notNullCount++;
         }
-
         if (dExperiencesScored.getBase_increment20182019() != null) {
             result += dExperiencesScored.getBase_increment20182019();
             notNullCount++;
@@ -400,69 +396,84 @@ public class ScoreFunctionUtils {
             result += dExperiencesScored.getFunction_movements();
             notNullCount++;
         }
-
         if (dExperiencesScored.getLateral_movements() != null) {
             result += dExperiencesScored.getLateral_movements();
             notNullCount++;
         }
-
         if (dExperiencesScored.getPromotions() != null) {
             result += dExperiencesScored.getPromotions();
             notNullCount++;
         }
-
         if (dExperiencesScored.getRegion_movements() != null) {
             result += dExperiencesScored.getRegion_movements();
             notNullCount++;
         }
-
         if (dExperiencesScored.getSector_movements() != null) {
             result += dExperiencesScored.getSector_movements();
             notNullCount++;
         }
-
         if (dExperiencesScored.getCountry_movements() != null) {
             result += dExperiencesScored.getCountry_movements();
             notNullCount++;
         }
 
-        if (dExperiencesScored.getTeam_size() != null) {
-            result += dExperiencesScored.getTeam_size();
+        if (dExperiencesScored.getDirect_report() != null) {
+            result += dExperiencesScored.getDirect_report();
             notNullCount++;
         }
-
         if (dExperiencesScored.getHierarchy_count() != null) {
             result += dExperiencesScored.getHierarchy_count();
             notNullCount++;
         }
 
-        if (dExperiencesScored.getExternal_roles() != null) {
-            result += dExperiencesScored.getExternal_roles();
+        if (dExperiencesScored.getExternal_role_number() != null) {
+            result += dExperiencesScored.getExternal_role_number();
             notNullCount++;
         }
-
         if (dExperiencesScored.getExternal_length_of_service() != null) {
             result += dExperiencesScored.getExternal_length_of_service();
             notNullCount++;
         }
 
-        if (dExperiencesScored.getRole_number_ranking() != null) {
-            result += dExperiencesScored.getRole_number_ranking();
+        if (dExperiencesScored.getTotal_role_number_ranking() != null) {
+            result += dExperiencesScored.getTotal_role_number_ranking();
+            notNullCount++;
+        }
+        if (dExperiencesScored.getTotal_working_years_ranking() != null) {
+            result += dExperiencesScored.getTotal_working_years_ranking();
+            notNullCount++;
+        }
+        if (dExperiencesScored.getAverage_duration_of_each_role_ranking() != null) {
+            result += dExperiencesScored.getAverage_duration_of_each_role_ranking();
             notNullCount++;
         }
 
-        if (dExperiencesScored.getTotal_working_year_ranking() != null) {
-            result += dExperiencesScored.getTotal_working_year_ranking();
+        if (dExperiencesScored.getCustomer_journey() != null) {
+            result += dExperiencesScored.getCustomer_journey();
             notNullCount++;
         }
-
-        if (dExperiencesScored.getAverage_time_of_each_role_ranking() != null) {
-            result += dExperiencesScored.getAverage_time_of_each_role_ranking();
+        if (dExperiencesScored.getData_analytics() != null) {
+            result += dExperiencesScored.getData_analytics();
             notNullCount++;
         }
-
-        if (dExperiencesScored.getDigital_experiences() != null) {
-            result += dExperiencesScored.getDigital_experiences();
+        if (dExperiencesScored.getInnovation() != null) {
+            result += dExperiencesScored.getInnovation();
+            notNullCount++;
+        }
+        if (dExperiencesScored.getDigital_leadership() != null) {
+            result += dExperiencesScored.getDigital_leadership();
+            notNullCount++;
+        }
+        if (dExperiencesScored.getDigital_commerce() != null) {
+            result += dExperiencesScored.getDigital_commerce();
+            notNullCount++;
+        }
+        if (dExperiencesScored.getDigital_products() != null) {
+            result += dExperiencesScored.getDigital_products();
+            notNullCount++;
+        }
+        if (dExperiencesScored.getOperational_efficiency() != null) {
+            result += dExperiencesScored.getOperational_efficiency();
             notNullCount++;
         }
 
@@ -470,7 +481,6 @@ public class ScoreFunctionUtils {
             result += dExperiencesScored.getPerformance_comments2018();
             notNullCount++;
         }
-
         if (dExperiencesScored.getStakeholder_feedback() != null) {
             result += dExperiencesScored.getStakeholder_feedback();
             notNullCount++;

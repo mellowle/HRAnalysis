@@ -61,6 +61,16 @@ public class TableUtils {
         }
     }
 
+    public static <T> void insertRecords(List<T> list, Class clazz, String tableName) throws Exception {
+        String methodName = "add" + clazz.getSimpleName() + tableName;
+        System.out.println(methodName);
+        Method method = mapper.getClass().getDeclaredMethod(methodName, clazz);
+        for(T item: list){
+            method.invoke(mapper, item);
+            sqlSession.commit();
+        }
+    }
+
     public static <T> List<T> getAllRecords(Class<T> clazz) throws Exception {
         List<T> results;
         String methodName = "getAll" + clazz.getSimpleName();

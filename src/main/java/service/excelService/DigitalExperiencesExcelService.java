@@ -25,7 +25,6 @@ public class DigitalExperiencesExcelService extends AbstractExcelService {
         Set<String> tmp = Sets.newHashSet();
         results.forEach(result->{
             tmp.add(result.getWwid());
-            System.err.println(result.toString());
         });
         List<DigitalExperiences> unique = results.stream().collect(
                 Collectors.collectingAndThen(
