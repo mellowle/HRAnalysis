@@ -21,22 +21,6 @@ public class DDriversScored {
         this.power = drivers.get("power");
         this.structure = drivers.get("structure");
 
-        sumUp();
-    }
-
-    private void sumUp() {
-        if (balance != null) {
-            this.result = this.balance
-                    + this.challenge
-                    + this.collaboration
-                    + this.independence
-                    + this.power
-                    + this.structure;
-        }
-        else {
-            this.result = null;
-        }
-
     }
 
     public String getWwid() {

@@ -75,49 +75,6 @@ public class DCompetenciesScored {
         this.directs_work = lessCritical.get("directs_work");
         this.optimizes_work_processes = lessCritical.get("optimizes_work_processes");
 
-        sumUp();
-
-    }
-
-    private void sumUp() {
-        if (this.strategic_mindset != null) {
-            this.result = this.strategic_mindset
-                    + this.global_perspective
-                    + this.instills_trust
-                    + this.persuades
-                    + this.communicates_effectively
-                    + this.collaborates
-                    + this.cultivates_innovation
-                    + this.nimble_learning
-                    + this.develops_talent
-                    + this.situational_adaptability
-
-                    + this.builds_networks
-                    + this.decision_quality
-                    + this.being_resilient
-                    + this.courage
-                    + this.action_oriented
-                    + this.manages_ambiguity
-                    + this.interpersonal_savvy
-                    + this.resourcefulness
-                    + this.self_development
-                    + this.values_differences
-
-                    + this.drives_engagement
-                    + this.balances_stakeholders
-                    + this.ensures_accountability
-                    + this.drives_results
-                    + this.customer_focus
-                    + this.manages_conflict
-                    + this.builds_effective_teams
-                    + this.plans_and_aligns
-                    + this.directs_work
-                    + this.optimizes_work_processes;
-        }
-        else {
-            this.result = null;
-        }
-
     }
 
     public String getWwid() {

@@ -39,8 +39,9 @@ public class DriversDimensionScoreService extends AbstractScoreService {
         });
 
         for (DDrivers dDrivers : dDriversList) {
-            DDriversScored dTraitsScored = new DDriversScored(dDrivers.getWwid(), KF4DScoreFunctionUtils.calcDriversScore(dDrivers.getDrivers()));
-            scoredResults.add(dTraitsScored);
+            DDriversScored dDriversScored = new DDriversScored(dDrivers.getWwid(), KF4DScoreFunctionUtils.calcDriversScore(dDrivers.getDrivers()));
+            KF4DScoreFunctionUtils.sumUpDrivers(dDriversScored);
+            scoredResults.add(dDriversScored);
         }
 
         return scoredResults;

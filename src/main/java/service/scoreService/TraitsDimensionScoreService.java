@@ -45,6 +45,7 @@ public class TraitsDimensionScoreService extends AbstractScoreService {
 
         for (DTraits dTraits : dTraitsList) {
             DTraitsScored dTraitsScored = new DTraitsScored(dTraits.getWwid(), KF4DScoreFunctionUtils.calcTraitsScore(dTraits.getTraits()));
+            KF4DScoreFunctionUtils.sumUpTraits(dTraitsScored);
             scoredResults.add(dTraitsScored);
         }
 

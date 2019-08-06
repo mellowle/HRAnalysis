@@ -8,7 +8,7 @@ import entity.excelEntity.fixed.ExperiencesAverageAttributes;
 
 import java.util.List;
 
-public class ScoreFunctionUtils {
+public class ExperiencesScoreFunctionUtils {
 
     //    public static final Double MBA_SCORE_5 = 5d;
     //    public static final Double MBA_SCORE_0 = 0d;

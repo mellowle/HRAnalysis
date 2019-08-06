@@ -49,35 +49,6 @@ public class DTraitsScored {
         this.tolerance_of_ambiguity = traits.get("tolerance_of_ambiguity");
         this.trust = traits.get("trust");
 
-        sumUp();
-    }
-
-    private void sumUp() {
-        if (this.adaptability != null) {
-            this.result = this.adaptability
-                    + this.affiliation
-                    + this.assertiveness
-                    + this.composure
-                    + this.confidence
-                    + this.credibility
-                    + this.curiosity
-                    + this.empathy
-                    + this.focus
-                    + this.humility
-                    + this.influence
-                    + this.need_for_achievement
-                    + this.openness_to_differences
-                    + this.optimism
-                    + this.persistence
-                    + this.risk_taking
-                    + this.situational_self_awareness
-                    + this.sociability
-                    + this.tolerance_of_ambiguity
-                    + this.trust;
-        }
-        else {
-            this.result = null;
-        }
     }
 
     public String getWwid() {

@@ -3,6 +3,9 @@ package util;
 import Constants.KF4DConstants.CompetenciesConstants;
 import Constants.KF4DConstants.DriversConstants;
 import Constants.KF4DConstants.TraitsConstants;
+import entity.dimensionScored.DCompetenciesScored;
+import entity.dimensionScored.DDriversScored;
+import entity.dimensionScored.DTraitsScored;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,58 +15,37 @@ public class KF4DScoreFunctionUtils {
     public static Map<String, Double> calcMissionCriticalScore(Map<String, Integer> missionCritical) {
         Map<String, Double> result = new HashMap<>();
 
-        Double strategic_mindset_point =
-                CompetenciesConstants.POINT_STRATEGIC_MINDSET / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        Double global_perspective_point =
-                CompetenciesConstants.POINT_GLOBAL_PERSPECTIVE / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        Double instills_trust_point =
-                CompetenciesConstants.POINT_INSTILLS_TRUST / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        Double persuades_point =
-                CompetenciesConstants.POINT_PERSUADES / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        Double communicates_effectively_point =
-                CompetenciesConstants.POINT_COMMUNICATES_EFFECTIVELY / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        Double collaborates_point =
-                CompetenciesConstants.POINT_COLLABORATES / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        Double cultivates_innovation_point =
-                CompetenciesConstants.POINT_CULTIVATES_INNOVATION / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        Double nimble_learning_point =
-                CompetenciesConstants.POINT_NIMBLE_LEARNING / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        Double develops_talent_point =
-                CompetenciesConstants.POINT_DEVELOPS_TALENT / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
-        Double situational_adaptability_point =
-                CompetenciesConstants.POINT_SITUATIONAL_ADAPTABILITY / CompetenciesConstants.MISSION_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_MISSION_CRITICAL * 100;
+        //        result.put("strategic_mindset", calcScoreWithUCPZone(missionCritical.get("strategic_mindset"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("strategic_mindset").getMax(),
+        //                CompetenciesConstants.MAX_STRATEGIC_MINDSET, CompetenciesConstants.MIN_STRATEGIC_MINDSET));
+        //        result.put("global_perspective", calcScoreWithUCPZone(missionCritical.get("global_perspective"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("global_perspective").getMax(),
+        //                CompetenciesConstants.MAX_GLOBAL_PERSPECTIVE, CompetenciesConstants.MIN_GLOBAL_PERSPECTIVE));
+        //        result.put("instills_trust", calcScoreWithUCPZone(missionCritical.get("instills_trust"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("instills_trust").getMax(),
+        //                CompetenciesConstants.MAX_INSTILLS_TRUST, CompetenciesConstants.MIN_INSTILLS_TRUST));
+        //        result.put("persuades", calcScoreWithUCPZone(missionCritical.get("persuades"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("persuades").getMax(),
+        //                CompetenciesConstants.MAX_PERSUADES, CompetenciesConstants.MIN_PERSUADES));
+        //        result.put("communicates_effectively", calcScoreWithUCPZone(missionCritical.get("communicates_effectively"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("communicates_effectively").getMax(),
+        //                CompetenciesConstants.MAX_COMMUNICATES_EFFECTIVELY, CompetenciesConstants.MIN_COMMUNICATES_EFFECTIVELY));
+        //        result.put("collaborates", calcScoreWithUCPZone(missionCritical.get("collaborates"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("collaborates").getMax(),
+        //                CompetenciesConstants.MAX_COLLABORATES, CompetenciesConstants.MIN_COLLABORATES));
+        //        result.put("cultivates_innovation", calcScoreWithUCPZone(missionCritical.get("cultivates_innovation"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("cultivates_innovation").getMax(),
+        //                CompetenciesConstants.MAX_CULTIVATES_INNOVATION, CompetenciesConstants.MIN_CULTIVATES_INNOVATION));
+        //        result.put("nimble_learning", calcScoreWithUCPZone(missionCritical.get("nimble_learning"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("nimble_learning").getMax(),
+        //                CompetenciesConstants.MAX_NIMBLE_LEARNING, CompetenciesConstants.MIN_NIMBLE_LEARNING));
+        //        result.put("develops_talent", calcScoreWithUCPZone(missionCritical.get("develops_talent"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("develops_talent").getMax(),
+        //                CompetenciesConstants.MAX_DEVELOPS_TALENT, CompetenciesConstants.MIN_DEVELOPS_TALENT));
+        //        result.put("situational_adaptability", calcScoreWithUCPZone(missionCritical.get("situational_adaptability"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("situational_adaptability").getMax(),
+        //                CompetenciesConstants.MAX_SITUATIONAL_ADAPTABILITY, CompetenciesConstants.MIN_SITUATIONAL_ADAPTABILITY));
 
-//        System.err.println("strategic_mindset," + strategic_mindset_point);
-//        System.err.println("global_perspective," + global_perspective_point);
-//        System.err.println("instills_trust," + instills_trust_point);
-//        System.err.println("persuades," + persuades_point);
-//        System.err.println("communicates_effectively," + communicates_effectively_point);
-//        System.err.println("collaborates," + collaborates_point);
-//        System.err.println("cultivates_innovation," + cultivates_innovation_point);
-//        System.err.println("nimble_learning," + nimble_learning_point);
-//        System.err.println("develops_talent," + develops_talent_point);
-//        System.err.println("situational_adaptability," + situational_adaptability_point);
-
-        result.put("strategic_mindset", calcScoreWithUCPZone(missionCritical.get("strategic_mindset"), strategic_mindset_point,
-                CompetenciesConstants.MAX_STRATEGIC_MINDSET, CompetenciesConstants.MIN_STRATEGIC_MINDSET));
-        result.put("global_perspective", calcScoreWithUCPZone(missionCritical.get("global_perspective"), global_perspective_point,
-                CompetenciesConstants.MAX_GLOBAL_PERSPECTIVE, CompetenciesConstants.MIN_GLOBAL_PERSPECTIVE));
-        result.put("instills_trust", calcScoreWithUCPZone(missionCritical.get("instills_trust"), instills_trust_point,
-                CompetenciesConstants.MAX_INSTILLS_TRUST, CompetenciesConstants.MIN_INSTILLS_TRUST));
-        result.put("persuades", calcScoreWithUCPZone(missionCritical.get("persuades"), persuades_point,
-                CompetenciesConstants.MAX_PERSUADES, CompetenciesConstants.MIN_PERSUADES));
-        result.put("communicates_effectively", calcScoreWithUCPZone(missionCritical.get("communicates_effectively"), communicates_effectively_point,
-                CompetenciesConstants.MAX_COMMUNICATES_EFFECTIVELY, CompetenciesConstants.MIN_COMMUNICATES_EFFECTIVELY));
-        result.put("collaborates", calcScoreWithUCPZone(missionCritical.get("collaborates"), collaborates_point,
-                CompetenciesConstants.MAX_COLLABORATES, CompetenciesConstants.MIN_COLLABORATES));
-        result.put("cultivates_innovation", calcScoreWithUCPZone(missionCritical.get("cultivates_innovation"), cultivates_innovation_point,
-                CompetenciesConstants.MAX_CULTIVATES_INNOVATION, CompetenciesConstants.MIN_CULTIVATES_INNOVATION));
-        result.put("nimble_learning", calcScoreWithUCPZone(missionCritical.get("nimble_learning"), nimble_learning_point,
-                CompetenciesConstants.MAX_NIMBLE_LEARNING, CompetenciesConstants.MIN_NIMBLE_LEARNING));
-        result.put("develops_talent", calcScoreWithUCPZone(missionCritical.get("develops_talent"), develops_talent_point,
-                CompetenciesConstants.MAX_DEVELOPS_TALENT, CompetenciesConstants.MIN_DEVELOPS_TALENT));
-        result.put("situational_adaptability", calcScoreWithUCPZone(missionCritical.get("situational_adaptability"), situational_adaptability_point,
-                CompetenciesConstants.MAX_SITUATIONAL_ADAPTABILITY, CompetenciesConstants.MIN_SITUATIONAL_ADAPTABILITY));
+        result.put("strategic_mindset", calcScoreTheHigherTheBetter(missionCritical.get("strategic_mindset"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("strategic_mindset").getMax()));
+        result.put("global_perspective", calcScoreTheHigherTheBetter(missionCritical.get("global_perspective"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("global_perspective").getMax()));
+        result.put("instills_trust", calcScoreTheHigherTheBetter(missionCritical.get("instills_trust"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("instills_trust").getMax()));
+        result.put("persuades", calcScoreTheHigherTheBetter(missionCritical.get("persuades"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("persuades").getMax()));
+        result.put("communicates_effectively", calcScoreTheHigherTheBetter(missionCritical.get("communicates_effectively"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("communicates_effectively").getMax()));
+        result.put("collaborates", calcScoreTheHigherTheBetter(missionCritical.get("collaborates"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("collaborates").getMax()));
+        result.put("cultivates_innovation", calcScoreTheHigherTheBetter(missionCritical.get("cultivates_innovation"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("cultivates_innovation").getMax()));
+        result.put("nimble_learning", calcScoreTheHigherTheBetter(missionCritical.get("nimble_learning"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("nimble_learning").getMax()));
+        result.put("develops_talent", calcScoreTheHigherTheBetter(missionCritical.get("develops_talent"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("develops_talent").getMax()));
+        result.put("situational_adaptability", calcScoreTheHigherTheBetter(missionCritical.get("situational_adaptability"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("situational_adaptability").getMax()));
 
         return result;
     }
@@ -72,48 +54,27 @@ public class KF4DScoreFunctionUtils {
     public static Map<String, Double> calcCriticalScore(Map<String, Integer> critical) {
         Map<String, Double> result = new HashMap<>();
 
-        Double builds_networks_point =
-                CompetenciesConstants.POINT_BUILDS_NETWORKS / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        Double decision_quality_point =
-                CompetenciesConstants.POINT_DECISION_QUALITY / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        Double being_resilient_point =
-                CompetenciesConstants.POINT_BEING_RESILIENT / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        Double courage_point =
-                CompetenciesConstants.POINT_COURAGE / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        Double action_oriented_point =
-                CompetenciesConstants.POINT_ACTION_ORIENTED / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        Double manages_ambiguity_point =
-                CompetenciesConstants.POINT_MANAGES_AMBIGUITY / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        Double interpersonal_savvy_point =
-                CompetenciesConstants.POINT_INTERPERSONAL_SAVVY / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        Double resourcefulness_point =
-                CompetenciesConstants.POINT_RESOURCEFULNESS / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        Double self_development_point =
-                CompetenciesConstants.POINT_SELF_DEVELOPMENT / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
-        Double values_differences_point =
-                CompetenciesConstants.POINT_VALUES_DIFFERENCES / CompetenciesConstants.CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_CRITICAL * 100;
+        //        result.put("builds_networks", calcScoreWithZone(critical.get("builds_networks"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("builds_networks").getMax(), true));
+        //        result.put("decision_quality", calcScoreWithZone(critical.get("decision_quality"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("decision_quality").getMax(), false));
+        //        result.put("being_resilient", calcScoreWithZone(critical.get("being_resilient"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("being_resilient").getMax(), false));
+        //        result.put("courage", calcScoreWithZone(critical.get("courage"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("courage").getMax(), false));
+        //        result.put("action_oriented", calcScoreWithZone(critical.get("action_oriented"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("action_oriented").getMax(), true));
+        //        result.put("manages_ambiguity", calcScoreWithZone(critical.get("manages_ambiguity"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("manages_ambiguity").getMax(), false));
+        //        result.put("interpersonal_savvy", calcScoreWithZone(critical.get("interpersonal_savvy"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("interpersonal_savvy").getMax(), false));
+        //        result.put("resourcefulness", calcScoreWithZone(critical.get("resourcefulness"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("resourcefulness").getMax(), false));
+        //        result.put("self_development", calcScoreWithZone(critical.get("self_development"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("self_development").getMax(), false));
+        //        result.put("values_differences", calcScoreWithZone(critical.get("values_differences"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("values_differences").getMax(), false));
 
-//        System.err.println("builds_networks," + builds_networks_point);
-//        System.err.println("decision_quality," + decision_quality_point);
-//        System.err.println("being_resilient," + being_resilient_point);
-//        System.err.println("courage," + courage_point);
-//        System.err.println("action_oriented," + action_oriented_point);
-//        System.err.println("manages_ambiguity," + manages_ambiguity_point);
-//        System.err.println("interpersonal_savvy," + interpersonal_savvy_point);
-//        System.err.println("resourcefulness," + resourcefulness_point);
-//        System.err.println("self_development," + self_development_point);
-//        System.err.println("values_differences," + values_differences_point);
-
-        result.put("builds_networks", calcScoreWithZone(critical.get("builds_networks"), builds_networks_point, true));
-        result.put("decision_quality", calcScoreWithZone(critical.get("decision_quality"), decision_quality_point, false));
-        result.put("being_resilient", calcScoreWithZone(critical.get("being_resilient"), being_resilient_point, false));
-        result.put("courage", calcScoreWithZone(critical.get("courage"), courage_point, false));
-        result.put("action_oriented", calcScoreWithZone(critical.get("action_oriented"), action_oriented_point, true));
-        result.put("manages_ambiguity", calcScoreWithZone(critical.get("manages_ambiguity"), manages_ambiguity_point, false));
-        result.put("interpersonal_savvy", calcScoreWithZone(critical.get("interpersonal_savvy"), interpersonal_savvy_point, false));
-        result.put("resourcefulness", calcScoreWithZone(critical.get("resourcefulness"), resourcefulness_point, false));
-        result.put("self_development", calcScoreWithZone(critical.get("self_development"), self_development_point, false));
-        result.put("values_differences", calcScoreWithZone(critical.get("values_differences"), values_differences_point, false));
+        result.put("builds_networks", calcScoreTheHigherTheBetter(critical.get("builds_networks"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("builds_networks").getMax()));
+        result.put("decision_quality", calcScoreTheHigherTheBetter(critical.get("decision_quality"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("decision_quality").getMax()));
+        result.put("being_resilient", calcScoreTheHigherTheBetter(critical.get("being_resilient"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("being_resilient").getMax()));
+        result.put("courage", calcScoreTheHigherTheBetter(critical.get("courage"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("courage").getMax()));
+        result.put("action_oriented", calcScoreTheHigherTheBetter(critical.get("action_oriented"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("action_oriented").getMax()));
+        result.put("manages_ambiguity", calcScoreTheHigherTheBetter(critical.get("manages_ambiguity"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("manages_ambiguity").getMax()));
+        result.put("interpersonal_savvy", calcScoreTheHigherTheBetter(critical.get("interpersonal_savvy"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("interpersonal_savvy").getMax()));
+        result.put("resourcefulness", calcScoreTheHigherTheBetter(critical.get("resourcefulness"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("resourcefulness").getMax()));
+        result.put("self_development", calcScoreTheHigherTheBetter(critical.get("self_development"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("self_development").getMax()));
+        result.put("values_differences", calcScoreTheHigherTheBetter(critical.get("values_differences"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("values_differences").getMax()));
 
         return result;
     }
@@ -122,48 +83,27 @@ public class KF4DScoreFunctionUtils {
     public static Map<String, Double> calcLessCriticalScore(Map<String, Integer> lessCritical) {
         Map<String, Double> result = new HashMap<>();
 
-        Double drives_engagement_point =
-                CompetenciesConstants.POINT_DRIVES_ENGAGEMENT / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        Double balances_stakeholders_point =
-                CompetenciesConstants.POINT_BALANCES_STAKEHOLDERS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        Double ensures_accountability_point =
-                CompetenciesConstants.POINT_ENSURES_ACCOUNTABILITY / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        Double drives_results_point =
-                CompetenciesConstants.POINT_DRIVES_RESULTS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        Double customer_focus_point =
-                CompetenciesConstants.POINT_CUSTOMER_FOCUS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        Double manages_conflict_point =
-                CompetenciesConstants.POINT_MANAGES_CONFLICT / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        Double builds_effective_teams_point =
-                CompetenciesConstants.POINT_BUILDS_EFFECTIVE_TEAMS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        Double plans_and_aligns_point =
-                CompetenciesConstants.POINT_PLANS_AND_ALIGNS / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        Double directs_work_point =
-                CompetenciesConstants.POINT_DIRECTS_WORK / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
-        Double optimizes_work_processes_point =
-                CompetenciesConstants.POINT_OPTIMIZES_WORK_PROCESSES / CompetenciesConstants.LESS_CRITICAL_SUMUP * CompetenciesConstants.WEIGHT_LESS_CRITICAL * 100;
+        //        result.put("drives_engagement", calcScoreWithZone(lessCritical.get("drives_engagement"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("drives_engagement").getMax(), false));
+        //        result.put("balances_stakeholders", calcScoreWithZone(lessCritical.get("balances_stakeholders"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("balances_stakeholders").getMax(), true));
+        //        result.put("ensures_accountability", calcScoreWithZone(lessCritical.get("ensures_accountability"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("ensures_accountability").getMax(), false));
+        //        result.put("drives_results", calcScoreWithZone(lessCritical.get("drives_results"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("drives_results").getMax(), true));
+        //        result.put("customer_focus", calcScoreWithZone(lessCritical.get("customer_focus"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("customer_focus").getMax(), false));
+        //        result.put("manages_conflict", calcScoreWithZone(lessCritical.get("manages_conflict"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("manages_conflict").getMax(), false));
+        //        result.put("builds_effective_teams", calcScoreWithZone(lessCritical.get("builds_effective_teams"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("builds_effective_teams").getMax(), false));
+        //        result.put("plans_and_aligns", calcScoreWithZone(lessCritical.get("plans_and_aligns"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("plans_and_aligns").getMax(), true));
+        //        result.put("directs_work", calcScoreWithZone(lessCritical.get("directs_work"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("directs_work").getMax(), true));
+        //        result.put("optimizes_work_processes", calcScoreWithZone(lessCritical.get("optimizes_work_processes"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("optimizes_work_processes").getMax(), false));
 
-//        System.err.println("drives_engagement," + drives_engagement_point);
-//        System.err.println("balances_stakeholders," + balances_stakeholders_point);
-//        System.err.println("ensures_accountability," + ensures_accountability_point);
-//        System.err.println("drives_results," + drives_results_point);
-//        System.err.println("customer_focus," + customer_focus_point);
-//        System.err.println("manages_conflict," + manages_conflict_point);
-//        System.err.println("builds_effective_teams," + builds_effective_teams_point);
-//        System.err.println("plans_and_aligns," + plans_and_aligns_point);
-//        System.err.println("directs_work," + directs_work_point);
-//        System.err.println("optimizes_work_processes," + optimizes_work_processes_point);
-
-        result.put("drives_engagement", calcScoreWithZone(lessCritical.get("drives_engagement"), drives_engagement_point, false));
-        result.put("balances_stakeholders", calcScoreWithZone(lessCritical.get("balances_stakeholders"), balances_stakeholders_point, true));
-        result.put("ensures_accountability", calcScoreWithZone(lessCritical.get("ensures_accountability"), ensures_accountability_point, false));
-        result.put("drives_results", calcScoreWithZone(lessCritical.get("drives_results"), drives_results_point, true));
-        result.put("customer_focus", calcScoreWithZone(lessCritical.get("customer_focus"), customer_focus_point, false));
-        result.put("manages_conflict", calcScoreWithZone(lessCritical.get("manages_conflict"), manages_conflict_point, false));
-        result.put("builds_effective_teams", calcScoreWithZone(lessCritical.get("builds_effective_teams"), builds_effective_teams_point, false));
-        result.put("plans_and_aligns", calcScoreWithZone(lessCritical.get("plans_and_aligns"), plans_and_aligns_point, true));
-        result.put("directs_work", calcScoreWithZone(lessCritical.get("directs_work"), directs_work_point, true));
-        result.put("optimizes_work_processes", calcScoreWithZone(lessCritical.get("optimizes_work_processes"), optimizes_work_processes_point, false));
+        result.put("drives_engagement", calcScoreTheHigherTheBetter(lessCritical.get("drives_engagement"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("drives_engagement").getMax()));
+        result.put("balances_stakeholders", calcScoreTheHigherTheBetter(lessCritical.get("balances_stakeholders"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("balances_stakeholders").getMax()));
+        result.put("ensures_accountability", calcScoreTheHigherTheBetter(lessCritical.get("ensures_accountability"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("ensures_accountability").getMax()));
+        result.put("drives_results", calcScoreTheHigherTheBetter(lessCritical.get("drives_results"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("drives_results").getMax()));
+        result.put("customer_focus", calcScoreTheHigherTheBetter(lessCritical.get("customer_focus"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("customer_focus").getMax()));
+        result.put("manages_conflict", calcScoreTheHigherTheBetter(lessCritical.get("manages_conflict"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("manages_conflict").getMax()));
+        result.put("builds_effective_teams", calcScoreTheHigherTheBetter(lessCritical.get("builds_effective_teams"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("builds_effective_teams").getMax()));
+        result.put("plans_and_aligns", calcScoreTheHigherTheBetter(lessCritical.get("plans_and_aligns"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("plans_and_aligns").getMax()));
+        result.put("directs_work", calcScoreTheHigherTheBetter(lessCritical.get("directs_work"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("directs_work").getMax()));
+        result.put("optimizes_work_processes", calcScoreTheHigherTheBetter(lessCritical.get("optimizes_work_processes"), CompetenciesConstants.COMPETENCIES_SCORE_INTERVAL.get("optimizes_work_processes").getMax()));
 
         return result;
     }
@@ -171,26 +111,47 @@ public class KF4DScoreFunctionUtils {
     public static Map<String, Double> calcTraitsScore(Map<String, Integer> traits) {
         Map<String, Double> result = new HashMap<>();
 
-        result.put("adaptability", calcScoreWithUCPPoint(traits.get("adaptability"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_ADAPTABILITY));
-        result.put("affiliation", calcScoreWithUCPPoint(traits.get("affiliation"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_AFFILIATION));
-        result.put("assertiveness", calcScoreWithUCPPoint(traits.get("assertiveness"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_ASSERTIVENESS));
-        result.put("composure", calcScoreWithUCPPoint(traits.get("composure"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_COMPOSURE));
-        result.put("confidence", calcScoreWithUCPPoint(traits.get("confidence"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_CONFIDENCE));
-        result.put("credibility", calcScoreWithUCPPoint(traits.get("credibility"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_CREDIBILITY));
-        result.put("curiosity", calcScoreWithUCPPoint(traits.get("curiosity"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_CURIOSITY));
-        result.put("empathy", calcScoreWithUCPPoint(traits.get("empathy"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_EMPATHY));
-        result.put("focus", calcScoreWithUCPPoint(traits.get("focus"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_FOCUS));
-        result.put("humility", calcScoreWithUCPPoint(traits.get("humility"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_HUMILITY));
-        result.put("influence", calcScoreWithUCPPoint(traits.get("influence"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_INFLUENCE));
-        result.put("need_for_achievement", calcScoreWithUCPPoint(traits.get("need_for_achievement"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_NEED_FOR_ACHIEVEMENT));
-        result.put("openness_to_differences", calcScoreWithUCPPoint(traits.get("openness_to_differences"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_OPENNESS_TO_DIFFERENCES));
-        result.put("optimism", calcScoreWithUCPPoint(traits.get("optimism"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_OPTIMISM));
-        result.put("persistence", calcScoreWithUCPPoint(traits.get("persistence"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_PERSISTENCE));
-        result.put("risk_taking", calcScoreWithUCPPoint(traits.get("risk_taking"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_RISK_TAKING));
-        result.put("situational_self_awareness", calcScoreWithUCPPoint(traits.get("situational_self_awareness"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_SITUATIONAL_SELF_AWARENESS));
-        result.put("sociability", calcScoreWithUCPPoint(traits.get("sociability"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_SOCIABILITY));
-        result.put("tolerance_of_ambiguity", calcScoreWithUCPPoint(traits.get("tolerance_of_ambiguity"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_TOLERANCE_OF_AMBIGUITY));
-        result.put("trust", calcScoreWithUCPPoint(traits.get("trust"), TraitsConstants.POINT_TRAIT, TraitsConstants.UCP_TRUST));
+        //        result.put("adaptability", calcScoreWithUCPPoint(traits.get("adaptability"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("adaptability").getMax(), TraitsConstants.UCP_ADAPTABILITY));
+        //        result.put("affiliation", calcScoreWithUCPPoint(traits.get("affiliation"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("affiliation").getMax(), TraitsConstants.UCP_AFFILIATION));
+        //        result.put("assertiveness", calcScoreWithUCPPoint(traits.get("assertiveness"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("assertiveness").getMax(), TraitsConstants.UCP_ASSERTIVENESS));
+        //        result.put("composure", calcScoreWithUCPPoint(traits.get("composure"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("composure").getMax(), TraitsConstants.UCP_COMPOSURE));
+        //        result.put("confidence", calcScoreWithUCPPoint(traits.get("confidence"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("confidence").getMax(), TraitsConstants.UCP_CONFIDENCE));
+        //        result.put("credibility", calcScoreWithUCPPoint(traits.get("credibility"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("credibility").getMax(), TraitsConstants.UCP_CREDIBILITY));
+        //        result.put("curiosity", calcScoreWithUCPPoint(traits.get("curiosity"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("curiosity").getMax(), TraitsConstants.UCP_CURIOSITY));
+        //        result.put("empathy", calcScoreWithUCPPoint(traits.get("empathy"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("empathy").getMax(), TraitsConstants.UCP_EMPATHY));
+        //        result.put("focus", calcScoreWithUCPPoint(traits.get("focus"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("focus").getMax(), TraitsConstants.UCP_FOCUS));
+        //        result.put("humility", calcScoreWithUCPPoint(traits.get("humility"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("humility").getMax(), TraitsConstants.UCP_HUMILITY));
+        //        result.put("influence", calcScoreWithUCPPoint(traits.get("influence"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("influence").getMax(), TraitsConstants.UCP_INFLUENCE));
+        //        result.put("need_for_achievement", calcScoreWithUCPPoint(traits.get("need_for_achievement"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("need_for_achievement").getMax(), TraitsConstants.UCP_NEED_FOR_ACHIEVEMENT));
+        //        result.put("openness_to_differences", calcScoreWithUCPPoint(traits.get("openness_to_differences"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("openness_to_differences").getMax(), TraitsConstants.UCP_OPENNESS_TO_DIFFERENCES));
+        //        result.put("optimism", calcScoreWithUCPPoint(traits.get("optimism"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("optimism").getMax(), TraitsConstants.UCP_OPTIMISM));
+        //        result.put("persistence", calcScoreWithUCPPoint(traits.get("persistence"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("persistence").getMax(), TraitsConstants.UCP_PERSISTENCE));
+        //        result.put("risk_taking", calcScoreWithUCPPoint(traits.get("risk_taking"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("risk_taking").getMax(), TraitsConstants.UCP_RISK_TAKING));
+        //        result.put("situational_self_awareness", calcScoreWithUCPPoint(traits.get("situational_self_awareness"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("situational_self_awareness").getMax(), TraitsConstants.UCP_SITUATIONAL_SELF_AWARENESS));
+        //        result.put("sociability", calcScoreWithUCPPoint(traits.get("sociability"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("sociability").getMax(), TraitsConstants.UCP_SOCIABILITY));
+        //        result.put("tolerance_of_ambiguity", calcScoreWithUCPPoint(traits.get("tolerance_of_ambiguity"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("tolerance_of_ambiguity").getMax(), TraitsConstants.UCP_TOLERANCE_OF_AMBIGUITY));
+        //        result.put("trust", calcScoreWithUCPPoint(traits.get("trust"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("trust").getMax(), TraitsConstants.UCP_TRUST));
+
+        result.put("adaptability", calcScoreTheHigherTheBetter(traits.get("adaptability"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("adaptability").getMax()));
+        result.put("affiliation", calcScoreTheHigherTheBetter(traits.get("affiliation"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("affiliation").getMax()));
+        result.put("assertiveness", calcScoreTheHigherTheBetter(traits.get("assertiveness"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("assertiveness").getMax()));
+        result.put("composure", calcScoreTheHigherTheBetter(traits.get("composure"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("composure").getMax()));
+        result.put("confidence", calcScoreTheHigherTheBetter(traits.get("confidence"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("confidence").getMax()));
+        result.put("credibility", calcScoreTheHigherTheBetter(traits.get("credibility"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("credibility").getMax()));
+        result.put("curiosity", calcScoreTheHigherTheBetter(traits.get("curiosity"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("curiosity").getMax()));
+        result.put("empathy", calcScoreTheHigherTheBetter(traits.get("empathy"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("empathy").getMax()));
+        result.put("focus", calcScoreTheHigherTheBetter(traits.get("focus"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("focus").getMax()));
+        result.put("humility", calcScoreTheHigherTheBetter(traits.get("humility"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("humility").getMax()));
+        result.put("influence", calcScoreTheHigherTheBetter(traits.get("influence"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("influence").getMax()));
+        result.put("need_for_achievement", calcScoreTheHigherTheBetter(traits.get("need_for_achievement"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("need_for_achievement").getMax()));
+        result.put("openness_to_differences", calcScoreTheHigherTheBetter(traits.get("openness_to_differences"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("openness_to_differences").getMax()));
+        result.put("optimism", calcScoreTheHigherTheBetter(traits.get("optimism"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("optimism").getMax()));
+        result.put("persistence", calcScoreTheHigherTheBetter(traits.get("persistence"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("persistence").getMax()));
+        result.put("risk_taking", calcScoreTheHigherTheBetter(traits.get("risk_taking"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("risk_taking").getMax()));
+        result.put("situational_self_awareness", calcScoreTheHigherTheBetter(traits.get("situational_self_awareness"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("situational_self_awareness").getMax()));
+        result.put("sociability", calcScoreTheHigherTheBetter(traits.get("sociability"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("sociability").getMax()));
+        result.put("tolerance_of_ambiguity", calcScoreTheHigherTheBetter(traits.get("tolerance_of_ambiguity"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("tolerance_of_ambiguity").getMax()));
+        result.put("trust", calcScoreTheHigherTheBetter(traits.get("trust"), TraitsConstants.TRAITS_SCORE_INTERVAL.get("trust").getMax()));
 
         return result;
 
@@ -199,12 +160,12 @@ public class KF4DScoreFunctionUtils {
     public static Map<String, Double> calcDriversScore(Map<String, Integer> drivers) {
         Map<String, Double> result = new HashMap<>();
 
-        result.put("balance", calcScoreWithUCPPoint(drivers.get("balance"), DriversConstants.POINT_DRIVER, DriversConstants.UCP_BALANCE));
-        result.put("challenge", calcScoreWithUCPPoint(drivers.get("challenge"), DriversConstants.POINT_DRIVER, DriversConstants.UCP_CHALLENGE));
-        result.put("collaboration", calcScoreWithUCPPoint(drivers.get("collaboration"), DriversConstants.POINT_DRIVER, DriversConstants.UCP_COLLABORATION));
-        result.put("independence", calcScoreWithUCPPoint(drivers.get("independence"), DriversConstants.POINT_DRIVER, DriversConstants.UCP_INDEPENDENCE));
-        result.put("power", calcScoreWithUCPPoint(drivers.get("power"), DriversConstants.POINT_DRIVER, DriversConstants.UCP_POWER));
-        result.put("structure", calcScoreWithUCPPoint(drivers.get("structure"), DriversConstants.POINT_DRIVER, DriversConstants.UCP_STRUCTURE));
+        result.put("balance", calcScoreWithUCPPoint(drivers.get("balance"), DriversConstants.DRIVERS_SCORE_INTERVAL.get("balance").getMax(), DriversConstants.UCP_BALANCE));
+        result.put("challenge", calcScoreWithUCPPoint(drivers.get("challenge"), DriversConstants.DRIVERS_SCORE_INTERVAL.get("challenge").getMax(), DriversConstants.UCP_CHALLENGE));
+        result.put("collaboration", calcScoreWithUCPPoint(drivers.get("collaboration"), DriversConstants.DRIVERS_SCORE_INTERVAL.get("collaboration").getMax(), DriversConstants.UCP_COLLABORATION));
+        result.put("independence", calcScoreWithUCPPoint(drivers.get("independence"), DriversConstants.DRIVERS_SCORE_INTERVAL.get("independence").getMax(), DriversConstants.UCP_INDEPENDENCE));
+        result.put("power", calcScoreWithUCPPoint(drivers.get("power"), DriversConstants.DRIVERS_SCORE_INTERVAL.get("power").getMax(), DriversConstants.UCP_POWER));
+        result.put("structure", calcScoreWithUCPPoint(drivers.get("structure"), DriversConstants.DRIVERS_SCORE_INTERVAL.get("structure").getMax(), DriversConstants.UCP_STRUCTURE));
 
         return result;
     }
@@ -263,6 +224,18 @@ public class KF4DScoreFunctionUtils {
         return result;
     }
 
+    private static Double calcScoreTheHigherTheBetter(Integer score, Double points) {
+        Double result;
+
+        if (score == null) {
+            return null;
+        }
+
+        result = score / 10d * points;
+
+        return result;
+    }
+
     private static Double calcScoreWithZone(Integer score, Double points, boolean isDerails) {
         Double result;
 
@@ -299,6 +272,95 @@ public class KF4DScoreFunctionUtils {
         }
 
         return result;
+    }
+
+    public static void sumUpCompetencies(DCompetenciesScored dCompetenciesScored) {
+        Double result;
+        if (dCompetenciesScored.getStrategic_mindset() != null) {
+            result = dCompetenciesScored.getStrategic_mindset()
+                    + dCompetenciesScored.getGlobal_perspective()
+                    + dCompetenciesScored.getInstills_trust()
+                    + dCompetenciesScored.getPersuades()
+                    + dCompetenciesScored.getCommunicates_effectively()
+                    + dCompetenciesScored.getCollaborates()
+                    + dCompetenciesScored.getCultivates_innovation()
+                    + dCompetenciesScored.getNimble_learning()
+                    + dCompetenciesScored.getDevelops_talent()
+                    + dCompetenciesScored.getSituational_adaptability()
+
+                    + dCompetenciesScored.getBuilds_networks()
+                    + dCompetenciesScored.getDecision_quality()
+                    + dCompetenciesScored.getBeing_resilient()
+                    + dCompetenciesScored.getCourage()
+                    + dCompetenciesScored.getAction_oriented()
+                    + dCompetenciesScored.getManages_ambiguity()
+                    + dCompetenciesScored.getInterpersonal_savvy()
+                    + dCompetenciesScored.getResourcefulness()
+                    + dCompetenciesScored.getSelf_development()
+                    + dCompetenciesScored.getValues_differences()
+
+                    + dCompetenciesScored.getDrives_engagement()
+                    + dCompetenciesScored.getBalances_stakeholders()
+                    + dCompetenciesScored.getEnsures_accountability()
+                    + dCompetenciesScored.getDrives_results()
+                    + dCompetenciesScored.getCustomer_focus()
+                    + dCompetenciesScored.getManages_conflict()
+                    + dCompetenciesScored.getBuilds_effective_teams()
+                    + dCompetenciesScored.getPlans_and_aligns()
+                    + dCompetenciesScored.getDirects_work()
+                    + dCompetenciesScored.getOptimizes_work_processes();
+        }
+        else {
+            result = null;
+        }
+        dCompetenciesScored.setResult(result);
+
+    }
+
+    public static void sumUpTraits(DTraitsScored dTraitsScored) {
+        Double result;
+        if (dTraitsScored.getAdaptability() != null) {
+            result = dTraitsScored.getAdaptability()
+                    + dTraitsScored.getAffiliation()
+                    + dTraitsScored.getAssertiveness()
+                    + dTraitsScored.getComposure()
+                    + dTraitsScored.getConfidence()
+                    + dTraitsScored.getCredibility()
+                    + dTraitsScored.getCuriosity()
+                    + dTraitsScored.getEmpathy()
+                    + dTraitsScored.getFocus()
+                    + dTraitsScored.getHumility()
+                    + dTraitsScored.getInfluence()
+                    + dTraitsScored.getNeed_for_achievement()
+                    + dTraitsScored.getOpenness_to_differences()
+                    + dTraitsScored.getOptimism()
+                    + dTraitsScored.getPersistence()
+                    + dTraitsScored.getRisk_taking()
+                    + dTraitsScored.getSituational_self_awareness()
+                    + dTraitsScored.getSociability()
+                    + dTraitsScored.getTolerance_of_ambiguity()
+                    + dTraitsScored.getTrust();
+        }
+        else {
+            result = null;
+        }
+        dTraitsScored.setResult(result);
+    }
+
+    public static void sumUpDrivers(DDriversScored dDriversScored) {
+        Double result;
+        if (dDriversScored.getBalance() != null) {
+            result = dDriversScored.getBalance()
+                    + dDriversScored.getChallenge()
+                    + dDriversScored.getCollaboration()
+                    + dDriversScored.getIndependence()
+                    + dDriversScored.getPower()
+                    + dDriversScored.getStructure();
+        }
+        else {
+            result = null;
+        }
+        dDriversScored.setResult(result);
     }
 
 }

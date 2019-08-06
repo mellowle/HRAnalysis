@@ -5,7 +5,7 @@ import com.google.common.collect.Lists;
 import entity.dimensionRawData.DExperiences;
 import entity.dimensionScored.DExperiencesScored;
 import entity.excelEntity.fixed.ExperiencesAverageAttributes;
-import util.ScoreFunctionUtils;
+import util.ExperiencesScoreFunctionUtils;
 import util.TableUtils;
 
 import java.util.List;
@@ -85,7 +85,7 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
 //
 //                results.add(t);
 
-        ExperiencesAverageAttributes experiencesAverageAttributes = ScoreFunctionUtils.getAverageAttributes(results);
+        ExperiencesAverageAttributes experiencesAverageAttributes = ExperiencesScoreFunctionUtils.getAverageAttributes(results);
         for (DExperiences dExperiences : results) {
             DExperiencesScored dExperiencesScored = new DExperiencesScored();
             dExperiencesScored.setWwid(dExperiences.getWwid());
@@ -98,53 +98,53 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
             dExperiencesScored.setOverall_rating2017(dExperiences.getOverall_rating2017());
             dExperiencesScored.setOverall_rating2018(dExperiences.getOverall_rating2018());
 
-            ScoreFunctionUtils.socrePerformance(dExperiences, dExperiencesScored);
+            ExperiencesScoreFunctionUtils.socrePerformance(dExperiences, dExperiencesScored);
 
-            dExperiencesScored.setBonus_increment20162017(ScoreFunctionUtils.scoreIncrement(
+            dExperiencesScored.setBonus_increment20162017(ExperiencesScoreFunctionUtils.scoreIncrement(
                     dExperiences.getBonus2016(), dExperiences.getBonus2017(), experiencesAverageAttributes.getBonusIncrement20162017(), "bonus_increment20162017"
             ));
-            dExperiencesScored.setBonus_increment20172018(ScoreFunctionUtils.scoreIncrement(
+            dExperiencesScored.setBonus_increment20172018(ExperiencesScoreFunctionUtils.scoreIncrement(
                     dExperiences.getBonus2017(), dExperiences.getBonus2018(), experiencesAverageAttributes.getBonusIncrement20172018(), "bonus_increment20172018"
             ));
-            dExperiencesScored.setBase_increment20172018(ScoreFunctionUtils.scoreIncrement(
+            dExperiencesScored.setBase_increment20172018(ExperiencesScoreFunctionUtils.scoreIncrement(
                     dExperiences.getBase2017(), dExperiences.getBase2018(), experiencesAverageAttributes.getBaseIncrement20172018(), "base_increment20172018"
             ));
-            dExperiencesScored.setBase_increment20182019(ScoreFunctionUtils.scoreIncrement(
+            dExperiencesScored.setBase_increment20182019(ExperiencesScoreFunctionUtils.scoreIncrement(
                     dExperiences.getBase2018(), dExperiences.getBase2019(), experiencesAverageAttributes.getBaseIncrement20182019(), "base_increment20182019"
             ));
 
-            dExperiencesScored.setFunction_movements(ScoreFunctionUtils.scoreFunctionMovements(dExperiences.getFunction_movements()));
-            dExperiencesScored.setLateral_movements(ScoreFunctionUtils.scoreLateralMovements(dExperiences.getLateral_movements()));
-            dExperiencesScored.setPromotions(ScoreFunctionUtils.scorePromotions(dExperiences.getPromotions()));
-            dExperiencesScored.setRegion_movements(ScoreFunctionUtils.scoreRegionMovements(dExperiences.getRegion_movements()));
-            dExperiencesScored.setSector_movements(ScoreFunctionUtils.scoreSectorMovements(dExperiences.getSector_movements()));
-            dExperiencesScored.setCountry_movements(ScoreFunctionUtils.scoreCountryMovements(dExperiences.getCountry_movements()));
+            dExperiencesScored.setFunction_movements(ExperiencesScoreFunctionUtils.scoreFunctionMovements(dExperiences.getFunction_movements()));
+            dExperiencesScored.setLateral_movements(ExperiencesScoreFunctionUtils.scoreLateralMovements(dExperiences.getLateral_movements()));
+            dExperiencesScored.setPromotions(ExperiencesScoreFunctionUtils.scorePromotions(dExperiences.getPromotions()));
+            dExperiencesScored.setRegion_movements(ExperiencesScoreFunctionUtils.scoreRegionMovements(dExperiences.getRegion_movements()));
+            dExperiencesScored.setSector_movements(ExperiencesScoreFunctionUtils.scoreSectorMovements(dExperiences.getSector_movements()));
+            dExperiencesScored.setCountry_movements(ExperiencesScoreFunctionUtils.scoreCountryMovements(dExperiences.getCountry_movements()));
 
-            dExperiencesScored.setDirect_report(ScoreFunctionUtils.scoreDirectReport(dExperiences.getDirect_report()));
-            dExperiencesScored.setHierarchy_count(ScoreFunctionUtils.scoreHierarchyCount(dExperiences.getHierarchy_count()));
+            dExperiencesScored.setDirect_report(ExperiencesScoreFunctionUtils.scoreDirectReport(dExperiences.getDirect_report()));
+            dExperiencesScored.setHierarchy_count(ExperiencesScoreFunctionUtils.scoreHierarchyCount(dExperiences.getHierarchy_count()));
 
-            dExperiencesScored.setExternal_role_number(ScoreFunctionUtils.scoreExternalRoleNumber(dExperiences.getExternal_role_number()));
-            dExperiencesScored.setExternal_length_of_service(ScoreFunctionUtils.scoreWithAverage(
+            dExperiencesScored.setExternal_role_number(ExperiencesScoreFunctionUtils.scoreExternalRoleNumber(dExperiences.getExternal_role_number()));
+            dExperiencesScored.setExternal_length_of_service(ExperiencesScoreFunctionUtils.scoreWithAverage(
                     dExperiences.getExternal_length_of_service(), experiencesAverageAttributes.getExternalLengthOfService(), "external_length_of_service"
             ));
 
-            dExperiencesScored.setTotal_role_number_ranking(ScoreFunctionUtils.scoreTotalRoleNumber(dExperiences.getTotal_role_number()));
-            dExperiencesScored.setTotal_working_years_ranking(ScoreFunctionUtils.scoreTotalWorkingYears(dExperiences.getTotal_working_years()));
-            dExperiencesScored.setAverage_duration_of_each_role_ranking(ScoreFunctionUtils.scoreAverageDurationOfEachRole(dExperiences.getAverage_duration_of_each_role()));
+            dExperiencesScored.setTotal_role_number_ranking(ExperiencesScoreFunctionUtils.scoreTotalRoleNumber(dExperiences.getTotal_role_number()));
+            dExperiencesScored.setTotal_working_years_ranking(ExperiencesScoreFunctionUtils.scoreTotalWorkingYears(dExperiences.getTotal_working_years()));
+            dExperiencesScored.setAverage_duration_of_each_role_ranking(ExperiencesScoreFunctionUtils.scoreAverageDurationOfEachRole(dExperiences.getAverage_duration_of_each_role()));
 
-            dExperiencesScored.setCustomer_journey(ScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getCustomer_journey(), "customer_journey"));
-            dExperiencesScored.setData_analytics(ScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getData_analytics(), "data_analytics"));
-            dExperiencesScored.setInnovation(ScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getInnovation(), "innovation"));
-            dExperiencesScored.setDigital_leadership(ScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getDigital_leadership(), "digital_leadership"));
-            dExperiencesScored.setDigital_commerce(ScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getDigital_commerce(), "digital_commerce"));
-            dExperiencesScored.setDigital_products(ScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getDigital_products(), "digital_products"));
-            dExperiencesScored.setOperational_efficiency(ScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getOperational_efficiency(), "operational_efficiency"));
+            dExperiencesScored.setCustomer_journey(ExperiencesScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getCustomer_journey(), "customer_journey"));
+            dExperiencesScored.setData_analytics(ExperiencesScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getData_analytics(), "data_analytics"));
+            dExperiencesScored.setInnovation(ExperiencesScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getInnovation(), "innovation"));
+            dExperiencesScored.setDigital_leadership(ExperiencesScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getDigital_leadership(), "digital_leadership"));
+            dExperiencesScored.setDigital_commerce(ExperiencesScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getDigital_commerce(), "digital_commerce"));
+            dExperiencesScored.setDigital_products(ExperiencesScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getDigital_products(), "digital_products"));
+            dExperiencesScored.setOperational_efficiency(ExperiencesScoreFunctionUtils.scoreDigitalExperiences(dExperiences.getOperational_efficiency(), "operational_efficiency"));
 
             //unstructured data
-            dExperiencesScored.setPerformance_comments2018(ScoreFunctionUtils.scoreUnstructuredData(dExperiences.getPerformance_comments2018(), "performance_comments2018"));
-            dExperiencesScored.setStakeholder_feedback(ScoreFunctionUtils.scoreUnstructuredData(dExperiences.getStakeholder_feedback(), "stakeholder_feedback"));
+            dExperiencesScored.setPerformance_comments2018(ExperiencesScoreFunctionUtils.scoreUnstructuredData(dExperiences.getPerformance_comments2018(), "performance_comments2018"));
+            dExperiencesScored.setStakeholder_feedback(ExperiencesScoreFunctionUtils.scoreUnstructuredData(dExperiences.getStakeholder_feedback(), "stakeholder_feedback"));
 
-            ScoreFunctionUtils.sumUpExperiences(dExperiencesScored);
+            ExperiencesScoreFunctionUtils.sumUpExperiences(dExperiencesScored);
 
             scoredResults.add(dExperiencesScored);
         }

@@ -52,6 +52,7 @@ public class CompetenciesDimensionScoreService extends AbstractScoreService {
                     KF4DScoreFunctionUtils.calcMissionCriticalScore(dCompetencies.getMissionCritical()),
                     KF4DScoreFunctionUtils.calcCriticalScore(dCompetencies.getCritical()),
                     KF4DScoreFunctionUtils.calcLessCriticalScore(dCompetencies.getLessCritical()));
+            KF4DScoreFunctionUtils.sumUpCompetencies(dCompetenciesScored);
             scoredResults.add(dCompetenciesScored);
         }
         return scoredResults;
