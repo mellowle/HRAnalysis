@@ -7,6 +7,7 @@ public class DExperiencesScored {
     private String job_function;
     private String sector;
     private Double length_of_service_in_years;
+    private Double total_working_years;
     private String overall_rating2016;
     private String overall_rating2017;
     private String overall_rating2018;
@@ -89,6 +90,14 @@ public class DExperiencesScored {
 
     public void setLength_of_service_in_years(Double length_of_service_in_years) {
         this.length_of_service_in_years = length_of_service_in_years;
+    }
+
+    public Double getTotal_working_years() {
+        return total_working_years;
+    }
+
+    public void setTotal_working_years(Double total_working_years) {
+        this.total_working_years = total_working_years;
     }
 
     public String getOverall_rating2016() {
@@ -371,6 +380,7 @@ public class DExperiencesScored {
                 ", job_function='" + job_function + '\'' +
                 ", sector='" + sector + '\'' +
                 ", length_of_service_in_years=" + length_of_service_in_years +
+                ", total_working_years=" + total_working_years +
                 ", overall_rating2016='" + overall_rating2016 + '\'' +
                 ", overall_rating2017='" + overall_rating2017 + '\'' +
                 ", overall_rating2018='" + overall_rating2018 + '\'' +

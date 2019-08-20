@@ -37,6 +37,9 @@ public class EmployeeDemographicsExcelService extends AbstractExcelService {
     public List<EmployeeDemographics> getResults() throws Exception {
         List<EmployeeDemographics> results = sheet2Entities(EmployeeDemographics.class);
         results = results.stream().filter(i->i.getWwid() != null).collect(Collectors.toList());
+        for(EmployeeDemographics employeeDemographics: results){
+            employeeDemographics.setTotal_working_years(employeeDemographics.getAge()-22);
+        }
         return results;
     }
 }

@@ -8,8 +8,7 @@ public class DExperiences {
     private String job_function;
     private String sector;
     private Double length_of_service_in_years;
-
-//    private String highest_degree_received;
+    private String highest_degree_received;
 
     private String overall_rating2016;
     private String overall_rating2017;
@@ -22,6 +21,10 @@ public class DExperiences {
     private Double base2017;
     private Double base2018;
     private Double base2019;
+
+    private Double planed_lti2016;
+    private Double planed_lti2017;
+    private Double planed_lti2018;
 
     private Integer function_movements;
     private Integer lateral_movements;
@@ -60,6 +63,30 @@ public class DExperiences {
 
     public void setWwid(String wwid) {
         this.wwid = wwid;
+    }
+
+    public Double getPlaned_lti2016() {
+        return planed_lti2016;
+    }
+
+    public void setPlaned_lti2016(Double planed_lti2016) {
+        this.planed_lti2016 = planed_lti2016;
+    }
+
+    public Double getPlaned_lti2017() {
+        return planed_lti2017;
+    }
+
+    public void setPlaned_lti2017(Double planed_lti2017) {
+        this.planed_lti2017 = planed_lti2017;
+    }
+
+    public Double getPlaned_lti2018() {
+        return planed_lti2018;
+    }
+
+    public void setPlaned_lti2018(Double planed_lti2018) {
+        this.planed_lti2018 = planed_lti2018;
     }
 
     public String getEmployee_pay_grade() {
@@ -374,6 +401,14 @@ public class DExperiences {
         this.stakeholder_feedback = stakeholder_feedback;
     }
 
+    public String getHighest_degree_received() {
+        return highest_degree_received;
+    }
+
+    public void setHighest_degree_received(String highest_degree_received) {
+        this.highest_degree_received = highest_degree_received;
+    }
+
     @Override
     public String toString() {
         return "DExperiences{" +
@@ -382,6 +417,7 @@ public class DExperiences {
                 ", job_function='" + job_function + '\'' +
                 ", sector='" + sector + '\'' +
                 ", length_of_service_in_years=" + length_of_service_in_years +
+                ", highest_degree_received='" + highest_degree_received + '\'' +
                 ", overall_rating2016='" + overall_rating2016 + '\'' +
                 ", overall_rating2017='" + overall_rating2017 + '\'' +
                 ", overall_rating2018='" + overall_rating2018 + '\'' +
@@ -391,6 +427,9 @@ public class DExperiences {
                 ", base2017=" + base2017 +
                 ", base2018=" + base2018 +
                 ", base2019=" + base2019 +
+                ", planed_lti2016=" + planed_lti2016 +
+                ", planed_lti2017=" + planed_lti2017 +
+                ", planed_lti2018=" + planed_lti2018 +
                 ", function_movements=" + function_movements +
                 ", lateral_movements=" + lateral_movements +
                 ", promotions=" + promotions +

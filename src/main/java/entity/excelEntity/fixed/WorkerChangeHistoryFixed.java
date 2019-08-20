@@ -9,6 +9,7 @@ public class WorkerChangeHistoryFixed {
     private Integer region_movements;
     private Integer country_movements;
     private Integer sector_movements;
+    private Integer jnj_role_number;
 
     public String getWwid() {
         return wwid;
@@ -66,6 +67,14 @@ public class WorkerChangeHistoryFixed {
         this.sector_movements = sector_movements;
     }
 
+    public Integer getJnj_role_number() {
+        return jnj_role_number;
+    }
+
+    public void setJnj_role_number(Integer jnj_role_number) {
+        this.jnj_role_number = jnj_role_number;
+    }
+
     @Override
     public String toString() {
         return "WorkerChangeHistoryFixed{" +
@@ -76,6 +85,7 @@ public class WorkerChangeHistoryFixed {
                 ", region_movements=" + region_movements +
                 ", country_movements=" + country_movements +
                 ", sector_movements=" + sector_movements +
+                ", jnj_role_number=" + jnj_role_number +
                 '}';
     }
 }

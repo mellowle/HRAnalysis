@@ -75,7 +75,7 @@ public abstract class AbstractExcelService {
         }
         if (cellValue != null) {
 //            cellValue = cellValue.replaceAll(",|-", "").trim();
-            if (cellValue.equals("N.A")) {
+            if (cellValue.equals("N.A")||cellValue.equals("#N/A")) {
                 return null;
             }
         }
@@ -137,9 +137,12 @@ public abstract class AbstractExcelService {
                     }
                     else {
 
-                        if (cellValue != null && !cellValue.isEmpty()) {
-                            convert = fieldType.getMethod("valueOf", String.class);
-                            method.invoke(obj, convert.invoke(null, getCellValue(cell)));
+                        if (cellValue != null){
+                            cellValue = cellValue.replaceAll(",|-", "").trim();
+                            if(!cellValue.isEmpty()) {
+                                convert = fieldType.getMethod("valueOf", String.class);
+                                method.invoke(obj, convert.invoke(null, cellValue));
+                            }
                         }
                     }
                 }

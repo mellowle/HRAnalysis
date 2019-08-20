@@ -21,6 +21,8 @@ public interface Mapper {
 
     int addCompensation(Compensation compensation);
 
+    int addCompensationWithLTI(CompensationWithLTI compensationWithLTI);
+
     int addDirectReport(DirectReport directReport);
 
     int addEducation(Education education);
@@ -36,6 +38,10 @@ public interface Mapper {
     int addUnstructuredData(UnstructuredData unstructuredData);
 
     int addWorkerChangeHistoryFixed(WorkerChangeHistoryFixed workerChangeHistoryFixed);
+
+    int addTalentCardSummary(TalentCardSummary talentCardSummary);
+
+    int addKF4DEmployeeDemographics(KF4DEmployeeDemographics kf4DEmployeeDemographics);
 
     //~~~~~~~~~~~DigitalExperiences~~~~~~~~~~~~~~
     int addDigitalExperiences(DigitalExperiences digitalExperiences);

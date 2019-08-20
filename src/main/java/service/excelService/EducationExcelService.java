@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/** @deprecated */
 public class EducationExcelService extends AbstractExcelService {
 
     public EducationExcelService(){
@@ -39,25 +38,30 @@ public class EducationExcelService extends AbstractExcelService {
     public List<Education> getResultsFixed() throws Exception {
         List<Education> results = Lists.newArrayList();
         List<Education> educationList = getResults();
+        educationList = educationList.stream().filter(i->
+            !i.getHighest_degree_received().equals("")
+        ).collect(Collectors.toList());
 
-        Map<String, List<Education>> educationMap = educationList.stream().collect(Collectors
+        educationList.stream().forEach(i->{
+            if(!results.contains(i)){
+                results.add(i);
+            }
+        });
+
+        Map<String, List<Education>> educationMap = results.stream().collect(Collectors
                 .groupingBy(Education::getWwid));
 
         for (Map.Entry<String, List<Education>> entry : educationMap.entrySet()) {
-            HashSet educationSet = Sets.newHashSet();
-            for (Education education : entry.getValue()) {
-                educationSet.add(education.getHighest_degree_received());
+            if(entry.getValue().size()>1){
+                System.err.println(entry.getKey() + "\t" + entry.getValue().size());
+                entry.getValue().stream().forEach(i -> {
+                    System.err.println(i);
+                    System.err.println(i.hashCode());
+                });
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                System.exit(-1);
             }
 
-            Education education = new Education();
-            education.setWwid(entry.getKey());
-            if (educationSet.contains(ExperiencesConstants.MBA)) {
-                education.setHighest_degree_received(ExperiencesConstants.MBA);
-            }
-            else {
-                education.setHighest_degree_received("");
-            }
-            results.add(education);
         }
 
         return results;

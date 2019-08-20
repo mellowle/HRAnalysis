@@ -356,6 +356,45 @@ public class ExperiencesScoreFunctionUtils {
         return ExperiencesConstants.EXPERIENCES_SCORE_INTERVAL.get(key).getMax() / 5 * score;
     }
 
+    public static void sumUpTalentCardInfo(DExperiences dExperiences) {
+        int jnjRoleNumber = dExperiences.getJnj_role_number() == null ? 0 : dExperiences.getJnj_role_number();
+        int externalRoleNumber = dExperiences.getExternal_role_number() == null ? 0 : dExperiences.getExternal_role_number();
+
+        if (dExperiences.getJnj_role_number() == null && dExperiences.getExternal_role_number() == null) {
+            dExperiences.setTotal_role_number(null);
+        }
+        else {
+            dExperiences.setTotal_role_number(jnjRoleNumber + externalRoleNumber);
+        }
+
+        double totalWorkingYears = dExperiences.getTotal_working_years() == null ? 0 : dExperiences.getTotal_working_years();
+        double lengthOfService = dExperiences.getLength_of_service_in_years() == null ? 0 : dExperiences.getLength_of_service_in_years();
+        if (dExperiences.getTotal_working_years() == null) {
+            dExperiences.setExternal_length_of_service(null);
+        }
+        else {
+            if (lengthOfService > totalWorkingYears) {
+                dExperiences.setExternal_length_of_service(0d);
+            }
+            else {
+                dExperiences.setExternal_length_of_service(totalWorkingYears - lengthOfService);
+            }
+        }
+
+        if (dExperiences.getJnj_role_number() != null && dExperiences.getJnj_role_number() != 0
+                && dExperiences.getLength_of_service_in_years() != null) {
+            dExperiences.setAverage_duration_of_jnj_role(lengthOfService / dExperiences.getJnj_role_number());
+        }
+        if (dExperiences.getExternal_role_number() != null && dExperiences.getExternal_role_number() != 0
+                && dExperiences.getExternal_length_of_service() != null) {
+            dExperiences.setAverage_duration_of_external_role(dExperiences.getExternal_length_of_service() / dExperiences.getExternal_role_number());
+        }
+        if (dExperiences.getTotal_role_number() != null && dExperiences.getTotal_role_number() != 0
+                && dExperiences.getTotal_working_years() != null) {
+            dExperiences.setAverage_duration_of_each_role(dExperiences.getTotal_working_years() / dExperiences.getTotal_role_number());
+        }
+    }
+
     public static void sumUpExperiences(DExperiencesScored dExperiencesScored) {
 
         double result = 0;
@@ -490,6 +529,7 @@ public class ExperiencesScoreFunctionUtils {
         dExperiencesScored.setData_completeness(notNullCount / ExperiencesConstants.NUMBER_OF_FACTS);
 
     }
+
 
     public static void main(String... args) {
 

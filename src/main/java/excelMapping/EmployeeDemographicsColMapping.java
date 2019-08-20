@@ -11,6 +11,7 @@ public class EmployeeDemographicsColMapping {
     static {
         COLUMN_MAPPING = new HashMap<>();
         COLUMN_MAPPING.put("wwid", "WWID");
+        COLUMN_MAPPING.put("age", "Age");
         COLUMN_MAPPING.put("employee_pay_grade", "Employee Pay Grade");
         COLUMN_MAPPING.put("home_location_code", "Home Location Code (Primary)");
         COLUMN_MAPPING.put("position_id", "Position ID (IA: Host/All Other: Primary)");

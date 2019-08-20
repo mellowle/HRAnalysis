@@ -71,6 +71,7 @@ public class WorkerChangeHistoryExcelService extends AbstractExcelService {
             workerChangeHistoryFixed.setCountry_movements(getCountryMovements(entry.getValue()));
             workerChangeHistoryFixed.setRegion_movements(getRegionMovements(entry.getValue()));
             workerChangeHistoryFixed.setSector_movements(getSectorMovements(entry.getValue()));
+            workerChangeHistoryFixed.setJnj_role_number(getJnjRoleNumber(entry.getValue()));
             results.add(workerChangeHistoryFixed);
         }
 
@@ -186,5 +187,20 @@ public class WorkerChangeHistoryExcelService extends AbstractExcelService {
 
         return 0;
 
+    }
+
+    private int getJnjRoleNumber(List<WorkerChangeHistory> workerChangeHistoryList) {
+        Set<String> roles = Sets.newHashSet();
+
+        for (WorkerChangeHistory workerChangeHistory : workerChangeHistoryList) {
+            if (!workerChangeHistory.getPosition_current().isEmpty()) {
+                roles.add(workerChangeHistory.getPosition_current().trim());
+            }
+            if (!workerChangeHistory.getPosition_proposed().isEmpty()) {
+                roles.add(workerChangeHistory.getPosition_proposed().trim());
+            }
+        }
+
+        return roles.size();
     }
 }

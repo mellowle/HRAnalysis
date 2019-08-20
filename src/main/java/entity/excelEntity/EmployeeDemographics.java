@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EmployeeDemographics {
     private String wwid;
+    private Integer age;
     private Integer employee_pay_grade;
     private String home_location_code;
     private String position_id;
@@ -17,12 +18,22 @@ public class EmployeeDemographics {
     private Date original_hire_date;
     private Date hire_date_most_recent;
 
+    private Integer total_working_years;
+
     public String getWwid() {
         return wwid;
     }
 
     public void setWwid(String wwid) {
         this.wwid = wwid;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public Integer getEmployee_pay_grade() {
@@ -121,10 +132,19 @@ public class EmployeeDemographics {
         this.hire_date_most_recent = hire_date_most_recent;
     }
 
+    public Integer getTotal_working_years() {
+        return total_working_years;
+    }
+
+    public void setTotal_working_years(Integer total_working_years) {
+        this.total_working_years = total_working_years;
+    }
+
     @Override
     public String toString() {
         return "EmployeeDemographics{" +
                 "wwid='" + wwid + '\'' +
+                ", age=" + age +
                 ", employee_pay_grade=" + employee_pay_grade +
                 ", home_location_code='" + home_location_code + '\'' +
                 ", position_id='" + position_id + '\'' +
@@ -137,6 +157,7 @@ public class EmployeeDemographics {
                 ", length_of_service_in_years=" + length_of_service_in_years +
                 ", original_hire_date=" + original_hire_date +
                 ", hire_date_most_recent=" + hire_date_most_recent +
+                ", total_working_years=" + total_working_years +
                 '}';
     }
 }

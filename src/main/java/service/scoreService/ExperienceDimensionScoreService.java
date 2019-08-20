@@ -10,6 +10,8 @@ import util.TableUtils;
 
 import java.util.List;
 
+import static util.ExperiencesScoreFunctionUtils.sumUpTalentCardInfo;
+
 public class ExperienceDimensionScoreService extends AbstractScoreService {
 
     public ExperienceDimensionScoreService() {
@@ -35,11 +37,15 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
 
     public List<DExperiences> getAllDExperiences() throws Exception {
         List<DExperiences> results = TableUtils.getAllRecords(DExperiences.class);
+        for(DExperiences dExperiences: results){
+            ExperiencesScoreFunctionUtils.sumUpTalentCardInfo(dExperiences);
+        }
+        results.forEach(System.err::println);
         System.out.println(results.size());
         initTable();
         insertRecords(results);
         System.err.println("done");
-        System.exit(-1);
+//        System.exit(-1);
         return results;
     }
 
@@ -94,6 +100,7 @@ public class ExperienceDimensionScoreService extends AbstractScoreService {
             dExperiencesScored.setJob_function(dExperiences.getJob_function());
             dExperiencesScored.setSector(dExperiences.getSector());
             dExperiencesScored.setLength_of_service_in_years(dExperiences.getLength_of_service_in_years());
+            dExperiencesScored.setTotal_working_years(dExperiences.getTotal_working_years());
             dExperiencesScored.setOverall_rating2016(dExperiences.getOverall_rating2016());
             dExperiencesScored.setOverall_rating2017(dExperiences.getOverall_rating2017());
             dExperiencesScored.setOverall_rating2018(dExperiences.getOverall_rating2018());

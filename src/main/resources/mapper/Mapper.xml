@@ -38,6 +38,14 @@
         (#{wwid},#{bonus2016},#{bonus2017},#{bonus2018},#{base2017},#{base2018},#{base2019})
     </insert>
 
+    <insert id="addCompensationWithLTI" parameterType="entity.excelEntity.CompensationWithLTI" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO compensation_with_lti
+        (wwid,base2017,base2018,base2019,planed_lti2016,planed_lti2017,planed_lti2018)
+        VALUES
+        (#{wwid},#{base2017},#{base2018},#{base2019},#{planed_lti2016},#{planed_lti2017},#{planed_lti2018})
+    </insert>
+
     <insert id="addDirectReport" parameterType="entity.excelEntity.DirectReport" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO direct_report
         (wwid, direct_report)
@@ -45,18 +53,18 @@
         (#{wwid},#{direct_report})
     </insert>
 
-<!--    <insert id="addEducation" parameterType="entity.excelEntity.Education" useGeneratedKeys="true" keyProperty="id">-->
-<!--        INSERT INTO education-->
-<!--        (wwid, highest_degree_received)-->
-<!--        VALUES-->
-<!--        (#{wwid},#{highest_degree_received})-->
-<!--    </insert>-->
+    <insert id="addEducation" parameterType="entity.excelEntity.Education" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO education
+        (wwid, highest_degree_received)
+        VALUES
+        (#{wwid},#{highest_degree_received})
+    </insert>
 
     <insert id="addEmployeeDemographics" parameterType="entity.excelEntity.EmployeeDemographics" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO employee_demographics
-        (wwid, employee_pay_grade,home_location_code,position_id,job_profile,job_profile_id,job_function,job_sub_function,sector,time_in_position,length_of_service_in_years,original_hire_date,hire_date_most_recent)
+        (wwid, age, employee_pay_grade,home_location_code,position_id,job_profile,job_profile_id,job_function,job_sub_function,sector,time_in_position,length_of_service_in_years,original_hire_date,hire_date_most_recent, total_working_years)
         VALUES
-        (#{wwid}, #{employee_pay_grade},#{home_location_code},#{position_id},#{job_profile},#{job_profile_id},#{job_function},#{job_sub_function},#{sector},#{time_in_position},#{length_of_service_in_years},#{original_hire_date},#{hire_date_most_recent})
+        (#{wwid}, #{age}, #{employee_pay_grade},#{home_location_code},#{position_id},#{job_profile},#{job_profile_id},#{job_function},#{job_sub_function},#{sector},#{time_in_position},#{length_of_service_in_years},#{original_hire_date},#{hire_date_most_recent}, #{total_working_years})
     </insert>
 
     <insert id="addManagementChain" parameterType="entity.excelEntity.ManagementChain" useGeneratedKeys="true" keyProperty="id">
@@ -80,6 +88,13 @@
         (#{wwid},#{jnj_role_number},#{external_role_number},#{total_role_number},#{average_duration_of_jnj_role},#{average_duration_of_external_role},#{total_working_years},#{external_length_of_service},#{average_duration_of_each_role} )
     </insert>
 
+    <insert id="addTalentCardSummary" parameterType="entity.excelEntity.TalentCardSummary" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO talent_card_summary
+        (wwid,graduation_year,external_role_number)
+        VALUES
+        (#{wwid},#{graduation_year},#{external_role_number})
+    </insert>
+
     <insert id="addUnstructuredData" parameterType="entity.excelEntity.UnstructuredData" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO unstructured_data
         (wwid, performance_comments2018,stakeholder_feedback)
@@ -89,9 +104,9 @@
 
     <insert id="addWorkerChangeHistoryFixed" parameterType="entity.excelEntity.fixed.WorkerChangeHistoryFixed" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO worker_change_history_fixed
-        (wwid,function_movements,lateral_movements,promotions,region_movements,country_movements,sector_movements)
+        (wwid,function_movements,lateral_movements,promotions,region_movements,country_movements,sector_movements, jnj_role_number)
         VALUES
-        (#{wwid}, #{function_movements}, #{lateral_movements}, #{promotions}, #{region_movements}, #{country_movements}, #{sector_movements})
+        (#{wwid}, #{function_movements}, #{lateral_movements}, #{promotions}, #{region_movements}, #{country_movements}, #{sector_movements}, #{jnj_role_number})
     </insert>
 
     <insert id="addDigitalExperiences" parameterType="entity.excelEntity.DigitalExperiences" useGeneratedKeys="true" keyProperty="id">
@@ -101,42 +116,54 @@
         (#{wwid},#{customer_journey},#{data_analytics},#{innovation},#{digital_leadership},#{digital_commerce},#{digital_products},#{operational_efficiency},#{overall_digital_experience_percentile})
     </insert>
 
+    <insert id="addKF4DEmployeeDemographics" parameterType="entity.excelEntity.KF4DEmployeeDemographics" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO kf4d_aggregated_results
+        (wwid, band, sector)
+        VALUES
+        (#{wwid}, #{band}, #{sector})
+    </insert>
+
 <!--Experiences-->
     <select id="getAllDExperiences" resultType="entity.dimensionRawData.DExperiences">
         SELECT compet.wwid,
-        ed.employee_pay_grade, ed.job_function, ed.sector, ed.length_of_service_in_years,
+        kf.band employee_pay_grade, ed.job_function, kf.sector, ed.length_of_service_in_years,
+        edu.highest_degree_received,
         p.overall_rating2016, p.overall_rating2017, p.overall_rating2018,
         compen.bonus2016,compen.bonus2017,compen.bonus2018,compen.base2017,compen.base2018,compen.base2019,
+        compenlti.planed_lti2016,compenlti.planed_lti2017,compenlti.planed_lti2018,
         w.function_movements, w.lateral_movements, w.promotions, w.region_movements, w.country_movements, w.sector_movements,
         d.direct_report,
         mc.hierarchy_count,
-        t.jnj_role_number, t.external_role_number, t.total_role_number, t.average_duration_of_jnj_role, t.average_duration_of_external_role, t.total_working_years, t.external_length_of_service, t.average_duration_of_each_role,
-        un.performance_comments2018, un.stakeholder_feedback,
-        de.customer_journey, de.data_analytics, de.innovation, de.digital_leadership, de.digital_commerce, de.digital_products, de.operational_efficiency, de.overall_digital_experience_percentile
+        w.jnj_role_number, t.external_role_number, ed.total_working_years,
+        de.customer_journey, de.data_analytics, de.innovation, de.digital_leadership, de.digital_commerce, de.digital_products, de.operational_efficiency, de.overall_digital_experience_percentile,
+        un.performance_comments2018, un.stakeholder_feedback
         FROM competencies compet
         LEFT JOIN employee_demographics ed ON compet.wwid = ed.wwid
         LEFT JOIN performance_rating_fixed p ON compet.wwid = p.wwid
         LEFT JOIN compensation compen ON compet.wwid = compen.wwid
+        LEFT JOIN compensation_with_lti compenlti ON compet.wwid = compenlti.wwid
         LEFT JOIN worker_change_history_fixed w ON compet.wwid = w.wwid
         LEFT JOIN direct_report d ON compet.wwid = d.wwid
         LEFT JOIN management_chain mc ON compet.wwid = mc.wwid
-        LEFT JOIN talent_card t ON compet.wwid = t.wwid
+        LEFT JOIN talent_card_summary t ON compet.wwid = t.wwid
         LEFT JOIN unstructured_data un ON compet.wwid = un.wwid
-        LEFT JOIN digital_experiences de ON compet.wwid = de.wwid;
+        LEFT JOIN digital_experiences de ON compet.wwid = de.wwid
+        LEFT JOIN education edu ON compet.wwid = edu.wwid
+        LEFT JOIN kf4d_aggregated_results kf ON compet.wwid = kf.wwid;
     </select>
 
     <insert id="addDExperiences" parameterType="entity.dimensionRawData.DExperiences" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO experiences
-        (wwid,employee_pay_grade,job_function,sector,length_of_service_in_years,overall_rating2016,overall_rating2017,overall_rating2018,bonus2016,bonus2017,bonus2018,base2017,base2018,base2019,function_movements,lateral_movements,promotions,region_movements,country_movements,sector_movements,direct_report,hierarchy_count, customer_journey, data_analytics, innovation, digital_leadership, digital_commerce, digital_products, operational_efficiency, overall_digital_experience_percentile,jnj_role_number,external_role_number,total_role_number,average_duration_of_jnj_role,average_duration_of_external_role,total_working_years,external_length_of_service,average_duration_of_each_role,performance_comments2018,stakeholder_feedback )
+        (wwid, employee_pay_grade,job_function,sector,length_of_service_in_years,highest_degree_received,overall_rating2016,overall_rating2017,overall_rating2018,bonus2016,bonus2017,bonus2018,base2017,base2018,base2019,planed_lti2016,planed_lti2017,planed_lti2018,function_movements,lateral_movements,promotions,region_movements,country_movements,sector_movements,direct_report,hierarchy_count, customer_journey, data_analytics, innovation, digital_leadership, digital_commerce, digital_products, operational_efficiency, overall_digital_experience_percentile,jnj_role_number,external_role_number,total_role_number,average_duration_of_jnj_role,average_duration_of_external_role,total_working_years,external_length_of_service,average_duration_of_each_role,performance_comments2018,stakeholder_feedback )
         VALUES
-        (#{wwid},#{employee_pay_grade},#{job_function},#{sector},#{length_of_service_in_years},#{overall_rating2016},#{overall_rating2017},#{overall_rating2018},#{bonus2016},#{bonus2017},#{bonus2018},#{base2017},#{base2018},#{base2019},#{function_movements},#{lateral_movements},#{promotions},#{region_movements},#{country_movements},#{sector_movements},#{direct_report},#{hierarchy_count},#{customer_journey},#{data_analytics},#{innovation},#{digital_leadership},#{digital_commerce},#{digital_products},#{operational_efficiency},#{overall_digital_experience_percentile},#{jnj_role_number},#{external_role_number},#{total_role_number},#{average_duration_of_jnj_role},#{average_duration_of_external_role},#{total_working_years},#{external_length_of_service},#{average_duration_of_each_role},#{performance_comments2018},#{stakeholder_feedback} )
+        (#{wwid}, #{employee_pay_grade},#{job_function},#{sector},#{length_of_service_in_years},#{highest_degree_received},#{overall_rating2016},#{overall_rating2017},#{overall_rating2018},#{bonus2016},#{bonus2017},#{bonus2018},#{base2017},#{base2018},#{base2019},#{planed_lti2016},#{planed_lti2017},#{planed_lti2018},#{function_movements},#{lateral_movements},#{promotions},#{region_movements},#{country_movements},#{sector_movements},#{direct_report},#{hierarchy_count},#{customer_journey},#{data_analytics},#{innovation},#{digital_leadership},#{digital_commerce},#{digital_products},#{operational_efficiency},#{overall_digital_experience_percentile},#{jnj_role_number},#{external_role_number},#{total_role_number},#{average_duration_of_jnj_role},#{average_duration_of_external_role},#{total_working_years},#{external_length_of_service},#{average_duration_of_each_role},#{performance_comments2018},#{stakeholder_feedback} )
     </insert>
 
     <insert id="addDExperiencesScored" parameterType="entity.dimensionScored.DExperiencesScored" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO d_experiences_scored
-        (wwid, employee_pay_grade, job_function, sector, length_of_service_in_years, overall_rating2016, overall_rating2017, overall_rating2018, performance_rating2016, performance_rating2017, performance_rating2018, bonus_increment20162017, bonus_increment20172018, base_increment20172018, base_increment20182019, function_movements, lateral_movements, promotions, region_movements, country_movements, sector_movements, direct_report, hierarchy_count, external_role_number, external_length_of_service, total_role_number_ranking, total_working_years_ranking, average_duration_of_each_role_ranking, customer_journey, data_analytics, innovation, digital_leadership, digital_commerce, digital_products, operational_efficiency, performance_comments2018, stakeholder_feedback, data_completeness, result)
+        (wwid, total_working_years,employee_pay_grade, job_function, sector, length_of_service_in_years, overall_rating2016, overall_rating2017, overall_rating2018, performance_rating2016, performance_rating2017, performance_rating2018, bonus_increment20162017, bonus_increment20172018, base_increment20172018, base_increment20182019, function_movements, lateral_movements, promotions, region_movements, country_movements, sector_movements, direct_report, hierarchy_count, external_role_number, external_length_of_service, total_role_number_ranking, total_working_years_ranking, average_duration_of_each_role_ranking, customer_journey, data_analytics, innovation, digital_leadership, digital_commerce, digital_products, operational_efficiency, performance_comments2018, stakeholder_feedback, data_completeness, result)
         VALUES
-        (#{wwid}, #{employee_pay_grade}, #{job_function}, #{sector}, #{length_of_service_in_years}, #{overall_rating2016}, #{overall_rating2017}, #{overall_rating2018}, #{performance_rating2016}, #{performance_rating2017}, #{performance_rating2018}, #{bonus_increment20162017}, #{bonus_increment20172018}, #{base_increment20172018}, #{base_increment20182019}, #{function_movements}, #{lateral_movements}, #{promotions}, #{region_movements}, #{country_movements}, #{sector_movements}, #{direct_report}, #{hierarchy_count}, #{external_role_number}, #{external_length_of_service}, #{total_role_number_ranking}, #{total_working_years_ranking}, #{average_duration_of_each_role_ranking}, #{customer_journey}, #{data_analytics}, #{innovation}, #{digital_leadership}, #{digital_commerce}, #{digital_products}, #{operational_efficiency}, #{performance_comments2018}, #{stakeholder_feedback}, #{data_completeness}, #{result})
+        (#{wwid}, #{total_working_years}, #{employee_pay_grade}, #{job_function}, #{sector}, #{length_of_service_in_years}, #{overall_rating2016}, #{overall_rating2017}, #{overall_rating2018}, #{performance_rating2016}, #{performance_rating2017}, #{performance_rating2018}, #{bonus_increment20162017}, #{bonus_increment20172018}, #{base_increment20172018}, #{base_increment20182019}, #{function_movements}, #{lateral_movements}, #{promotions}, #{region_movements}, #{country_movements}, #{sector_movements}, #{direct_report}, #{hierarchy_count}, #{external_role_number}, #{external_length_of_service}, #{total_role_number_ranking}, #{total_working_years_ranking}, #{average_duration_of_each_role_ranking}, #{customer_journey}, #{data_analytics}, #{innovation}, #{digital_leadership}, #{digital_commerce}, #{digital_products}, #{operational_efficiency}, #{performance_comments2018}, #{stakeholder_feedback}, #{data_completeness}, #{result})
     </insert>
 
 
