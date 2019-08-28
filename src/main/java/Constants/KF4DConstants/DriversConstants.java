@@ -10,12 +10,12 @@ public class DriversConstants {
     public static final String TABLE_INTERVAL = "d_drivers_interval";
     public static final double POINT_DRIVER = 100d / 6;
 
-    public static final double UCP_BALANCE = 2.5;
-    public static final double UCP_CHALLENGE = 6.25;
-    public static final double UCP_COLLABORATION = 6;
-    public static final double UCP_INDEPENDENCE = 7;
-    public static final double UCP_POWER = 2.5;
-    public static final double UCP_STRUCTURE = 6.25;
+    public static final double UCP_BALANCE = 3;
+    public static final double UCP_CHALLENGE = 7;
+    public static final double UCP_COLLABORATION = 6.25;
+    public static final double UCP_INDEPENDENCE = 6;
+    public static final double UCP_POWER = 5.75;
+    public static final double UCP_STRUCTURE = 3;
 
     static {
         DRIVERS_SCORE_INTERVAL = new LinkedHashMap<>();
