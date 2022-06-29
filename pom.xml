@@ -8,7 +8,7 @@
     <artifactId>HRAnalysis</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <poi.version>3.17</poi.version>
+        <poi.version>4.1.1</poi.version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
